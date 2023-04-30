@@ -1,0 +1,26 @@
+{
+  "name": "mealplanner",
+  "version": "1.0.0",
+  "description": "User Meal Planner is an angular based application that helps user plan and order their meals ",
+  "main": "backend/main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omar456-asc/MealPlanner.git"
+  },
+  "keywords": [
+    "Recipes",
+    "Meal Planner"
+  ],
+  "author": "ITI Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omar456-asc/MealPlanner/issues"
+  },
+  "homepage": "https://github.com/omar456-asc/MealPlanner#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}

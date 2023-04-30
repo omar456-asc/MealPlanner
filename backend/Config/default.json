@@ -1,0 +1,16 @@
+{
+  "port": 3000,
+  "database": {
+    "uri": "${process.env.MONGO_URI}",
+    "options": {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true,
+      "useCreateIndex": true,
+      "useFindAndModify": false
+    }
+  },
+  "jwtSecret": "mysecretkey",
+  "cors": {
+    "allowedOrigins": ["http://localhost:3000"]
+  }
+}
