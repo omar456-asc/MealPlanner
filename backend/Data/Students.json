@@ -1,1 +1,8 @@
-[{"name":"Sara","dept":"ES","id":1},{"name":"Sara","dept":"ES","id":1},{"name":"Sara","dept":"ES","id":1},{"name":"Sara","dept":"ES","id":1},{"name":"omar","dept":"ES","id":1},{"name":"Mahmoud","dept":"AI","id":1}]
+[
+  { "name": "Sara", "dept": "ES", "id": 1 },
+  { "name": "Sara", "dept": "ES", "id": 1 },
+  { "name": "Sara", "dept": "ES", "id": 1 },
+  { "name": "Sara", "dept": "ES", "id": 1 },
+  { "name": "omar", "dept": "ES", "id": 1 },
+  { "name": "Mahmoud", "dept": "AI", "id": 1 }
+]
