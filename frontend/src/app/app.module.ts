@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 
+import { AdminModule } from './admin/admin.module';
+
 
 
 
@@ -17,7 +19,8 @@ import { UsersModule } from './users/users.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    UsersModule
+    UsersModule,
+    AdminModule
 
   ],
   providers: [],
