@@ -18,6 +18,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     LogInComponent,
     SignUpComponent,
   ],
+import { HomeModule } from './home/home.module';
+
+@NgModule({
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,8 +29,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     UsersModule,
     AppRoutingModule
 
+    HomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
