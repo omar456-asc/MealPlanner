@@ -5,23 +5,19 @@ import { ShowUserComponent } from './components/show-user/show-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 
-
-
 @NgModule({
   declarations: [
     AddUserComponent,
     ShowUserComponent,
     UpdateUserComponent,
-    AllUsersComponent
+    AllUsersComponent,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     AddUserComponent,
     ShowUserComponent,
     UpdateUserComponent,
-    AllUsersComponent
-  ]
+    AllUsersComponent,
+  ],
 })
-export class UsersModule { }
+export class UsersModule {}
