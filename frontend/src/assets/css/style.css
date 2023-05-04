@@ -1186,110 +1186,11 @@ section {
 }
 
 /*--------------------------------------------------------------
-# blogs
---------------------------------------------------------------*/
-.blog {
-  background: url("../img/blog/blog-bg.jpg") center center no-repeat;
-  background-size: cover;
-  padding: 60px 0;
-  position: relative;
-}
 
-.blog::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 9;
-}
-
-.blog .container {
-  position: relative;
-  z-index: 10;
-}
-
-.blog .member {
-  text-align: center;
-  margin-bottom: 80px;
-  position: relative;
-
-}
-
-.blog .member .pic {
-  overflow: hidden;
-  position: relative;
-  top: 50px;
-}
-
-.blog .member .member-info {
-  position: relative;
-  bottom: -20px;
-  left: 20px;
-  right: 20px;
-  background: #fff;
-  padding: 20px 0;
-  color: #433f39;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-}
-
-/* .blog .container:hover {
-  transform: scale(1.05);
-} */
-
-.blog .member h4 {
-  font-weight: 500;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #6c665c;
-  position: relative;
-  padding-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-}
-
-.blog .member h4::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: #ff4f3b;
-  bottom: 0;
-  left: calc(50% - 25px);
-}
-
-.blog .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-@media (max-width: 992px) {
-  .blog .member {
-    margin-bottom: 110px;
-  }
-}
-
-.blog .member:hover {
-  transform: scale(1.05);
-}
-
-@media (min-width: 1024px) {
-  .blog {
-    background-attachment: fixed;
-  }
-}
-
-/*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials {
   padding: 80px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -1302,7 +1203,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(12, 11, 10, 0.7);
+  background: white;
 }
 
 .testimonials .section-header {
@@ -1394,8 +1295,104 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
+
+
+# blogs --------------------------------------------------------------*/
+.blog {
+  background: url("../img/blog/blog-bg.jpg") center center no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+}
+
+.blog::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9;
+}
+
+.blog .container {
+  position: relative;
+  z-index: 10;
+}
+
+.blog .member {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+
+}
+
+.blog .member .pic {
+  overflow: hidden;
+  position: relative;
+  top: 50px;
+}
+
+.blog .member .member-info {
+  position: relative;
+  bottom: -20px;
+  left: 20px;
+  right: 20px;
+  background: #fff;
+  padding: 20px 0;
+  color: #433f39;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.blog .member h4 {
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #6c665c;
+  position: relative;
+  padding-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.blog .member h4::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #ff4f3b;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.blog .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+@media (max-width: 992px) {
+  .blog .member {
+    margin-bottom: 110px;
+  }
+}
+
+.blog .member:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 1024px) {
+  .blog {
+    background-attachment: fixed;
+  }
+}
+
+/*--------------------------------------------------------------
+
+# Contact --------------------------------------------------------------*/
 .contact .info-wrap {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -1527,6 +1524,7 @@ section {
 }
 
 /*--------------------------------------------------------------
+
 # Footer
 --------------------------------------------------------------*/
 #footer {

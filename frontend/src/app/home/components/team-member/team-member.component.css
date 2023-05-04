@@ -1,0 +1,57 @@
+.card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+.card:hover .image-container img {
+    transform: scale(1.2);
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    transition: bottom 0.5s ease-in-out;
+}
+
+.card:hover .card-body {
+    bottom: 0;
+}
+
+.social {
+    margin-top: 15px;
+}
+
+.social a {
+    transition: color 0.3s;
+    color: #7a7368;
+}
+
+.social a:hover {
+    color: #ff4f3b;
+}
+
+.social i {
+    font-size: 16px;
+    margin: 0 2px;
+}
