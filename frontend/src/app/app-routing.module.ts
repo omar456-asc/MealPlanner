@@ -3,11 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from './auth/components/log-in/log-in.component';
 import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { HomeModule } from './home/home.module';
+import { ContactUsComponent } from './home/components/contact-us/contact-us.component';
+import { HeroComponent } from './home/components/hero/hero.component';
+import { LatestBlogComponent } from './home/components/latest-blog/latest-blog.component';
+import { TeamMemberComponent } from './home/components/team-member/team-member.component';
 
 const routes: Routes = [
-  {path:'/', component:HomeModule},
-    {path:'/log-in', component:LogInComponent},
-    {path: '/sign-up', component: SignUpComponent}
+
+    {path:'login', component:LogInComponent},
+    {path: 'signup', component: SignUpComponent},
+    {path:'', component:ContactUsComponent},
+    {path:'', component:HeroComponent},
+    {path:'', component:LatestBlogComponent},
+    {path:'', component:TeamMemberComponent},
+
 
 
 ];
