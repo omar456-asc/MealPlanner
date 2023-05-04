@@ -1,14 +1,3 @@
-/**
-* Template Name: Delicious
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
   font-family: "Poppins", sans-serif;
   color: #444444;
@@ -16,11 +5,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #ffb03b;
+  color: #ff4f3b;
 }
 
 a:hover {
-  color: #ffc56e;
+  color: #ff4f3b;
   text-decoration: none;
 }
 
@@ -43,7 +32,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #ffb03b;
+  background: #ff4f3b;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -57,7 +46,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #ffc064;
+  background: #ff4f3b;
   color: #fff;
 }
 
@@ -88,7 +77,7 @@ h6 {
 }
 
 #topbar i {
-  color: #ffb03b;
+  color: #ff4f3b;
   line-height: 0;
 }
 
@@ -166,7 +155,7 @@ section {
 }
 
 .section-title h2 span {
-  color: #ffb03b;
+  color: #ff4f3b;
 }
 
 .section-title p {
@@ -286,7 +275,7 @@ section {
 
 .about .content ul i {
   font-size: 20px;
-  color: #ffb03b;
+  color: #ff4f3b;
   position: absolute;
   left: 0;
   top: 2px;
@@ -307,7 +296,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#ffb03b 50%, rgba(255, 176, 59, 0.4) 52%);
+  background: radial-gradient(#ff4f3b 50%, rgba(255, 176, 59, 0.4) 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -350,7 +339,7 @@ section {
 }
 
 .about .play-btn:hover::after {
-  border-left: 15px solid #ffb03b;
+  border-left: 15px solid #ff4f3b;
   transform: scale(20);
 }
 
@@ -416,7 +405,7 @@ section {
   display: block;
   font-size: 28px;
   font-weight: 700;
-  color: #ffcf88;
+  color: #ff4f3b;
 }
 
 .why-us .box h4 {
@@ -435,7 +424,7 @@ section {
 }
 
 .why-us .box:hover {
-  background: #ffb03b;
+  background: #ff4f3b;
   padding: 30px 30px 70px 30px;
   box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
 }
@@ -468,14 +457,14 @@ section {
   margin: 0 3px 10px 3px;
   transition: all ease-in-out 0.3s;
   background: #fff;
-  border: 2px solid #ffb03b;
+  border: 2px solid #ff4f3b;
   border-radius: 50px;
 }
 
 .menu #menu-flters li:hover,
 .menu #menu-flters li.filter-active {
   color: #fff;
-  background: #ffb03b;
+  background: #ff4f3b;
 }
 
 .menu #menu-flters li:last-child {
@@ -507,7 +496,7 @@ section {
   position: relative;
   z-index: 3;
   font-weight: 700;
-  color: #ff9b08;
+  color: #ff4f3b;
 }
 
 .menu .menu-content span {
@@ -548,12 +537,12 @@ section {
 }
 
 .specials .nav-link:hover {
-  color: #ffb03b;
+  color: #ff4f3b;
 }
 
 .specials .nav-link.active {
-  color: #ffb03b;
-  border-color: #ffb03b;
+  color: #ff4f3b;
+  border-color: #ff4f3b;
 }
 
 .specials .tab-pane.active {
@@ -583,7 +572,7 @@ section {
 
   .specials .nav-link.active {
     color: #fff;
-    background: #ffb03b;
+    background: #ff4f3b;
   }
 }
 
@@ -632,7 +621,7 @@ section {
 .events .event-item h3 {
   font-weight: 600;
   font-size: 26px;
-  color: #ffb03b;
+  color: #ff4f3b;
 }
 
 .events .event-item .price {
@@ -643,7 +632,7 @@ section {
 }
 
 .events .event-item .price span {
-  border-bottom: 2px solid #ffb03b;
+  border-bottom: 2px solid #ff4f3b;
 }
 
 .events .event-item ul {
@@ -658,7 +647,7 @@ section {
 .events .event-item ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #ffb03b;
+  color: #ff4f3b;
 }
 
 .events .event-item p:last-child {
@@ -678,7 +667,7 @@ section {
 }
 
 .events .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffb03b;
+  background-color: #ff4f3b;
 }
 
 /*--------------------------------------------------------------
@@ -760,7 +749,7 @@ section {
 }
 
 .book-a-table .php-email-form button[type=submit] {
-  background: #ffb03b;
+  background: #ff4f3b;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -794,16 +783,16 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Chefs
+# blogs
 --------------------------------------------------------------*/
-.chefs {
-  background: url("../img/chefs-bg.jpg") center center no-repeat;
+.blog {
+  background: url("../img/blog/blog-bg.jpg") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;
 }
 
-.chefs::before {
+.blog::before {
   content: "";
   position: absolute;
   left: 0;
@@ -814,24 +803,27 @@ section {
   z-index: 9;
 }
 
-.chefs .container {
+.blog .container {
   position: relative;
   z-index: 10;
 }
 
-.chefs .member {
+.blog .member {
   text-align: center;
   margin-bottom: 80px;
   position: relative;
+
 }
 
-.chefs .member .pic {
+.blog .member .pic {
   overflow: hidden;
+  position: relative;
+  top: 50px;
 }
 
-.chefs .member .member-info {
-  position: absolute;
-  bottom: -80px;
+.blog .member .member-info {
+  position: relative;
+  bottom: -20px;
   left: 20px;
   right: 20px;
   background: #fff;
@@ -842,7 +834,11 @@ section {
   transition: max-height 0.5s ease-in-out;
 }
 
-.chefs .member h4 {
+/* .blog .container:hover {
+  transform: scale(1.05);
+} */
+
+.blog .member h4 {
   font-weight: 500;
   margin-bottom: 10px;
   font-size: 16px;
@@ -852,49 +848,35 @@ section {
   font-family: "Poppins", sans-serif;
 }
 
-.chefs .member h4::after {
+.blog .member h4::after {
   content: "";
   position: absolute;
   display: block;
   width: 50px;
   height: 1px;
-  background: #ffcf88;
+  background: #ff4f3b;
   bottom: 0;
   left: calc(50% - 25px);
 }
 
-.chefs .member span {
+.blog .member span {
   font-style: italic;
   display: block;
   font-size: 13px;
 }
 
-.chefs .member .social {
-  margin-top: 15px;
-}
-
-.chefs .member .social a {
-  transition: color 0.3s;
-  color: #7a7368;
-}
-
-.chefs .member .social a:hover {
-  color: #ffb03b;
-}
-
-.chefs .member .social i {
-  font-size: 16px;
-  margin: 0 2px;
-}
-
 @media (max-width: 992px) {
-  .chefs .member {
+  .blog .member {
     margin-bottom: 110px;
   }
 }
 
+.blog .member:hover {
+  transform: scale(1.05);
+}
+
 @media (min-width: 1024px) {
-  .chefs {
+  .blog {
     background-attachment: fixed;
   }
 }
@@ -957,7 +939,7 @@ section {
 }
 
 .testimonials .testimonial-item .stars {
-  color: #ffb03b;
+  color: #ff4f3b;
   margin-bottom: 10px;
 }
 
@@ -999,7 +981,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffb03b;
+  background-color: #ff4f3b;
 }
 
 @media (min-width: 992px) {
@@ -1022,7 +1004,7 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #ffb03b;
+  color: #ff4f3b;
   float: left;
   width: 44px;
   height: 44px;
@@ -1051,7 +1033,7 @@ section {
 }
 
 .contact .info:hover i {
-  background: #ffb03b;
+  background: #ff4f3b;
   color: #fff;
 }
 
@@ -1069,7 +1051,7 @@ section {
 .contact .php-email-form .error-message {
   display: none;
   color: #fff;
-  background: #ed3c0d;
+  background: #ff4f3b;
   text-align: center;
   padding: 15px;
   font-weight: 600;
@@ -1119,7 +1101,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #ffb03b;
+  background: #ff4f3b;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1128,7 +1110,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #ffa012;
+  background: #ff4f3b;
 }
 
 @keyframes animate-loading {
@@ -1155,7 +1137,7 @@ section {
 #footer h3 {
   font-size: 36px;
   font-weight: 700;
-  color: #ffb03b;
+  color: #ff4f3b;
   position: relative;
   padding: 0;
   margin: 0 0 15px 0;
@@ -1188,7 +1170,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #ffb03b;
+  background: #ff4f3b;
 }
 
 #footer .copyright {
