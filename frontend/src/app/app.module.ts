@@ -9,6 +9,8 @@ import { LogInComponent } from './auth/components/log-in/log-in.component';
 import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { HomeModule } from './home/home.module';
+
 
 
 
@@ -17,18 +19,13 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     AppComponent,
     LogInComponent,
     SignUpComponent,
-  ],
-import { HomeModule } from './home/home.module';
-
-@NgModule({
-  declarations: [AppComponent],
+  AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     UsersModule,
-    AppRoutingModule
-
+    AppRoutingModule,
     HomeModule,
   ],
   providers: [],
