@@ -9,9 +9,7 @@ import { LatestOrdersComponent } from './latest-orders/latest-orders.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    StatisticsComponent,
-    LatestOrdersComponent
+
 
   ],
   imports: [
