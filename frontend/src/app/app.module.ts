@@ -21,9 +21,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     AppRoutingModule,
     SharedModule,
     UsersModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
