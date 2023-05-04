@@ -10,10 +10,6 @@ import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
-let routes:Routes = [
-  {path:'/log-in', component:LogInComponent},
-  {path: '/sign-up', component: SignUpComponent}
-]
 
 
 @NgModule({
@@ -27,7 +23,7 @@ let routes:Routes = [
     AppRoutingModule,
     SharedModule,
     UsersModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
 
   ],
   providers: [],
