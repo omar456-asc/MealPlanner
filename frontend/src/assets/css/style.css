@@ -1237,6 +1237,10 @@ section {
   transition: max-height 0.5s ease-in-out;
 }
 
+/* .blog .container:hover {
+  transform: scale(1.05);
+} */
+
 .blog .member h4 {
   font-weight: 500;
   margin-bottom: 10px;
@@ -1268,6 +1272,10 @@ section {
   .blog .member {
     margin-bottom: 110px;
   }
+}
+
+.blog .member:hover {
+  transform: scale(1.05);
 }
 
 @media (min-width: 1024px) {
