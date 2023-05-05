@@ -9,6 +9,16 @@
 label{
   display: flex;
 }
+input.form-control{
+  border-color:rgb(78, 24, 23) ;
+}
+input.form-control:focus {
+  border-color:rgb(78, 24, 23) ;
+  box-shadow: 0 0 10px rgb(78, 24, 23);
+}
+h2{
+  font-size: xx-large;
+}
 section{
   background-color:black ;
   height: 100%;

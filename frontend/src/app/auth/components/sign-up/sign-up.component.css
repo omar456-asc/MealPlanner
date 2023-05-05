@@ -1,9 +1,19 @@
-.cascading-right {
-  margin-right: -50px;
+.cascading-left {
+  margin-left: -50px;
 }
 
 label{
   display: flex;
+}
+input.form-control{
+  border-color:rgb(78, 24, 23) ;
+}
+input.form-control:focus {
+  border-color:rgb(78, 24, 23) ;
+  box-shadow: 0 0 10px rgb(78, 24, 23);
+}
+h2{
+  font-size: xx-large;
 }
 section{
   background-color:black ;
@@ -16,8 +26,8 @@ section{
 }
 
 @media (max-width: 991.98px) {
-  .cascading-right {
-    margin-right: 0;
+  .cascading-left {
+    margin-left: 0;
   }
 }
 .animated-button {
