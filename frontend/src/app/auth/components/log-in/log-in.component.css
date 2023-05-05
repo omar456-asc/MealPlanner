@@ -5,7 +5,9 @@
 .cascading-top{
   margin-top: -50px;
 }
-
+.sign-up-btn{
+  color: rgb(78, 24, 23);
+}
 label{
   display: flex;
 }
