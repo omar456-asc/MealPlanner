@@ -8,6 +8,8 @@ import { StatisticsComponent } from './dashboard/statistics/statistics.component
 import { LatestOrdersComponent } from './dashboard/latest-orders/latest-orders.component';
 import { LatestMembersComponent } from './dashboard/latest-members/latest-members.component';
 import { RecentlyAddedProductsComponent } from './dashboard/recently-added-products/recently-added-products.component';
+import { UsersModule } from './users/users.module';
+import { AdminComponent } from './admin.component';
 
 
 @NgModule({
@@ -16,13 +18,14 @@ import { RecentlyAddedProductsComponent } from './dashboard/recently-added-produ
     StatisticsComponent,
     LatestOrdersComponent,
     LatestMembersComponent,
-    RecentlyAddedProductsComponent
+    RecentlyAddedProductsComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    AdminSharedModule
-
+    AdminSharedModule,
+    UsersModule
   ]
 })
 export class AdminModule { }

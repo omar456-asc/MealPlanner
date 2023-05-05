@@ -5,7 +5,6 @@ import { ShowUserComponent } from './users/components/show-user/show-user.compon
 
 const routes: Routes = [
   { path: '', component: AllUsersComponent },
-  { path: 'show/user', component: ShowUserComponent }
 
 ];
 
