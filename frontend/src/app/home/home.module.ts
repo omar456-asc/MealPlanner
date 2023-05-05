@@ -12,9 +12,16 @@ import { SharedModule } from '../shared/shared.module';
     ContactUsComponent,
     LatestBlogComponent,
     HeroComponent,
+    TeamMemberComponent,
     HomeComponent,
   ],
   imports: [CommonModule, SharedModule],
-  exports: [ContactUsComponent, LatestBlogComponent, HeroComponent],
+  exports: [
+    ContactUsComponent,
+    LatestBlogComponent,
+    HeroComponent,
+    TeamMemberComponent,
+    HomeComponent,
+  ],
 })
 export class HomeModule {}
