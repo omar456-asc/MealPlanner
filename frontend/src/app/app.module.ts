@@ -10,6 +10,7 @@ import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeModule } from './home/home.module';
+import { ProfileComponent } from './profile/components/profile/profile.component';
 
 
 
@@ -19,7 +20,8 @@ import { HomeModule } from './home/home.module';
     AppComponent,
     LogInComponent,
     SignUpComponent,
-  AppComponent],
+  AppComponent,
+  ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
