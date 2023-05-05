@@ -26,6 +26,12 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/glightbox.min.css",
+              "src/assets/css/swiper-bundle.min.css",
+              "src/assets/css/style.css",
+
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
 
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
