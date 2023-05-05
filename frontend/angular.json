@@ -26,10 +26,26 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+              "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "node_modules/admin-lte/dist/css/adminlte.min.css"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+
+              "node_modules/admin-lte/plugins/jquery/jquery.min.js",
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js",
+              "node_modules/admin-lte/plugins/raphael/raphael.min.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.min.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.min.js",
+              "node_modules/admin-lte/plugins/chart.js/Chart.min.js",
+              "node_modules/admin-lte/dist/js/demo.js",
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
             ]
           },
           "configurations": {

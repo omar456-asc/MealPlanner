@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+
+import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
 
 @NgModule({
@@ -14,9 +16,10 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     SharedModule,
     UsersModule,
+    AdminModule,
     HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
