@@ -4,20 +4,24 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { LatestBlogComponent } from './components/latest-blog/latest-blog.component';
 import { TeamMemberComponent } from './components/team-member/team-member.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { HomeComponent } from './home.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     ContactUsComponent,
     LatestBlogComponent,
-    TeamMemberComponent,
     HeroComponent,
+    TeamMemberComponent,
+    HomeComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   exports: [
     ContactUsComponent,
     LatestBlogComponent,
-    TeamMemberComponent,
     HeroComponent,
+    TeamMemberComponent,
+    HomeComponent,
   ],
 })
 export class HomeModule {}
