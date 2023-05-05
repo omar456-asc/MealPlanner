@@ -5,7 +5,6 @@ import { AllUsersComponent } from './users/components/all-users/all-users.compon
 import { ShowUserComponent } from './users/components/show-user/show-user.component';
 
 const routes: Routes = [
-  { path: '', component: AllUsersComponent },
 
 
   {
