@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { isEmail } = require('validator');
+const bcrybt = require('bcrypt');
 
 var DB_URL = "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner"
 
@@ -25,5 +26,12 @@ var userSchema = new mongoose.Schema({
     }
 })
 
+//#region FireAFunctionBeforeSaveToDataBaseToHash
+userSchema.pre('save', async function(next){
+    const salt = await bcrybt.genSalt();
+    this.password= await bcrybt.hash(this.password, salt);
+    next();
+})
+//#endregion
 
 module.exports = mongoose.model("Users",userSchema);
