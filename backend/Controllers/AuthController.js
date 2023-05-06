@@ -1,4 +1,5 @@
 let usersmodel = require("../Models/usersModel");
+const jwt = require('jsonwebtoken')
 
 //#region Errors
 const handleErrors =(e) => {  
@@ -25,6 +26,15 @@ const handleErrors =(e) => {
 }
 //#endregion
 
+//#region JWT
+const maxDay = 3 * 24 *60 * 60 ;   // The days i logged in then expires
+const createToken = (id) =>{
+    return jwt.sign({ id }, 'meal planner secret',{
+        expiresIn: maxDay
+    }) ;  //id, secret 
+}
+//#endregion
+
 //#region SignUp
 var AddNewUser = async(req,res)=>{
     const { fname, lname, email, password } = req.body;
@@ -32,7 +42,8 @@ var AddNewUser = async(req,res)=>{
          const usersModelCreate = await usersmodel.create({
              fname, lname, email, password
          });
-         res.json(usersModelCreate);
+         const token = createToken(usersModelCreate._id);
+         res.json({usersModelCreate: usersModelCreate._id});
     }catch(e){
         const errors = handleErrors(e);
         res.status(400).json({errors});

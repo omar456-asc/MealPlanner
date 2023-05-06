@@ -4,7 +4,7 @@
  * Utils [Separtion]
  * MVC[Model - View - Controller]
  * Authentication [Registration - Login] VS Autherization (Permission)[get|Post|Delete|Put]
- * Hash Passward
+ * Hash Passward 
  * JWT [Json Web Token] ==> [npm i jsonwebtoken] ==> Header
  */
 const express = require("express");
@@ -23,17 +23,12 @@ require("dotenv").config();
 const logging = require("./MiddleWares/logging");
 app.use("/", logging);
 
-//Routing || Validators
-
 //#region Student
 const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
 
-//====================For Login===================
-
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });
 
-///MVC [Model(Call DataBase) - View(Interact Wit User) - Controller(between Model&View)]
