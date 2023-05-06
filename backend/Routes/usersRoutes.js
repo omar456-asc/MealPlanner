@@ -8,11 +8,18 @@ const userModel = require("../Models/usersModel");
 
 const userValid = require("../Utils/AuthValidate");
 const UserController = require("../Controllers/UserController");
+const AuthController = require("../Controllers/AuthController");
+
+//#region Auth
+router.post("/create",AuthController.AddNewUser);
+//#endregion
+
+//#region User
 router.get("/",UserController.GetAllUsers);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
-router.post("/create",UserController.AddNewUser);
 router.delete("/:id",UserController.DeleteUserByID);
+//#endregion
 
 // var id = 0;
 
