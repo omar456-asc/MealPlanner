@@ -9,7 +9,8 @@ if(mongoose.connect(DB_URL, {useNewUrlParser:true})){
 
 
 var userSchema = new mongoose.Schema({
-    name:{type:String, required:true, minlength:3, maxlength:50},
+    fname:{type:String, required:true, minlength:3, maxlength:50},
+    lname:{type:String, required:true, minlength:3, maxlength:50},
     email:{
         type:String,
         required:true, 
@@ -22,4 +23,4 @@ var userSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("Users",userSchema);
+module.exports = mongoose.model("users",userSchema);
