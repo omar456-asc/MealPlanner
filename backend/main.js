@@ -18,8 +18,6 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 require("dotenv").config();
 
-// /students ===> /api/students
-// Students[CRUD] - Courses[CRUD] - Instructors[CRUD] - Departments[CRUD]
 
 //Global MiddleWare
 const logging = require("./MiddleWares/logging");
