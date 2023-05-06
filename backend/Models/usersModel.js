@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-//var valid = require("validator");
+const { isEmail } = require('validator');
 
 var DB_URL = "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner"
 
@@ -13,13 +13,16 @@ var userSchema = new mongoose.Schema({
     lname:{type:String, required:true, minlength:3, maxlength:50},
     email:{
         type:String,
-        required:true, 
-        // validate:{
-        //     validator:(val)=>{return valid.isEmail(val)},
-        //     message:"{Email} Not Valid"
-        // }
+        required:[true, 'Please enter an email'], 
+        unique:true,
+        lowercase:true,
+        validate: [isEmail, 'Please enter a valid email']
     },
-    password:{type:String,minlength:5,required:true}
+    password:{
+        type:String,
+        minlength:[5,'Minimum password length is 6 characters'],
+        required:[true ,'Please enter a password']
+    }
 })
 
 

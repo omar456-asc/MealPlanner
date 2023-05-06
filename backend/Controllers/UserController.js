@@ -5,7 +5,8 @@ var GetAllUsers = async(req,res)=>{
         var AllUsers = await usersmodel.find();
         await res.json(AllUsers);
     }catch(e){
-        console.log('failed to get all users');
+        console.log(e);
+        res.status(400).send('failed to get all users');
     }
 }
 
@@ -14,7 +15,8 @@ var GetUserByID = async(req,res)=>{
         var ID = req.params.id;
         res.json(await usersmodel.findById(ID));
     }catch(e){
-        console.log('failed to get user');
+        console.log(e);
+        res.status(400).send('failed to get user');
     }
 }
 
@@ -25,7 +27,8 @@ var UpdateUserByID = async(req, res)=>{
         await usersmodel.updateOne({_id:ID},{"fname":updatedUser.fname,"lname":updatedUser.lname,"password":updatedUser.password});
         await res.send(updatedUser);
     }catch(e){
-        console.log('failed to update new user');
+        console.log(e);
+        res.status(400).send('failed to update new user');
     }
 }
 
@@ -35,7 +38,8 @@ var DeleteUserByID = async(req,res)=>{
         await usersmodel.findByIdAndDelete(ID);
         res.send("Deleted Successfully");
     }catch(e){
-        console.log('failed to delete user');
+        console.log(e);
+        res.status(400).send('failed to delete user');
     }
 }
 
