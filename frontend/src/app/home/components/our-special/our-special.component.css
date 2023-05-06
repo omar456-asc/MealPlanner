@@ -1,0 +1,58 @@
+.specials {
+    overflow: hidden;
+}
+
+.specials .nav-tabs {
+    border: 0;
+}
+
+.specials .nav-link {
+    border: 0;
+    padding: 12px 15px 12px 0;
+    transition: 0.3s;
+    color: #433f39;
+    border-radius: 0;
+    border-right: 2px solid #e8e7e4;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.specials .nav-link:hover {
+    color: #ffb03b;
+}
+
+.specials .nav-link.active {
+    color: #ffb03b;
+    border-color: #ffb03b;
+}
+
+.specials .tab-pane.active {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.specials .details h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #433f39;
+}
+
+.specials .details p {
+    color: #777777;
+}
+
+.specials .details p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .specials .nav-link {
+        border: 0;
+        padding: 15px;
+    }
+
+    .specials .nav-link.active {
+        color: #fff;
+        background: #ffb03b;
+    }
+}
