@@ -24,9 +24,10 @@ app.use("/", logging);
 
 //Routing || Validators
 
-//====================For Regestration===================
+//#region Student
 const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
+//#endregion
 
 //====================For Login===================
 
