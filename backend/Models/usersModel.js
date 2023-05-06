@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 //var valid = require("validator");
 
-var DB_URL = "mongodb://127.0.0.1:27017/iti"
+var DB_URL = "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner"
 
 if(mongoose.connect(DB_URL, {useNewUrlParser:true})){
     console.log("Connected to database");
@@ -23,4 +23,4 @@ var userSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("users",userSchema);
+module.exports = mongoose.model("Users",userSchema);
