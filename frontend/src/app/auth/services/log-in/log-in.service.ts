@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogInService {
 
-  private readonly loginUrl = '/api/login';
+  private readonly loginUrl = 'http://localhost:7400/api/users';
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly myClient:HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    const body = { email, password };
-    return this.http.post(this.loginUrl, body);
+  GetAllUsers(){
+    //method[Get-Delete-Put-Patch]
+    return this.myClient.get(this.loginUrl);
   }
 
 }

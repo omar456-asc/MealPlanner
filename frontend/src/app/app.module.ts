@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,6 +29,7 @@ import { ProfileComponent } from './profile/components/profile/profile.component
     SharedModule,
     UsersModule,
     AppRoutingModule,
+    HttpClientModule,
     HomeModule,
   ],
   providers: [],
