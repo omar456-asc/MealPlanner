@@ -2,13 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { LatestBlogComponent } from './components/latest-blog/latest-blog.component';
+import { TeamMemberComponent } from './components/team-member/team-member.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { HomeComponent } from './home.component';
+import { SharedModule } from '../shared/shared.module';
 import { WhyUsComponent } from './components/why-us/why-us.component';
 
-
 @NgModule({
-  declarations: [ContactUsComponent, LatestBlogComponent, HeroComponent, WhyUsComponent],
-  imports: [CommonModule],
-  exports: [ContactUsComponent, LatestBlogComponent, HeroComponent, WhyUsComponent],
+  declarations: [
+    ContactUsComponent,
+    LatestBlogComponent,
+    HeroComponent,
+    TeamMemberComponent,
+    HomeComponent,
+    WhyUsComponent,
+  ],
+  imports: [CommonModule, SharedModule],
+  exports: [
+    ContactUsComponent,
+    LatestBlogComponent,
+    HeroComponent,
+    TeamMemberComponent,
+    HomeComponent,
+    WhyUsComponent,
+  ],
 })
 export class HomeModule {}

@@ -35,29 +35,6 @@
   };
 
   /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select("#navbar .scrollto", true);
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200;
-    navbarlinks.forEach((navbarlink) => {
-      if (!navbarlink.hash) return;
-      let section = select(navbarlink.hash);
-      if (!section) return;
-      if (
-        position >= section.offsetTop &&
-        position <= section.offsetTop + section.offsetHeight
-      ) {
-        navbarlink.classList.add("active");
-      } else {
-        navbarlink.classList.remove("active");
-      }
-    });
-  };
-  window.addEventListener("load", navbarlinksActive);
-  onscroll(document, navbarlinksActive);
-
-  /**
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
@@ -75,6 +52,29 @@
    * Toggle .header-scrolled class to #header when page is scrolled
    */
   window.onload = setTimeout(function () {
+    /**
+     * Navbar links active state on scroll
+     */
+    let navbarlinks = select("#navbar .scrollto", true);
+    const navbarlinksActive = () => {
+      let position = window.scrollY + 200;
+      navbarlinks.forEach((navbarlink) => {
+        if (!navbarlink.hash) return;
+        let section = select(navbarlink.hash);
+        if (!section) return;
+        if (
+          position >= section.offsetTop &&
+          position <= section.offsetTop + section.offsetHeight
+        ) {
+          navbarlink.classList.add("active");
+        } else {
+          navbarlink.classList.remove("active");
+        }
+      });
+    };
+    window.addEventListener("load", navbarlinksActive);
+    onscroll(document, navbarlinksActive);
+
     let selectHeader = select("#header");
     let selectTopbar = select("#topbar");
     if (selectHeader) {
@@ -95,22 +95,6 @@
       onscroll(document, headerScrolled);
     }
   }, 1000);
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select(".back-to-top");
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add("active");
-      } else {
-        backtotop.classList.remove("active");
-      }
-    };
-    window.addEventListener("load", toggleBacktotop);
-    onscroll(document, toggleBacktotop);
-  }
 
   /**
    * Mobile nav toggle
@@ -188,78 +172,13 @@
           "'></li>");
   });
 
-  /**
-   * Menu isotope and filter
-   */
-  window.addEventListener("load", () => {
-    let menuContainer = select(".menu-container");
-    if (menuContainer) {
-      let menuIsotope = new Isotope(menuContainer, {
-        itemSelector: ".menu-item",
-        layoutMode: "fitRows",
-      });
-
-      let menuFilters = select("#menu-flters li", true);
-
-      on(
-        "click",
-        "#menu-flters li",
-        function (e) {
-          e.preventDefault();
-          menuFilters.forEach(function (el) {
-            el.classList.remove("filter-active");
-          });
-          this.classList.add("filter-active");
-
-          menuIsotope.arrange({
-            filter: this.getAttribute("data-filter"),
-          });
-        },
-        true
-      );
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper(".events-slider", {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-  });
-
-  /**
-   * Initiate gallery lightbox
-   */
-  const galleryLightbox = GLightbox({
-    selector: ".gallery-lightbox",
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper(".testimonials-slider", {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-  });
 })();
+
+$(document).ready(function () {
+  $(".image-container img").hide();
+  $(".image-container img").each(function () {
+    $(this).on("load", function () {
+      $(this).fadeIn(500);
+    });
+  });
+});
