@@ -4,8 +4,17 @@ const jwt = require('jsonwebtoken')
 //#region Errors
 const handleErrors =(e) => {  
     console.log(e.message, e.code);
-    let errors = {fname: '', lname: '', email: '', password: ''};
-
+    let errors = [{fname: '', lname: '', email: '', password: ''}];
+//#region incorrect email
+if(e.message==='incorrect email please try again'){
+    errors.email = 'that email is not registered';
+}
+//#endregion
+//#region incorrect email
+if(e.message==='incorrect password please try again'){
+    errors.password = 'that password is incorrect';
+}
+//#endregion
 //#region duplicateErrorCode
     if (e.code === 11000){ //Another error if email is already exists
         errors.email = 'that email is already registered';
@@ -52,9 +61,24 @@ var AddNewUser = async(req,res)=>{
 //#endregion
 
 //#region LogIn
-
+var logIn = async (req, res) => {
+    const {email, password} = req.body;
+    try{
+        const user = await usersmodel.login(email, password);
+        const token = createToken(user._id);
+        res.cookie('jwt', token,{httpOnly: true,maxDay:maxDay*1000})
+        res.status(200)
+        res.json({user: user._id});
+    }
+    catch(e){
+        const Errors=handleErrors(e);
+        res.status(400);
+        res.json({Errors});
+    }
+}
 //#endregion
 
 module.exports = {
     AddNewUser,
+    logIn
   }

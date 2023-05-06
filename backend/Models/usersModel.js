@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        minlength:[5,'Minimum password length is 6 characters'],
+        minlength:[6,'Minimum password length is 6 characters'],
         required:[true ,'Please enter a password']
     }
 })
@@ -33,5 +33,18 @@ userSchema.pre('save', async function(next){
     next();
 })
 //#endregion
+
+//static method to login
+userSchema.statics.login = async function(email, password){
+    const loginUser = await this.findOne({ email });
+    if(loginUser){
+        const checkPassword = await bcrybt.compare(password, loginUser.password);
+        if(checkPassword){
+            return loginUser;
+        }
+        throw Error("incorrect password, please try again");
+    }
+    throw Error("incorrect email please try again");
+}
 
 module.exports = mongoose.model("Users",userSchema);

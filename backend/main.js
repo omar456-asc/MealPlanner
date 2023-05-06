@@ -23,7 +23,7 @@ require("dotenv").config();
 const logging = require("./MiddleWares/logging");
 app.use("/", logging);
 
-//#region Student
+//#region user
 const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
