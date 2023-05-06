@@ -11,9 +11,9 @@ const UserController = require("../Controllers/UserController");
 router.get("/",UserController.GetAllUsers);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
-// router.post("/create",UserController.addNewUser);
+router.post("/create",UserController.AddNewUser);
+router.delete("/:id",UserController.DeleteUserByID);
 
-// router.delete("/:id",UserController.deleteUserByID);
 // var id = 0;
 
 // router.post("/",async(req,res)=>{
