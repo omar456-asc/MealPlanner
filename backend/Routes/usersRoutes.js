@@ -9,9 +9,9 @@ const userModel = require("../Models/usersModel");
 const userValid = require("../Utils/AuthValidate");
 const UserController = require("../Controllers/UserController");
 router.get("/",UserController.GetAllUsers);
+router.post("/create",UserController.AddNewUser);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
-router.post("/create",UserController.AddNewUser);
 router.delete("/:id",UserController.DeleteUserByID);
 
 // var id = 0;

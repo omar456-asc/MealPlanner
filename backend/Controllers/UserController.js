@@ -14,12 +14,17 @@ var UpdateUserByID = async(req, res)=>{
     await res.send(updatedUser);
 }
 var AddNewUser = async(req,res)=>{
-    var newUser = req.body; 
-    //var usersModelCreate = await usersmodel.insertMany(newUser);
-    var usersModelCreate = new usersmodel(newUser);
-    await usersModelCreate.save();
-    res.json(usersModelCreate);
-}
+    /// console.log('success');
+    try{
+         const { fname, lname, email, password } = req.body;
+         var usersModelCreate = await usersmodel.create({
+             fname, lname, email, password
+         }) 
+         res.json(usersModelCreate);
+     }catch(e){
+         console.log('failed to add new user');
+     }  
+ }
 var DeleteUserByID = async(req,res)=>{
     var ID = req.params.id;
     await usersmodel.findByIdAndDelete(ID);
