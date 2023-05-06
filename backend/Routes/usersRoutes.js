@@ -9,7 +9,7 @@ const userModel = require("../Models/usersModel");
 const userValid = require("../Utils/AuthValidate");
 const UserController = require("../Controllers/UserController");
 router.get("/",UserController.GetAllUsers);
-
+router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
 // router.post("/create",UserController.addNewUser);
 
