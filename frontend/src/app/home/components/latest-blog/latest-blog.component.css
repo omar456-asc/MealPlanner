@@ -9,6 +9,13 @@
     z-index: 9;
 }
 
+.blog {
+    background: center center no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+    position: relative;
+}
+
 .blog .container {
     position: relative;
     z-index: 10;
