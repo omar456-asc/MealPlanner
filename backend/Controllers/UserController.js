@@ -15,8 +15,8 @@ var UpdateUserByID = async(req, res)=>{
 }
 var AddNewUser = async(req,res)=>{
     var newUser = req.body; 
-    var usersModelCreate = await usersmodel.insertOne(newUser);
-    //var usersModelCreate = new usersmodel(newUser);
+    //var usersModelCreate = await usersmodel.insertMany(newUser);
+    var usersModelCreate = new usersmodel(newUser);
     await usersModelCreate.save();
     res.json(usersModelCreate);
 }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LogInService {
 
-  private readonly loginUrl = '/api/login';
+  private readonly loginUrl = '/api/users';
 
   constructor(private http: HttpClient) { }
 
