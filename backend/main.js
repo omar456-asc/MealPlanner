@@ -12,6 +12,8 @@ const app = express();
 const cors = require('cors');
 // enable all CORS requests
 app.use(cors());
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 const PORT = process.env.PORT || 7400;
 const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({ extended: true }));
