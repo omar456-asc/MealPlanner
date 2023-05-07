@@ -6,47 +6,23 @@ import { LogInService } from '../../services/log-in/log-in.service';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })
-export class LogInComponent implements OnInit {
-  Users:any;
-  constructor(public myService:LogInService){
+export class LogInComponent {
+  authUser:any;
 
-  }
-  ngOnInit(): void {
-    this.myService.GetAllUsers().subscribe(
-      {
-        next:(data)=>{
-          this.Users = data;
-          console.log(this.Users);
-        },
-        error:(err)=>{console.log(err)}
+  constructor(private myService:LogInService){  }
+
+  Add( email:any, password:any){
+    let logInUser = { email, password};
+    this.myService.LOGIN(logInUser).subscribe(
+      (data)=>{
+        this.authUser= data;
+        console.log(this.authUser);
       }
-    )
+    ,(err)=>{console.log("not authenticated user")
+
+  });
+
+
   }
-  // ngOnInit(): void {
-    // this.myService.GetAllUsers().subscribe(
-    //   {
-    //     next:(data)=>{
-    //       this.Users = data;
-    //     },
-    //     error:(err)=>{console.log(err)}
-    //   }
-    // )
-  // }
-//   deleteUser(id: any) {
-//     if (confirm(`Are you Sure you want delete user number ${id}`)) {
 
-//       this.myService.deleteUser(id).subscribe(
-//         () => this.ngOnInit()
-//         ,
-//         (err) => console.log(err)
-//       );
-//     }
-//   }
 }
-
-
-
-
-
-
-

@@ -12,6 +12,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,13 +7,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LogInService {
 
-  private readonly loginUrl = 'http://localhost:7400/api/users';
+  private readonly loginUrl = 'http://localhost:7400/api/users/login';
 
   constructor(private readonly myClient:HttpClient) { }
 
-  GetAllUsers(){
-    //method[Get-Delete-Put-Patch]
-    return this.myClient.get(this.loginUrl);
+  LOGIN(logInUser:any){
+    return this.myClient.post(this.loginUrl, logInUser);
   }
 
 }
