@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const { isEmail } = require('validator');
 const bcrybt = require('bcrypt');
@@ -7,7 +8,6 @@ var DB_URL = "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.n
 if(mongoose.connect(DB_URL, {useNewUrlParser:true})){
     console.log("Connected to database");
 }
-
 
 var userSchema = new mongoose.Schema({
     fname:{type:String, required:true, minlength:3, maxlength:50},
