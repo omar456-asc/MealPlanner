@@ -1,5 +1,5 @@
 let usersmodel = require("../Models/usersModel");
-
+const bcrybt = require('bcrypt');
 var GetAllUsers = async(req,res)=>{
     try{
         var AllUsers = await usersmodel.find();
@@ -24,7 +24,8 @@ var UpdateUserByID = async(req, res)=>{
     try{
         var ID = req.params.id;
         var updatedUser = req.body;
-        await usersmodel.updateOne({_id:ID},{"fname":updatedUser.fname,"lname":updatedUser.lname,"password":updatedUser.password});
+        const salt = await bcrybt.genSalt();
+        await usersmodel.updateOne({_id:ID},{"fname":updatedUser.fname,"lname":updatedUser.lname,"password":await bcrybt.hash(updatedUser.password, salt)});
         await res.send(updatedUser);
     }catch(e){
         console.log(e);
