@@ -11,8 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth/services/log-in/auth.service';
+import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 
 
 
@@ -34,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     HomeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

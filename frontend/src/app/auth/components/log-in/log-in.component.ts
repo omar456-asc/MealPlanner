@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogInService } from '../../services/log-in/log-in.service';
+import { AuthService } from '../../services/log-in/auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -7,18 +8,18 @@ import { LogInService } from '../../services/log-in/log-in.service';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
-  authUser:any;
 
-  constructor(private myService:LogInService){  }
+
+  constructor(private myService:LogInService,private authService: AuthService){  }
 
   Add( email:any, password:any){
     let logInUser = { email, password};
     this.myService.LOGIN(logInUser).subscribe(
-      (data)=>{
-        this.authUser= data;
-        console.log(this.authUser);
+      (response)=>{
+        this.authService.setToken(response);
+        console.log(this.authService.getToken());
       }
-    ,(err)=>{console.log("not authenticated user")
+    ,(err)=>{console.log(err)
 
   });
 
