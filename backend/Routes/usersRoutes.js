@@ -13,6 +13,7 @@ const AuthController = require("../Controllers/AuthController");
 //#region Auth
 router.post("/create",AuthController.AddNewUser);
 router.post("/login",AuthController.logIn);
+router.get("/logout",AuthController.logout);
 //#endregion
 
 //#region User

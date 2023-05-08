@@ -80,8 +80,16 @@ var logIn = async (req, res) => {
     }
 }
 //#endregion
+var logout= async(req,res)=>{ //Delete JWT cookie
+    res.cookie('token', '', {maxAge : 1})
+    res.redirect('/');
+}
+//#region logout
+
+//#end region
 
 module.exports = {
     AddNewUser,
-    logIn
+    logIn,
+    logout
   }
