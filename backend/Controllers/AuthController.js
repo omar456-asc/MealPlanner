@@ -68,8 +68,9 @@ var logIn = async (req, res) => {
         const user = await usersmodel.login(email, password);
         const token = createToken(user._id);
         res.cookie('token', token,{maxAge:maxDay*1000})
+
         res.status(200)
-        res.json({user: user._id});
+        res.json({token: token});
     }
     catch(e){
         var Errors=handleErrors(e);
