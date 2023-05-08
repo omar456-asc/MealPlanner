@@ -10,6 +10,7 @@ export class AuthService {
 
   setToken(token: any) {
     this.token = token;
+    localStorage.setItem('jwtToken', token.token);
   }
 
   getToken() {
