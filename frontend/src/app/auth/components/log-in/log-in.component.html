@@ -14,13 +14,13 @@
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example3">Email </label>
                 <input #email type="email" id="form3Example3" class="form-control" placeholder="Enter your email"  />
-                <p class="text-danger float-start"  *ngIf="!isEmailValid ">{{emailMsg}}</p>
+                <p class="text-danger float-start error"  *ngIf="!isEmailValid ">{{emailMsg}}</p>
               </div>
 <br>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example4" >Password</label>
                 <input #password type="password" id="form3Example4" class="form-control" placeholder="Enter your password"  />
-                <p class="text-danger float-start "  *ngIf="!isPasswordValid ">{{passwordMsg}}</p>
+                <p class="text-danger float-start error"  *ngIf="!isPasswordValid ">{{passwordMsg}}</p>
               </div>
 <br>
               <button class="animated-button1" type="submit">

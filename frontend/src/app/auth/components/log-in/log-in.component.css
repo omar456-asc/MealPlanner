@@ -25,6 +25,9 @@ section{
   background-color:black ;
   height: 100%;
 }
+.error{
+  font-size: small;
+}
 
 *{
   font-size: large;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogInService } from '../../services/log-in/log-in.service';
 import { AuthService } from '../../services/log-in/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -31,14 +32,14 @@ export class LogInComponent {
   }
 
 
-  constructor(private myService:LogInService,private authService: AuthService){  }
+  constructor(private myService:LogInService,private authService: AuthService,private router: Router){  }
 
   Add( email:any, password:any){
     let logInUser = { email, password};
     this.myService.LOGIN(logInUser).subscribe(
       (response:any)=>{
         this.authService.setToken(response.token);
-
+        this.router.navigateByUrl('');
       }
     ,(err)=>{
 
@@ -46,12 +47,17 @@ export class LogInComponent {
         this.emailMsg = 'please enter your email'
       }
 
-      else{
+      else if(err.error.message.email!=''){
         this.emailMsg = err.error.message.email;
+      }else{
+        this.emailMsg =''
       }
       if(password==''){
       this.passwordMsg="Please enter your password"
     }
+      else if(err.error.message.password==''){
+        this.passwordMsg=''
+      }
       else{this.passwordMsg="Incorrect password , please try again"}
   });
 
