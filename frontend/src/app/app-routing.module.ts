@@ -8,16 +8,15 @@ import { HeroComponent } from './home/components/hero/hero.component';
 import { LatestBlogComponent } from './home/components/latest-blog/latest-blog.component';
 import { TeamMemberComponent } from './home/components/team-member/team-member.component';
 import { ProfileComponent } from './profile/components/profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
 
     {path:'login', component:LogInComponent},
     {path: 'signup', component: SignUpComponent},
     {path:'profile', component: ProfileComponent},
-    {path:'', component:ContactUsComponent},
-    {path:'', component:HeroComponent},
-    {path:'', component:LatestBlogComponent},
-    {path:'', component:TeamMemberComponent},
+    {path:'', component: HomeComponent},
+
 
 
 
@@ -25,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

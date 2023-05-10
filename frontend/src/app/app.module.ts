@@ -9,6 +9,8 @@ import { LogInComponent } from './auth/components/log-in/log-in.component';
 import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './shared/components/footer/footer.component';
+
+import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -33,6 +35,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     UsersModule,
     AppRoutingModule,
     HttpClientModule,
+    AdminModule,
     HomeModule,
     FormsModule,
     ReactiveFormsModule
@@ -41,4 +44,4 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
