@@ -10,6 +10,7 @@ import { TeamMemberComponent } from './home/components/team-member/team-member.c
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
+
 const routes: Routes = [
 
     {path:'login', component:LogInComponent},
