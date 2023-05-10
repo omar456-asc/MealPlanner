@@ -62,11 +62,5 @@ get Validation(){
   return this.validationForm.valid;
 }
 
-// Add(){
-//   if(this.validationForm.valid){
-//     this.router.navigateByUrl('/login');
-//   }
-// }
-//#endregion
 
 }
