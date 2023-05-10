@@ -36,6 +36,9 @@ userSchema.pre('save', async function(next){
 
 //static method to login
 userSchema.statics.login = async function(email, password){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var validEmail=emailRegex.test(email);
+    if(validEmail){
     const loginUser = await this.findOne({ email });
     if(loginUser){
         const checkPassword = await bcrybt.compare(password, loginUser.password);
@@ -45,6 +48,6 @@ userSchema.statics.login = async function(email, password){
         throw Error("incorrect password, please try again");
     }
     throw Error("incorrect email please try again");
+} throw Error("invalid email");
 }
-
 module.exports = mongoose.model("Users",userSchema);
