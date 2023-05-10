@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SignUpService {
-  private readonly SignupUrl = 'http://localhost:7400/api/users/create';
+  private readonly SignupUrl = 'http://localhost:7400/api/users/signup';
 
   constructor(private readonly myUser:HttpClient) { }
   AddNewUser(signupUser:any){

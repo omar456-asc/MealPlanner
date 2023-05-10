@@ -14,8 +14,8 @@
             ">
           <div class="card-body p-5 shadow-5 text-center">
             <h2 class="fw-bold mb-5">Sign up</h2>
-            <form (ngSubmit)="AddNewUser(fname.value, lname.value, email.value, password.value)">
-
+            <div class="alert alert-danger" *ngIf="!Validation ">{{validationMessage}} </div>
+            <form (ngSubmit)="AddNewUser(fname.value, lname.value, email.value, password.value)" [formGroup]="validationForm" >
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
