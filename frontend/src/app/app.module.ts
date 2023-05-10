@@ -12,7 +12,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 
@@ -34,7 +34,8 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

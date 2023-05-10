@@ -10,20 +10,19 @@
             ">
           <div class="card-body p-5 shadow-5 text-center">
             <h2 class="fw-bold mb-5">Log in</h2>
-            <form  (ngSubmit)="Add( email.value, password.value)">
-
-
-
+            <form  (ngSubmit)="Add( email.value, password.value)" [formGroup]="validationForm">
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example3">Email </label>
-                <input #email type="email" id="form3Example3" class="form-control" placeholder="Enter your email" />
+                <input #email type="email" id="form3Example3" class="form-control" placeholder="Enter your email"  />
+                <p class="text-danger float-start"  *ngIf="!isEmailValid ">{{emailMsg}}</p>
               </div>
-
+<br>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example4" >Password</label>
-                <input #password type="password" id="form3Example4" class="form-control" placeholder="Enter your password" />
+                <input #password type="password" id="form3Example4" class="form-control" placeholder="Enter your password"  />
+                <p class="text-danger float-start "  *ngIf="!isPasswordValid ">{{passwordMsg}}</p>
               </div>
-
+<br>
               <button class="animated-button1" type="submit">
                 <span></span>
                 <span></span>
