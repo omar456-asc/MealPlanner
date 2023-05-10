@@ -11,7 +11,7 @@ const UserController = require("../Controllers/UserController");
 const AuthController = require("../Controllers/AuthController");
 
 //#region Auth
-router.post("/create",AuthController.AddNewUser);
+router.post("/signup",AuthController.AddNewUser);
 router.post("/login",AuthController.logIn);
 router.get("/logout",AuthController.logout);
 //#endregion

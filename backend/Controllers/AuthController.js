@@ -4,12 +4,16 @@ const jwt = require('jsonwebtoken')
 //#region Errors
 const handleErrors =(e) => {  
     console.log(e.message);
-    var errors = { email: '', password: ''};
+    var errors = {fname:'',lname:'', email: '', password: ''};
 //#region incorrect email
 if(e.message=='incorrect email please try again'){
     errors.email = 'that email is not registered';
 }
-
+//#endregion
+//#region validation email
+if(e.message=='invalid email'){
+    errors.email = 'invalid email';
+}
 //#endregion
 //#region incorrect email
 if(e.message=='incorrect password, please try again'){
@@ -53,10 +57,10 @@ var AddNewUser = async(req,res)=>{
              fname, lname, email, password
          });
          const token = createToken(usersModelCreate._id);
-         res.json({usersModelCreate: usersModelCreate._id});
+         res.json({"status": "success"});
     }catch(e){
         const errors = handleErrors(e);
-        res.status(400).json({errors});
+        res.status(400).json({"status": "failed","message":errors});
     }  
 }
 //#endregion
@@ -70,13 +74,13 @@ var logIn = async (req, res) => {
         res.cookie('token', token,{maxAge:maxDay*1000})
 
         res.status(200)
-        res.json({token: token});
+        res.json({"status":"success",token: token});
     }
     catch(e){
-        var Errors=handleErrors(e);
+        var errors=handleErrors(e);
         res.status(400);
-        console.log(Errors);
-        res.json({Errors});
+        console.log(errors);
+        res.json({"status":"failed","message":errors});
     }
 }
 //#endregion
