@@ -7,14 +7,14 @@
     transition: all ease-in-out 0.3s;
     height: 100%;
   }
-  
+
   .why-us .box span {
     display: block;
     font-size: 28px;
     font-weight: 700;
-    color: #ff4f3b;
+    color: #bc3b2c;
   }
-  
+
   .why-us .box h4 {
     font-size: 24px;
     font-weight: 600;
@@ -22,23 +22,22 @@
     margin: 20px 0;
     color: rgb(224, 224, 225);
   }
-  
+
   .why-us .box p {
     color: rgb(224, 224, 225);
     font-size: 15px;
     margin: 0;
     padding: 0;
   }
-  
+
   .why-us .box:hover {
-    background: #ff4f3b;
+    background: #bc3b2c;
     padding: 30px 30px 70px 30px;
     box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
   }
-  
+
   .why-us .box:hover span,
   .why-us .box:hover h4,
   .why-us .box:hover p {
     color: #fff;
   }
-  

@@ -9,7 +9,7 @@
 
 .contact .info i {
     font-size: 20px;
-    color: #ff4f3b;
+    color: #bc3b2c;
     float: left;
     width: 44px;
     height: 44px;
@@ -38,7 +38,7 @@
 }
 
 .contact .info:hover i {
-    background: #ff4f3b;
+    background: #bc3b2c;
     color: #fff;
 }
 
@@ -56,7 +56,7 @@
 .contact .php-email-form .error-message {
     display: none;
     color: #fff;
-    background: #ff4f3b;
+    background: #bc3b2c;
     text-align: center;
     padding: 15px;
     font-weight: 600;
@@ -106,7 +106,7 @@
 }
 
 .contact .php-email-form button[type=submit] {
-    background: #ff4f3b;
+    background: #bc3b2c;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -115,7 +115,7 @@
 }
 
 .contact .php-email-form button[type=submit]:hover {
-    background: #ff4f3b;
+    background: #bc3b2c;
 }
 
 @keyframes animate-loading {

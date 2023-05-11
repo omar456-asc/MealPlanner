@@ -5,7 +5,7 @@
     overflow: hidden;
     padding: 0;
   }
-  
+
   #hero .carousel-item {
     width: 100%;
     height: 90vh;
@@ -13,7 +13,7 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  
+
   #hero .carousel-item::before {
     content: "";
     background-color: rgba(12, 11, 10, 0.5);
@@ -23,7 +23,7 @@
     left: 0;
     bottom: 0;
   }
-  
+
   #hero .carousel-container {
     display: flex;
     justify-content: center;
@@ -34,47 +34,47 @@
     left: 0;
     right: 0;
   }
-  
+
   #hero .carousel-content {
     text-align: center;
   }
-  
+
   #hero h2 {
     color: #fff;
     margin-bottom: 30px;
     font-size: 48px;
     font-weight: 700;
   }
-  
+
   #hero h2 span {
-    color: #ff4f3b;
+    color: #bc3b2c;
   }
-  
+
   #hero p {
     width: 80%;
     animation-delay: 0.4s;
     margin: 0 auto 30px auto;
     color: #fff;
   }
-  
+
   #hero .carousel-inner .carousel-item {
     transition-property: opacity;
     background-position: center top;
   }
-  
+
   #hero .carousel-inner .carousel-item,
   #hero .carousel-inner .active.carousel-item-start,
   #hero .carousel-inner .active.carousel-item-end {
     opacity: 0;
   }
-  
+
   #hero .carousel-inner .active,
   #hero .carousel-inner .carousel-item-next.carousel-item-start,
   #hero .carousel-inner .carousel-item-prev.carousel-item-end {
     opacity: 1;
     transition: 0.5s;
   }
-  
+
   #hero .carousel-inner .carousel-item-next,
   #hero .carousel-inner .carousel-item-prev,
   #hero .carousel-inner .active.carousel-item-start,
@@ -82,7 +82,7 @@
     left: 0;
     transform: translate3d(0, 0, 0);
   }
-  
+
   #hero .carousel-control-next-icon,
   #hero .carousel-control-prev-icon {
     background: none;
@@ -100,17 +100,17 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   #hero .carousel-control-next-icon:hover,
   #hero .carousel-control-prev-icon:hover {
     background: rgba(255, 255, 255, 0.3);
     color: rgba(255, 255, 255, 0.8);
   }
-  
+
   #hero .carousel-indicators li {
     cursor: pointer;
   }
-  
+
   #hero .btn-menu,
   #hero .btn-book {
     font-weight: 600;
@@ -125,29 +125,28 @@
     margin: 0 10px;
     animation-delay: 0.8s;
     color: #fff;
-    border: 2px solid #ff4f3b;
+    border: 2px solid #bc3b2c;
   }
-  
+
   #hero .btn-menu:hover,
   #hero .btn-book:hover {
-    background: #ff4f3b;
+    background: #bc3b2c;
     color: #fff;
   }
-  
+
   @media (max-width: 768px) {
     #hero h2 {
       font-size: 28px;
     }
   }
-  
+
   @media (min-width: 1024px) {
     #hero p {
       width: 50%;
     }
-  
+
     #hero .carousel-control-prev,
     #hero .carousel-control-next {
       width: 5%;
     }
   }
-  

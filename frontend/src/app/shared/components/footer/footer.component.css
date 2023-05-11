@@ -9,7 +9,7 @@
 #footer h3 {
   font-size: 36px;
   font-weight: 700;
-  color: #ff4f3b;
+  color: #bc3b2c;
   position: relative;
   padding: 0;
   margin: 0 0 15px 0;
@@ -42,7 +42,7 @@
 }
 
 #footer .social-links a:hover {
-  background: #ff4f3b;
+  background: #bc3b2c;
 }
 
 #footer .copyright {
