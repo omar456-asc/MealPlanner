@@ -7,7 +7,7 @@
 }
 
 .contact .info {
-    background: #fff;
+    background: black;
 }
 
 .contact .info i {
@@ -16,7 +16,7 @@
     float: left;
     width: 44px;
     height: 44px;
-    background: #fff6e8;
+    background: #161514;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #433f39;
+    color: #757270;
     font-family: "Poppins", sans-serif;
 }
 
@@ -37,7 +37,7 @@
     padding: 0 0 0 60px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #7a7368;
+    color: #f6f5f4;
 }
 
 .contact .info:hover i {
@@ -49,7 +49,7 @@
     width: 100%;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
     padding: 30px;
-    background: #fff;
+    background: black;
 }
 
 .contact .php-email-form .form-group {
@@ -58,7 +58,7 @@
 
 .contact .php-email-form .error-message {
     display: none;
-    color: #fff;
+    color: #e8e4df;
     background: #ff4f3b;
     text-align: center;
     padding: 15px;
@@ -76,7 +76,7 @@
 
 .contact .php-email-form .loading {
     display: none;
-    background: #fff;
+    background: #080808;
     text-align: center;
     padding: 15px;
 }
