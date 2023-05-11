@@ -83,7 +83,7 @@
   left: 24px;
   top: calc(100% + 30px);
   margin: 0;
-  padding: 10px 0;
+  padding: 10px 10px;
   z-index: 99;
   opacity: 0;
   visibility: hidden;
@@ -94,14 +94,15 @@
 }
 
 .navbar .dropdown ul li {
-  min-width: 200px;
+  min-width: 120px;
 }
 
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 500;
   color: #433f39;
+  text-decoration: none;
 }
 
 .navbar .dropdown ul a i {
