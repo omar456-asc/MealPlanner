@@ -1,6 +1,9 @@
+.why-us{
+  background-color: black;
+}
 .why-us .box {
     padding: 50px 30px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 7px 7px 15px rgba(246, 244, 244, 0.1);
     transition: all ease-in-out 0.3s;
     height: 100%;
   }
@@ -17,11 +20,11 @@
     font-weight: 600;
     padding: 0;
     margin: 20px 0;
-    color: #6c665c;
+    color: rgb(224, 224, 225);
   }
   
   .why-us .box p {
-    color: #aaaaaa;
+    color: rgb(224, 224, 225);
     font-size: 15px;
     margin: 0;
     padding: 0;
