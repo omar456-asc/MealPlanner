@@ -63,15 +63,34 @@
   font-size: 16px;
   margin: 0 2px;
 }
-@media (max-width: 992px) {
+
+@media (min-width: 266px) {
   .card:hover .card-body {
     bottom: -75;
   }
+
+
+
   .card-body {
     padding-bottom: 0px;
     position: absolute;
     bottom: -164%;
     width: 100%;
     transition: bottom 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card-body {
+    padding-bottom: 0px;
+    position: absolute;
+    bottom: -500%;
+    width: 100%;
+    transition: bottom 0.5s ease-in-out;
+  }
+
+  .card:hover .card-body {
+    bottom: -400;
+    padding-bottom: -500px;
   }
 }
