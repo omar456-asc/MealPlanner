@@ -25,7 +25,7 @@
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #ff4f3b;
+  color: #bc3b2c;
   text-decoration: none;
 }
 
@@ -74,7 +74,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar .dropdown ul {
@@ -112,7 +112,7 @@
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar .dropdown:hover > ul {
@@ -205,7 +205,7 @@
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar-mobile .getstarted,
@@ -240,7 +240,7 @@
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -251,7 +251,7 @@
 # Book a table button Menu
 --------------------------------------------------------------*/
 .book-a-table-btn {
-  background: #ff4f3b;
+  background: #bc3b2c;
   color: #fff;
   border-radius: 50px;
   margin: 0 0 0 20px;
@@ -264,7 +264,7 @@
 }
 
 .book-a-table-btn:hover {
-  background: #ff4f3b;
+  background: #bc3b2c;
   color: #fff;
 }
 

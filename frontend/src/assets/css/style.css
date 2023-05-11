@@ -5,11 +5,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 a:hover {
-  color: #ff4f3b;
+  color: #bc3b2c;
   text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ section {
 }
 
 .section-title h2 span {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .section-title p {
