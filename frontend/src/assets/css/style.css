@@ -22,12 +22,6 @@ h6 {
   font-family: "Satisfy", sans-serif;
 }
 
-.blog {
-  background: url("../img/blog/blog-bg.jpg") center center no-repeat;
-  background-size: cover;
-  padding: 60px 0;
-  position: relative;
-}
 
 /*--------------------------------------------------------------
 # Sections General
