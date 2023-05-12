@@ -17,6 +17,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
+import { CommonModule } from '@angular/common';
+import { MealsComponent } from './meals/components/meals/meals.component';
 
 
 
@@ -27,7 +29,8 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     LogInComponent,
     SignUpComponent,
   AppComponent,
-  ProfileComponent],
+  ProfileComponent,
+MealsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +41,8 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AdminModule,
     HomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [ AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

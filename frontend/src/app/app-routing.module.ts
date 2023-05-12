@@ -9,6 +9,7 @@ import { LatestBlogComponent } from './home/components/latest-blog/latest-blog.c
 import { TeamMemberComponent } from './home/components/team-member/team-member.component';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { MealsComponent } from './meals/components/meals/meals.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path: 'signup', component: SignUpComponent},
     {path:'profile', component: ProfileComponent},
     {path:'', component: HomeComponent},
+    {path:'meals', component: MealsComponent},
 
 
 
