@@ -77,7 +77,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: black;
+  color: #0a0403;
 }
 
 .navbar .dropdown ul {
