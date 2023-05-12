@@ -1,3 +1,29 @@
+.pb-5::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(2, 2, 2, 0.8);
+    z-index: 9;
+}
+
+.pb-5 {
+    background: center center no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+    position: relative;
+
+}
+
+.pb-5 .container {
+    position: relative;
+    z-index: 10;
+
+
+}
+
 .quantity {
     display: flex;
     align-items: center;
