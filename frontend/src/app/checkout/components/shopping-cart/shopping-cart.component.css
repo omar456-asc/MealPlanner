@@ -20,6 +20,7 @@
 .pb-5 .container {
     position: relative;
     z-index: 10;
+    text-align: center;
 
 
 }
@@ -63,5 +64,5 @@
     transition: 0.4s;
     border-radius: 50px;
     position: relative;
-    left: 600px;
+
 }
