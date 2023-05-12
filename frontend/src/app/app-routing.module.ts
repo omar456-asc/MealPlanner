@@ -10,6 +10,7 @@ import { TeamMemberComponent } from './home/components/team-member/team-member.c
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { MealsComponent } from './meals/components/meals/meals.component';
+import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path:'profile', component: ProfileComponent},
     {path:'', component: HomeComponent},
     {path:'meals', component: MealsComponent},
+    {path:'mealdetails/:id',component: MealDetailsComponent},
 
 
 
