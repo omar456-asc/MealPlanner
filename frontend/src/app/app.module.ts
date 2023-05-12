@@ -26,11 +26,9 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AppComponent,
     LogInComponent,
     SignUpComponent,
-  AppComponent,
-  ProfileComponent],
+    ProfileComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     UsersModule,
     AppRoutingModule,
@@ -38,7 +36,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AdminModule,
     HomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [ AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

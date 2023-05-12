@@ -12,11 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
 
 const routes: Routes = [
-
+    {path:'', component: HomeComponent},
     {path:'login', component:LogInComponent},
     {path: 'signup', component: SignUpComponent},
     {path:'profile', component: ProfileComponent},
-    {path:'', component: HomeComponent},
+
 
 
 
