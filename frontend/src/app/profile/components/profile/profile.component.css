@@ -4,6 +4,12 @@ body {
 .profile {
   background-color: black;
 }
+ .about{
+  color: white;
+}
+h3{
+  color: black;
+}
 .icon-box.medium {
   font-size: 20px;
   width: 50px;
@@ -21,11 +27,11 @@ body {
   font-size: 30px;
   margin-bottom: 33px;
   display: inline-block;
-  color: #ffffff;
+  color: black;
   height: 65px;
   width: 65px;
   line-height: 65px;
-  background-color: #bc3b2c;
+  background-color: transparent;
   text-align: center;
   border-radius: 0.3rem;
 }
@@ -34,7 +40,7 @@ body {
   font-size: 14px;
   text-align: center;
   color: #ffffff;
-  background: #bc3b2c;
+  background: #000000;
   height: 41px;
   line-height: 41px;
   width: 41px;
@@ -75,7 +81,7 @@ a:focus {
 
 .text-secondary,
 .text-secondary-hover:hover {
-  color: #bc3b2c !important;
+  color: #000000 !important;
 }
 .display-25 {
   font-size: 1.4rem;
@@ -83,7 +89,7 @@ a:focus {
 
 .text-primary,
 .text-primary-hover:hover {
-  color: #5b5a61 !important;
+  color: white !important;
 }
 
 p {
@@ -93,4 +99,11 @@ p {
 .mb-1-6,
 .my-1-6 {
   margin-bottom: 1.6rem;
+}
+
+.first{
+  background-color:#bc3b2c ;
+}
+.second{
+  background-color:#D4AF37;
 }
