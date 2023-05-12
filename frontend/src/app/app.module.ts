@@ -24,12 +24,10 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AppComponent,
     LogInComponent,
     SignUpComponent,
-    AppComponent,
     ProfileComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     UsersModule,
     AppRoutingModule,
