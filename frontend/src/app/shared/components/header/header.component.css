@@ -14,7 +14,7 @@
 #header.header-scrolled {
   top: 0;
   /* background: rgba(26, 24, 22, 0.85); */
-  background: rgba(78, 28, 28, 0.85);
+  background: rgba(188,59,44,0.85);
 }
 
 #header .logo h1 {
@@ -27,7 +27,7 @@
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #bc3b2c;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -77,7 +77,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #bc3b2c;
+  color: black;
 }
 
 .navbar .dropdown ul {
