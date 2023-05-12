@@ -9,6 +9,7 @@ import { LatestBlogComponent } from './home/components/latest-blog/latest-blog.c
 import { TeamMemberComponent } from './home/components/team-member/team-member.component';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
 
 const routes: Routes = [
 

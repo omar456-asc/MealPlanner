@@ -7,6 +7,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 import { WhyUsComponent } from './components/why-us/why-us.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { WhyUsComponent } from './components/why-us/why-us.component';
     TeamMemberComponent,
     HomeComponent,
     WhyUsComponent,
+    ContactFormComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [
