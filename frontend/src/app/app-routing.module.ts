@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/components/profile/profile.component
 import { HomeComponent } from './home/home.component';
 import { MealsComponent } from './meals/components/meals/meals.component';
 
+
 const routes: Routes = [
 
     {path:'login', component:LogInComponent},

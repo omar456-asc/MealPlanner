@@ -13,6 +13,7 @@ label{
 }
 input.form-control{
   border-color:rgb(78, 24, 23) ;
+  width: 90%;
 }
 input.form-control:focus {
   border-color:rgb(78, 24, 23) ;
@@ -23,7 +24,7 @@ h2{
 }
 section{
   background-color:black ;
-  height: 100%;
+  /* height: 100vh; */
 }
 .error{
   font-size: small;

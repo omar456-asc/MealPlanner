@@ -4,6 +4,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { ShowUserComponent } from './components/show-user/show-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
     AllUsersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     AddUserComponent,
