@@ -12,22 +12,21 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 
 import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
+import { CheckoutModule } from './checkout/checkout.module';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     SignUpComponent,
-  AppComponent,
-  ProfileComponent],
+    AppComponent,
+    ProfileComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,10 +37,13 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AdminModule,
     HomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CheckoutModule,
   ],
-  providers: [ AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
