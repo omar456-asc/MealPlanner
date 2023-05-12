@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class AllMealsService {
 
 
-  private readonly Base_URL = "http://localhost:3000/api/products";
+  private readonly Base_URL = "http://localhost:7400/api/products";
   constructor(private readonly myClient:HttpClient) { }
   //Methods [All Requests]
   GetAllMeals(){
