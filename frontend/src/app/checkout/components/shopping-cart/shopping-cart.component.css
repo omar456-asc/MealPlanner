@@ -1,4 +1,4 @@
-.pb-5::before {
+.Checkout::before {
     content: "";
     position: absolute;
     left: 0;
@@ -9,20 +9,17 @@
     z-index: 9;
 }
 
-.pb-5 {
+.Checkout {
     background: center center no-repeat;
     background-size: cover;
-    padding: 60px 0;
+    padding: 147px 0;
     position: relative;
-
 }
 
-.pb-5 .container {
+.Checkout .container {
     position: relative;
     z-index: 10;
     text-align: center;
-
-
 }
 
 .quantity {
@@ -64,5 +61,61 @@
     transition: 0.4s;
     border-radius: 50px;
     position: relative;
+    display: inline-block;
+}
+
+/* Media queries for responsive design */
+
+@media only screen and (max-width: 600px) {
+    .Checkout {
+        padding: 80px 0;
+    }
+
+    .quantity {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .quantity-input {
+        width: 2rem;
+        margin: 0.5rem;
+    }
+
+    .checkout-btn {
+        padding: 8px 16px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .Checkout {
+        padding: 60px 0;
+    }
+
+    .minus-btn,
+    .plus-btn {
+        font-size: 1rem;
+        padding: 0.1rem 0.3rem;
+    }
+
+    .quantity-input {
+        width: 1.5rem;
+        margin: 0.3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .Checkout::before {
+        display: none;
+        /* Hide the ::before element on smaller screens */
+    }
+
+
+}
+
+@media (min-width: 1024px) {
+    .Checkout {
+        background-attachment: fixed;
+
+    }
 
 }
