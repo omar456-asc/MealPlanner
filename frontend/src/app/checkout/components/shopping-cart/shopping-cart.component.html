@@ -55,20 +55,18 @@
                   <td class="border-0 align-middle">
                     <strong>$79.00</strong>
                   </td>
-                  <td class="align-middle">
-                    <div class="quantity">
-                      <button (click)="minus()" class="minus-btn" type="button">
-                        -
-                      </button>
-                      <input
-                        [(ngModel)]="quantityInput"
-                        class="quantity-input"
-                        type="number"
-                      />
-                      <button (click)="plus()" class="plus-btn" type="button">
-                        +
-                      </button>
-                    </div>
+                  <td class="quantity border-0 align-middle">
+                    <button (click)="minus()" class="minus-btn" type="button">
+                      -
+                    </button>
+                    <input
+                      [(ngModel)]="quantityInput"
+                      class="quantity-input"
+                      type="number"
+                    />
+                    <button (click)="plus()" class="plus-btn" type="button">
+                      +
+                    </button>
                   </td>
                   <td class="border-0 align-middle">
                     <a href="#" class="text-dark"
