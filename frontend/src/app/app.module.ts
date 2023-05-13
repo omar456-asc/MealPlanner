@@ -41,7 +41,7 @@ MealsComponent],
     HomeModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
     CheckoutModule,
   ],
   providers: [
