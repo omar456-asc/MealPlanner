@@ -10,7 +10,7 @@ export class AuthService {
 
   setToken(token: any) {
     this.token = token;
-    localStorage.setItem('jwtToken', token.token);
+    localStorage.setItem('token', token);
   }
 
   getToken() {
@@ -29,7 +29,7 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  setUserToken(token: any) {
-    localStorage.setItem('token', token);
-  }
+  // setUserToken(token: any) {
+  //   localStorage.setItem('token', token);
+  // }
 }
