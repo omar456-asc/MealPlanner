@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
+import { PaymentModule } from './payment/payment.module';
 
 @NgModule({
   declarations: [AppComponent, LogInComponent, SignUpComponent],
@@ -34,6 +35,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     ReactiveFormsModule,
     CheckoutModule,
     ProfileModule,
+    PaymentModule,
   ],
   providers: [
     AuthService,

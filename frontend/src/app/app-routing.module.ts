@@ -13,12 +13,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'checkout', component: CheckoutComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'cart', component: CheckoutComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: '', component: HomeComponent },
 ];
 
