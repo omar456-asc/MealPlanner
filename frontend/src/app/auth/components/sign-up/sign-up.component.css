@@ -2,25 +2,29 @@
   margin-left: -50px;
 }
 
-label{
+label {
   display: flex;
 }
-input.form-control{
-  border-color:rgb(78, 24, 23) ;
+
+input.form-control {
+  border-color: #bc3b2c;
 }
+
 input.form-control:focus {
-  border-color:rgb(78, 24, 23) ;
-  box-shadow: 0 0 10px rgb(78, 24, 23);
+  border-color: #bc3b2c;
+  box-shadow: 0 0 10px rgb(172, 42, 40);
 }
-h2{
+
+h2 {
   font-size: xx-large;
 }
-section{
-  background-color:black ;
+
+section {
+  background-color: black;
   height: 100%;
 }
 
-*{
+* {
   font-size: large;
   color: black;
 }
@@ -30,13 +34,14 @@ section{
     margin-left: 0;
   }
 }
+
 .animated-button {
   background: linear-gradient(-30deg, #0b1b3d 50%, #08142b 50%);
   padding: 20px 40px;
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4e0f7;
   font-size: 20px;
@@ -45,7 +50,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button::before {
@@ -77,28 +82,30 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 20, 43, 0)), to(#2662d9));
   background: linear-gradient(to left, rgba(8, 20, 43, 0), #2662d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @-webkit-keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -110,28 +117,30 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 20, 43, 0)), to(#2662d9));
   background: linear-gradient(to top, rgba(8, 20, 43, 0), #2662d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @-webkit-keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -143,28 +152,30 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 20, 43, 0)), to(#2662d9));
   background: linear-gradient(to right, rgba(8, 20, 43, 0), #2662d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @-webkit-keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -176,38 +187,41 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 20, 43, 0)), to(#2662d9));
   background: linear-gradient(to bottom, rgba(8, 20, 43, 0), #2662d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @-webkit-keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
 .animated-button1 {
-  background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
+  /* background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%); */
+  background: #8f1609;
   padding: 20px 40px;
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7d4d4;
   font-size: 20px;
@@ -216,7 +230,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button1::before {
@@ -232,8 +246,13 @@ section{
   transition: .2s opacity ease-in-out;
 }
 
-.animated-button1:hover::before {
+/* .animated-button1:hover::before {
   opacity: 0.2;
+} */
+
+.animated-button1:hover {
+  background: #bc3b2c;
+  opacity: 1;
 }
 
 .animated-button1 span {
@@ -248,17 +267,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 8, 0)), to(#d92626));
   background: linear-gradient(to left, rgba(43, 8, 8, 0), #d92626);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -270,17 +290,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 8, 0)), to(#d92626));
   background: linear-gradient(to top, rgba(43, 8, 8, 0), #d92626);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -292,17 +313,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 8, 0)), to(#d92626));
   background: linear-gradient(to right, rgba(43, 8, 8, 0), #d92626);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -314,17 +336,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 8, 0)), to(#d92626));
   background: linear-gradient(to bottom, rgba(43, 8, 8, 0), #d92626);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -334,7 +357,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7e6d4;
   font-size: 20px;
@@ -343,7 +366,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button2::before {
@@ -375,17 +398,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(43, 26, 8, 0)), to(#d98026));
   background: linear-gradient(to left, rgba(43, 26, 8, 0), #d98026);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -397,17 +421,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 26, 8, 0)), to(#d98026));
   background: linear-gradient(to top, rgba(43, 26, 8, 0), #d98026);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -419,17 +444,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(43, 26, 8, 0)), to(#d98026));
   background: linear-gradient(to right, rgba(43, 26, 8, 0), #d98026);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -441,17 +467,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 26, 8, 0)), to(#d98026));
   background: linear-gradient(to bottom, rgba(43, 26, 8, 0), #d98026);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -461,7 +488,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7f7d4;
   font-size: 20px;
@@ -470,7 +497,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button3::before {
@@ -502,17 +529,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(43, 43, 8, 0)), to(#d9d926));
   background: linear-gradient(to left, rgba(43, 43, 8, 0), #d9d926);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -524,17 +552,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 43, 8, 0)), to(#d9d926));
   background: linear-gradient(to top, rgba(43, 43, 8, 0), #d9d926);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -546,17 +575,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(43, 43, 8, 0)), to(#d9d926));
   background: linear-gradient(to right, rgba(43, 43, 8, 0), #d9d926);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -568,17 +598,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 43, 8, 0)), to(#d9d926));
   background: linear-gradient(to bottom, rgba(43, 43, 8, 0), #d9d926);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -588,7 +619,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #e6f7d4;
   font-size: 20px;
@@ -597,7 +628,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button4::before {
@@ -629,17 +660,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(26, 43, 8, 0)), to(#80d926));
   background: linear-gradient(to left, rgba(26, 43, 8, 0), #80d926);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -651,17 +683,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(26, 43, 8, 0)), to(#80d926));
   background: linear-gradient(to top, rgba(26, 43, 8, 0), #80d926);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -673,17 +706,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(26, 43, 8, 0)), to(#80d926));
   background: linear-gradient(to right, rgba(26, 43, 8, 0), #80d926);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -695,17 +729,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 43, 8, 0)), to(#80d926));
   background: linear-gradient(to bottom, rgba(26, 43, 8, 0), #80d926);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -715,7 +750,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4f7d4;
   font-size: 20px;
@@ -724,7 +759,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button5::before {
@@ -756,17 +791,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 43, 8, 0)), to(#26d926));
   background: linear-gradient(to left, rgba(8, 43, 8, 0), #26d926);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -778,17 +814,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 43, 8, 0)), to(#26d926));
   background: linear-gradient(to top, rgba(8, 43, 8, 0), #26d926);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -800,17 +837,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 43, 8, 0)), to(#26d926));
   background: linear-gradient(to right, rgba(8, 43, 8, 0), #26d926);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -822,17 +860,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 43, 8, 0)), to(#26d926));
   background: linear-gradient(to bottom, rgba(8, 43, 8, 0), #26d926);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -842,7 +881,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4f7e6;
   font-size: 20px;
@@ -851,7 +890,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button6::before {
@@ -883,17 +922,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
   background: linear-gradient(to left, rgba(8, 43, 26, 0), #26d980);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -905,17 +945,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
   background: linear-gradient(to top, rgba(8, 43, 26, 0), #26d980);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -927,17 +968,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 43, 26, 0)), to(#26d980));
   background: linear-gradient(to right, rgba(8, 43, 26, 0), #26d980);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -949,17 +991,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 43, 26, 0)), to(#26d980));
   background: linear-gradient(to bottom, rgba(8, 43, 26, 0), #26d980);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -969,7 +1012,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4f7f7;
   font-size: 20px;
@@ -978,7 +1021,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button7::before {
@@ -1010,17 +1053,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 43, 43, 0)), to(#26d9d9));
   background: linear-gradient(to left, rgba(8, 43, 43, 0), #26d9d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1032,17 +1076,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 43, 43, 0)), to(#26d9d9));
   background: linear-gradient(to top, rgba(8, 43, 43, 0), #26d9d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1054,17 +1099,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 43, 43, 0)), to(#26d9d9));
   background: linear-gradient(to right, rgba(8, 43, 43, 0), #26d9d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1076,17 +1122,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 43, 43, 0)), to(#26d9d9));
   background: linear-gradient(to bottom, rgba(8, 43, 43, 0), #26d9d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -1096,7 +1143,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4e6f7;
   font-size: 20px;
@@ -1105,7 +1152,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button8::before {
@@ -1137,17 +1184,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 26, 43, 0)), to(#2680d9));
   background: linear-gradient(to left, rgba(8, 26, 43, 0), #2680d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1159,17 +1207,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 26, 43, 0)), to(#2680d9));
   background: linear-gradient(to top, rgba(8, 26, 43, 0), #2680d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1181,17 +1230,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 26, 43, 0)), to(#2680d9));
   background: linear-gradient(to right, rgba(8, 26, 43, 0), #2680d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1203,17 +1253,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 26, 43, 0)), to(#2680d9));
   background: linear-gradient(to bottom, rgba(8, 26, 43, 0), #2680d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -1223,7 +1274,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #d4d4f7;
   font-size: 20px;
@@ -1232,7 +1283,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button9::before {
@@ -1264,17 +1315,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(8, 8, 43, 0)), to(#2626d9));
   background: linear-gradient(to left, rgba(8, 8, 43, 0), #2626d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1286,17 +1338,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 8, 43, 0)), to(#2626d9));
   background: linear-gradient(to top, rgba(8, 8, 43, 0), #2626d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1308,17 +1361,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(8, 8, 43, 0)), to(#2626d9));
   background: linear-gradient(to right, rgba(8, 8, 43, 0), #2626d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1330,17 +1384,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 8, 43, 0)), to(#2626d9));
   background: linear-gradient(to bottom, rgba(8, 8, 43, 0), #2626d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -1350,7 +1405,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #e6d4f7;
   font-size: 20px;
@@ -1359,7 +1414,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button10::before {
@@ -1391,17 +1446,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(26, 8, 43, 0)), to(#8026d9));
   background: linear-gradient(to left, rgba(26, 8, 43, 0), #8026d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1413,17 +1469,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(26, 8, 43, 0)), to(#8026d9));
   background: linear-gradient(to top, rgba(26, 8, 43, 0), #8026d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1435,17 +1492,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(26, 8, 43, 0)), to(#8026d9));
   background: linear-gradient(to right, rgba(26, 8, 43, 0), #8026d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1457,17 +1515,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 8, 43, 0)), to(#8026d9));
   background: linear-gradient(to bottom, rgba(26, 8, 43, 0), #8026d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -1477,7 +1536,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7d4f7;
   font-size: 20px;
@@ -1486,7 +1545,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button11::before {
@@ -1518,17 +1577,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 43, 0)), to(#d926d9));
   background: linear-gradient(to left, rgba(43, 8, 43, 0), #d926d9);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1540,17 +1600,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 43, 0)), to(#d926d9));
   background: linear-gradient(to top, rgba(43, 8, 43, 0), #d926d9);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1562,17 +1623,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 43, 0)), to(#d926d9));
   background: linear-gradient(to right, rgba(43, 8, 43, 0), #d926d9);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1584,17 +1646,18 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 43, 0)), to(#d926d9));
   background: linear-gradient(to bottom, rgba(43, 8, 43, 0), #d926d9);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }
 
@@ -1604,7 +1667,7 @@ section{
   margin: 12px;
   display: inline-block;
   -webkit-transform: translate(0%, 0%);
-          transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
   overflow: hidden;
   color: #f7d4e6;
   font-size: 20px;
@@ -1613,7 +1676,7 @@ section{
   text-transform: uppercase;
   text-decoration: none;
   -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .animated-button12::before {
@@ -1645,17 +1708,18 @@ section{
   background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 26, 0)), to(#d92680));
   background: linear-gradient(to left, rgba(43, 8, 26, 0), #d92680);
   -webkit-animation: 2s animateTop linear infinite;
-          animation: 2s animateTop linear infinite;
+  animation: 2s animateTop linear infinite;
 }
 
 @keyframes animateTop {
   0% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
+
   100% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -1667,17 +1731,18 @@ section{
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 26, 0)), to(#d92680));
   background: linear-gradient(to top, rgba(43, 8, 26, 0), #d92680);
   -webkit-animation: 2s animateRight linear -1s infinite;
-          animation: 2s animateRight linear -1s infinite;
+  animation: 2s animateRight linear -1s infinite;
 }
 
 @keyframes animateRight {
   0% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
+
   100% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -1689,17 +1754,18 @@ section{
   background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 26, 0)), to(#d92680));
   background: linear-gradient(to right, rgba(43, 8, 26, 0), #d92680);
   -webkit-animation: 2s animateBottom linear infinite;
-          animation: 2s animateBottom linear infinite;
+  animation: 2s animateBottom linear infinite;
 }
 
 @keyframes animateBottom {
   0% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
+
   100% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
 }
 
@@ -1711,16 +1777,36 @@ section{
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 26, 0)), to(#d92680));
   background: linear-gradient(to bottom, rgba(43, 8, 26, 0), #d92680);
   -webkit-animation: 2s animateLeft linear -1s infinite;
-          animation: 2s animateLeft linear -1s infinite;
+  animation: 2s animateLeft linear -1s infinite;
+}
+
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #46423b;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: #bc3b2c;
 }
 
 @keyframes animateLeft {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   100% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
 }

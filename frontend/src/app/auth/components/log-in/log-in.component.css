@@ -20,8 +20,8 @@ input.form-control {
 }
 
 input.form-control:focus {
-  border-color: rgb(78, 24, 23);
-  box-shadow: 0 0 10px rgb(78, 24, 23);
+  border-color: #bc3b2c;
+  box-shadow: 0 0 10px rgb(172, 42, 40);
 }
 
 h2 {
