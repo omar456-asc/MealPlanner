@@ -39,7 +39,7 @@ export class LogInComponent {
     this.myService.LOGIN(logInUser).subscribe(
       (response:any)=>{
         this.authService.setToken(response.token);
-        this.authService.setUserToken(response.token);
+        this.authService.setToken(response.token);
         this.router.navigateByUrl('');
       }
     ,(err)=>{
