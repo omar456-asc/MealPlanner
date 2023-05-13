@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private token: any;
 
-  constructor() { }
+  constructor() {}
 
   setToken(token: any) {
     this.token = token;
@@ -28,8 +28,4 @@ export class AuthService {
   isUserLoggedIn() {
     return localStorage.getItem('token');
   }
-
-  // setUserToken(token: any) {
-  //   localStorage.setItem('token', token);
-  // }
 }

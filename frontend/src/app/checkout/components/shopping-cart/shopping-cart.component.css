@@ -26,11 +26,6 @@
 
 }
 
-.quantity {
-    display: flex;
-    align-items: center;
-}
-
 .minus-btn,
 .plus-btn {
     font-size: 1.5rem;
