@@ -9,8 +9,8 @@ import { LatestOrdersComponent } from './dashboard/latest-orders/latest-orders.c
 import { LatestMembersComponent } from './dashboard/latest-members/latest-members.component';
 import { RecentlyAddedProductsComponent } from './dashboard/recently-added-products/recently-added-products.component';
 import { UsersModule } from './users/users.module';
+import { IngredientsModule } from './ingredients/ingredients.module';
 import { AdminComponent } from './admin.component';
-
 
 @NgModule({
   declarations: [
@@ -19,13 +19,14 @@ import { AdminComponent } from './admin.component';
     LatestOrdersComponent,
     LatestMembersComponent,
     RecentlyAddedProductsComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     AdminSharedModule,
-    UsersModule
-  ]
+    UsersModule,
+    IngredientsModule,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}
