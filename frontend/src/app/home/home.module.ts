@@ -6,6 +6,8 @@ import { TeamMemberComponent } from './components/team-member/team-member.compon
 import { HeroComponent } from './components/hero/hero.component';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
+import { WhyUsComponent } from './components/why-us/why-us.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { SharedModule } from '../shared/shared.module';
     HeroComponent,
     TeamMemberComponent,
     HomeComponent,
+    WhyUsComponent,
+    ContactFormComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [
@@ -22,6 +26,7 @@ import { SharedModule } from '../shared/shared.module';
     HeroComponent,
     TeamMemberComponent,
     HomeComponent,
+    WhyUsComponent,
   ],
 })
 export class HomeModule {}
