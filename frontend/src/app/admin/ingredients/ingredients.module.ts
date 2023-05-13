@@ -4,6 +4,8 @@ import { AllIngredientsComponent } from './components/all-ingredients/all-ingred
 import { CreateIngredientComponent } from './components/create-ingredient/create-ingredient.component';
 import { UpdateIngredientComponent } from './components/update-ingredient/update-ingredient.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AdminSharedModule } from '../admin-shared/admin-shared.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { RouterLink, RouterModule } from '@angular/router';
     CreateIngredientComponent,
     UpdateIngredientComponent,
   ],
-  imports: [CommonModule, RouterModule],
+
+  imports: [CommonModule, RouterModule, FormsModule, AdminSharedModule],
   exports: [
     AllIngredientsComponent,
     CreateIngredientComponent,
