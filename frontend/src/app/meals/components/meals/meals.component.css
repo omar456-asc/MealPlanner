@@ -3,6 +3,7 @@
   background-color: black;
 height: 100%;
 min-height: 100vh;
+
 }
 
 .card-container {
@@ -82,4 +83,82 @@ display: contents;
 .btn{
   border: 0 !important;
     background: transparent !important;
+}
+/* search  */
+
+
+fieldset {
+
+  border: 0;
+}
+
+
+.choices__input {
+  border: 0;
+}
+
+.choices__input:focus {
+  outline: 0;
+}
+
+
+.s004 {
+margin-top: 35px;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+
+}
+.s004 form {
+  width: 100%;
+  max-width: 50%;
+}
+
+
+.s004 form .inner-form {
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.s004 form .inner-form .input-field {
+  width: 100%;
+  position: relative;
+}
+
+.s004 form .inner-form .input-field .btn-search {
+
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  align-items: center;
+}
+
+.s004 form .inner-form .input-field .btn-search svg {
+  fill: #333;
+  width: 40px;
+  height: 40px;
+
+}
+
+.s004 form .suggestion-wrap a {
+  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 32px;
+  color: #fff;
+  border-radius: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

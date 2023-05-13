@@ -1,16 +1,40 @@
+<app-header></app-header>
 <section id="meals">
-
+  <div class="s004">
+    <form>
+      <fieldset>
+        <div class="inner-form">
+          <div class="input-field">
+            <input class="form-control" id="choices-text-preset-values" type="text" placeholder="Type to search..." />
+            <button class="btn-search" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="suggestion-wrap">
+          <a>Fruits</a>
+          <a>Vegetables</a>
+          <a>Grains</a>
+          <a>Protein Foods</a>
+          <a>Dairy</a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
   <div class="container">
-    <div class="row"  >
+    <div class="row my-4"  >
       <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of Meals;">
         <div class="card  " >
           <img src={{meal.image}} class="card-image" alt="...">
           <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
-           <button routerLink="/mealdetails/{{meal.id}}" class="btn"><i class="fa-solid fa-eye" ></i></button>
-           <button class="btn" (click)="AddToFav(meal.id)"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"></i></button>
+           <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
+           <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
           </div>
           <div class="card-content">
             <h5 class="card-title">{{meal.title}}</h5>
+            <p>{{meal.summary}}</p>
           </div>
         </div>
       </div>
@@ -33,3 +57,4 @@
   </div>
 </section>
 
+<app-footer></app-footer>
