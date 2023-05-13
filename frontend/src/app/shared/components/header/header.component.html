@@ -20,15 +20,17 @@
         <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
         <li>
-          <a href="#"
+          <a href="checkout"
             ><i class="bi bi-cart-dash-fill nav-link scrollto fs-5"></i
           ></a>
         </li>
         <li class="dropdown">
           <a><i class="bi bi-chevron-down fs-6"></i></a>
           <ul>
-            <li><a routerLink="/profile" >profile </a></li>
-            <li *ngIf="isLoggedIn"><a (click)="logout()" routerLink="/login">log out</a></li>
+            <li><a routerLink="/profile">profile </a></li>
+            <li *ngIf="isLoggedIn">
+              <a (click)="logout()" routerLink="/login">log out</a>
+            </li>
             <li *ngIf="!isLoggedIn"><a routerLink="/login">Log-in</a></li>
           </ul>
         </li>
