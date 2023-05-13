@@ -38,7 +38,7 @@ import { PaymentModule } from './payment/payment.module';
     FormsModule,
     ReactiveFormsModule,
     CheckoutModule,
-    PaymentModule
+    PaymentModule,
   ],
   providers: [
     AuthService,
