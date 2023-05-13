@@ -13,19 +13,15 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
 import { CheckoutModule } from './checkout/checkout.module';
-import { ProfileComponent } from './profile/components/profile/profile.component';
+import { ProfileModule } from './profile/profile.module';
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LogInComponent,
-    SignUpComponent,
-    ProfileComponent,
-  ],
+  declarations: [AppComponent, LogInComponent, SignUpComponent],
   imports: [
     BrowserModule,
     SharedModule,
@@ -37,6 +33,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     FormsModule,
     ReactiveFormsModule,
     CheckoutModule,
+    ProfileModule,
   ],
   providers: [
     AuthService,

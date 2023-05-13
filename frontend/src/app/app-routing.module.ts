@@ -8,7 +8,8 @@ import { ContactUsComponent } from './home/components/contact-us/contact-us.comp
 import { HeroComponent } from './home/components/hero/hero.component';
 import { LatestBlogComponent } from './home/components/latest-blog/latest-blog.component';
 import { TeamMemberComponent } from './home/components/team-member/team-member.component';
-import { ProfileComponent } from './profile/components/profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
+
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
@@ -16,8 +17,8 @@ import { ContactFormComponent } from './home/components/contact-form/contact-for
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '', component: HomeComponent },
 ];
 
