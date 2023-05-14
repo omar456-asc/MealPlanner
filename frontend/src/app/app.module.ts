@@ -24,9 +24,11 @@ import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
+import { RatingStarsComponent } from './meals/components/rating-stars/rating-stars.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LogInComponent, SignUpComponent, MealsComponent,MealDetailsComponent],
+  declarations: [AppComponent, LogInComponent, SignUpComponent, MealsComponent,MealDetailsComponent,    RatingStarsComponent],
   imports: [
     BrowserModule,
     SharedModule,
@@ -41,6 +43,8 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
     CheckoutModule,
     ProfileModule,
     PaymentModule,
+
+
   ],
   providers: [
     AuthService,
