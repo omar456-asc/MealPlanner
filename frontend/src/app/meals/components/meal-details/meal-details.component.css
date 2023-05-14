@@ -21,7 +21,7 @@ width: 100%;
 /* btn */
 .btn{
   color: #fff;
-  background: linear-gradient(135deg, #bc3b2c, rgb(33, 32, 31));
+  background-color: #bc3b2c;
   font-family: 'Comfortaa', cursive;
   font-size: 22px;
   font-weight: 700;

@@ -8,15 +8,15 @@ import { MealsComponent } from './components/meals/meals.component';
 
 @NgModule({
   declarations: [
-    MealsComponent,
-    MealDetailsComponent
+    // MealsComponent,
+    // MealDetailsComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [
-  MealsComponent,
-  MealDetailsComponent
-  ],
+  // exports: [
+  // MealsComponent,
+  // MealDetailsComponent
+  // ],
 })
 export class MealsModule { }

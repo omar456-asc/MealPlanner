@@ -14,4 +14,7 @@ export class AllMealsService {
     //method[Get-Delete-Put-Patch]
     return this.myClient.get(this.Base_URL);
   }
+  GetMealByID(id:any){
+    return this.myClient.get(this.Base_URL+"/"+id);
+  }
 }
