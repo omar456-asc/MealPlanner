@@ -17,10 +17,14 @@ router.get("/logout",AuthController.logout);
 //#endregion
 
 //#region User
+router.get("/latest8users", UserController.getLatest8users);
+
 router.get("/",UserController.GetAllUsers);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
 router.delete("/:id",UserController.DeleteUserByID);
+
+
 //#endregion
 
 // var id = 0;

@@ -57,9 +57,21 @@ var DeleteProductByID = async (req, res) => {
   }
 };
 
+var getLatest6products = async (req, res) => {
+  try {
+    var AllProducts = await productsModel.find().sort({ _id: -1 }).limit(6);
+    await res.json(AllProducts);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send("failed to get last 6 products");
+  }
+};
+
+
 module.exports = {
-    GetAllProducts,
-    GetProductByID,
+  GetAllProducts,
+  GetProductByID,
   //   UpdateUserByID,
-    DeleteProductByID,
+  DeleteProductByID,
+  getLatest6products,
 };

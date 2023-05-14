@@ -14,4 +14,9 @@ export class AllMealsService {
     //method[Get-Delete-Put-Patch]
     return this.myClient.get(this.Base_URL);
   }
+
+
+  getLatest6products() {
+    return this.myClient.get(this.Base_URL +'/latest6products');
+  }
 }
