@@ -36,6 +36,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
     AdminModule,
     HomeModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     AuthService,
