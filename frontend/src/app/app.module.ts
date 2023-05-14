@@ -17,7 +17,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     AdminModule,
     HomeModule,
     ReactiveFormsModule,
-    NgxDatatableModule,
   ],
   providers: [
     AuthService,
