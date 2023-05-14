@@ -1,0 +1,72 @@
+section {
+  background-color: black;
+  display: flex; /* set the container to use flexbox */
+  justify-content: center; /* center the child elements horizontally */
+  align-items: center; /* center the child elements vertically */
+  /* set the height of the container to 100% of the viewport height */
+min-height: 100vh;
+color: white;
+
+}
+#details{
+  /* border: 1px solid white; */
+  padding: 20px;
+  color: white;
+  transition: all 0.3s ease-out;
+
+}
+.img{
+width: 100%;
+  transition: all 0.3s ease-out;}
+/* btn */
+.btn{
+  color: #fff;
+  background: linear-gradient(135deg, #bc3b2c, rgb(33, 32, 31));
+  font-family: 'Comfortaa', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: lowercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btn:hover{
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  animation: rotate 0.7s ease-in-out both;
+}
+.btn:before,
+.btn:after{
+  content: '';
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(100%, -25%) translate3d(0, 0, 0);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btn:hover:before,
+.btn:hover:after{
+  opacity: 0.15;
+}
+.btn:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+.btn:hover:after{ transform: translate(50%, 0) scale(1.1); }
+@keyframes rotate{
+  0%{ transform: rotate(0deg); }
+  25%{ transform: rotate(3deg); }
+  50%{ transform: rotate(-3deg); }
+  75%{ transform: rotate(1deg); }
+  100%{ transform: rotate(0deg); }
+}
+@media only screen and (max-width: 767px){
+  .btn{ margin-bottom: 20px; }
+}
