@@ -5,9 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private token: any;
+  private id: any;
 
   constructor() {}
+//useridregion
+  setUserID(id: any) {
+    this.id = id;
+    localStorage.setItem('id', id);
+  }
 
+  getUserID() {
+    return this.id;
+  }
+  //endregion
+  //tokenregion
   setToken(token: any) {
     this.token = token;
     localStorage.setItem('token', token);
@@ -23,9 +34,12 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('cart');
   }
 
   isUserLoggedIn() {
     return localStorage.getItem('token');
   }
+  //endregion
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
 
 
@@ -12,8 +12,9 @@ import { AllMealsService } from '../../services/all-meals.service';
 })
 export class MealDetailsComponent  implements OnInit {
  public  cart: [{"id":string,"quantity":number}];
+ cartAlert=false;
   public oldcart: string | null;
-  userID=0
+  userID=localStorage.getItem('id');
   maxRating = 5;
   stars = Array.from({ length: this.maxRating }, (_, i) => i + 1);
   rating = 0;
@@ -22,7 +23,10 @@ export class MealDetailsComponent  implements OnInit {
     this.rating = star;}
   ID:any;
   Meal:any;
-  constructor(myRoute:ActivatedRoute,public myService: AllMealsService){
+  constructor(
+    myRoute:ActivatedRoute,
+    public myService: AllMealsService,
+    private router: Router){
     this.ID = myRoute.snapshot.params["id"];
      this.oldcart = localStorage.getItem('cart');
     if (this.oldcart) {
@@ -36,34 +40,33 @@ export class MealDetailsComponent  implements OnInit {
     this.myService.GetMealByID(this.ID).subscribe(
       {
         next:(data)=>{
-          //console.log(data);
+
           this.Meal = data;
           this.rating=Number(this.Meal[0].rate);
-          console.log(this.Meal)
+
         },
         error:(err)=>{console.log(err)}
       }
     );
   }
   AddToCart(){
-    if(this.cart[0].id=="0"){
-      this.cart.shift();
-    }
-    let index = this.cart.findIndex(item => item.id == this.ID);
-    if(index ==-1){
-     this.cart.push({"id":this.ID,"quantity":1});}
-    else{
-     this.cart[index].quantity=Number(this.cart[index].quantity)+1;
-   }
 
-    this.myService.setCart(JSON.stringify(this.cart));
     this.myService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
-      console.log("res");
+      if(this.cart[0].id=="0"){
+        this.cart.shift();
+      }
+      let index = this.cart.findIndex(item => item.id == this.ID);
+      if(index ==-1){
+       this.cart.push({"id":this.ID,"quantity":1});}
+      else{
+       this.cart[index].quantity=Number(this.cart[index].quantity)+1;
+     }
 
-
+      this.myService.setCart(JSON.stringify(this.cart));
+      this.cartAlert=true;
     },
     (err)=>{
-      console.log("error");
+      this.router.navigateByUrl('login');
     }
     );
   }

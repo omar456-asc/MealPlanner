@@ -34,13 +34,14 @@ export class LogInComponent {
     private authService: AuthService,
     private router: Router
   ) {}
-      
+
   Add(email: any, password: any) {
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe(
       (response: any) => {
+         console.log(response);
         this.authService.setToken(response.token);
-        // this.authService.setUserToken(response.token);
+        this.authService.setUserID(response.id);
         this.router.navigateByUrl('');
       },
       (err) => {
