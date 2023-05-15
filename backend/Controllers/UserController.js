@@ -26,7 +26,14 @@ var UpdateUserByID = async(req, res)=>{
         var ID = req.params.id;
         var updatedUser = req.body;
         const salt = await bcrybt.genSalt();
-        await usersmodel.updateOne({_id:ID},{"fname":updatedUser.fname,"lname":updatedUser.lname,"password":await bcrybt.hash(updatedUser.password, salt)});
+        let newpassword;
+        console.log(updatedUser.fname)
+        if(updatedUser.password){
+            newpassword =  await bcrybt.hash(updatedUser.password, salt)
+        }
+       
+        const update = { $set: { cart: [updatedUser.cart] } };
+        await usersmodel.updateOne({_id:ID},{"fname":updatedUser.fname,"lname":updatedUser.lname,"password":newpassword,update});
         await res.send(updatedUser);
     }catch(e){
         console.log(e);
