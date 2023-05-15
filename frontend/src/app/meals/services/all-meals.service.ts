@@ -22,12 +22,11 @@ export class AllMealsService {
 //#endregion
 //#region MealLocalStorage
   setCart(cart: any) {
-    this.cart = cart;
     localStorage.setItem('cart', cart);
   }
   getCart(){
-    this.cart.push(localStorage.getItem('cart'));
-    return this.cart;
+
+    return  localStorage.getItem('cart')
   }
 
 //#endregion
