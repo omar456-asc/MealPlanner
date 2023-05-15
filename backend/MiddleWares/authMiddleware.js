@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 dotenv.config();
 
 const secret = process.env.SECRET_KEY;
@@ -11,14 +11,14 @@ const requireAuth = (req, res, next) => {
     jwt.verify(token, secret, (err, decodedToken) => {
       if (err) {
         console.log(err.message);
-        res.redirect("/login");
+        res.redirect('/login');
       } else {
         console.log(decodedToken);
         next();
       }
     });
   } else {
-    res.redirect("/login");
+    res.redirect('/login');
   }
 };
 
@@ -42,14 +42,5 @@ const checkUser = (req, res, next) => {
   }
 };
 
-// Middleware function to check if user is an admin
-function isAdmin(req, res, next) {
-  // Check if user is an admin
-  if (req.user.is_admin) {
-    return next();
-  }
-  // Redirect to home page
-  res.redirect("/");
-}
 
-module.exports = { requireAuth, checkUser, isAdmin };
+module.exports = { requireAuth, checkUser };
