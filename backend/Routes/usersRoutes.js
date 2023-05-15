@@ -4,7 +4,7 @@ const express = require("express");
 const router = new express.Router();
 const bcrypt = require("bcrypt");
 
-const userModel = require("../Models/usersModel");
+// const userModel = require("../Models/usersModel");
 
 const userValid = require("../Utils/AuthValidate");
 const UserController = require("../Controllers/UserController");
