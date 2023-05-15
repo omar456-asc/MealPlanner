@@ -34,7 +34,7 @@ export class LogInComponent {
     private authService: AuthService,
     private router: Router
   ) {}
-
+      
   Add(email: any, password: any) {
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe(

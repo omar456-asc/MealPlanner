@@ -11,6 +11,7 @@ import { AllMealsService } from '../../services/all-meals.service';
   styleUrls: ['./meal-details.component.css']
 })
 export class MealDetailsComponent  implements OnInit {
+  public cart : any[] | undefined;
   maxRating = 5;
   stars = Array.from({ length: this.maxRating }, (_, i) => i + 1);
   rating = 0;
@@ -21,6 +22,7 @@ export class MealDetailsComponent  implements OnInit {
   Meal:any;
   constructor(myRoute:ActivatedRoute,public myService: AllMealsService){
     this.ID = myRoute.snapshot.params["id"];
+
   }
   ngOnInit(): void {
     this.myService.GetMealByID(this.ID).subscribe(
@@ -34,6 +36,12 @@ this.rating=Number(this.Meal[0].rate);
         error:(err)=>{console.log(err)}
       }
     );
+  }
+  AddToCart(){
+    this.cart=this.myService.getCart()
+    let newcart=this.cart.push(this.ID)
+    console.log(this.cart);
+    this.myService.setCart(this.cart);
   }
 
 }

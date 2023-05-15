@@ -12,6 +12,7 @@ if(mongoose.connect(DB_URL, {useNewUrlParser:true})){
 var userSchema = new mongoose.Schema({
     fname:{type:String, required:true, minlength:3, maxlength:50},
     lname:{type:String, required:true, minlength:3, maxlength:50},
+    cart: {type:Array},
     email:{
         type:String,
         required:[true, 'Please enter an email'], 
