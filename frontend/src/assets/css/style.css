@@ -5,11 +5,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 a:hover {
-  color: #ff4f3b;
+  color: #bc3b2c;
   text-decoration: none;
 }
 
@@ -43,16 +43,17 @@ section {
   margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
-  color: #5f5950;
+  color: rgb(224, 224, 225);
 }
 
 .section-title h2 span {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .section-title p {
   margin: 15px auto 0 auto;
   font-weight: 300;
+  color: rgb(224, 224, 225);
 }
 
 @media (min-width: 1024px) {

@@ -1,9 +1,10 @@
 #header {
+  /* background: rgba(12, 12, 11, 0.85); */
+  background: rgba(78, 28, 28, 0.85);
   height: 70px;
   z-index: 997;
   transition: all 0.5s;
   padding: 10px 0;
-  background: rgba(26, 24, 22, 0.85);
 }
 
 #header.header-transparent {
@@ -12,7 +13,8 @@
 
 #header.header-scrolled {
   top: 0;
-  background: rgba(26, 24, 22, 0.85);
+  /* background: rgba(26, 24, 22, 0.85); */
+  background: rgba(188, 59, 44, 0.85);
 }
 
 #header .logo h1 {
@@ -25,7 +27,7 @@
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #ff4f3b;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -34,6 +36,7 @@
   margin: 0;
   max-height: 40px;
 }
+
 .navbar {
   padding: 0;
 }
@@ -74,16 +77,16 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #ff4f3b;
+  color: #d4af37;
 }
 
 .navbar .dropdown ul {
   display: block;
   position: absolute;
-  left: 24px;
+  left: -22px;
   top: calc(100% + 30px);
   margin: 0;
-  padding: 10px 0;
+  padding: 10px 10px;
   z-index: 99;
   opacity: 0;
   visibility: hidden;
@@ -94,14 +97,15 @@
 }
 
 .navbar .dropdown ul li {
-  min-width: 200px;
+  min-width: 120px;
 }
 
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 500;
   color: #433f39;
+  text-decoration: none;
 }
 
 .navbar .dropdown ul a i {
@@ -111,7 +115,7 @@
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar .dropdown:hover > ul {
@@ -204,7 +208,7 @@
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar-mobile .getstarted,
@@ -239,7 +243,7 @@
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {
-  color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -250,7 +254,7 @@
 # Book a table button Menu
 --------------------------------------------------------------*/
 .book-a-table-btn {
-  background: #ff4f3b;
+  background: #bc3b2c;
   color: #fff;
   border-radius: 50px;
   margin: 0 0 0 20px;
@@ -263,7 +267,7 @@
 }
 
 .book-a-table-btn:hover {
-  background: #ff4f3b;
+  background: #bc3b2c;
   color: #fff;
 }
 

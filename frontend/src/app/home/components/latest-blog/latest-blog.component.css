@@ -5,7 +5,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(2, 2, 2, 0.8);
     z-index: 9;
 }
 
@@ -31,7 +31,9 @@
 .blog .member .pic {
     overflow: hidden;
     position: relative;
-    top: 50px;
+    top: 20px;
+    left: 20px;
+
 }
 
 .blog .member .member-info {
@@ -63,7 +65,7 @@
     display: block;
     width: 50px;
     height: 1px;
-    background: #ff4f3b;
+    background: #bc3b2c;
     bottom: 0;
     left: calc(50% - 25px);
 }
@@ -88,4 +90,6 @@
     .blog {
         background-attachment: fixed;
     }
+
 }
+
