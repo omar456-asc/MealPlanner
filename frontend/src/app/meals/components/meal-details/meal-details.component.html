@@ -21,9 +21,11 @@
           </div>
 <p class="font-weight-bold mt-2">price: {{Meal[0].price}}</p>
 <p >{{Meal[0].summary}}</p>
-<button class="btn btn-lg "  (click)="AddToCart()">
-  <span>Add To Cart</span>
-</button>
+<form method="POST">
+  <button class="btn btn-lg "  (click)="AddToCart()" type="submit">
+    <span>Add To Cart</span>
+  </button>
+</form>
         </div>
       </div >
 <div class="col-md-10 offset-1 mt-5 py-4 border-top" >

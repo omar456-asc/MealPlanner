@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AllMealsService {
-  private cart: any[]=[];
+
 
   private readonly Base_URL = "http://localhost:7400/api/products";
   constructor(private readonly myClient:HttpClient) { }
@@ -28,6 +28,8 @@ export class AllMealsService {
 
     return  localStorage.getItem('cart')
   }
-
+  AddToUserCart(cart:any,userID:any){
+    return this.myClient.post(this.Base_URL+"/"+userID,cart);
+  }
 //#endregion
 }

@@ -5,7 +5,7 @@ var AddToCart = async(req, res)=>{
         var ID = req.params.id;
         var updatedCart = req.body;
        
-        await usersmodel.updateOne({_id:ID},{"cart":updatedCart.cart});
+        await usersmodel.updateOne({_id:ID},{"cart":updatedCart});
         await res.send(updatedCart);
     }catch(e){
         console.log(e);

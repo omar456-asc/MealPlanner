@@ -11,8 +11,9 @@ import { AllMealsService } from '../../services/all-meals.service';
   styleUrls: ['./meal-details.component.css']
 })
 export class MealDetailsComponent  implements OnInit {
-   cart: [{"id":string,"quantity":number}];
+ public  cart: [{"id":string,"quantity":number}];
   public oldcart: string | null;
+  userID=0
   maxRating = 5;
   stars = Array.from({ length: this.maxRating }, (_, i) => i + 1);
   rating = 0;
@@ -37,7 +38,7 @@ export class MealDetailsComponent  implements OnInit {
         next:(data)=>{
           //console.log(data);
           this.Meal = data;
-this.rating=Number(this.Meal[0].rate);
+          this.rating=Number(this.Meal[0].rate);
           console.log(this.Meal)
         },
         error:(err)=>{console.log(err)}
@@ -50,13 +51,21 @@ this.rating=Number(this.Meal[0].rate);
     }
     let index = this.cart.findIndex(item => item.id == this.ID);
     if(index ==-1){
-   this.cart.push({"id":this.ID,"quantity":1});}
-   else{
-    this.cart[index].quantity=Number(this.cart[index].quantity)+1;
+     this.cart.push({"id":this.ID,"quantity":1});}
+    else{
+     this.cart[index].quantity=Number(this.cart[index].quantity)+1;
    }
 
     this.myService.setCart(JSON.stringify(this.cart));
+    this.myService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
+      console.log("res");
 
+
+    },
+    (err)=>{
+      console.log("error");
+    }
+    );
   }
 
 }
