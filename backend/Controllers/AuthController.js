@@ -44,37 +44,41 @@ if(e.message=='incorrect password, please try again'){
 //#endregion
 
 //#region JWT
-const maxDay = 3 * 24 *60 * 60 ;   // The days i logged in then expires
-const createToken = (id) =>{
-    return jwt.sign({ id }, secret,{
-        expiresIn: maxDay
-    }) ;  //id, secret 
-}
+const maxDay = 3 * 24 * 60 * 60; // The days i logged in then expires
+const createToken = (user) => {
+  return jwt.sign({ user }, secret, {
+    expiresIn: maxDay,
+  }); //id, secret
+};
 //#endregion
 
 //#region SignUp
-var AddNewUser = async(req,res)=>{
-    const { fname, lname, email, password } = req.body;
-    try{
-         const usersModelCreate = await usersmodel.create({
-             fname, lname, email, password
-         });
-         const token = createToken(usersModelCreate._id);
-         res.json({"status": "success"});
-    }catch(e){
-        const errors = handleErrors(e);
-        res.status(400).json({"status": "failed","message":errors});
-    }  
-}
+var AddNewUser = async (req, res) => {
+  const { fname, lname, email, password } = req.body;
+  try {
+    const usersModelCreate = await usersmodel.create({
+      fname,
+      lname,
+      email,
+      password,
+    });
+    const token = createToken(usersModelCreate);
+    res.json({ status: "success" });
+  } catch (e) {
+    const errors = handleErrors(e);
+    res.status(400).json({ status: "failed", message: errors });
+  }
+};
 //#endregion
 
 //#region LogIn
 var logIn = async (req, res) => {
-    const {email, password} = req.body;
-    try{
-        const user = await usersmodel.login(email, password);
-        const token = createToken(user._id);
-        res.cookie('token', token,{maxAge:maxDay*1000})
+  const { email, password } = req.body;
+  try {
+    const user = await usersmodel.login(email, password);
+    console.log("gdfgggggggggggggggggggggggggggg",user);
+    const token = createToken(user);
+    res.cookie("token", token, { maxAge: maxDay * 1000 });
 
         res.status(200)
         res.json({"status":"success",token: token});

@@ -4,6 +4,7 @@ dotenv.config();
 
 const secret = process.env.SECRET_KEY;
 const requireAuth = (req, res, next) => {
+  console.log("bdfbhfgbhfgnhgfnfng");
   const token = req.cookies.jwt;
 
   // check json web token exists & is verified
@@ -24,6 +25,7 @@ const requireAuth = (req, res, next) => {
 
 // check current user
 const checkUser = (req, res, next) => {
+  
   const token = req.cookies.jwt;
   if (token) {
     jwt.verify(token, secret, async (err, decodedToken) => {
