@@ -28,8 +28,6 @@ export class AllMealsService {
 
     return  localStorage.getItem('cart')
   }
-  AddToUserCart(cart:any,userID:any){
-    return this.myClient.post(this.Base_URL+"/"+userID,cart);
-  }
+
 //#endregion
 }

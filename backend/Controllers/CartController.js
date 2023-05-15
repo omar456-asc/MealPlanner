@@ -21,16 +21,18 @@ var GetCart = async (req, res) => {
         const userId = req.params.id;
       var UsersById = await usersmodel.aggregate([
     {
+      
+      $match: { _id: new ObjectId(userId) },
+    },{
       $lookup: {
         from: "meals",
         localField: "cart",
         foreignField: "_id",
         as: "user_cart"
-      },
-      $match: { _id: new ObjectId(userId) }
+      }
     }
   ])
-      await res.status(200).json(UsersById);
+     res.json(UsersById);
     } catch (e) {
       console.log(e);
       res.status(400).send("failed to get all meals");

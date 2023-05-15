@@ -10,6 +10,7 @@ export class ShoppingCartComponent implements OnInit {
 
   quantityInput = 1;
   ID:any=localStorage.getItem('id')
+  cart:any
   constructor(
 
     public myService: ShoppingCartService){}
@@ -17,8 +18,9 @@ export class ShoppingCartComponent implements OnInit {
     this.myService.GetCart(this.ID).subscribe(
       {
         next:(data)=>{
+          this.cart=data
+          console.log(this.cart)
 
-          console.log("sss");
 
         },
         error:(err)=>{console.log(err)}

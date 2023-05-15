@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
+import { ShoppingCartComponent } from 'src/app/checkout/components/shopping-cart/shopping-cart.component';
+import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 
 
 
@@ -27,6 +29,7 @@ export class MealDetailsComponent  implements OnInit {
   constructor(
     myRoute:ActivatedRoute,
     public myService: AllMealsService,
+    public cartService:ShoppingCartService,
     private router: Router){
     this.ID = myRoute.snapshot.params["id"];
      this.oldcart = localStorage.getItem('cart');
@@ -64,7 +67,7 @@ export class MealDetailsComponent  implements OnInit {
 
       }
 
-    this.myService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
+    this.cartService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
 
 
 

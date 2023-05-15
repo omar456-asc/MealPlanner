@@ -30,9 +30,14 @@ const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
 
-//#region user
+//#region product
 const ProductRoutes = require("./Routes/productsRoutes");
 app.use("/api/products", ProductRoutes);
+//#endregion
+
+//#region cart
+const CartRoutes = require("./Routes/cartRoutes");
+app.use("/api/cart", CartRoutes);
 //#endregion
 
 app.listen(PORT, () => {

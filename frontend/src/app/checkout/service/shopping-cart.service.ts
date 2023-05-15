@@ -14,5 +14,8 @@ export class ShoppingCartService {
 
     return this.myClient.get(this.Base_URL+"/"+id);
   }
+  AddToUserCart(cart:any,userID:any){
+    return this.myClient.post(this.Base_URL+"/"+userID,cart);
+  }
 
 }
