@@ -11,7 +11,7 @@ export class HeaderComponent {
   constructor(private authService: AuthService) {
     // console.log(this.authService.isUserLoggedIn());
     // console.log(this.authService.isUserLoggedIn());
-    console.log("role of user",this.authService.getRole());
+    // console.log("role of user",this.authService.getRole());
 
     this.isLoggedIn = this.authService.isUserLoggedIn();
   }
