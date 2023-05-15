@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private token: any;
 
-  constructor() { }
+  constructor() {}
 
   setToken(token: any) {
     this.token = token;
-    localStorage.setItem('jwtToken', token.token);
+    localStorage.setItem('Token', token);
   }
 
   getToken() {
@@ -28,5 +28,4 @@ export class AuthService {
   isUserLoggedIn() {
     return localStorage.getItem('token');
   }
-
 }
