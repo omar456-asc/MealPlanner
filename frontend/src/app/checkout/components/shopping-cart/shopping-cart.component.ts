@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from '../../service/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css'],
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
+
   quantityInput = 1;
+  ID:any=localStorage.getItem('id')
+  constructor(
+
+    public myService: ShoppingCartService){}
+  ngOnInit(): void {
+    this.myService.GetCart(this.ID).subscribe(
+      {
+        next:(data)=>{
+
+          console.log("sss");
+
+        },
+        error:(err)=>{console.log(err)}
+      }
+    );
+  }
 
   minus() {
     let currentValue = this.quantityInput;
