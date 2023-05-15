@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
-import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcRatingComponent);
+
 
 
 @Component({

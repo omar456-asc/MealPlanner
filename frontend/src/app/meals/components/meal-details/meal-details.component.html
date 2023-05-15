@@ -1,12 +1,11 @@
 <app-header></app-header>
 <section id="meals">
-  <div class="container ">
-    <!-- <igc-rating value="ratingVal" min="1" max="5" (igcChange)="ratingChanged($event);"></igc-rating> -->
+  <div class="container  ">
     <div class="row my-5" *ngIf="Meal; else falseBlock">
-      <div  class="col-md-5 offset-1  card-image d-flex animate__animated  animate__backInLeft">
+      <div  class="col-md-5  offset-1  card-image d-flex animate__animated  animate__backInLeft">
         <img src={{Meal[0].image}} class="img" alt="Image">
       </div>
-      <div class="col-md-4 d-flex animate__animated  animate__backInRight">
+      <div class="col-md-4 offset-1  box d-flex animate__animated  animate__backInRight">
         <div  id="details">
 
             <p class="h1">{{Meal[0].title}}</p>
@@ -18,16 +17,22 @@
   <div class="rating mx-2 d-inline">
     <span *ngFor="let star of stars" (click)="rate(star)" [class.filled]="star <= rating">&#9733;</span>
   </div>
-  <span class="d-block">Average rating: {{Meal[0].rate}}</span>
+  <span class="d-block mb-2">Average rating: {{Meal[0].rate}}</span>
           </div>
-<p class="font-weight-bold">price: {{Meal[0].price}}</p>
+<p class="font-weight-bold mt-2">price: {{Meal[0].price}}</p>
 <p >{{Meal[0].summary}}</p>
-<a class="btn btn-lg mx-5"  href="#">
+<a class="btn btn-lg "  href="#">
   <span>Add To Cart</span>
 </a>
         </div>
-      </div>
+      </div >
+<div class="col-md-10 offset-1 mt-5 py-4 border-top" >
+  <p class="h1">ingredients</p>
+  <ul *ngFor="let ing of Meal[0].ingredients_details;" >
+    <li>{{ing.name}}</li>
 
+  </ul>
+</div>
     </div>
     <ng-template #falseBlock>
       <h1 class="alert alert-danger">Loading...</h1>
