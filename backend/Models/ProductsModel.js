@@ -11,10 +11,9 @@ if (mongoose.connect(DB_URL, { useNewUrlParser: true })) {
 var ProductsSchema = new mongoose.Schema({
   title: { type: String, required: true, minlength: 3, maxlength: 50 },
   summary: { type: String, required: true, minlength: 3, maxlength: 50 },
-  // summary: {
-  //   type: String,
-  //   required: [true, "Please enter an product"],
-  // },
+  image: { type: String, required: true },
+  category: { type: String, required: true },
+  ingredients:{},
 });
 
 module.exports = mongoose.model("meals", ProductsSchema);
