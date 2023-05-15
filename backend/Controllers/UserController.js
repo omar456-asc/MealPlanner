@@ -4,6 +4,7 @@ var GetAllUsers = async(req,res)=>{
     try{
         var AllUsers = await usersmodel.find();
         await res.json(AllUsers);
+
     }catch(e){
         console.log(e);
         res.status(400).send('failed to get all users');

@@ -1,45 +1,89 @@
 <section class="text-center text-lg-start">
-
+  <div class="hall">
   <div class="container py-4">
     <div class="row g-0 align-items-center">
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=743&q=80" class="w-100 rounded-4 shadow-4"
-          alt="" />
+        <img
+          src="https://images.unsplash.com/photo-1613564834361-9436948817d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=743&q=80"
+          class="img-form w-100 rounded-4 shadow-4"
+          alt=""
+        />
       </div>
 
       <div class="col-lg-6 mb-5 mb-lg-0">
-        <div class="card cascading-left" style="
+        <div
+          class="card cascading-left"
+          style="
             background: hsla(0, 0%, 100%, 0.55);
             backdrop-filter: blur(30px);
-            ">
+          "
+        >
           <div class="card-body p-5 shadow-5 text-center">
             <h2 class="fw-bold mb-5">Sign up</h2>
-            <div class="text-danger" *ngIf="!Validation">{{validationMessage}} </div>
-          <br>
-            <form (ngSubmit)="AddNewUser(fname.value, lname.value, email.value, password.value)" [formGroup]="validationForm" >
+            <div class="text-danger" *ngIf="!Validation">
+              {{ validationMessage }}
+            </div>
+            <br />
+            <form
+              (ngSubmit)="
+                AddNewUser(
+                  fname.value,
+                  lname.value,
+                  email.value,
+                  password.value
+                )
+              "
+              [formGroup]="validationForm"
+            >
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="form3Example1" >First name</label>
-                    <input #fname type="text" id="form3Example1" class="form-control" />
+                    <label class="form-label" for="form3Example1"
+                      >First name</label
+                    >
+                    <input
+                      #fname
+                      type="text"
+                      id="form3Example1"
+                      class="form-control"
+                    />
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="form3Example2">Last name</label>
-                    <input #lname type="text" id="form3Example2" class="form-control" />
+                    <label class="form-label" for="form3Example2"
+                      >Last name</label
+                    >
+                    <input
+                      #lname
+                      type="text"
+                      id="form3Example2"
+                      class="form-control"
+                    />
                   </div>
                 </div>
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Email address</label>
-                <input #email type="email" id="form3Example3" class="form-control" />
+                <label class="form-label" for="form3Example3"
+                  >Email address</label
+                >
+                <input
+                  #email
+                  type="email"
+                  id="form3Example3"
+                  class="form-control"
+                />
               </div>
 
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example4">Password</label>
-                <input #password type="password" id="form3Example4" class="form-control" />
+                <input
+                  #password
+                  type="password"
+                  id="form3Example4"
+                  class="form-control"
+                />
               </div>
 
               <!-- <button type="submit" class="btn  btn-block mb-4" style="background-color: #5d1b14; color: white;">
@@ -55,21 +99,29 @@
 
               <div class="text-center">
                 <p>or sign up with:</p>
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-facebook-f" style="color:black ;"></i>
+                <!-- <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f" style="color: black"></i>
                 </button>
 
                 <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-google" style="color:black ;"></i>
+                  <i class="fab fa-google" style="color: black"></i>
                 </button>
 
                 <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-twitter" style="color:black ;"></i>
+                  <i class="fab fa-twitter" style="color: black"></i>
                 </button>
 
                 <button type="button" class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-github" style="color:black ;"></i>
-                </button>
+                  <i class="fab fa-github" style="color: black"></i>
+                </button> -->
+                <div class="social-links">
+                  <a href="#" class="facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="google"><i class="fab fa-google"></i></a>
+                  <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="github"><i class="fab fa-github"></i></a>
+                </div>
               </div>
             </form>
           </div>
@@ -77,4 +129,5 @@
       </div>
     </div>
   </div>
+</div>
 </section>

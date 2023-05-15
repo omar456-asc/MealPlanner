@@ -1,6 +1,9 @@
 let usersmodel = require("../Models/usersModel");
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv');
+dotenv.config();
 
+const secret = process.env.SECRET_KEY;
 //#region Errors
 const handleErrors =(e) => {  
     console.log(e.message);
@@ -43,7 +46,7 @@ if(e.message=='incorrect password, please try again'){
 //#region JWT
 const maxDay = 3 * 24 *60 * 60 ;   // The days i logged in then expires
 const createToken = (id) =>{
-    return jwt.sign({ id }, 'meal planner secret',{
+    return jwt.sign({ id }, secret,{
         expiresIn: maxDay
     }) ;  //id, secret 
 }

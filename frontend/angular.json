@@ -51,7 +51,6 @@
               "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.min.js",
               "node_modules/admin-lte/plugins/jquery-mapael/maps/usa_states.min.js",
               "node_modules/admin-lte/plugins/chart.js/Chart.min.js",
-              "node_modules/admin-lte/dist/js/demo.js",
               "node_modules/admin-lte/dist/js/pages/dashboard2.js"
             ]
           },

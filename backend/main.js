@@ -30,6 +30,11 @@ const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
 
+//#region user
+const ProductRoutes = require("./Routes/productsRoutes");
+app.use("/api/products", ProductRoutes);
+//#endregion
+
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });

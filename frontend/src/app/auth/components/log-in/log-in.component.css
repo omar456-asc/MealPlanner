@@ -2,13 +2,18 @@
   margin-right: -50px;
 
 }
-
+.hall{
+  background-color: black;
+}
 .cascading-top {
   margin-top: -50px;
 }
+.form-cont{
+  z-index: 3;
 
+}
 .sign-up-btn {
-  color: rgb(78, 24, 23);
+  color: #bc3b2c;
 }
 
 label {
@@ -16,12 +21,12 @@ label {
 }
 
 input.form-control {
-  border-color: rgb(78, 24, 23);
+  border-color: #bc3b2c;
 }
 
 input.form-control:focus {
-  border-color: rgb(78, 24, 23);
-  box-shadow: 0 0 10px rgb(78, 24, 23);
+  border-color: #bc3b2c;
+  box-shadow: 0 0 10px rgb(172, 42, 40);
 }
 
 h2 {
@@ -43,12 +48,20 @@ section {
 }
 
 @media (max-width: 991.98px) {
+  section{
+    background-image: url("https://images.unsplash.com/photo-1613483515012-8879be29b578?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   .cascading-right {
     margin-right: 0;
   }
 
   .cascading-top {
     margin-top: 0px;
+  }
+  .img-form{
+    display: none;
   }
 }
 
@@ -269,8 +282,9 @@ section {
   transition: .2s opacity ease-in-out;
 }
 
-.animated-button1:hover::before {
-  background: #bc3b2c
+.animated-button1:hover {
+  background: #bc3b2c;
+  opacity: 1;
 }
 
 .animated-button1 span {
