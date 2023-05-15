@@ -11,17 +11,18 @@ const UserController = require("../Controllers/UserController");
 const AuthController = require("../Controllers/AuthController");
 
 //#region Auth
-router.post("/signup",AuthController.AddNewUser);
-router.post("/login",AuthController.logIn);
-router.get("/logout",AuthController.logout);
+router.post("/signup", AuthController.AddNewUser);
+router.post("/login", AuthController.logIn);
+router.get("/logout", AuthController.logout);
 //#endregion
 
 //#region User
-router.get("/",UserController.GetAllUsers);
-router.get("/:id",UserController.GetUserByID);
-router.post("/:id",UserController.UpdateUserByID);
-router.delete("/:id",UserController.DeleteUserByID);
+router.get("/", UserController.GetAllUsers);
+router.get("/:id", UserController.GetUserByID);
+router.post("/:id", UserController.UpdateUserByID);
+router.delete("/:id", UserController.DeleteUserByID);
 //#endregion
+
 
 // var id = 0;
 
@@ -29,7 +30,7 @@ router.delete("/:id",UserController.DeleteUserByID);
 //     //Add New User ===> exist???? ==> user Already Exist ===> Add
 //     //new Object from body ===> u.save();
 //     try{
-        
+
 //         let founduser = await userModel.findOne({email:req.body.email}).exec();
 //         if(founduser) return res.status(400).send("User Already Exist");
 
@@ -52,6 +53,5 @@ router.delete("/:id",UserController.DeleteUserByID);
 //         console.log(err);
 //     }
 // })
-
 
 module.exports = router;

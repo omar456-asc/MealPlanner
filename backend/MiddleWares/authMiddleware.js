@@ -42,4 +42,14 @@ const checkUser = (req, res, next) => {
   }
 };
 
-module.exports = { requireAuth, checkUser };
+// Middleware function to check if user is an admin
+function isAdmin(req, res, next) {
+  // Check if user is an admin
+  if (req.user.is_admin) {
+    return next();
+  }
+  // Redirect to home page
+  res.redirect("/");
+}
+
+module.exports = { requireAuth, checkUser, isAdmin };
