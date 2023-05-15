@@ -13,6 +13,7 @@ import { AllMealsService } from '../../services/all-meals.service';
 export class MealDetailsComponent  implements OnInit {
  public  cart: [{"id":string,"quantity":number}];
  cartAlert=false;
+ public postcart:any
   public oldcart: string | null;
   userID=localStorage.getItem('id');
   maxRating = 5;
@@ -50,17 +51,22 @@ export class MealDetailsComponent  implements OnInit {
     );
   }
   AddToCart(){
+    if(this.cart[0].quantity===0){
+      this.cart = [...this.cart];
+      this.cart[0] ={"id":this.ID,"quantity":1} ;
+      }else{
+        let index = this.cart.findIndex(item => item.id == this.ID);
+        if(index ==-1){
+         this.cart.push({"id":this.ID,"quantity":1});}
+        else{
+
+         this.cart[index].quantity=Number(this.cart[index].quantity)+1;}
+
+      }
 
     this.myService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
-      if(this.cart[0].id=="0"){
-        this.cart.shift();
-      }
-      let index = this.cart.findIndex(item => item.id == this.ID);
-      if(index ==-1){
-       this.cart.push({"id":this.ID,"quantity":1});}
-      else{
-       this.cart[index].quantity=Number(this.cart[index].quantity)+1;
-     }
+
+
 
       this.myService.setCart(JSON.stringify(this.cart));
       this.cartAlert=true;
