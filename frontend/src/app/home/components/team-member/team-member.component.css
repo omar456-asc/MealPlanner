@@ -1,57 +1,96 @@
+.chefs {
+  background-color: black;
+}
+
 .card {
-    border: none;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 30px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 7px 7px 15px rgba(226, 10, 10, 0.1);
 }
 
 .image-container {
-    position: relative;
-    overflow: hidden;
-    height: 400px;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
 }
 
 .image-container img {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scale(1.1);
-    transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 7px 7px 15px rgba(250, 247, 247, 0.1);
 }
 
 .card:hover .image-container img {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .card-body {
-    padding: 20px;
-    background-color: #fff;
-    position: absolute;
-    bottom: -100%;
-    width: 100%;
-    transition: bottom 0.5s ease-in-out;
+  padding: 20px;
+  background-color: black;
+  color: aliceblue;
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  transition: bottom 0.5s ease-in-out;
+  background: rgba(1, 10, 1, 0.8);
 }
 
 .card:hover .card-body {
-    bottom: 0;
+  bottom: 0;
 }
 
 .social {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .social a {
-    transition: color 0.3s;
-    color: #7a7368;
+  transition: color 0.3s;
+  color: #7a7368;
 }
 
 .social a:hover {
-    color: #ff4f3b;
+  color: #bc3b2c;
 }
 
 .social i {
-    font-size: 16px;
-    margin: 0 2px;
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+@media (min-width: 266px) {
+  .card:hover .card-body {
+    bottom: -75;
+  }
+
+
+
+  .card-body {
+    padding-bottom: 0px;
+    position: absolute;
+    bottom: -164%;
+    width: 100%;
+    transition: bottom 0.5s ease-in-out;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card-body {
+    padding-bottom: 0px;
+    position: absolute;
+    bottom: -500%;
+    width: 100%;
+    transition: bottom 0.5s ease-in-out;
+  }
+
+  .card:hover .card-body {
+    bottom: -400;
+    padding-bottom: -500px;
+  }
 }

@@ -4,7 +4,9 @@
   "description": "User Meal Planner is an angular based application that helps user plan and order their meals ",
   "main": "backend/main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": " node main.js"
+
   },
   "repository": {
     "type": "git",
