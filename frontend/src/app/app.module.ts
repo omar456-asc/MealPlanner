@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 import { PaymentModule } from './payment/payment.module';
+import { UserdashboardModule } from './userdashboard/userdashboard.module';
 
 @NgModule({
   declarations: [AppComponent, LogInComponent, SignUpComponent],
@@ -36,6 +37,7 @@ import { PaymentModule } from './payment/payment.module';
     CheckoutModule,
     ProfileModule,
     PaymentModule,
+    UserdashboardModule,
   ],
   providers: [
     AuthService,
