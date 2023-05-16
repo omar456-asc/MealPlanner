@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
@@ -43,6 +44,7 @@ export class AuthService {
       id: string;
       is_admin: boolean;
     };
-    return decoded.is_admin;
+    const isAdmin = decoded.is_admin;
+    return isAdmin;
   }
 }
