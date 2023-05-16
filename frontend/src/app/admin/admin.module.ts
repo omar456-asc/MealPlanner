@@ -11,6 +11,7 @@ import { RecentlyAddedProductsComponent } from './dashboard/recently-added-produ
 import { UsersModule } from './users/users.module';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { AdminComponent } from './admin.component';
+import { AdminMealsModule } from './admin-meals/admin-meals.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AdminComponent } from './admin.component';
     AdminSharedModule,
     UsersModule,
     IngredientsModule,
+    AdminMealsModule,
   ],
 })
 export class AdminModule {}

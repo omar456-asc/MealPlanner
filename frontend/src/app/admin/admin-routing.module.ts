@@ -7,18 +7,21 @@ import { AllUsersComponent } from './users/components/all-users/all-users.compon
 import { AllIngredientsComponent } from './ingredients/components/all-ingredients/all-ingredients.component';
 import { CreateIngredientComponent } from './ingredients/components/create-ingredient/create-ingredient.component';
 import { UpdateIngredientComponent } from './ingredients/components/update-ingredient/update-ingredient.component';
+import { AllMealsComponent } from './admin-meals/components/all-meals/all-meals.component';
+import { ShowMealComponent } from './admin-meals/components/show-meal/show-meal.component';
 
 const routes: Routes = [
-  // { path: 'admin', component: DashboardComponent },
-  // { path: 'admin/users', component: AdminComponent },
-  // { path: 'admin/users/:id', component: ShowUserComponent },
-
   { path: 'admin', component: DashboardComponent },
   { path: 'admin/users', component: AdminComponent },
   { path: 'admin/users/:id', component: ShowUserComponent },
   { path: 'admin/ingredients', component: AllIngredientsComponent },
   { path: 'admin/ingredients/create', component: CreateIngredientComponent },
   { path: 'admin/ingredients/:id', component: UpdateIngredientComponent },
+
+  { path: 'admin/meals', component: AllMealsComponent },
+  { path: 'admin/meals/:id', component: ShowMealComponent },
+  { path: 'admin/meals', component: AllMealsComponent },
+
   // {
   //   path: 'admin',
   //   children: [{

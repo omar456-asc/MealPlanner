@@ -35,6 +35,11 @@ const ProductRoutes = require("./Routes/productsRoutes");
 app.use("/api/products", ProductRoutes);
 //#endregion
 
+//#region user
+const IngredientRoutes = require("./Routes/ingredientsRoutes");
+app.use("/api/ingredients", IngredientRoutes);
+//#endregion
+
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });
