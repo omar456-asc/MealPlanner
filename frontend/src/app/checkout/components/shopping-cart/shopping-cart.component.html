@@ -27,12 +27,12 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="border-0">
-                    <div class="p-2">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg"
+              <tbody >
+                <tr *ngFor="let meal of cart">
+                  <th scope="row" class="border-0"  >
+                    <div class="p-2"  >
+                      <img class="imgg"
+                        src={{meal.image}}
                         alt=""
                         width="70"
                         class="img-fluid rounded shadow-sm"
@@ -40,20 +40,19 @@
                       <div class="ml-3 d-inline-block align-middle">
                         <h5 class="mb-0">
                           <a
-                            href="#"
                             class="text-dark d-inline-block align-middle"
-                            >Timex Unisex Originals</a
+                            >{{meal.title}}</a
                           >
                         </h5>
                         <span
                           class="text-muted font-weight-normal font-italic d-block"
-                          >Category: Watches</span
+                          >{{meal.category}}</span
                         >
                       </div>
                     </div>
                   </th>
                   <td class="border-0 align-middle">
-                    <strong>$79.00</strong>
+                    <strong>{{meal.price}}</strong>
                   </td>
                   <td class="quantity border-0 align-middle">
                     <button (click)="minus()" class="minus-btn" type="button">

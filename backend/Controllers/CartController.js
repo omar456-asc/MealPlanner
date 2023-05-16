@@ -1,3 +1,4 @@
+const ProductsModel = require("../Models/ProductsModel");
 let usersmodel = require("../Models/usersModel");
 const { ObjectId } = require("mongodb");
 
@@ -15,28 +16,21 @@ var AddToCart = async(req, res)=>{
 }
 
 var GetCart = async (req, res) => {
-  console.log("mmm");
-    try {
-      
-        const userId = req.params.id;
-      var UsersById = await usersmodel.aggregate([
-    {
-      
-      $match: { _id: new ObjectId(userId) },
-    },{
-      $lookup: {
-        from: "meals",
-        localField: "cart",
-        foreignField: "_id",
-        as: "user_cart"
-      }
-    }
-  ])
-     res.json(UsersById);
-    } catch (e) {
-      console.log(e);
-      res.status(400).send("failed to get all meals");
-    }
+    
+      const userId = req.params.id;
+      const user = await usersmodel.findOne({ _id: new ObjectId(userId) });
+
+      if (user) {
+        cart=[]
+        meals=[]
+        user.cart.forEach(element => {cart.push(element.id)
+        });
+        // meals= cart.forEach(element => { await ProductsModel.findOne({ _id: new ObjectId(element)});})
+        for(let i=0; i<cart.length; i++) {
+            meals.push(await ProductsModel.findOne({ _id: new ObjectId(cart[i])}))
+        }
+        res.json(meals)
+      }   
   }
 
 module.exports = {
