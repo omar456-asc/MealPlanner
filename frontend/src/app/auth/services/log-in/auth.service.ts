@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-// import jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,17 +34,18 @@ export class AuthService {
     let token = localStorage.getItem('Token');
   }
 
-  // getRole(): any {
-  //   // var object = {exp: 1684445802, iat: 1684186602, user:{email: "nehad1@gmail.com",fname: "Nehad",is_admin: true,lname: "Osman"
-  //   // ,password: "$2b$10$6y/q//YAsF5ikBJZszIxTucFw6okS4J1KY6N5Hl.rxZq37CkpW.se",__v: 0,_id: "645eac7cd3a248afb1bae05a"} }
-  //   // return object.user.is_admin;
-  //   // Decode token and extract role information
-  //   const token = localStorage.getItem('Token');
-  //   console.log('user token', token);
-  //   if (token) {
-  //     var decoded = jwt_decode(token);
-  //   }
-  //   // return decoded.user.is_admin;
-  //   return decoded;
-  // }
+  getRole(): boolean | undefined {
+    const token = localStorage.getItem('Token');
+    if (!token) {
+      return undefined;
+    }
+    const decoded = jwt_decode(token) as {
+      id: string;
+      is_admin: boolean;
+      iat: number;
+      exp: number;
+    };
+    const isAdmin = decoded.is_admin;
+    return isAdmin;
+  }
 }
