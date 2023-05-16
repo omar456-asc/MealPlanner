@@ -41,7 +41,7 @@ export class LogInComponent {
       (response: any) => {
         this.authService.setToken(response.token);
         // this.checkRole();
-        // this.router.navigateByUrl('');
+        this.router.navigateByUrl('');
       },
       (err) => {
         if (email == '') {
@@ -62,5 +62,14 @@ export class LogInComponent {
     );
   }
 
- 
+  checkRole() {
+    let isAdmin = this.authService.getRole();
+    if (isAdmin === true) {
+      this.router.navigate(['/admin']);
+    } else if (isAdmin === false) {
+      this.router.navigate(['/user']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 }
