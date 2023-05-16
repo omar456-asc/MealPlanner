@@ -10,6 +10,7 @@ import { LatestMembersComponent } from './dashboard/latest-members/latest-member
 import { RecentlyAddedProductsComponent } from './dashboard/recently-added-products/recently-added-products.component';
 import { UsersModule } from './users/users.module';
 import { AdminComponent } from './admin.component';
+import { AdminMealsModule } from './admin-meals/admin-meals.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdminComponent } from './admin.component';
     CommonModule,
     AdminRoutingModule,
     AdminSharedModule,
-    UsersModule
+    UsersModule,
+    AdminMealsModule
   ]
 })
 export class AdminModule { }

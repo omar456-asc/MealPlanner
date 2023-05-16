@@ -4,15 +4,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShowUserComponent } from './users/components/show-user/show-user.component';
 import { AdminComponent } from './admin.component';
 import { AllUsersComponent } from './users/components/all-users/all-users.component';
+import { AllMealsComponent } from './admin-meals/components/all-meals/all-meals.component';
+import { ShowMealComponent } from './admin-meals/components/show-meal/show-meal.component';
 
 const routes: Routes = [
-  // { path: 'admin', component: DashboardComponent },
-  // { path: 'admin/users', component: AdminComponent },
-  // { path: 'admin/users/:id', component: ShowUserComponent },
+
 
   { path: 'admin', component: DashboardComponent },
   { path: 'admin/users', component: AdminComponent },
   { path: 'admin/users/:id', component: ShowUserComponent },
+
+  { path: 'admin/meals', component: AllMealsComponent },
+  { path: 'admin/meals/:id', component: ShowMealComponent },
+  { path: 'admin/meals', component: AllMealsComponent },
+
+
   // {
   //   path: 'admin',
   //   children: [{
