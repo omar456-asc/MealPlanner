@@ -42,8 +42,6 @@ export class AuthService {
     const decoded = jwt_decode(token) as {
       id: string;
       is_admin: boolean;
-      iat: number;
-      exp: number;
     };
     const isAdmin = decoded.is_admin;
     return isAdmin;
