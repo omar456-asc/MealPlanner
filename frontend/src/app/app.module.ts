@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 import { LogInComponent } from './auth/components/log-in/log-in.component';
@@ -21,10 +22,8 @@ import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
 import { ConfigService } from './config.service';
 
-import { CommonModule } from '@angular/common';
 import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
-import { ProfileComponent } from './profile/profile.component';
 import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
     SignUpComponent,
     MealsComponent,
     MealDetailsComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
