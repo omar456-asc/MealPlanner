@@ -9,20 +9,6 @@
           <h3 class="card-title">List of Ingredients</h3>
           <div class="card-tools">
             <div>
-              <label>Show entries:</label>
-              <select
-                [(ngModel)]="itemsPerPage"
-                (change)="onItemsPerPageChange()"
-              >
-                <option
-                  *ngFor="let option of itemsPerPageOptions"
-                  [value]="option"
-                >
-                  {{ option }}
-                </option>
-              </select>
-            </div>
-            <div>
               <label>Search:</label>
               <input
                 type="text"
