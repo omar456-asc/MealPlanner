@@ -40,8 +40,8 @@ export class LogInComponent {
     this.myService.LOGIN(logInUser).subscribe(
       (response: any) => {
         this.authService.setToken(response.token);
-        // this.checkRole();
-        this.router.navigateByUrl('');
+        this.checkRole();
+        // this.router.navigateByUrl('');
       },
       (err) => {
         if (email == '') {
