@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
+import { ConfigService } from './config.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/Token
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    ConfigService,
   ],
   bootstrap: [AppComponent],
 })
