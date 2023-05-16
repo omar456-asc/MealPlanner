@@ -8,11 +8,11 @@
     <div class="container">
       <div class="row">
         <div class="card mt-50 mb-50">
-          <div class="col-md-10 offset-1 alert alert-success" *ngIf="paySuccess;">
+          <div class="col-md-10 offset-1 alert alert-success" *ngIf="paySuccess ;">
             Payment Succeeded
           </div>
           <div class="col-md-10 offset-1 alert alert-danger" *ngIf="payFailed;">
-            Payment Failed, Please Try Again!
+            {{FalseMsg}}
           </div>
           <div class="nav">
               <ul class="mx-auto">

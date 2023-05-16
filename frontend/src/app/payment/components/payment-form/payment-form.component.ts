@@ -10,7 +10,8 @@ export class PaymentFormComponent implements OnInit{
   constructor( private paymentService: PaymentFormService){ }
   paySuccess = false;
   payFailed = false;
-  
+  FalseMsg=''
+
   ngOnInit(): void {
 
   }
@@ -22,6 +23,8 @@ export class PaymentFormComponent implements OnInit{
       },
       (err) => {
         this.payFailed=true;
+        this.FalseMsg=err.error;
+
       }
     );
   }
