@@ -25,6 +25,9 @@ var userSchema = new mongoose.Schema({
     required: [true, "Please enter a password"],
   },
   is_admin: { type: Boolean, default: false },
+  avatar: {
+    type: String,
+  },
 });
 
 //#region FireAFunctionBeforeSaveToDataBaseToHash
