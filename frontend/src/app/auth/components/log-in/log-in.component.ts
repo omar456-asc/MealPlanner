@@ -67,7 +67,7 @@ export class LogInComponent {
     if (isAdmin === true) {
       this.router.navigate(['/admin']);
     } else if (isAdmin === false) {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/']);
     } else {
       this.router.navigate(['/login']);
     }

@@ -14,7 +14,6 @@ export class HeaderComponent {
     // console.log("role of user",this.authService.getRole());
 
     this.isLoggedIn = this.authService.isUserLoggedIn();
-    // this.checkRole = this.authService.;
   }
   logout() {
     this.authService.logout();
