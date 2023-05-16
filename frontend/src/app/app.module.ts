@@ -24,11 +24,12 @@ import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
+import { PaymentFormComponent } from './payment/components/payment-form/payment-form.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, LogInComponent, SignUpComponent, MealsComponent,MealDetailsComponent, ],
+  declarations: [AppComponent, LogInComponent, SignUpComponent, MealsComponent,MealDetailsComponent ],
   imports: [
     BrowserModule,
     SharedModule,
