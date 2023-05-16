@@ -16,12 +16,16 @@ router.post("/login",AuthController.logIn);
 router.get("/logout",AuthController.logout);
 //#endregion
 
+// upload profile pic
+router.post("/upload-profile-pic", UserController.upload.single("file"), UserController.UploadProfilePic);
+
 //#region User
 router.get("/",UserController.GetAllUsers);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
 router.delete("/:id",UserController.DeleteUserByID);
 //#endregion
+
 
 // var id = 0;
 
