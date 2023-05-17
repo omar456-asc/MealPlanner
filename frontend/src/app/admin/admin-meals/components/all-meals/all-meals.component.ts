@@ -21,7 +21,7 @@ export class AllMealsComponent {
       }
     )
 
-    console.log(this.meals);
+    // console.log(this.meals);
   }
 
 }
