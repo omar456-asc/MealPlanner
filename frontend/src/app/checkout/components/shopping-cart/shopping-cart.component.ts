@@ -10,13 +10,14 @@ import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 export class ShoppingCartComponent implements OnInit {
   quantityInput = 1;
   ID: any = localStorage.getItem('id');
-  localcart: any = localStorage.getItem('cart');
+  localcart: any = this.mymeals.getCart();
   cartid: any = [];
   Meal: any = [];
   constructor(
     public myService: ShoppingCartService,
     public mymeals: AllMealsService
   ) {}
+
   ngOnInit(): void {
     this.cartid = JSON.parse(this.localcart);
     for (let i = 0; i < this.cartid.length; i++) {
@@ -32,10 +33,15 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
   checkout() {
+   var cart:any=this.mymeals.getCart()
+    this.cartid = JSON.parse(cart)
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
-      (data: any) => {},
+      (data: any) => {
+        localStorage.removeItem('cart')
+        console.log("done");
+      },
       (err) => {
-        // this.router.navigateByUrl('login');
+     console.log("error")
       }
     );
   }
