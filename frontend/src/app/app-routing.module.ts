@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
   { path: 'cart', component: CheckoutComponent },
-  { path: 'cart/customize', component: CustomizeMealComponent },
+  { path: 'customize/:id', component: CustomizeMealComponent },
   { path: 'payment', component: PaymentComponent },
 ];
 
