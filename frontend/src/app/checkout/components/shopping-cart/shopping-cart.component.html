@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody >
-                <tr *ngFor="let meal of cart">
+                <tr *ngFor="let meals of Meal"><div *ngFor="let meal of meals" >
                   <th scope="row" class="border-0"  >
                     <div class="p-2"  >
                       <img class="imgg"
@@ -78,11 +78,11 @@
                   </td>
                   <td class="border-0 align-middle">
                     <a href="#" class="text-dark">
-                      <i class="fa fa-trash"></i
-                        >
+                       <i class="fa fa-trash"></i
+                    >
                     </a>
                   </td>
-                </tr>
+                </div></tr>
               </tbody>
             </table>
           </div>

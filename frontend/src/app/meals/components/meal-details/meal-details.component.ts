@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
-import { ShoppingCartComponent } from 'src/app/checkout/components/shopping-cart/shopping-cart.component';
-import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
+
+// import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 
 
 
@@ -14,7 +14,8 @@ import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.serv
 })
 export class MealDetailsComponent  implements OnInit {
  public  cart: [{"id":string,"quantity":number}];
- cartAlert=false;
+ trueAlert=false;
+ falseAlert=false;
  public postcart:any
   public oldcart: string | null;
   userID=localStorage.getItem('id');
@@ -29,7 +30,6 @@ export class MealDetailsComponent  implements OnInit {
   constructor(
     myRoute:ActivatedRoute,
     public myService: AllMealsService,
-    public cartService:ShoppingCartService,
     private router: Router){
     this.ID = myRoute.snapshot.params["id"];
      this.oldcart = localStorage.getItem('cart');
@@ -54,6 +54,7 @@ export class MealDetailsComponent  implements OnInit {
     );
   }
   AddToCart(){
+    if(this.userID){
     if(this.cart[0].quantity===0){
       this.cart = [...this.cart];
       this.cart[0] ={"id":this.ID,"quantity":1} ;
@@ -67,17 +68,30 @@ export class MealDetailsComponent  implements OnInit {
 
       }
 
-    this.cartService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
+  this.myService.setCart(JSON.stringify(this.cart));
+  this.trueAlert=true;
+
+}
+  else{
+
+    this.falseAlert=true;
+  }
 
 
-
-      this.myService.setCart(JSON.stringify(this.cart));
-      this.cartAlert=true;
-    },
-    (err)=>{
-      this.router.navigateByUrl('login');
-    }
-    );
   }
 
 }
+
+
+
+// this.cartService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
+
+
+
+//   this.myService.setCart(JSON.stringify(this.cart));
+//   this.cartAlert=true;
+// },
+// (err)=>{
+//   this.router.navigateByUrl('login');
+// }
+// );
