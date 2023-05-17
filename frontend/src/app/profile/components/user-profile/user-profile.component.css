@@ -128,3 +128,22 @@ p {
 .second {
   background-color: #d4af37;
 }
+
+#upload {
+  align-self: center;
+}
+
+#avatar {
+  width: 250px;
+  font-size: small;
+}
+
+.bi-cloud-upload {
+  color: blue;
+}
+
+.profile-pic {
+  width: 80%;
+  align-self: center;
+}
+

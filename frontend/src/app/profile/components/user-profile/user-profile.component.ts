@@ -8,11 +8,12 @@ import { AuthService } from 'src/app/auth/services/log-in/auth.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  avatarUrl = '';
+  avatarUrl =
+    'http://res.cloudinary.com/dquveo9pl/image/upload/v1684333006/Images/mafkm3yefhk4ccpqeogu.jpg';
   user: any;
   name: string = '';
   email: string = '';
-  file: File | null = null;
+  isPicPicked: boolean = false;
 
   constructor(
     private profileService: ProfileService,
@@ -26,7 +27,7 @@ export class UserProfileComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.avatarUrl = data.avatar;
-        this.name = data.fname + data.lname;
+        this.name = data.fname + ' ' + data.lname;
         this.email = data.email;
       },
       (error) => console.log('Error', error)
@@ -52,12 +53,9 @@ export class UserProfileComponent implements OnInit {
       );
     }
   }
-  onFileInput(files: FileList | null): void {
-    if (files) {
-      this.file = files.item(0);
-    }
+
+  onFilePicked(target: any) {
+    if (target.files.length) this.isPicPicked = true;
+    else this.isPicPicked = false;
   }
 }
-
-
-
