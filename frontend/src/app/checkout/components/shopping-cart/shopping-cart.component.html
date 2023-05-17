@@ -31,7 +31,8 @@
                 </tr>
               </thead>
               <tbody >
-                <tr *ngFor="let meals of Meal"><div *ngFor="let meal of meals" >
+                <ng-container *ngFor="let meals of Meal">
+                <tr *ngFor="let meal of meals;">
                   <th scope="row" class="border-0"  >
                     <div class="p-2"  >
                       <img class="imgg"
@@ -82,7 +83,8 @@
                     >
                     </a>
                   </td>
-                </div></tr>
+                </tr>
+                </ng-container>
               </tbody>
             </table>
           </div>
