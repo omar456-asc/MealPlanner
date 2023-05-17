@@ -36,7 +36,7 @@ var GetProductByID = async (req, res) => {
         $lookup: {
           from: "ingredients",
           localField: "ingredients",
-          foreignField: "id",
+          foreignField: "_id",
           as: "ingredients_details",
         },
       },

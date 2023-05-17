@@ -1,4 +1,4 @@
-const IngredientModel = require("../models/IngredientModel");
+let IngredientModel = require("../models/IngredientModel");
 
 // Get all ingredients
 const getAllIngredients = async (req, res) => {
