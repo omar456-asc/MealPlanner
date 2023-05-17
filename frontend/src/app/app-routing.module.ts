@@ -16,6 +16,7 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CustomizeMealComponent } from './checkout/components/customize-meal/customize-meal.component';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
   { path: 'cart', component: CheckoutComponent },
+  { path: 'cart/customize', component: CustomizeMealComponent },
   { path: 'payment', component: PaymentComponent },
 ];
 
