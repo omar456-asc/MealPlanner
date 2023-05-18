@@ -81,6 +81,9 @@ export class MealDetailsComponent implements OnInit {
     } else {
       this.falseAlert = true;
     }
+    setTimeout(() => {
+      this.router.navigateByUrl('/meals');
+    }, 1500); // Adjust the delay time as needed (in milliseconds)
   }
 }
 
