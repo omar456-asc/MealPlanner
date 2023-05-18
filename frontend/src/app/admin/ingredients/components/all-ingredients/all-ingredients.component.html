@@ -1,0 +1,89 @@
+<app-admin-header></app-admin-header>
+<app-admin-side-nav></app-admin-side-nav>
+
+<div class="content-wrapper">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">List of Ingredients</h3>
+          <div class="card-tools">
+            <div>
+              <label>Search:</label>
+              <input
+                type="text"
+                [(ngModel)]="searchTerm"
+                (input)="loadPage(1)"
+                (ngModelChange)="onSearchTermChange()"
+              />
+              <a class="px-2 nav-link" routerLink="/admin/ingredients/create">
+                <button type="button" class="btn btn-primary">
+                  Create Ingredient
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Consistency</th>
+                <th>Image</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ingredient of ingredients; let i = index">
+                <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.consistency }}</td>
+                <td>
+                  <img
+                    [src]="ingredient.img"
+                    alt="{{ ingredient.name }}"
+                    class="img-thumbnail"
+                  />
+                </td>
+                <td>
+                  <button class="btn btn-primary">Update</button>
+                  <button
+                    class="btn btn-danger"
+                    (click)="deleteIngredient(ingredient)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer clearfix">
+          <ul class="pagination pagination-sm m-0 float-right">
+            <li class="page-item" [ngClass]="{ disabled: currentPage == 1 }">
+              <a class="page-link" (click)="loadPage(currentPage - 1)"
+                >Previous</a
+              >
+            </li>
+            <li
+              class="page-item"
+              *ngFor="let page of pages"
+              [ngClass]="{ active: currentPage == page }"
+            >
+              <a class="page-link" (click)="loadPage(page)">{{ page }}</a>
+            </li>
+            <li
+              class="page-item"
+              [ngClass]="{ disabled: currentPage == totalPages }"
+            >
+              <a class="page-link" (click)="loadPage(currentPage + 1)">Next</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-admin-footer></app-admin-footer>
