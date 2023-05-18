@@ -8,21 +8,24 @@
     <div class="container">
       <div class="row">
         <div class="card mt-50 mb-50">
-          <div class="card-title mx-auto">
-              Settings
+          <div class="col-md-10 offset-1 alert alert-success" *ngIf="paySuccess ;">
+            Payment Succeeded
+          </div>
+          <div class="col-md-10 offset-1 alert alert-danger" *ngIf="payFailed;">
+            {{FalseMsg}}
           </div>
           <div class="nav">
               <ul class="mx-auto">
-                  <li class="active"><a href="#">Payment</a></li>
+                  <li class="active"><a>Payment</a></li>
               </ul>
           </div>
-          <form>
+          <form (ngSubmit)="Pay('1500',name.value)" [formGroup]="validationForm">
               <div class="row-1">
                   <div class="row row-2">
                       <span id="card-inner">Card holder name</span>
                   </div>
                   <div class="row row-2">
-                      <input type="text" placeholder="Bojan Viner">
+                      <input type="text" #name placeholder="Bojan Viner">
                   </div>
               </div>
               <div class="row three">
@@ -32,15 +35,12 @@
                               <span id="card-inner">Card number</span>
                           </div>
                           <div class="row row-2">
-                              <input type="text" placeholder="5134-5264-4">
+                              <input #card type="text" placeholder="5134-5264-4526-4545">
                           </div>
                       </div>
                   </div>
                   <div class="col-2">
-                      <input type="text" placeholder="Exp. date">
-                  </div>
-                  <div class="col-2">
-                      <input type="text" placeholder="CVV">
+                      <input #cvv type="text" placeholder="CVV">
                   </div>
               </div>
               <button class="btn d-flex mx-auto" href="/shopping-cart"><b>Add card</b></button>
