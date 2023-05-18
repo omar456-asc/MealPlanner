@@ -5,7 +5,7 @@
   "main": "backend/main.js",
   "scripts": {
     "test": "jest",
-    "start": " node main.js"
+    "start": " node backend/main.js && cd frontend && ng serve"
 
   },
   "repository": {

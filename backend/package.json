@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "npm install && tsc"
+    "build": "npm install"
   },
   "dependencies": {
     "ajv": "^8.12.0",
