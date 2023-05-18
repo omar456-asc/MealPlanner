@@ -15,7 +15,7 @@ export class CustomizeMealComponent implements OnInit {
 
     this.totalMealPrice = 3000;
   }
-
+  ingrediants:any=[]
   totalMealPrice: number | undefined;
   meal :any;
   ID:any
@@ -27,14 +27,26 @@ export class CustomizeMealComponent implements OnInit {
         next:(data:any)=>{
 
           this.meal = data;
-console.log(this.meal);
+          this.ingrediants=this.meal[0].ingredients_details
+
 
         },
         error:(err)=>{console.log(err)}
       }
     );
-  }
 
+  }
+  delete(ID:any,index: number) {
+    this.ingrediants.splice(index, 1);
+    var cart:any=this.myService.getCart()
+    cart=JSON.parse(cart)
+    // cart[index].ingredients=this.ingrediants
+    const mealindex = cart.findIndex((obj: { id: any; }) => obj.id === ID);
+    if (mealindex !== -1) {
+      cart[mealindex].ingredients=this.ingrediants
+    }
+    this.myService.setCart(JSON.stringify(cart))
+  }
   removeIngredient(ingredient: any) {
     // Implement logic to remove the ingredient from the meal
     // You can update the meal's ingredient array and recalculate the total price
