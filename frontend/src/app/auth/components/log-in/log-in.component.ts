@@ -47,8 +47,18 @@ cart:any
         this.authService.setUserID(response.id);
           this.router.navigateByUrl('');
           this.getcart()
+    })
+    }
 
 
+
+  Add(email: any, password: any) {
+    let logInUser = { email, password };
+    this.myService.LOGIN(logInUser).subscribe(
+      (response: any) => {
+        this.authService.setToken(response.token);
+        this.checkRole();
+        // this.router.navigateByUrl('');
       },
       (err) => {
         if (email == '') {
@@ -80,5 +90,15 @@ console.log(id);
       },
       error:(err)=>{console.log(err)}
     })
+  }
+  checkRole() {
+    let isAdmin = this.authService.getRole();
+    if (isAdmin === true) {
+      this.router.navigate(['/admin']);
+    } else if (isAdmin === false) {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }

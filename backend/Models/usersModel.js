@@ -1,12 +1,12 @@
-
 const mongoose = require("mongoose");
-const { isEmail } = require('validator');
-const bcrybt = require('bcrypt');
+const { isEmail } = require("validator");
+const bcrybt = require("bcrypt");
 
-var DB_URL = "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner"
+var DB_URL =
+  "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner";
 
-if(mongoose.connect(DB_URL, {useNewUrlParser:true})){
-    console.log("Connected to database");
+if (mongoose.connect(DB_URL, { useNewUrlParser: true })) {
+  console.log("Connected to database");
 }
 
 var userSchema = new mongoose.Schema({
@@ -24,31 +24,38 @@ var userSchema = new mongoose.Schema({
         type:String,
         minlength:[6,'Minimum password length is 6 characters'],
         required:[true ,'Please enter a password']
-    }
-})
+    },
+    is_admin: { type: Boolean, default: false },
+    avatar: {
+    type: String,
+    },
+});
+ 
+
 
 //#region FireAFunctionBeforeSaveToDataBaseToHash
-userSchema.pre('save', async function(next){
-    const salt = await bcrybt.genSalt();
-    this.password= await bcrybt.hash(this.password, salt);
-    next();
-})
+userSchema.pre("save", async function (next) {
+  const salt = await bcrybt.genSalt();
+  this.password = await bcrybt.hash(this.password, salt);
+  next();
+});
 //#endregion
 
 //static method to login
-userSchema.statics.login = async function(email, password){
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var validEmail=emailRegex.test(email);
-    if(validEmail){
+userSchema.statics.login = async function (email, password) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var validEmail = emailRegex.test(email);
+  if (validEmail) {
     const loginUser = await this.findOne({ email });
-    if(loginUser){
-        const checkPassword = await bcrybt.compare(password, loginUser.password);
-        if(checkPassword){
-            return loginUser;
-        }
-        throw Error("incorrect password, please try again");
+    if (loginUser) {
+      const checkPassword = await bcrybt.compare(password, loginUser.password);
+      if (checkPassword) {
+        return loginUser;
+      }
+      throw Error("incorrect password, please try again");
     }
     throw Error("incorrect email please try again");
-} throw Error("invalid email");
-}
-module.exports = mongoose.model("Users",userSchema);
+  }
+  throw Error("invalid email");
+};
+module.exports = mongoose.model("Users", userSchema);

@@ -58,19 +58,20 @@
                   <td class="border-0 align-middle">
                     <strong>{{meal.price}}</strong>
                   </td>
-                  <td class="quantity border-0 align-middle">
-                    <button (click)="minus()" class="minus-btn" type="button">
-                      -
-                    </button>
-                    <input
-                      [(ngModel)]="quantityInput"
-                      class="quantity-input"
-                      type="number"
-
-                    />
-                    <button (click)="plus()" class="plus-btn" type="button">
-                      +
-                    </button>
+                  <td class="border-0 align-middle">
+                    <div class="quantity px-4">
+                      <button (click)="minus()" class="minus-btn" type="button">
+                        -
+                      </button>
+                      <input
+                        [(ngModel)]="quantityInput"
+                        class="quantity-input"
+                        type="number"
+                      />
+                      <button (click)="plus()" class="plus-btn" type="button">
+                        +
+                      </button>
+                    </div>
                   </td>
                   <td class="border-0 align-middle">
                     <a routerLink="/customize/{{meal._id}}"class="text-dark"

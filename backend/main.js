@@ -4,12 +4,12 @@
  * Utils [Separtion]
  * MVC[Model - View - Controller]
  * Authentication [Registration - Login] VS Autherization (Permission)[get|Post|Delete|Put]
- * Hash Passward 
+ * Hash Passward
  * JWT [Json Web Token] ==> [npm i jsonwebtoken] ==> Header
  */
 const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 // enable all CORS requests
 app.use(cors());
 const cookieParser = require("cookie-parser");
@@ -19,7 +19,6 @@ const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 require("dotenv").config();
-
 
 //Global MiddleWare
 const logging = require("./MiddleWares/logging");
@@ -43,4 +42,3 @@ app.use("/api/cart", CartRoutes);
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });
-

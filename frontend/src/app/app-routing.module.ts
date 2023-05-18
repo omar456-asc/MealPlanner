@@ -17,11 +17,15 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ContactFormComponent } from './home/components/contact-form/contact-form.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CustomizeMealComponent } from './checkout/components/customize-meal/customize-meal.component';
+import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'cart', component: CheckoutComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'user', component: UserdashboardComponent },
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
