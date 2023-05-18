@@ -4,13 +4,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ShowUserComponent } from './users/components/show-user/show-user.component';
 import { AdminComponent } from './admin.component';
 import { AllUsersComponent } from './users/components/all-users/all-users.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
   // { path: 'admin', component: DashboardComponent },
   // { path: 'admin/users', component: AdminComponent },
   // { path: 'admin/users/:id', component: ShowUserComponent },
 
-  { path: 'admin', component: DashboardComponent },
+  { path: 'admin', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'admin/users', component: AdminComponent },
   { path: 'admin/users/:id', component: ShowUserComponent },
   // {
