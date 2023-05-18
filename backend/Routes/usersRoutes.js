@@ -20,10 +20,14 @@ router.get("/logout",AuthController.logout);
 router.post("/upload-profile-pic", UserController.upload.single("file"), UserController.UploadProfilePic);
 
 //#region User
+router.get("/latest8users", UserController.getLatest8users);
+
 router.get("/",UserController.GetAllUsers);
 router.get("/:id",UserController.GetUserByID);
 router.post("/:id",UserController.UpdateUserByID);
 router.delete("/:id",UserController.DeleteUserByID);
+
+
 //#endregion
 
 

@@ -2,7 +2,6 @@ let productsModel = require("../Models/ProductsModel");
 const { ObjectId } = require("mongodb");
 const productSchema = require("../Utils/ProductSchema");
 
-
 var GetAllProducts = async (req, res) => {
   try {
     var AllProducts = await productsModel.aggregate([
@@ -58,6 +57,16 @@ var DeleteProductByID = async (req, res) => {
   }
 };
 
+var getLatest6products = async (req, res) => {
+  try {
+    var AllProducts = await productsModel.find().sort({ _id: -1 }).limit(6);
+    await res.json(AllProducts);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send("failed to get last 6 products");
+  }
+};
+
 const addNewProduct = async (req, res) => {
   try {
     const { title, summary, image, ingredients, category } = req.body;
@@ -96,8 +105,7 @@ const addNewProduct = async (req, res) => {
 const editProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, summary, ingredients, image, category } =
-      req.body;
+    const { title, summary, ingredients, image, category } = req.body;
     const product = await productsModel.findByIdAndUpdate(
       id,
       { title, summary, ingredients, image, category },
@@ -113,11 +121,11 @@ const editProduct = async (req, res) => {
   }
 };
 
-
-
 module.exports = {
   GetAllProducts,
   GetProductByID,
+  DeleteProductByID,
+  getLatest6products,
   addNewProduct,
   DeleteProductByID,
   editProduct,

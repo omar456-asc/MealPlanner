@@ -33,4 +33,9 @@ export class UsersService {
   deleteUser(id: any) {
     return this.HttpClient.delete(this.Base_URL + '/' + id);
   }
+  getLatest8users() {
+    return this.HttpClient.get(this.Base_URL + "/latest8users");
+  }
+
+
 }
