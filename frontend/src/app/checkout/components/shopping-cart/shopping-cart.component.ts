@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shopping-cart.component.css'],
 })
 export class ShoppingCartComponent implements OnInit {
-  quantityInput:any;
+  quantityInput:any
   ID: any = localStorage.getItem('id');
   localcart: any ;
   cartid: any = [];
@@ -26,11 +26,12 @@ export class ShoppingCartComponent implements OnInit {
     this.localcart=this.mymeals.getCart();
     this.cartid = JSON.parse(this.localcart);
     for (let i = 0; i < this.cartid.length; i++) {
-      console.log(this.cartid[i]);
+
       this.mymeals.GetMealByID(this.cartid[i].id).subscribe({
         next: (data: any) => {
-
+        data.quantity=this.cartid[i].quantity
           this.Meal.push(data);
+
         },
         error: (err) => {
           console.log(err);
@@ -58,11 +59,19 @@ export class ShoppingCartComponent implements OnInit {
     this.Meal.splice(index, 1);
   }
 
-  minus() {
+  minus(index: number) {
+    if(this.cartid[index].quantity>0){
+   this.cartid[index].quantity--
+   this.mymeals.setCart(JSON.stringify(this.cartid))
+   this.Meal[index].quantity=this.cartid[index].quantity
 
   }
+  }
 
-  plus() {
+  plus(index: number) {
+    this.cartid[index].quantity++;
+      this.mymeals.setCart(JSON.stringify(this.cartid))
+      this.Meal[index].quantity=this.cartid[index].quantity
 
   }
 }
