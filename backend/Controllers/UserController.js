@@ -1,5 +1,11 @@
 let usersmodel = require("../Models/usersModel");
 const bcrybt = require("bcrypt");
+const multer = require("multer");
+var path = require("path");
+const cloudinary = require("cloudinary");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 var GetAllUsers = async (req, res) => {
   try {
@@ -41,13 +47,6 @@ var UpdateUserByID = async (req, res) => {
   }
 };
 
-const bcrybt = require("bcrypt");
-const multer = require("multer");
-var path = require("path");
-const cloudinary = require("cloudinary");
-const dotenv = require("dotenv");
-
-dotenv.config();
 var GetAllUsers = async (req, res) => {
   try {
     var AllUsers = await usersmodel.find();
