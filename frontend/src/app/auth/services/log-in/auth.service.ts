@@ -31,11 +31,20 @@ export class AuthService {
   }
 
   getUser() {
-    let token = localStorage.getItem('Token');
+    const token = localStorage.getItem('Token');
+    if (!token) {
+      return undefined;
+    }
+    const decoded: any = jwt_decode(token) as {
+      id: string;
+      is_admin: boolean;
+    };
+    return decoded;
   }
 
   getRole(): boolean | undefined {
     const token = localStorage.getItem('Token');
+    console.log('user token', token);
     if (!token) {
       return undefined;
     }

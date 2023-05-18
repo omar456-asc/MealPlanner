@@ -9,10 +9,6 @@ import { AuthService } from 'src/app/auth/services/log-in/auth.service';
 export class HeaderComponent {
   isLoggedIn: any;
   constructor(private authService: AuthService) {
-    // console.log(this.authService.isUserLoggedIn());
-    // console.log(this.authService.isUserLoggedIn());
-    // console.log("role of user",this.authService.getRole());
-
     this.isLoggedIn = this.authService.isUserLoggedIn();
   }
   logout() {
