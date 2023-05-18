@@ -1,9 +1,10 @@
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 dotenv.config();
 
 const secret = process.env.SECRET_KEY;
 const requireAuth = (req, res, next) => {
+  console.log("bdfbhfgbhfgnhgfnfng");
   const token = req.cookies.jwt;
 
   // check json web token exists & is verified
@@ -11,14 +12,14 @@ const requireAuth = (req, res, next) => {
     jwt.verify(token, secret, (err, decodedToken) => {
       if (err) {
         console.log(err.message);
-        res.redirect('/login');
+        res.redirect("/login");
       } else {
         console.log(decodedToken);
         next();
       }
     });
   } else {
-    res.redirect('/login');
+    res.redirect("/login");
   }
 };
 
@@ -41,6 +42,5 @@ const checkUser = (req, res, next) => {
     next();
   }
 };
-
 
 module.exports = { requireAuth, checkUser };

@@ -1,7 +1,14 @@
 <app-header></app-header>
 <section id="meals">
+
   <div class="container  ">
     <div class="row my-5" *ngIf="Meal; else falseBlock">
+      <div class="col-md-10 offset-1 alert alert-success" *ngIf="trueAlert;">
+        Your meal added to the cart successfully
+      </div>
+      <div class="col-md-10 offset-1 alert alert-danger" *ngIf="falseAlert;">
+        You can't add to cart , please login first
+      </div>
       <div  class="col-md-5  offset-1  card-image d-flex animate__animated  animate__backInLeft">
         <img src={{Meal[0].image}} class="img" alt="Image">
       </div>
@@ -21,9 +28,11 @@
           </div>
 <p class="font-weight-bold mt-2">price: {{Meal[0].price}}</p>
 <p >{{Meal[0].summary}}</p>
-<a class="btn btn-lg "  href="#">
-  <span>Add To Cart</span>
-</a>
+
+  <button class="btn btn-lg "  (click)="AddToCart()" >
+    <span>Add To Cart</span>
+  </button>
+
         </div>
       </div >
 <div class="col-md-10 offset-1 mt-5 py-4 border-top" >
@@ -35,7 +44,7 @@
 </div>
     </div>
     <ng-template #falseBlock>
-      <h1 class="alert alert-danger">Loading...</h1>
+      <h1 class="alert alert-danger" style="background-color: #debd54; border-color: #debd54; ">Loading...</h1>
     </ng-template>
 
   </div>

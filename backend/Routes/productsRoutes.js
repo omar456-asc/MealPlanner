@@ -1,6 +1,5 @@
 const express = require("express");
 let router = express.Router();
-
 const ProductController = require("../Controllers/ProductController");
 
 //#region Product

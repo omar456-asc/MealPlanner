@@ -6,6 +6,8 @@ backend/package-lock.json
 package-lock.json
 .env
 
+backend/uploads
+
 
 # MongoDB related files
 backend/*.log
