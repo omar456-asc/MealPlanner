@@ -1,0 +1,45 @@
+.Checkout::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(2, 2, 2, 0.8);
+  z-index: 9;
+
+}
+
+.Checkout {
+  background: center center no-repeat;
+  background-size: cover;
+  padding: 147px 0;
+  position: relative;
+  min-height: 100vh;
+
+}
+
+.Checkout .container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+
+}
+.checkout-btn {
+  background: #bc3b2c;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  position: relative;
+  display: inline-block;
+}
+.box {
+  width: 20%;
+  margin: auto;
+  border-radius: 10px;
+  height: max-content;
+  background-color: transparent !important;
+  box-shadow: 0px 0px 10px 2px rgba(12, 0, 0, 0.3);
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/log-in/auth.service';
+import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 @Component({
   selector: 'app-header',
@@ -12,8 +13,12 @@ export class HeaderComponent {
   public  cart: [{"id":string,"quantity":number}];
   public oldcart: string | null;
   cartLength: number;
+  cartid:any;
+  ID: any = localStorage.getItem('id');
   constructor(private authService: AuthService,
-    private mymeals:AllMealsService) {
+
+    private mymeals:AllMealsService,
+    public myService: ShoppingCartService,) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
     this.oldcart = localStorage.getItem('cart');
@@ -28,5 +33,16 @@ export class HeaderComponent {
   logout() {
     this.authService.logout();
     this.isLoggedIn = null;
+    var cart:any=this.mymeals.getCart()
+    this.cartid = JSON.parse(cart)
+    this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
+      (data: any) => {
+        console.log("done");
+        localStorage.removeItem('cart');
+      },
+      (err) => {
+     console.log("error")
+      }
+    );
   }
 }

@@ -1,7 +1,11 @@
 
+/**
+ * Utils [Separtion]
+ * MVC[Model - View - Controller]
+ */
 const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 // enable all CORS requests
 app.use(cors());
 const cookieParser = require("cookie-parser");
@@ -13,7 +17,6 @@ app.use(bodyparser.json());
 require("dotenv").config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-
 //Global MiddleWare
 const logging = require("./MiddleWares/logging");
 app.use("/", logging);
@@ -23,11 +26,20 @@ const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
 
+//#region Product
 //#region product
 const ProductRoutes = require("./Routes/productsRoutes");
 app.use("/api/products", ProductRoutes);
 //#endregion
 
+//#region ingredients
+const IngredientRoutes = require("./Routes/ingredientsRoutes");
+app.use("/api/ingredients", IngredientRoutes);
+//#endregion
+
+//#region orders
+const OrderRoutes = require("./Routes/ordersRoutes");
+app.use("/api/orders", OrderRoutes);
 //#region cart
 const CartRoutes = require("./Routes/cartRoutes");
 app.use("/api/cart", CartRoutes);
@@ -42,4 +54,3 @@ app.use("/api/payment", stripeRoutes);
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });
-

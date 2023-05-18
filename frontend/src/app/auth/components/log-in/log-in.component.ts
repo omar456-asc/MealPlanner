@@ -3,6 +3,7 @@ import { LogInService } from '../../services/log-in/log-in.service';
 import { AuthService } from '../../services/log-in/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 
 @Component({
   selector: 'app-log-in',
@@ -32,17 +33,33 @@ export class LogInComponent {
   constructor(
     private myService: LogInService,
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private usercart: AllMealsService
 
-  Add(email: any, password: any) {
+  ) {}
+  cart:any
+  Login(email: any, password: any) {
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe(
       (response: any) => {
          console.log(response);
         this.authService.setToken(response.token);
         this.authService.setUserID(response.id);
-        this.router.navigateByUrl('');
+        this.Add(email, password);
+          this.router.navigateByUrl('');
+          this.getcart()
+    })
+    }
+
+
+
+  Add(email: any, password: any) {
+    let logInUser = { email, password };
+    this.myService.LOGIN(logInUser).subscribe(
+      (response: any) => {
+        this.authService.setToken(response.token);
+        this.checkRole();
+        // this.router.navigateByUrl('');
       },
       (err) => {
         if (email == '') {
@@ -61,5 +78,28 @@ export class LogInComponent {
         }
       }
     );
+  }
+  getcart(){
+    var id=this.authService.getUserID()
+    console.log(id);
+    this.myService.GetUserCart(id).subscribe({
+      next:(data:any)=>{
+        this.cart=data.cart
+        if(this.cart[0].id){
+        this.usercart.setCart(JSON.stringify(this.cart));}
+
+      },
+      error:(err)=>{console.log(err)}
+    })
+  }
+  checkRole() {
+    let isAdmin = this.authService.getRole();
+    if (isAdmin === true) {
+      this.router.navigate(['/admin']);
+    } else if (isAdmin === false) {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }

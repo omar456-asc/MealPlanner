@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
+import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,23 +8,40 @@ import { ShoppingCartService } from '../../service/shopping-cart.service';
   styleUrls: ['./shopping-cart.component.css'],
 })
 export class ShoppingCartComponent implements OnInit {
-
   quantityInput = 1;
-  ID:any=localStorage.getItem('id')
-  cart:any
+  ID: any = localStorage.getItem('id');
+  localcart: any = this.mymeals.getCart();
+  cartid: any = [];
+  Meal: any = [];
   constructor(
+    public myService: ShoppingCartService,
+    public mymeals: AllMealsService
+  ) {}
 
-    public myService: ShoppingCartService){}
   ngOnInit(): void {
-    this.myService.GetCart(this.ID).subscribe(
-      {
-        next:(data)=>{
-          this.cart=data
-          console.log(this.cart)
-
-
+    this.cartid = JSON.parse(this.localcart);
+    for (let i = 0; i < this.cartid.length; i++) {
+      this.mymeals.GetMealByID(this.cartid[i].id).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.Meal.push(data);
         },
-        error:(err)=>{console.log(err)}
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  }
+  checkout() {
+   var cart:any=this.mymeals.getCart()
+    this.cartid = JSON.parse(cart)
+    this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
+      (data: any) => {
+        localStorage.removeItem('cart')
+        console.log("done");
+      },
+      (err) => {
+     console.log("error")
       }
     );
   }
