@@ -35,23 +35,18 @@ export class LogInComponent {
     private authService: AuthService,
     private router: Router,
     private usercart: AllMealsService
-
   ) {}
-  cart:any
+  cart: any;
   Login(email: any, password: any) {
     let logInUser = { email, password };
-    this.myService.LOGIN(logInUser).subscribe(
-      (response: any) => {
-         console.log(response);
-        this.authService.setToken(response.token);
-        this.authService.setUserID(response.id);
-        this.Add(email, password);
-          this.router.navigateByUrl('');
-          this.getcart()
-    })
-    }
-
-
+    this.myService.LOGIN(logInUser).subscribe((response: any) => {
+      this.authService.setToken(response.token);
+      this.authService.setUserID(response.id);
+      this.Add(email, password);
+      this.router.navigateByUrl('');
+      this.getcart();
+    });
+  }
 
   Add(email: any, password: any) {
     let logInUser = { email, password };
@@ -59,7 +54,6 @@ export class LogInComponent {
       (response: any) => {
         this.authService.setToken(response.token);
         this.checkRole();
-        // this.router.navigateByUrl('');
       },
       (err) => {
         if (email == '') {
@@ -79,18 +73,20 @@ export class LogInComponent {
       }
     );
   }
-  getcart(){
-    var id=this.authService.getUserID()
-    console.log(id);
-    this.myService.GetUserCart(id).subscribe({
-      next:(data:any)=>{
-        this.cart=data.cart
-        if(this.cart[0].id){
-        this.usercart.setCart(JSON.stringify(this.cart));}
+  getcart() {
+    var id = this.authService.getUserID();
 
+    this.myService.GetUserCart(id).subscribe({
+      next: (data: any) => {
+        this.cart = data.cart;
+        if (this.cart[0].id) {
+          this.usercart.setCart(JSON.stringify(this.cart));
+        }
       },
-      error:(err)=>{console.log(err)}
-    })
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
   checkRole() {
     let isAdmin = this.authService.getRole();
