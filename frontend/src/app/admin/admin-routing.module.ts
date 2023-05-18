@@ -10,6 +10,7 @@ import { UpdateIngredientComponent } from './ingredients/components/update-ingre
 import { AllMealsComponent } from './admin-meals/components/all-meals/all-meals.component';
 import { ShowMealComponent } from './admin-meals/components/show-meal/show-meal.component';
 import { AllOrdersComponent } from './admin-orders/components/all-orders/all-orders.component';
+import { ShowOrderComponent } from './admin-orders/components/show-order/show-order.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'admin/meals/:id', component: ShowMealComponent },
 
   { path: 'admin/orders', component: AllOrdersComponent },
+  { path: 'admin/orders/:id', component: ShowOrderComponent },
+
 ];
 
 @NgModule({
