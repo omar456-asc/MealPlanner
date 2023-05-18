@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
+import { environment } from 'src/enviroments/enviroments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConfigService {
-  private baseUrl = 'https://mealplannerapi.onrender.com/api';
+  private baseUrl = environment.baseUrl;
   static getBaseUrl: any;
   constructor() {}
   getBaseUrl(endpoint: string): string {
