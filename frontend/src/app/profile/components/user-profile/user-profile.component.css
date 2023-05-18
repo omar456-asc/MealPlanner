@@ -1,110 +1,149 @@
 body {
-    margin-top: 20px;
-  }
-  .profile {
-    background-color: black;
-  }
-   .about{
-    color: white;
-  }
-  h3{
-    color: black;
-  }
-  .icon-box.medium {
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-  }
-  .container {
-    padding-top: 80px;
-    padding-bottom: 50px;
-  }
-  .card-body {
-    min-height: 225px;
-  }
-  .icon-box {
-    font-size: 30px;
-    margin-bottom: 33px;
-    display: inline-block;
-    color: black;
-    height: 65px;
-    width: 65px;
-    line-height: 65px;
-    background-color: transparent;
-    text-align: center;
-    border-radius: 0.3rem;
-  }
-  .social-icon-style2 li a {
-    display: inline-block;
-    font-size: 14px;
-    text-align: center;
-    color: #ffffff;
-    background: #000000;
-    height: 41px;
-    line-height: 41px;
-    width: 41px;
-  }
-  .rounded-3 {
-    border-radius: 0.3rem !important;
-  }
-  
-  .social-icon-style2 {
-    margin-bottom: 0;
-    display: inline-block;
-    padding-left: 10px;
-    list-style: none;
-  }
-  
-  .social-icon-style2 li {
-    vertical-align: middle;
-    display: inline-block;
-    margin-right: 5px;
-  }
-  
-  a,
-  a:active,
-  a:focus {
-    color: #616161;
-    text-decoration: none;
-    transition-timing-function: ease-in-out;
-    -ms-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    -webkit-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-    -ms-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    -webkit-transition-duration: 0.2s;
-    -o-transition-duration: 0.2s;
-  }
-  
-  .text-secondary,
-  .text-secondary-hover:hover {
-    color: #000000 !important;
-  }
-  .display-25 {
-    font-size: 1.4rem;
-  }
-  
-  .text-primary,
-  .text-primary-hover:hover {
-    color: white !important;
-  }
-  
-  p {
-    margin: 0 0 20px;
-  }
-  
-  .mb-1-6,
-  .my-1-6 {
-    margin-bottom: 1.6rem;
-  }
-  
-  .first{
-    background-color:#bc3b2c ;
-  }
-  .second{
-    background-color:#D4AF37;
-  }
-  
+  margin-top: 20px;
+}
+.profile {
+  background-color: black;
+}
+.about {
+  color: white;
+}
+h3 {
+  color: black;
+}
+.icon-box.medium {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+.container {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+.card-body {
+  min-height: 225px;
+}
+.icon-box {
+  font-size: 30px;
+  margin-bottom: 33px;
+  display: inline-block;
+  color: black;
+  height: 65px;
+  width: 65px;
+  line-height: 65px;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 0.3rem;
+}
+.social-icon-style2 li a {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+  background: #000000;
+  height: 41px;
+  line-height: 41px;
+  width: 41px;
+}
+.rounded-3 {
+  border-radius: 0.3rem !important;
+}
+
+.social-icon-style2 {
+  margin-bottom: 0;
+  display: inline-block;
+  padding-left: 10px;
+  list-style: none;
+}
+
+.social-icon-style2 li {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+a,
+a:active,
+a:focus {
+  color: #616161;
+  text-decoration: none;
+  transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+}
+form {
+  color: #d4af37;
+}
+.upload-btn{
+  background: #d4cfcf;
+  border: none;
+  transition: background .2s ease-in-out;
+  padding: 10px 25px;
+
+}
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #555;
+  opacity:0.5;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.text-secondary,
+.text-secondary-hover:hover {
+  color: #000000 !important;
+}
+.display-25 {
+  font-size: 1.4rem;
+}
+
+.text-primary,
+.text-primary-hover:hover {
+  color: white !important;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+.mb-1-6,
+.my-1-6 {
+  margin-bottom: 1.6rem;
+}
+
+.first {
+  background-color: #bc3b2c;
+}
+.second {
+  background-color: #d4af37;
+}
+
+#upload {
+  align-self: center;
+}
+
+#avatar {
+  width: 250px;
+  font-size: small;
+}
+
+.bi-cloud-upload {
+  color: blue;
+}
+
+.profile-pic {
+  width: 80%;
+  align-self: center;
+}
+
