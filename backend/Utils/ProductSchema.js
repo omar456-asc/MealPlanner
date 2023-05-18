@@ -4,10 +4,13 @@ const ajv = new Ajv();
 let ProductsSchema = {
   type: "object",
   properties: {
-    title: { type: "string", pattern: "^[a-zA-Z]+$" },
-    summary: { type: "string", pattern: "^[a-zA-Z]+$" },
+    title: { type: "string" },
+    summary: { type: "string" },
+    ingredients: { type: "array", items: { type: "integer" } },
+    image: { type: "string" },
+    category: { type: "string" },
   },
-  required: ["title" , "summary"],
+  required: ["title", "summary", "ingredients", "category", "image"],
   // additionalProperties: false,
 };
 

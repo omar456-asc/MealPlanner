@@ -29,7 +29,7 @@ const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
 //#endregion
 
-//#region product
+//#region Product
 const ProductRoutes = require("./Routes/productsRoutes");
 app.use("/api/products", ProductRoutes);
 //#endregion
@@ -37,6 +37,14 @@ app.use("/api/products", ProductRoutes);
 //#region cart
 const CartRoutes = require("./Routes/cartRoutes");
 app.use("/api/cart", CartRoutes);
+//#region ingredients
+const IngredientRoutes = require("./Routes/ingredientsRoutes");
+app.use("/api/ingredients", IngredientRoutes);
+//#endregion
+
+//#region orders
+const OrderRoutes = require("./Routes/ordersRoutes");
+app.use("/api/orders", OrderRoutes);
 //#endregion
 
 app.listen(PORT, () => {
