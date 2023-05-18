@@ -1,12 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigService } from 'src/app/config.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AllMealsService {
-  private readonly Base_URL = 'http://localhost:7400/api/products';
-  constructor(private readonly myClient: HttpClient) {}
+  private readonly Base_URL: string;
+
+  constructor(
+    private readonly myClient: HttpClient,
+    private readonly configService: ConfigService
+  ) {
+    this.Base_URL = this.configService.getBaseUrl('products');
+  }
   //#region GetAllMeals
   GetAllMeals() {
     //method[Get-Delete-Put-Patch]

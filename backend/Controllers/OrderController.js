@@ -1,9 +1,7 @@
-const OrdersModel = require("../models/OrdersModel");
+const OrdersModel = require("../Models/OrdersModel");
 let usersmodel = require("../Models/usersModel");
 let ProductsModel = require("../Models/ProductsModel");
-let IngredientModel = require("../models/IngredientModel");
-
-
+let IngredientModel = require("../Models/IngredientModel");
 
 const { ObjectId } = require("mongodb");
 
@@ -49,36 +47,35 @@ const getOrderById = async (req, res) => {
   var ID = req.params.id;
   // console.log(ID);
   // try {
-  let data =[];
+  let data = [];
   const order = await OrdersModel.findOne({ _id: new ObjectId(ID) });
-  data.push({  order });
+  data.push({ order });
 
   const user = await usersmodel.findOne({ _id: new ObjectId(order.userID) });
-  data.push({user} );
+  data.push({ user });
 
- const meals = [];
+  const meals = [];
 
-for (const meal of order.meals) {
-  const mealDetails = await ProductsModel.findOne({
-    _id: new ObjectId(meal.mealID),
-  });
-
-  const ingredients = [];
-  for (const ingredientId of meal.ingredients) {
-    const ingredientDetails = await IngredientModel.findOne({
-      _id: new ObjectId(ingredientId),
+  for (const meal of order.meals) {
+    const mealDetails = await ProductsModel.findOne({
+      _id: new ObjectId(meal.mealID),
     });
-    ingredients.push(ingredientDetails);
+
+    const ingredients = [];
+    for (const ingredientId of meal.ingredients) {
+      const ingredientDetails = await IngredientModel.findOne({
+        _id: new ObjectId(ingredientId),
+      });
+      ingredients.push(ingredientDetails);
+    }
+
+    mealDetails.ingredients = ingredients;
+    meals.push(mealDetails);
   }
 
-  mealDetails.ingredients = ingredients;
-  meals.push(mealDetails);
-}
+  data.push({ meals });
 
-
- data.push({ meals });
-
-console.log(meals);
+  console.log(meals);
   if (!order) {
     return res.status(404).json({ message: "Order not found" });
   }

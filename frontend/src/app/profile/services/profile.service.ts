@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { ConfigService } from 'src/app/config.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
+  private readonly Base_URL: string;
 
-  private readonly baseURL = environment.baseURL;
+  constructor(
+    private readonly myClient: HttpClient,
+    private readonly configService: ConfigService
+  ) {
+    this.Base_URL = this.configService.getBaseUrl('users');
+  }
 
-  constructor(private readonly myClient:HttpClient) { }
-
-  uploadProfilePic(body: any){
-    const url = this.baseURL + '/users/upload-profile-pic';
+  uploadProfilePic(body: any) {
+    const url = this.Base_URL + '/upload-profile-pic';
     return this.myClient.post(url, body);
   }
 
   getProfileInfo(userId: string) {
-    const url = this.baseURL + `/users/${userId}`;
+    const url = this.Base_URL + `/${userId}`;
     return this.myClient.get(url);
   }
-
 }

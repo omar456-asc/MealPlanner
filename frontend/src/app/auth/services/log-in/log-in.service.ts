@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { ConfigService } from 'src/app/config.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LogInService {
+  private readonly Base_URL: string;
 
-  private readonly loginUrl = 'http://localhost:7400/api/users';
-
-  constructor(private readonly myClient:HttpClient) { }
-
-  LOGIN(logInUser:any){
-    return this.myClient.post(this.loginUrl+"/login", logInUser);
+  constructor(
+    private readonly myClient: HttpClient,
+    private readonly configService: ConfigService
+  ) {
+    this.Base_URL = this.configService.getBaseUrl('users');
   }
-  GetUserCart(ID:any){
-    return this.myClient.get(this.loginUrl+"/"+ID);
+
+  LOGIN(logInUser: any) {
+    return this.myClient.post(this.Base_URL + '/login', logInUser);
+  }
+  GetUserCart(ID: any) {
+    return this.myClient.get(this.Base_URL + '/' + ID);
   }
 }

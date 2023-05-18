@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const IngredientController = require("../controllers/IngredientController");
+const IngredientController = require("../Controllers/IngredientController");
 
 router.get("/", IngredientController.getAllIngredients);
 router.post("/", IngredientController.createIngredient);

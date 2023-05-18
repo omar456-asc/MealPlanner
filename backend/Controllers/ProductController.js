@@ -1,6 +1,6 @@
 let productsModel = require("../Models/ProductsModel");
-const { ObjectId } = require("mongodb");
 const productSchema = require("../Utils/ProductSchema");
+const { ObjectId } = require("mongodb");
 
 var GetAllProducts = async (req, res) => {
   try {

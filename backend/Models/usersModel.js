@@ -1,37 +1,35 @@
 const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrybt = require("bcrypt");
-
-var DB_URL =
-  "mongodb+srv://mahmoud1499:Admin_123@meal-planner.bk6jdu7.mongodb.net/meal-planner";
+const dotenv = require("dotenv");
+dotenv.config();
+let DB_URL = process.env.MONGO_URI;
 
 if (mongoose.connect(DB_URL, { useNewUrlParser: true })) {
   console.log("Connected to database");
 }
 
 var userSchema = new mongoose.Schema({
-    fname:{type:String, required:true, minlength:3, maxlength:50},
-    lname:{type:String, required:true, minlength:3, maxlength:50},
-    cart: {type:Array},
-    email:{
-        type:String,
-        required:[true, 'Please enter an email'], 
-        unique:true,
-        lowercase:true,
-        validate: [isEmail, 'Please enter a valid email']
-    },
-    password:{
-        type:String,
-        minlength:[6,'Minimum password length is 6 characters'],
-        required:[true ,'Please enter a password']
-    },
-    is_admin: { type: Boolean, default: false },
-    avatar: {
+  fname: { type: String, required: true, minlength: 3, maxlength: 50 },
+  lname: { type: String, required: true, minlength: 3, maxlength: 50 },
+  cart: { type: Array },
+  email: {
     type: String,
-    },
+    required: [true, "Please enter an email"],
+    unique: true,
+    lowercase: true,
+    validate: [isEmail, "Please enter a valid email"],
+  },
+  password: {
+    type: String,
+    minlength: [6, "Minimum password length is 6 characters"],
+    required: [true, "Please enter a password"],
+  },
+  is_admin: { type: Boolean, default: false },
+  avatar: {
+    type: String,
+  },
 });
- 
-
 
 //#region FireAFunctionBeforeSaveToDataBaseToHash
 userSchema.pre("save", async function (next) {
