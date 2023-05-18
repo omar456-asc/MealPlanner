@@ -26,6 +26,8 @@ import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
 import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
 
+import { UserdashboardModule } from './userdashboard/userdashboard.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
     CheckoutModule,
     ProfileModule,
     PaymentModule,
+
+    UserdashboardModule,
   ],
   providers: [
     AuthService,
