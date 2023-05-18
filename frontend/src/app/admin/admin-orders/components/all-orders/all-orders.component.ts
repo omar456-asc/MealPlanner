@@ -11,7 +11,7 @@ export class AllOrdersComponent {
   constructor(public mealService: AdminOrdersServiceService) { }
 
   ngOnInit(): void {
-    this.mealService.GetAllMeals().subscribe(
+    this.mealService.getAllOrders().subscribe(
       {
         next: (data: any) => {
           this.orders = data;
