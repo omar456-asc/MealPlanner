@@ -1,16 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigService } from 'src/app/config.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PaymentFormService {
+  private readonly Base_URL: string;
 
-  private readonly PaymentUrl = 'http://localhost:7400/api/payment';
+  constructor(
+    private readonly myClient: HttpClient,
+    private readonly configService: ConfigService
+  ) {
+    this.Base_URL = this.configService.getBaseUrl('payment');
+  }
 
-  constructor(private readonly myClient:HttpClient) { }
-
-  PAYMENT(payment:any){
-    return this.myClient.post(this.PaymentUrl, payment);
+  PAYMENT(payment: any) {
+    return this.myClient.post(this.Base_URL, payment);
   }
 }
