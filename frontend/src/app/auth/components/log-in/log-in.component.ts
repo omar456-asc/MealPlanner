@@ -37,7 +37,7 @@ export class LogInComponent {
     private usercart: AllMealsService
 
   ) {}
-cart:any
+  cart:any
   Login(email: any, password: any) {
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe(
@@ -45,6 +45,7 @@ cart:any
          console.log(response);
         this.authService.setToken(response.token);
         this.authService.setUserID(response.id);
+        this.Add(email, password);
           this.router.navigateByUrl('');
           this.getcart()
     })
@@ -80,7 +81,7 @@ cart:any
   }
   getcart(){
     var id=this.authService.getUserID()
-console.log(id);
+    console.log(id);
     this.myService.GetUserCart(id).subscribe({
       next:(data:any)=>{
         this.cart=data.cart

@@ -1,25 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+
 export class AuthService {
   private token: any;
   private id: any;
-
   constructor() {}
-//useridregion
-  setUserID(id: any) {
-    this.id = id;
-    localStorage.setItem('id', id);
-  }
 
-  getUserID() {
-    return this.id;
-  }
-  //endregion
-  //tokenregion
   setToken(token: any) {
     this.token = token;
     localStorage.setItem('Token', token);
@@ -33,10 +24,18 @@ export class AuthService {
     return !!this.token;
   }
 
+  setUserID(id: any) {
+    this.id = id;
+    localStorage.setItem('id', id);
+  }
+
+  getUserID() {
+    return this.id;
+  }
+
   logout() {
     localStorage.removeItem('Token');
     localStorage.removeItem('id');
-
   }
 
   isUserLoggedIn() {
@@ -57,6 +56,7 @@ export class AuthService {
 
   getRole(): boolean | undefined {
     const token = localStorage.getItem('Token');
+
     console.log('user token', token);
     if (!token) {
       return undefined;

@@ -16,6 +16,7 @@ export class HeaderComponent {
   cartid:any;
   ID: any = localStorage.getItem('id');
   constructor(private authService: AuthService,
+
     private mymeals:AllMealsService,
     public myService: ShoppingCartService,) {
     console.log(this.authService.isUserLoggedIn());
