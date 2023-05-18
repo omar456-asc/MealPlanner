@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody >
-                <ng-container *ngFor="let meals of Meal">
+                <ng-container *ngFor="let meals of Meal; let i = index">
                 <tr *ngFor="let meal of meals;">
                   <th scope="row" class="border-0"  >
                     <div class="p-2"  >
@@ -78,7 +78,7 @@
                      </a>
                   </td>
                   <td class="border-0 align-middle">
-                    <a href="#" class="text-dark">
+                    <a (click)="delete(i)" class="text-dark">
                        <i class="fa fa-trash"></i
                     >
                     </a>
