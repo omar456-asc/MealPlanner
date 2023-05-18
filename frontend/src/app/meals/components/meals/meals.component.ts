@@ -11,12 +11,11 @@ export class MealsComponent implements OnInit {
   card={
     active:true
   };
-  constructor(public myService:AllMealsService){
-
+  constructor(public mealService:AllMealsService){
 
   }
   ngOnInit(): void {
-    this.myService.GetAllMeals().subscribe(
+    this.mealService.GetAllMeals().subscribe(
       {
         next:(data:any)=>{
           this.Meals = data;

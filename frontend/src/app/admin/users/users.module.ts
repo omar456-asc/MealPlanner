@@ -6,24 +6,19 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import { RouterLink, RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     AddUserComponent,
     ShowUserComponent,
     UpdateUserComponent,
-    AllUsersComponent
+    AllUsersComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+  imports: [CommonModule, RouterModule],
   exports: [
     AddUserComponent,
     ShowUserComponent,
     UpdateUserComponent,
-    AllUsersComponent
-  ]
+    AllUsersComponent,
+  ],
 })
-export class UsersModule { }
+export class UsersModule {}

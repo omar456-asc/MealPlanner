@@ -35,20 +35,25 @@ export class LogInComponent {
     private authService: AuthService,
     private router: Router,
     private usercart: AllMealsService
-
   ) {}
-cart:any
+  cart: any;
   Login(email: any, password: any) {
+    let logInUser = { email, password };
+    this.myService.LOGIN(logInUser).subscribe((response: any) => {
+      this.authService.setToken(response.token);
+      this.authService.setUserID(response.id);
+      this.Add(email, password);
+      this.router.navigateByUrl('');
+      this.getcart();
+    });
+  }
+
+  Add(email: any, password: any) {
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe(
       (response: any) => {
-
         this.authService.setToken(response.token);
-        this.authService.setUserID(response.id);
-          this.router.navigateByUrl('');
-          this.getcart()
-
-
+        this.checkRole();
       },
       (err) => {
         if (email == '') {
@@ -68,17 +73,29 @@ cart:any
       }
     );
   }
-  getcart(){
-    var id=this.authService.getUserID()
+  getcart() {
+    var id = this.authService.getUserID();
 
     this.myService.GetUserCart(id).subscribe({
-      next:(data:any)=>{
-        this.cart=data.cart
-        if(this.cart[0].id){
-        this.usercart.setCart(JSON.stringify(this.cart));}
-
+      next: (data: any) => {
+        this.cart = data.cart;
+        if (this.cart[0].id) {
+          this.usercart.setCart(JSON.stringify(this.cart));
+        }
       },
-      error:(err)=>{console.log(err)}
-    })
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  checkRole() {
+    let isAdmin = this.authService.getRole();
+    if (isAdmin === true) {
+      this.router.navigate(['/admin']);
+    } else if (isAdmin === false) {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }

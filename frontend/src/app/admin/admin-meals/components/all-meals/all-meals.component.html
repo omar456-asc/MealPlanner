@@ -1,0 +1,154 @@
+<app-admin-header></app-admin-header>
+<app-admin-side-nav></app-admin-side-nav>
+
+<div class="content-wrapper">
+  <section class="content-header">
+  <!-- Content Header (Page header) -->
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>All Meals</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List Of All Meals</a></li>
+            <li class="breadcrumb-item active">Meals</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">All Meals data</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div
+                id="example1_wrapper"
+                class="dataTables_wrapper dt-bootstrap4"
+              >
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table
+                      id="example1"
+                      class="table table-bordered table-striped dataTable dtr-inline"
+                      aria-describedby="example1_info"
+                    >
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th
+                            class="sorting sorting_asc"
+                            tabindex="0"
+                            aria-controls="example1"
+                            rowspan="1"
+                            colspan="1"
+                            aria-sort="ascending"
+                            aria-label="Rendering engine: activate to sort column descending"
+                          >
+                            Title
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="example1"
+                            rowspan="1"
+                            colspan="1"
+                            aria-label="Browser: activate to sort column ascending"
+                          >
+                           Category
+                          </th>
+
+                              <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="example1"
+                            rowspan="1"
+                            colspan="1"
+                            aria-label="Platform(s): activate to sort column ascending"
+                          >
+                            Rate
+                          </th>
+                            <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="example1"
+                            rowspan="1"
+                            colspan="1"
+                            aria-label="Platform(s): activate to sort column ascending"
+                          >
+                            Price
+                          </th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let m of meals; index as i">
+                          <td>{{ i + 1 }}</td>
+
+                          <td class="dtr-control sorting_1" tabindex="{{ i }}">
+                            {{ m.title }}
+                          </td>
+                          <td>{{ m.category }}</td>
+
+
+                          <td>{{ m.rate }}</td>
+                          <td>{{ m.price }}</td>
+
+                          <td>
+                            <a class="px-2" routerLink="{{ m._id }}">
+                              <button class="btn btn-success">Details</button>
+                            </a>
+                            <a class="px-2" routerLink="{{ m._id }}">
+                              <button class="btn btn-primary">Edit</button>
+                            </a>
+                               <a class="px-2" routerLink="{{ m._id }}">
+                              <button class="btn btn-danger">Delete</button>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>#</th>
+                          <th rowspan="1" colspan="1">Title</th>
+                          <th rowspan="1" colspan="1">Category</th>
+                          <th rowspan="1" colspan="1">Price</th>
+                          <th rowspan="1" colspan="1"></th>
+
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                    <div
+                      class="dataTables_info"
+                      id="example1_info"
+                      role="status"
+                      aria-live="polite"
+                    >
+                      Total {{ meals.length }} Meals
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>

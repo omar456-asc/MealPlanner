@@ -72,6 +72,17 @@
                     <button (click)="plus(i)" class="plus-btn" type="button">
                       +
                     </button>
+                  <td class="border-0 align-middle">
+                    <div class="quantity px-4">
+                      <button (click)="minus()" class="minus-btn" type="button">
+                        -
+                      </button>
+                      <input
+                        [(ngModel)]="quantityInput"
+                        class="quantity-input"
+                        type="number"
+                      />
+                    </div>
                   </td>
                   <td class="border-0 align-middle">
                     <a routerLink="/customize/{{meal._id}}"class="text-dark"

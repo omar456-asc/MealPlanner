@@ -12,25 +12,31 @@
 <div class="profile">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
+      <div class="col-md-7 col-lg-6 mb-5 mb-lg-0 wow fadeIn">
         <div class="card border-0 shadow">
           <img
-            src="https://images.unsplash.com/photo-1516522973472-f009f23bba59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            class="profile-pic"
+            src="{{avatarUrl}}"
             style="height: 500px"
           />
+          <form class="upload-img" id="upload" enctype="multipart/form-data" >
+            <!-- <form action="/users/uploads" method="POST" enctype="multipart/form-data"> -->
+            <input type="file" name="avatar" id="avatar" (change)="onFilePicked($event.target)">
+            <i class="bi bi-cloud-upload fs-5 pl-2" *ngIf="isPicPicked" (click)="upload()"></i>
+            <!-- <button type="submit" id="submit" class="btn btn-primary upload-btn" (click)="upload()">upload</button> -->
+          </form>
           <div class="card-body p-1-9 p-xl-5">
             <div class="mb-4">
-              <h3 class="h4 mb-0">Mariam Saad</h3>
-              <span class="text-primary">CEO &amp; Founder</span>
+              <h3 class="h4 mb-0">{{name}}</h3>
             </div>
             <ul class="list-unstyled mb-4">
               <li class="mb-3">
                 <a href="#!"
                   ><i class="far fa-envelope display-25 me-3 text-secondary"></i
-                  >mariam@gmail.com</a
+                  >{{email}}</a
                 >
               </li>
-              <li class="mb-3">
+              <!-- <li class="mb-3">
                 <a href="#!"
                   ><i
                     class="fas fa-mobile-alt display-25 me-3 text-secondary"
@@ -45,9 +51,9 @@
                   ></i
                   >205 Main Street, USA</a
                 >
-              </li>
+              </li> -->
             </ul>
-            <ul class="social-icon-style2 ps-0">
+            <!-- <ul class="social-icon-style2 ps-0">
               <li>
                 <a href="#!" class="rounded-3"
                   ><i class="fab fa-facebook-f"></i
@@ -68,11 +74,11 @@
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
+      <!-- <div class="col-lg-8">
         <div class="ps-lg-1-6 ps-xl-5">
           <div class="mb-5 wow fadeIn">
             <div class="text-start mb-1-6 wow fadeIn">
@@ -141,7 +147,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
