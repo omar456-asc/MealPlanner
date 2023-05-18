@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 import { LogInComponent } from './auth/components/log-in/log-in.component';
@@ -19,13 +20,22 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/services/log-in/auth.service';
 import { TokenInterceptor } from './auth/services/log-in/Token Interceptor/TokenInterceptor';
-import { CommonModule } from '@angular/common';
+import { ConfigService } from './config.service';
+
 import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
-import { ProfileComponent } from './profile/profile.component';
+import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
+
+import { UserdashboardModule } from './userdashboard/userdashboard.module';
 
 @NgModule({
-  declarations: [AppComponent, LogInComponent, SignUpComponent, MealsComponent],
+  declarations: [
+    AppComponent,
+    LogInComponent,
+    SignUpComponent,
+    MealsComponent,
+    MealDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     SharedModule,
@@ -34,16 +44,20 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     AdminModule,
     HomeModule,
+    ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     CheckoutModule,
     ProfileModule,
     PaymentModule,
+
+    UserdashboardModule,
   ],
   providers: [
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    ConfigService,
   ],
   bootstrap: [AppComponent],
 })

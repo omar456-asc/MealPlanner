@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile.component';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [ProfileComponent, UserProfileComponent],
 })

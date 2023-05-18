@@ -32,8 +32,9 @@ input.form-control:focus {
 h2 {
   font-size: xx-large;
 }
-section{
-  background-color:black ;
+
+section {
+  background-color: black;
   height: 100%;
 }
 

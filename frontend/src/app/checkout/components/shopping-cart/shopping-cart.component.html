@@ -23,16 +23,20 @@
                     <div class="py-2 text-uppercase">Quantity</div>
                   </th>
                   <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">customize</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
                     <div class="py-2 text-uppercase">Remove</div>
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="border-0">
-                    <div class="p-2">
-                      <img
-                        src="https://bootstrapious.com/i/snippets/sn-cart/product-1.jpg"
+              <tbody >
+                <ng-container *ngFor="let meals of Meal">
+                <tr *ngFor="let meal of meals;">
+                  <th scope="row" class="border-0"  >
+                    <div class="p-2"  >
+                      <img class="imgg"
+                        src={{meal.image}}
                         alt=""
                         width="70"
                         class="img-fluid rounded shadow-sm"
@@ -40,46 +44,57 @@
                       <div class="ml-3 d-inline-block align-middle">
                         <h5 class="mb-0">
                           <a
-                            href="#"
                             class="text-dark d-inline-block align-middle"
-                            >Timex Unisex Originals</a
+                            >{{meal.title}}</a
                           >
                         </h5>
                         <span
                           class="text-muted font-weight-normal font-italic d-block"
-                          >Category: Watches</span
+                          >{{meal.category}}</span
                         >
                       </div>
                     </div>
                   </th>
                   <td class="border-0 align-middle">
-                    <strong>$79.00</strong>
-                  </td>
-                  <td class="quantity border-0 align-middle">
-                    <button (click)="minus()" class="minus-btn" type="button">
-                      -
-                    </button>
-                    <input
-                      [(ngModel)]="quantityInput"
-                      class="quantity-input"
-                      type="number"
-                    />
-                    <button (click)="plus()" class="plus-btn" type="button">
-                      +
-                    </button>
+                    <strong>{{meal.price}}</strong>
                   </td>
                   <td class="border-0 align-middle">
-                    <a href="#" class="text-dark"
-                      ><i class="fa fa-trash"></i
-                    ></a>
+                    <div class="quantity px-4">
+                      <button (click)="minus()" class="minus-btn" type="button">
+                        -
+                      </button>
+                      <input
+                        [(ngModel)]="quantityInput"
+                        class="quantity-input"
+                        type="number"
+                      />
+                      <button (click)="plus()" class="plus-btn" type="button">
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td class="border-0 align-middle">
+                    <a routerLink="/customize/{{meal._id}}"class="text-dark"
+                      ><i class="fa-solid fa-wrench" style="color: #000000;"></i>
+                     </a>
+                  </td>
+                  <td class="border-0 align-middle">
+                    <a href="#" class="text-dark">
+                       <i class="fa fa-trash"></i
+                    >
+                    </a>
                   </td>
                 </tr>
+                </ng-container>
               </tbody>
             </table>
           </div>
-          <a href="/payment">
-            <button class="checkout-btn">Checkout</button>
-          </a>
+          <form method="POST">
+            <button routerLink="/payment" class="btn btn-lg " class="checkout-btn"  (click)="checkout()" type="submit">
+              <span>Checkout</span>
+            </button>
+          </form>
+
         </div>
       </div>
     </div>

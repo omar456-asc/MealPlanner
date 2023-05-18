@@ -1,0 +1,39 @@
+<div
+  class="grid-container"
+  style="
+    background-image: url(https://images.unsplash.com/photo-1517401048338-dab23e183fbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  "
+>
+  <!-- Main -->
+  <main class="main-container">
+    <div class="main-title"></div>
+    <div class="main-cards">
+      <div class="card">
+        <div class="card-inner">
+          <h3>PRODUCTS</h3>
+          <span class="material-icons-outlined">inventory_2</span>
+        </div>
+        <h1>249</h1>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <h3>CATEGORIES</h3>
+          <span class="material-icons-outlined">category</span>
+        </div>
+        <h1>25</h1>
+      </div>
+    </div>
+    <hr />
+    <div class="charts">
+      <div class="charts-card">
+        <h2 class="chart-title">Top 5 Products</h2>
+        <chart [type]="type" [data]="dataa" [options]="options"></chart>
+      </div>
+      <div class="charts-card">
+        <h2 class="chart-title">Total Price</h2>
+        <chart [type]="type2" [data]="dataa" [options]="options"></chart>
+      </div>
+    </div>
+  </main>
+  <!-- End Main -->
+</div>
