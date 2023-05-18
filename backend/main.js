@@ -47,6 +47,11 @@ const OrderRoutes = require("./Routes/ordersRoutes");
 app.use("/api/orders", OrderRoutes);
 //#endregion
 
+//#region order by user id
+const userOrderRoutes = require("./Routes/userOrderRoutes");
+app.use("/api/order", userOrderRoutes);
+//#endregion
+
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
 });
