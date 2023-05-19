@@ -18,7 +18,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 //Global MiddleWare
 const logging = require("./MiddleWares/logging");
-
 app.use("/", logging);
 
 //#region user

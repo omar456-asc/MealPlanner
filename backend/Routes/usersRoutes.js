@@ -2,7 +2,6 @@
 const AuthController = require("../Controllers/AuthController");
 const UserController = require("../Controllers/UserController");
 const userValid = require("../Utils/AuthValidate");
-// const authMiddleware = require("../middleware/authMiddleware");
 // const userModel = require("../Models/usersModel");
 
 const express = require("express");
