@@ -23,16 +23,14 @@ import { AuthGuard } from './auth/guards/auth.guard';
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
-  { path: 'cart', component: CheckoutComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'user', component: UserdashboardComponent },
+  { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard]},
+  { path: 'cart', component: CheckoutComponent,canActivate:[AuthGuard] },
+  { path: 'payment', component: PaymentComponent,canActivate:[AuthGuard] },
+  { path: 'user', component: UserdashboardComponent,canActivate:[AuthGuard]},
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
-  { path: 'cart', component: CheckoutComponent },
-  { path: 'customize/:id', component: CustomizeMealComponent },
-  { path: 'payment', component: PaymentComponent },
+  { path: 'customize/:id', component: CustomizeMealComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({
