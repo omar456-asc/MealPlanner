@@ -125,16 +125,64 @@ const getOrderById = async (req, res) => {
 };
 
 // Get order by user ID
-const getOrdersByUserId = async (req, res) => {
-  const userId = req.params.userId;
-  try {
-    const orders = await OrdersModel.find({ userID: new ObjectId(userId) });
+// const getOrdersByUserId = async (req, res) => {
+//   const userId = req.params.userId;
+//   try {
+//     const orders = await OrdersModel.find({ userID: new ObjectId(userId) });
 
-    const data = [];
+//     const data = [];
+//     // console.log(data);
+//     for (const order of orders) {
+//       const user = await usersmodel.findOne({
+//         _id: new ObjectId(order.userID),
+//       });
+
+//       const meals = [];
+
+//       for (const meal of order.meals) {
+//         const mealDetails = await ProductsModel.findOne({
+//           _id: new ObjectId(meal.mealID),
+//         });
+
+//         const ingredients = [];
+//         for (const ingredientId of meal.ingredients) {
+//           const ingredientDetails = await IngredientModel.findOne({
+//             _id: new ObjectId(ingredientId),
+//           });
+//           ingredients.push(ingredientDetails);
+//         }
+
+//         mealDetails.ingredients = ingredients;
+//         meals.push(mealDetails);
+//         console.log("meals for", meals);
+//       }
+//       console.log("order", order);
+//       console.log("user", user);
+//       console.log("meals", meals);
+//       data.push({ order, user, meals });
+//     }
+//     console.log("sondos");
+//     res.status(200).json(data);
+//   } catch (error) {
+//     console.log("mariam");
+//     console.error(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
+
+const getOrdersByUserId = async (req, res) => {
+  try {
+    const userID = req.params.id;
+    const orders = await OrdersModel.find({ userID: new ObjectId(userID) });
+
+    if (orders.length === 0) {
+      return res.status(404).json({ message: "No orders found for this user" });
+    }
+
+    const user = await usersmodel.findOne({ _id: new ObjectId(userID) });
+    const ordersWithMeals = [];
+
     for (const order of orders) {
-      const user = await usersmodel.findOne({
-        _id: new ObjectId(order.userID),
-      });
       const meals = [];
 
       for (const meal of order.meals) {
@@ -142,21 +190,23 @@ const getOrdersByUserId = async (req, res) => {
           _id: new ObjectId(meal.mealID),
         });
 
-        const ingredients = [];
-        for (const ingredientId of meal.ingredients) {
-          const ingredientDetails = await IngredientModel.findOne({
-            _id: new ObjectId(ingredientId),
-          });
-          ingredients.push(ingredientDetails);
+        if (Array.isArray(meal.ingredients)) {
+          const ingredients = [];
+          for (const ingredientId of meal.ingredients) {
+            const ingredientDetails = await IngredientModel.findOne({
+              _id: new ObjectId(ingredientId),
+            });
+            ingredients.push(ingredientDetails);
+          }
+          mealDetails.ingredients = ingredients;
         }
 
-        mealDetails.ingredients = ingredients;
         meals.push(mealDetails);
       }
-
-      data.push({ order, user, meals });
+      ordersWithMeals.push({ order, meals });
     }
 
+    const data = { user, orders: ordersWithMeals };
     res.status(200).json(data);
   } catch (error) {
     console.error(error);

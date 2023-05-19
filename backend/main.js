@@ -24,6 +24,11 @@ require("dotenv").config();
 const logging = require("./MiddleWares/logging");
 app.use("/", logging);
 
+//#region order by user id
+const userOrderRoutes = require("./Routes/userOrderRoutes");
+app.use("/api/order", userOrderRoutes);
+//#endregion
+
 //#region user
 const UserRoutes = require("./Routes/usersRoutes");
 app.use("/api/users", UserRoutes);
@@ -45,11 +50,6 @@ app.use("/api/ingredients", IngredientRoutes);
 //#region orders
 const OrderRoutes = require("./Routes/ordersRoutes");
 app.use("/api/orders", OrderRoutes);
-//#endregion
-
-//#region order by user id
-const userOrderRoutes = require("./Routes/userOrderRoutes");
-app.use("/api/order", userOrderRoutes);
 //#endregion
 
 app.listen(PORT, () => {
