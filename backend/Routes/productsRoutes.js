@@ -1,21 +1,16 @@
 const ProductController = require("../Controllers/ProductController");
-const authuserMiddleware = require("../MiddleWares/authuserMiddleware");
 const express = require("express");
 let router = express.Router();
 
 //#region Product
-router.get(
-  "/latest6products",
-  authuserMiddleware,
-  ProductController.getLatest6products
-);
+router.get("/latest6products", ProductController.getLatest6products);
 
-router.get("/", authuserMiddleware, ProductController.GetAllProducts);
-router.get("/:id", authuserMiddleware, ProductController.GetProductByID);
+router.get("/", ProductController.GetAllProducts);
+router.get("/:id", ProductController.GetProductByID);
 // router.post("/:id",ProductController.UpdateProductByID);
-router.delete("/:id", authuserMiddleware, ProductController.DeleteProductByID);
-router.post("/", authuserMiddleware, ProductController.addNewProduct);
-router.put("/:id", authuserMiddleware, ProductController.editProduct);
+router.delete("/:id", ProductController.DeleteProductByID);
+router.post("/", ProductController.addNewProduct);
+router.put("/:id", ProductController.editProduct);
 //#endregion
 
 module.exports = router;
