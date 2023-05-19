@@ -4,6 +4,7 @@ import { AdminSideNavComponent } from './admin-side-nav/admin-side-nav.component
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { RouterModule } from '@angular/router';
+import { PreloaderComponent } from './preloader/preloader.component';
 
 
 
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
 
     AdminSideNavComponent,
     AdminHeaderComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    PreloaderComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,9 @@ import { RouterModule } from '@angular/router';
   ], exports: [
     AdminSideNavComponent,
     AdminHeaderComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    PreloaderComponent
+
   ]
 })
 export class AdminSharedModule { }

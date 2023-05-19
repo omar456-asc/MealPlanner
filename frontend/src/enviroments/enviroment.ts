@@ -1,3 +1,3 @@
 export const environment = {
-  baseUrl: 'https://mealplannerapi.onrender.com/api',
+  baseUrl: 'http://localhost:7400/api',
 };
