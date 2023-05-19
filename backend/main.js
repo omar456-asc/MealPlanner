@@ -1,4 +1,3 @@
-
 /**
  * Utils [Separtion]
  * MVC[Model - View - Controller]
@@ -15,10 +14,11 @@ const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 require("dotenv").config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 //Global MiddleWare
 const logging = require("./MiddleWares/logging");
+
 app.use("/", logging);
 
 //#region user
@@ -49,7 +49,6 @@ app.use("/api/cart", CartRoutes);
 const stripeRoutes = require("./Routes/stripeRoutes");
 app.use("/api/payment", stripeRoutes);
 //#endregion
-
 
 app.listen(PORT, () => {
   console.log("http://localhost:" + PORT);
