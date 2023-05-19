@@ -4,7 +4,7 @@ import { Injectable, inject } from '@angular/core';
   providedIn: 'root',
 })
 export class ConfigService {
-  private baseUrl = 'https://mealplannerapi.onrender.com/api';
+  private baseUrl = 'http://localhost:7400/api';
   static getBaseUrl: any;
   constructor() {}
   getBaseUrl(endpoint: string): string {

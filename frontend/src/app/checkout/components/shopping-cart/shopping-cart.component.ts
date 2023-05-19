@@ -44,7 +44,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartid = JSON.parse(cart)
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
-        localStorage.removeItem('cart')
+console.log(data)
 
       },
       (err) => {

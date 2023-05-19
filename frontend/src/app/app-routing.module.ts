@@ -19,6 +19,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { CustomizeMealComponent } from './checkout/components/customize-meal/customize-meal.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { OrderComponent } from './order/components/order/order.component';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
@@ -30,9 +31,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
-  { path: 'cart', component: CheckoutComponent },
   { path: 'customize/:id', component: CustomizeMealComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'order', component: OrderComponent },
 ];
 
 @NgModule({

@@ -82,7 +82,7 @@ var logIn = async (req, res) => {
     res.cookie("token", token, { maxAge: maxDay * 1000 });
 
     res.status(200);
-    res.json({ status: "success", token: token });
+    res.json({ status: "success", token: token,id:user._id });
   } catch (e) {
     var errors = handleErrors(e);
     res.status(400);
