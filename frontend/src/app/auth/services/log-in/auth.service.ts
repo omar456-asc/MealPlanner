@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   getUserID() {
-    return this.id;
+    return localStorage.getItem('id');
   }
 
   logout() {

@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <main id="main">
   <div
     class="Order"
@@ -17,11 +17,12 @@
             <div class="row">
               <div class="col mb-3">
                 <p class="small text-muted mb-1">Date</p>
-                <p>10 April 2021</p>
+                <p>{{ now  | date:'dd-MM-yyyy '}} {{ now  | date:'hh:mm a'}}</p>
+
               </div>
               <div class="col mb-3">
                 <p class="small text-muted mb-1">Order No.</p>
-                <p>012j1gvs356c</p>
+                <p>{{ordernum}}</p>
               </div>
             </div>
 
@@ -29,11 +30,11 @@
               <p class="lead fw-bold  py-2" style="color: #f37a27;">Your Data</p>
               <div class="col mb-3">
                 <p class="small text-muted mb-1">Name</p>
-                <p>Your-Name</p>
+                <p>{{user.fname}} {{user.lname}}</p>
               </div>
               <div class="col mb-3">
                 <p class="small text-muted mb-1">Email</p>
-                <p>Your-Email</p>
+                <p>{{user.email}}</p>
               </div>
             </div>
 
@@ -43,23 +44,22 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  <div class="col-md-8 col-lg-9">
-                    <p>BEATS Solo 3 Wireless Headphones</p>
+                  <ng-container *ngFor="let meals of Meal; let i = index">
+                    <ng-container *ngFor="let meal of meals;">
+                  <div class="col-md-8 col-lg-6" >
+                    <p>{{meal.title}}</p>
                   </div>
                   <div class="col-md-4 col-lg-3">
-                    <p>£299.99</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-8 col-lg-9">
-                    <p class="mb-0">Shipping</p>
+                    <p>{{meal.price}}</p>
                   </div>
                   <div class="col-md-4 col-lg-3">
-                    <p class="mb-0">£33.00</p>
+                    <p>{{meals.quantity}}</p>
                   </div>
+                  </ng-container></ng-container>
                 </div>
-                <div class="mx-n5 mt-4  row" style="background-color: #f2f2f2;">
-                  <p class="lead fw-bold py-1" style="color: #f37a27;">Total: totalprice</p>
+
+                <div class="mx-n5 mt-4 border-top border-bottom pt- row" >
+                  <p class="lead fw-bold pt-3" style="color: #f37a27;">Total Price&emsp;{{totalPrice}}$</p>
                 </div>
 
 
@@ -87,5 +87,4 @@
 
   </div>
   </div></main>
-
-
+  <app-footer></app-footer>
