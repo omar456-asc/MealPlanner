@@ -25,6 +25,7 @@ import { ConfigService } from './config.service';
 import { MealsComponent } from './meals/components/meals/meals.component';
 import { PaymentModule } from './payment/payment.module';
 import { MealDetailsComponent } from './meals/components/meal-details/meal-details.component';
+import { PaymentFormComponent } from './payment/components/payment-form/payment-form.component';
 
 import { UserdashboardModule } from './userdashboard/userdashboard.module';
 
@@ -51,6 +52,7 @@ import { UserdashboardModule } from './userdashboard/userdashboard.module';
     CheckoutModule,
     ProfileModule,
     PaymentModule,
+
     UserdashboardModule,
   ],
   providers: [

@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody >
-                <ng-container *ngFor="let meals of Meal">
+                <ng-container *ngFor="let meals of Meal; let i = index">
                 <tr *ngFor="let meal of meals;">
                   <th scope="row" class="border-0"  >
                     <div class="p-2"  >
@@ -58,20 +58,20 @@
                   <td class="border-0 align-middle">
                     <strong>{{meal.price}}</strong>
                   </td>
-                  <td class="border-0 align-middle">
-                    <div class="quantity px-4">
-                      <button (click)="minus()" class="minus-btn" type="button">
-                        -
-                      </button>
-                      <input
-                        [(ngModel)]="quantityInput"
-                        class="quantity-input"
-                        type="number"
-                      />
-                      <button (click)="plus()" class="plus-btn" type="button">
-                        +
-                      </button>
-                    </div>
+                  <td class="quantity border-0 align-middle">
+                    <button (click)="minus(i)" class="minus-btn" type="button">
+                      -
+                    </button>
+                    <input
+                      [(ngModel)]="meals.quantity"
+                      class="quantity-input"
+                      type="number"
+
+
+                    />
+                    <button (click)="plus(i)" class="plus-btn" type="button">
+                      +
+                    </button>
                   </td>
                   <td class="border-0 align-middle">
                     <a routerLink="/customize/{{meal._id}}"class="text-dark"
@@ -79,7 +79,7 @@
                      </a>
                   </td>
                   <td class="border-0 align-middle">
-                    <a href="#" class="text-dark">
+                    <a (click)="delete(i)" class="text-dark">
                        <i class="fa fa-trash"></i
                     >
                     </a>
@@ -100,3 +100,4 @@
     </div>
   </div>
 </main>
+

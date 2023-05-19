@@ -1,12 +1,22 @@
 const express = require("express");
 const router = express.Router();
 
-const IngredientController = require("../controllers/IngredientController");
+const IngredientController = require("../Controllers/IngredientController");
+const authuserMiddleware = require("../MiddleWares/authuserMiddleware");
 
-router.get("/", IngredientController.getAllIngredients);
-router.post("/", IngredientController.createIngredient);
-router.get("/:id", IngredientController.getIngredientById);
-router.put("/:id", IngredientController.updateIngredient);
-router.delete("/:id", IngredientController.deleteIngredient);
+router.get("/", authuserMiddleware, IngredientController.getAllIngredients);
+router.post(
+  "/",
+  authuserMiddleware,
+  authuserMiddleware,
+  IngredientController.createIngredient
+);
+router.get("/:id", authuserMiddleware, IngredientController.getIngredientById);
+router.put("/:id", authuserMiddleware, IngredientController.updateIngredient);
+router.delete(
+  "/:id",
+  authuserMiddleware,
+  IngredientController.deleteIngredient
+);
 
 module.exports = router;

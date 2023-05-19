@@ -1,14 +1,13 @@
 //Registration
+const AuthController = require("../Controllers/AuthController");
+const UserController = require("../Controllers/UserController");
+const authuserMiddleware = require("../MiddleWares/authuserMiddleware");
+const userValid = require("../Utils/AuthValidate");
+// const userModel = require("../Models/usersModel");
 
 const express = require("express");
 const router = new express.Router();
 const bcrypt = require("bcrypt");
-
-// const userModel = require("../Models/usersModel");
-
-const userValid = require("../Utils/AuthValidate");
-const UserController = require("../Controllers/UserController");
-const AuthController = require("../Controllers/AuthController");
 
 //#region Auth
 router.post("/signup", AuthController.AddNewUser);
@@ -24,10 +23,12 @@ router.post(
 );
 
 //#region User
-router.get("/", UserController.GetAllUsers);
-router.get("/:id", UserController.GetUserByID);
-router.post("/:id", UserController.UpdateUserByID);
-router.delete("/:id", UserController.DeleteUserByID);
+router.get("/latest8users", authuserMiddleware, UserController.getLatest8users);
+
+router.get("/", authuserMiddleware, UserController.GetAllUsers);
+router.get("/:id", authuserMiddleware, UserController.GetUserByID);
+router.post("/:id", authuserMiddleware, UserController.UpdateUserByID);
+router.delete("/:id", authuserMiddleware, UserController.DeleteUserByID);
 //#endregion
 
 // var id = 0;

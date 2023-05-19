@@ -35,6 +35,7 @@ width: 100%;
   transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   margin-left: 27% !important;
   margin-bottom: 3%;
+  width: max-content !important;
 }
 .btn:hover{
   color: #fff;

@@ -5,22 +5,17 @@ import { ConfigService } from 'src/app/config.service';
 @Injectable({
   providedIn: 'root',
 })
-export class ShoppingCartService {
+export class PaymentFormService {
   private readonly Base_URL: string;
 
   constructor(
     private readonly myClient: HttpClient,
     private readonly configService: ConfigService
   ) {
-    this.Base_URL = this.configService.getBaseUrl('cart');
+    this.Base_URL = this.configService.getBaseUrl('payment');
   }
-  //#region GetAllMeals
-  GetCart(id: any) {
-    //method[Get-Delete-Put-Patch]
 
-    return this.myClient.get(this.Base_URL + '/' + id);
-  }
-  AddToUserCart(cart: any, userID: any) {
-    return this.myClient.post(this.Base_URL + '/' + userID, cart);
+  PAYMENT(payment: any) {
+    return this.myClient.post(this.Base_URL, payment);
   }
 }

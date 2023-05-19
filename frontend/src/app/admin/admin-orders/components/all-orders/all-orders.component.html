@@ -75,6 +75,7 @@
                           >
                             Date
                           </th>
+                          <th>Time</th>
                           <th
                             class="sorting"
                             tabindex="0"
@@ -99,7 +100,9 @@
                           </td>
                           <td>{{ order.mealCount }}</td>
 
-                          <td>{{ order.date }}</td>
+                          <td>{{ order.date  | date:'dd-MM-yyyy '}}</td>
+                          <td>{{ order.date  | date:'hh:mm a'}}</td>
+
                           <td>{{ order.totalPrice }}</td>
                           <td>
                             <span [ngClass]="getStatusClass(order.status)">{{

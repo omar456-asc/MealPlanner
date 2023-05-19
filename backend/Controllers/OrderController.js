@@ -1,7 +1,7 @@
-const OrdersModel = require("../models/OrdersModel");
+const OrdersModel = require("../Models/OrdersModel");
 let usersmodel = require("../Models/usersModel");
 let ProductsModel = require("../Models/ProductsModel");
-let IngredientModel = require("../models/IngredientModel");
+let IngredientModel = require("../Models/IngredientModel");
 
 const { ObjectId } = require("mongodb");
 
@@ -43,175 +43,46 @@ const getAllOrders = async (req, res) => {
 };
 
 // Get order by id
-// const getOrderById = async (req, res) => {
-//   var ID = req.params.id;
-//   // console.log(ID);
-//   // try {
-//   let data = [];
-//   const order = await OrdersModel.findOne({ _id: new ObjectId(ID) });
-//   data.push({ order });
-
-//   const user = await usersmodel.findOne({ _id: new ObjectId(order.userID) });
-//   data.push({ user });
-
-//   const meals = [];
-
-//   for (const meal of order.meals) {
-//     const mealDetails = await ProductsModel.findOne({
-//       _id: new ObjectId(meal.mealID),
-//     });
-
-//     const ingredients = [];
-//     for (const ingredientId of meal.ingredients) {
-//       const ingredientDetails = await IngredientModel.findOne({
-//         _id: new ObjectId(ingredientId),
-//       });
-//       ingredients.push(ingredientDetails);
-//     }
-
-//     mealDetails.ingredients = ingredients;
-//     meals.push(mealDetails);
-//   }
-
-//   data.push({ meals });
-
-//   console.log(meals);
-//   if (!order) {
-//     return res.status(404).json({ message: "Order not found" });
-//   }
-//   res.status(200).json(data);
-//   // } catch (error) {
-//   //   res.status(500).json({ message: "Internal server error" });
-//   // }
-// };
-
 const getOrderById = async (req, res) => {
-  try {
-    const orderId = req.params.id;
-    const order = await OrdersModel.findOne({ _id: new ObjectId(orderId) });
+  var ID = req.params.id;
+  // console.log(ID);
+  // try {
+  let data = [];
+  const order = await OrdersModel.findOne({ _id: new ObjectId(ID) });
+  data.push({ order });
 
-    if (!order) {
-      return res.status(404).json({ message: "Order not found" });
-    }
+  const user = await usersmodel.findOne({ _id: new ObjectId(order.userID) });
+  data.push({ user });
 
-    const user = await usersmodel.findOne({ _id: new ObjectId(order.userID) });
-    const meals = [];
+  const meals = [];
 
-    for (const meal of order.meals) {
-      const mealDetails = await ProductsModel.findOne({
-        _id: new ObjectId(meal.mealID),
+  for (const meal of order.meals) {
+    const mealDetails = await ProductsModel.findOne({
+      _id: new ObjectId(meal.mealID),
+    });
+
+    const ingredients = [];
+    for (const ingredientId of meal.ingredients) {
+      const ingredientDetails = await IngredientModel.findOne({
+        _id: new ObjectId(ingredientId),
       });
-
-      if (Array.isArray(meal.ingredients)) {
-        const ingredients = [];
-        for (const ingredientId of meal.ingredients) {
-          const ingredientDetails = await IngredientModel.findOne({
-            _id: new ObjectId(ingredientId),
-          });
-          ingredients.push(ingredientDetails);
-        }
-        mealDetails.ingredients = ingredients;
-      }
-
-      meals.push(mealDetails);
+      ingredients.push(ingredientDetails);
     }
 
-    const data = { order, user, meals };
-    res.status(200).json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+    mealDetails.ingredients = ingredients;
+    meals.push(mealDetails);
   }
-};
 
-// Get order by user ID
-// const getOrdersByUserId = async (req, res) => {
-//   const userId = req.params.userId;
-//   try {
-//     const orders = await OrdersModel.find({ userID: new ObjectId(userId) });
+  data.push({ meals });
 
-//     const data = [];
-//     // console.log(data);
-//     for (const order of orders) {
-//       const user = await usersmodel.findOne({
-//         _id: new ObjectId(order.userID),
-//       });
-
-//       const meals = [];
-
-//       for (const meal of order.meals) {
-//         const mealDetails = await ProductsModel.findOne({
-//           _id: new ObjectId(meal.mealID),
-//         });
-
-//         const ingredients = [];
-//         for (const ingredientId of meal.ingredients) {
-//           const ingredientDetails = await IngredientModel.findOne({
-//             _id: new ObjectId(ingredientId),
-//           });
-//           ingredients.push(ingredientDetails);
-//         }
-
-//         mealDetails.ingredients = ingredients;
-//         meals.push(mealDetails);
-//         console.log("meals for", meals);
-//       }
-//       console.log("order", order);
-//       console.log("user", user);
-//       console.log("meals", meals);
-//       data.push({ order, user, meals });
-//     }
-//     console.log("sondos");
-//     res.status(200).json(data);
-//   } catch (error) {
-//     console.log("mariam");
-//     console.error(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-
-const getOrdersByUserId = async (req, res) => {
-  try {
-    const userID = req.params.id;
-    const orders = await OrdersModel.find({ userID: new ObjectId(userID) });
-
-    if (orders.length === 0) {
-      return res.status(404).json({ message: "No orders found for this user" });
-    }
-
-    const user = await usersmodel.findOne({ _id: new ObjectId(userID) });
-    const ordersWithMeals = [];
-
-    for (const order of orders) {
-      const meals = [];
-
-      for (const meal of order.meals) {
-        const mealDetails = await ProductsModel.findOne({
-          _id: new ObjectId(meal.mealID),
-        });
-
-        if (Array.isArray(meal.ingredients)) {
-          const ingredients = [];
-          for (const ingredientId of meal.ingredients) {
-            const ingredientDetails = await IngredientModel.findOne({
-              _id: new ObjectId(ingredientId),
-            });
-            ingredients.push(ingredientDetails);
-          }
-          mealDetails.ingredients = ingredients;
-        }
-
-        meals.push(mealDetails);
-      }
-      ordersWithMeals.push({ order, meals });
-    }
-
-    const data = { user, orders: ordersWithMeals };
-    res.status(200).json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
+  console.log(meals);
+  if (!order) {
+    return res.status(404).json({ message: "Order not found" });
   }
+  res.status(200).json(data);
+  // } catch (error) {
+  //   res.status(500).json({ message: "Internal server error" });
+  // }
 };
 
 // Create a new order
@@ -259,5 +130,4 @@ module.exports = {
   createOrder,
   updateOrder,
   deleteOrder,
-  getOrdersByUserId,
 };
