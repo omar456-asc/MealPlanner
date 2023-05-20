@@ -64,10 +64,8 @@ export class MealDetailsComponent implements OnInit {
           ),
         };
       } else {
-        let index = this.cart.findIndex((item) => item.id == this.ID);
-        console.log(index);
+        let index = this.cart.findIndex((item) => item.id == this.ID)
         if (index == -1) {
-          this.shared.removeFromCart();
           this.cart.push({
             id: this.ID,
             quantity: 1,
@@ -76,6 +74,7 @@ export class MealDetailsComponent implements OnInit {
             ),
           });
         } else {
+
           this.cart[index].quantity = Number(this.cart[index].quantity) + 1;
         }
       }
@@ -91,14 +90,7 @@ export class MealDetailsComponent implements OnInit {
     }, 900); // Adjust the delay time as needed (in milliseconds)
   }
   }
+  //function to get ingredients count from meal to know if the meal customize
+
 }
 
-// this.cartService.AddToUserCart(this.cart,this.userID).subscribe((data:any)=>{
-
-//   this.myService.setCart(JSON.stringify(this.cart));
-//   this.cartAlert=true;
-// },
-// (err)=>{
-//   this.router.navigateByUrl('login');
-// }
-// );

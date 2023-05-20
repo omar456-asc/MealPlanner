@@ -4,6 +4,7 @@ import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.serv
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 
+
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -13,7 +14,8 @@ export class OrderComponent implements OnInit {
   constructor(public mymeals: AllMealsService,
     public myService: ShoppingCartService,
     private UserService: ProfileService,
-    private authService: AuthService){}
+    private authService: AuthService,
+     ){}
     ID: any = localStorage.getItem('id');
     localcart:any;
     Meal:any=[];
@@ -39,6 +41,7 @@ export class OrderComponent implements OnInit {
       (data: any) => {
 
         localStorage.removeItem('cart');
+        location.reload();
       },
       (err) => {
      console.log("error")
