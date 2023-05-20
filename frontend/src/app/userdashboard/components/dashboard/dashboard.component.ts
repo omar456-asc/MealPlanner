@@ -72,16 +72,16 @@ export class DashboardComponent {
             },
           ],
         };
-        //   this.data2 = {
-        //     labels: this.totalCategory,
-        //     datasets: [
-        //       {
-        //         label: 'category per rate',
-        //         data: this.allRates,
-        //         backgroundColor: ['#d4af37'],
-        //       },
-        //     ],
-        // };
+        this.data2 = {
+          labels: this.totalCategory,
+          datasets: [
+            {
+              label: 'category per rate',
+              data: this.allRates,
+              backgroundColor: ['#d4af37'],
+            },
+          ],
+        };
         this.options = {
           maintainAspectRatio: true,
           responsive: true,
