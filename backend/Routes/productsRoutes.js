@@ -1,14 +1,9 @@
 const ProductController = require("../Controllers/ProductController");
-const authuserMiddleware = require("../MiddleWares/authuserMiddleware");
 const express = require("express");
 let router = express.Router();
 
 //#region Product
-router.get(
-  "/latest6products",
-  authuserMiddleware,
-  ProductController.getLatest6products
-);
+router.get("/latest6products", ProductController.getLatest6products);
 
 router.get("/", ProductController.GetAllProducts);
 router.get("/:id", ProductController.GetProductByID);
