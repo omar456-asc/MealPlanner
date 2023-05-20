@@ -60,7 +60,7 @@ console.log(data)
   }
 
   minus(index: number) {
-    if(this.cartid[index].quantity>0){
+    if(this.cartid[index].quantity>1){
    this.cartid[index].quantity--
    this.mymeals.setCart(JSON.stringify(this.cartid))
    this.Meal[index].quantity=this.cartid[index].quantity
