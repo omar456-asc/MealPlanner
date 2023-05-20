@@ -27,7 +27,9 @@ export class DashboardComponent {
   type2: any;
   type1: any;
 
- 
+  //
+  ingredients: any;
+  summary: any;
 
   constructor(
     myRoute: ActivatedRoute,
@@ -42,7 +44,6 @@ export class DashboardComponent {
     this.highestRate = 0;
     this.highestRateCategory = '';
     this.orderDetails = [];
-
   }
 
   ngOnInit(): void {
@@ -57,6 +58,9 @@ export class DashboardComponent {
             this.totalPrice += parseFloat(meal.price);
             this.rate = parseFloat(meal.rate);
             this.category = meal.category;
+            //
+            this.ingredients = meal.ingredients;
+            this.summary = meal.summary;
             if (this.rate > this.highestRate) {
               this.highestRate = this.rate;
               this.highestRateCategory = this.category;
@@ -132,5 +136,16 @@ export class DashboardComponent {
     }
     return 'badge ';
   }
-
+  openModal(): void {
+    const modal = document.querySelector('.modal-overlay') as HTMLElement;
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  }
+  closeModal(): void {
+    const modal = document.querySelector('.modal-overlay') as HTMLElement;
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
 }

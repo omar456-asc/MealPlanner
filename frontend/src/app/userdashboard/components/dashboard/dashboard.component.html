@@ -78,7 +78,11 @@
                   }}</span>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-primary mr-2">
+                  <button
+                    type="button"
+                    class="btn btn-primary mr-2"
+                    (click)="openModal()"
+                  >
                     Details
                   </button>
                 </td>
@@ -89,8 +93,23 @@
             </tbody>
           </table>
         </div>
-        <!-- /.table-responsive -->
+        <div class="modal modal-overlay">
+          <div class="modal-content">
+            <h3>Order Details</h3>
+
+            <p>Meal Rate: {{ rate }}</p>
+            <p>Meal category: {{ category }}</p>
+            <p>Meal Ingredients: {{ ingredients }}</p>
+            <p>Summary about this meal: {{ summary }}</p>
+
+            <button class="btn btn-primary" id="btnn" (click)="closeModal()">
+              Close
+            </button>
+          </div>
+        </div>
       </div>
+      <!-- /.table-responsive -->
+
       <!-- /.card-body -->
       <div class="card-footer"></div>
       <!-- /.card-footer -->
