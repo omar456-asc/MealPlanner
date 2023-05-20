@@ -10,10 +10,10 @@
     <div class="main-cards">
       <div class="card">
         <div class="card-inner">
-          <h3>PRODUCTS</h3>
-          <span class="material-icons-outlined">inventory_2</span>
+          <h3>Total orders price</h3>
+          <span class="material-icons-outlined">attach_money</span>
         </div>
-        <h1>249</h1>
+        <h1>{{ totalOrdersPrice }}$</h1>
       </div>
       <div class="card">
         <div class="card-inner">
@@ -26,12 +26,12 @@
     <hr />
     <div class="charts">
       <div class="charts-card">
-        <h2 class="chart-title">Top 5 Products</h2>
-        <chart [type]="type" [data]="dataa" [options]="options"></chart>
+        <h2 class="chart-title">Top category</h2>
+        <!-- <chart [type]="type2" [data]="data2" [options]="options"></chart> -->
       </div>
       <div class="charts-card">
         <h2 class="chart-title">Total Price</h2>
-        <chart [type]="type2" [data]="dataa" [options]="options"></chart>
+        <!-- <chart [type]="type1" [data]="data1" [options]="options"></chart> -->
       </div>
     </div>
   </main>

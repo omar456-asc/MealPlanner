@@ -14,7 +14,7 @@ export class UserdashboardServiceService {
     this.Base_URL = this.configService.getBaseUrl('order');
   }
 
-  getOrdersByUserId(id: any) {
-    return this.HttpClient.get(this.Base_URL + '/' + id);
+  getOrdersByUserId(userID: any) {
+    return this.HttpClient.get(this.Base_URL + '/' + userID);
   }
 }
