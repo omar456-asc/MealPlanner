@@ -59,13 +59,14 @@
                     <strong>{{meal.price}}</strong>
                   </td>
                   <td class="quantity border-0 align-middle">
-                    <button (click)="minus(i)" class="minus-btn" type="button">
+                    <button *ngIf="meals.quantity > 1" (click)="minus(i)" class="minus-btn" type="button">
                       -
                     </button>
                     <input
                       [(ngModel)]="meals.quantity"
                       class="quantity-input"
                       type="number"
+                      [disabled]="true"
 
 
                     />
