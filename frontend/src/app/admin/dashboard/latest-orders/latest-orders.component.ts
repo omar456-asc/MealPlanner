@@ -9,10 +9,10 @@ import { AdminOrdersServiceService } from '../../admin-orders/services/admin-ord
 export class LatestOrdersComponent {
   orders: any
 
-  constructor(public mealService: AdminOrdersServiceService) { }
+  constructor(public orderService: AdminOrdersServiceService) { }
 
   ngOnInit(): void {
-    this.mealService.getAllOrders().subscribe(
+    this.orderService.getAllOrders().subscribe(
       {
         next: (data: any) => {
           this.orders = data;
@@ -26,18 +26,14 @@ export class LatestOrdersComponent {
     console.log(this.orders);
   }
 
-
-  getStatusClass(status: string): string {
-    if (status === 'pending') {
-      return 'badge badge-warning';
-    } else if (status === 'confirmed') {
-      return 'badge badge-success';
-
-    } else if (status === 'rejected') {
-      return 'badge badge-danger';
-
+  updateOrderStatus(id: any, status: any) {
+    if (confirm(`Are you Sure you want to ${status} this Order `)) {
+      this.orderService.updateOrderStatus(id, status).subscribe(
+        () => this.ngOnInit()
+        ,
+        (err) => console.log(err)
+      );
     }
-    return 'badge ';
-
   }
+
 }

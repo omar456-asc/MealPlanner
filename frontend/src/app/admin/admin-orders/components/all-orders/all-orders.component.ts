@@ -25,7 +25,11 @@ export class AllOrdersComponent {
 
   updateOrderStatus(id: any, status: any) {
     if (confirm(`Are you Sure you want to ${status} this Order `)) {
-      this.orderService.updateOrderStatus(id, status).subscribe();
+      this.orderService.updateOrderStatus(id, status).subscribe(
+        () => this.ngOnInit()
+        ,
+        (err) => console.log(err)
+      );
     }
   }
 
