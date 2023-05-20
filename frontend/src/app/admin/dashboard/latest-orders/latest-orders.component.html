@@ -26,6 +26,8 @@
 
             <th>Total Price</th>
             <th>Status</th>
+            <th>Details</th>
+
             <th>Actions</th>
           </tr>
         </thead>
@@ -46,6 +48,19 @@
               <span [ngClass]="getStatusClass(order.status)">{{
                 order.status
               }}</span>
+            </td>
+            <td>
+              <a class="px-2" routerLink="{{ order._id }}">
+                <button class="btn btn-sm btn-primary">Details</button>
+              </a>
+            </td>
+            <td class="row">
+              <a class="btn btn-sm btn-success col-5" href="#">
+                <i class="fas fa-check"></i>
+              </a>
+              <a class="btn btn-sm btn-danger offset-md-1 col-5" href="#">
+                <i class="fas fa-close"></i>
+              </a>
             </td>
           </tr>
         </tbody>

@@ -87,6 +87,7 @@
                             Total Price
                           </th>
                           <th>Status</th>
+                          <th>Details</th>
 
                           <th>Actions</th>
                         </tr>
@@ -100,22 +101,53 @@
                           </td>
                           <td>{{ order.mealCount }}</td>
 
-                          <td>{{ order.date  | date:'dd-MM-yyyy '}}</td>
-                          <td>{{ order.date  | date:'hh:mm a'}}</td>
+                          <td>{{ order.date | date : "dd-MM-yyyy " }}</td>
+                          <td>{{ order.date | date : "hh:mm a" }}</td>
+                          <td *ngIf="order.status != 'rejected'">
+                            <!-- Content to be displayed if the condition is true -->
+                            <span>{{ order.totalPrice }}</span>
+                          </td>
 
-                          <td>{{ order.totalPrice }}</td>
+                          <td *ngIf="order.status == 'rejected'">
+                            <!-- Content to be displayed if the condition is false -->
+                            <span
+                              ><s>{{ order.totalPrice }}</s>
+                            </span>
+                          </td>
                           <td>
                             <span [ngClass]="getStatusClass(order.status)">{{
                               order.status
                             }}</span>
                           </td>
 
-
                           <td>
-                            <!-- <a class="px-2" routerLink="{{ o._id }}">
-                              <button class="btn btn-success">Details</button>
-                            </a> -->
+                            <a class="px-2" routerLink="{{ order._id }}">
+                              <button class="btn btn-sm btn-primary">
+                                Details
+                              </button>
+                            </a>
                           </td>
+                          <td
+                            *ngIf="order.status == 'pending'; else noAction"
+                            class=""
+                          >
+                            <button
+                              class="btn btn-sm btn-success col-5"
+                              (click)="updateOrderStatus(order._id, 'confirmed')"
+
+                            >
+                              <i class="fas fa-check"></i>
+                            </button>
+                            <button
+                              class="btn btn-sm btn-danger offset-md-1 col-5"
+                              (click)="updateOrderStatus(order._id, 'rejected')"
+                            >
+                              <i class="fas fa-close"></i>
+                            </button>
+                          </td>
+                          <ng-template #noAction>
+                            <td class="text-info">Closed</td>
+                          </ng-template>
                         </tr>
                       </tbody>
                       <tfoot>
@@ -124,10 +156,13 @@
                           <th rowspan="1" colspan="1">User</th>
                           <th rowspan="1" colspan="1">Num Of Meals</th>
                           <th rowspan="1" colspan="1">Date</th>
-                          <th rowspan="1" colspan="1">Total Price	</th>
-                          <th rowspan="1" colspan="1">Status	</th>
+                          <th rowspan="1" colspan="1">Time</th>
 
-                          <th rowspan="1" colspan="1"></th>
+                          <th rowspan="1" colspan="1">Total Price</th>
+                          <th>Status</th>
+                          <th>Details</th>
+
+                          <th>Actions</th>
                         </tr>
                       </tfoot>
                     </table>

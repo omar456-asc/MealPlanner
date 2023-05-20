@@ -15,4 +15,9 @@ export class AdminOrdersServiceService {
   getOrderByID(id: any) {
     return this.HttpClient.get(this.Base_URL + "/" + id);
   }
+  updateOrderStatus(id: any, status: string) {
+    const body = { status };
+
+    return this.HttpClient.put(`${this.Base_URL}/${id}`, body);
+  }
 }
