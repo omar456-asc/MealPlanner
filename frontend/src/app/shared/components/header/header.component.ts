@@ -1,34 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/log-in/auth.service';
 import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
+import { SharedService } from '../../services/shared.service';
+import { Observable } from 'rxjs/internal/Observable';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  cartLength$: Observable<number>;
   isLoggedIn: any;
-  public  cart: [{"id":string,"quantity":number}];
-  public oldcart: string | null;
-  cartLength: number;
+
+  cartLength: any;
   cartid:any;
   ID: any = localStorage.getItem('id');
   constructor(private authService: AuthService,
-
+    private shared:SharedService,
     private mymeals:AllMealsService,
     public myService: ShoppingCartService,) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
-    this.oldcart = localStorage.getItem('cart');
-    if (this.oldcart) {
-      this.cart = JSON.parse(this.oldcart);
-      this.cartLength=this.cart.length;
-    } else {
-      this.cart =[{"id":"0","quantity":0}];
-      this.cartLength=0
+    this.cartLength$ = this.shared.cartLength$;
     }
+  ngOnInit(): void {
+
   }
   logout() {
     this.authService.logout();

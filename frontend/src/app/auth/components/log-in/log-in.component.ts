@@ -4,6 +4,7 @@ import { AuthService } from '../../services/log-in/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-log-in',
@@ -34,10 +35,12 @@ export class LogInComponent {
     private myService: LogInService,
     private authService: AuthService,
     private router: Router,
-    private usercart: AllMealsService
+    private usercart: AllMealsService,
+    private shared: SharedService
   ) {}
   cart: any;
   Login(email: any, password: any) {
+
     let logInUser = { email, password };
     this.myService.LOGIN(logInUser).subscribe((response: any) => {
       this.authService.setToken(response.token);
@@ -45,6 +48,7 @@ export class LogInComponent {
       this.Add(email, password);
       this.router.navigateByUrl('');
       this.getcart();
+
     });
   }
 
@@ -81,6 +85,9 @@ export class LogInComponent {
         this.cart = data.cart;
         if (this.cart[0].id) {
           this.usercart.setCart(JSON.stringify(this.cart));
+          var cartlength:any= this.usercart.getCart()
+          this.shared.cartLength =JSON.parse(cartlength).length
+          console.log(this.shared.cartLength)
         }
       },
       error: (err) => {

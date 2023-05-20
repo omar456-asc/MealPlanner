@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 // import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 
@@ -28,7 +29,8 @@ export class MealDetailsComponent implements OnInit {
   constructor(
     myRoute: ActivatedRoute,
     public myService: AllMealsService,
-    private router: Router
+    private router: Router,
+    private shared: SharedService
   ) {
     this.ID = myRoute.snapshot.params['id'];
     this.oldcart = localStorage.getItem('cart');
@@ -63,7 +65,9 @@ export class MealDetailsComponent implements OnInit {
         };
       } else {
         let index = this.cart.findIndex((item) => item.id == this.ID);
+        console.log(index);
         if (index == -1) {
+          this.shared.removeFromCart();
           this.cart.push({
             id: this.ID,
             quantity: 1,
@@ -83,8 +87,8 @@ export class MealDetailsComponent implements OnInit {
     }
     if(this.trueAlert){
     setTimeout(() => {
-      this.router.navigateByUrl('/meals');
-    }, 1500); // Adjust the delay time as needed (in milliseconds)
+      location.reload();
+    }, 900); // Adjust the delay time as needed (in milliseconds)
   }
   }
 }
