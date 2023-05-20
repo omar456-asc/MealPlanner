@@ -20,6 +20,7 @@ export class DashboardComponent {
   highestRate: any;
   highestRateCategory: any;
   data: any;
+  orderDetails: any;
   options: any;
   data1: any;
   data2: any;
@@ -38,13 +39,14 @@ export class DashboardComponent {
     this.allRates = [];
     this.highestRate = 0;
     this.highestRateCategory = '';
+    
   }
 
   ngOnInit(): void {
     this.UserdashboardServiceService.getOrdersByUserId(this.ID).subscribe({
       next: (data: any) => {
         this.data = data;
-        // console.log(this.data);
+        console.log(this.data);
         for (let i = 0; i < data.orders.length; i++) {
           for (let j = 0; j < data.orders[i].meals.length; j++) {
             let meal = data.orders[i].meals[j];
