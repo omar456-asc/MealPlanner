@@ -27,6 +27,8 @@ export class DashboardComponent {
   type2: any;
   type1: any;
 
+ 
+
   constructor(
     myRoute: ActivatedRoute,
     public UserdashboardServiceService: UserdashboardServiceService
@@ -39,7 +41,8 @@ export class DashboardComponent {
     this.allRates = [];
     this.highestRate = 0;
     this.highestRateCategory = '';
-    
+    this.orderDetails = [];
+
   }
 
   ngOnInit(): void {
@@ -64,6 +67,12 @@ export class DashboardComponent {
           this.totalCategory.push(this.category);
           this.totalOrdersPrice += this.totalPrice;
           this.allRates.push(this.rate);
+          this.orderDetails.push({
+            orderId: data.orders[i].order._id,
+            status: data.orders[i].order.status,
+            totalPrice: this.totalPrice,
+          });
+          // console.log(this.orderDetails);
           // console.log(
           //   ` ${this.orders[i]}: Total price = ${this.totalPrice}, Category = ${this.category}`
           // );
@@ -112,4 +121,16 @@ export class DashboardComponent {
       },
     });
   }
+
+  getStatusClass(status: string): string {
+    if (status === 'pending') {
+      return 'badge badge-warning';
+    } else if (status === 'confirmed') {
+      return 'badge badge-success';
+    } else if (status === 'rejected') {
+      return 'badge badge-danger';
+    }
+    return 'badge ';
+  }
+
 }

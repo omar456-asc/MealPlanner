@@ -67,102 +67,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let order of orderDetails">
                 <td>
-                  <a href="pages/examples/invoice.html">OR9842</a>
+                  {{ order.orderId }}
                 </td>
-                <td>Call of Duty IV</td>
+                <td>{{ order.totalPrice }}</td>
                 <td>
-                  <span class="badge badge-success">Shipped</span>
-                </td>
-                <td>
-                  <div class="sparkbar" data-color="#00a65a" data-height="20">
-                    90,80,90,-70,61,-83,63
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR1848</a>
-                </td>
-                <td>Samsung Smart TV</td>
-                <td>
-                  <span class="badge badge-warning">Pending</span>
+                  <span [ngClass]="getStatusClass(order.status)">{{
+                    order.status
+                  }}</span>
                 </td>
                 <td>
-                  <div class="sparkbar" data-color="#f39c12" data-height="20">
-                    90,80,-90,70,61,-83,68
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR7429</a>
-                </td>
-                <td>iPhone 6 Plus</td>
-                <td>
-                  <span class="badge badge-danger">Delivered</span>
+                  <button type="button" class="btn btn-primary mr-2">
+                    Details
+                  </button>
                 </td>
                 <td>
-                  <div class="sparkbar" data-color="#f56954" data-height="20">
-                    90,-80,90,70,-61,83,63
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR7429</a>
-                </td>
-                <td>Samsung Smart TV</td>
-                <td>
-                  <span class="badge badge-info">Processing</span>
-                </td>
-                <td>
-                  <div class="sparkbar" data-color="#00c0ef" data-height="20">
-                    90,80,-90,70,-61,83,63
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR1848</a>
-                </td>
-                <td>Samsung Smart TV</td>
-                <td>
-                  <span class="badge badge-warning">Pending</span>
-                </td>
-                <td>
-                  <div class="sparkbar" data-color="#f39c12" data-height="20">
-                    90,80,-90,70,61,-83,68
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR7429</a>
-                </td>
-                <td>iPhone 6 Plus</td>
-                <td>
-                  <span class="badge badge-danger">Delivered</span>
-                </td>
-                <td>
-                  <div class="sparkbar" data-color="#f56954" data-height="20">
-                    90,-80,90,70,-61,83,63
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="pages/examples/invoice.html">OR9842</a>
-                </td>
-                <td>Call of Duty IV</td>
-                <td>
-                  <span class="badge badge-success">Shipped</span>
-                </td>
-                <td>
-                  <div class="sparkbar" data-color="#00a65a" data-height="20">
-                    90,80,90,-70,61,-83,63
-                  </div>
+                  <button type="button" class="btn btn-danger">Cancel</button>
                 </td>
               </tr>
             </tbody>
@@ -171,11 +92,7 @@
         <!-- /.table-responsive -->
       </div>
       <!-- /.card-body -->
-      <div class="card-footer clearfix">
-        <a href="javascript:void(0)" class="btn btn-sm btn-primary float-right"
-          >View All Orders</a
-        >
-      </div>
+      <div class="card-footer"></div>
       <!-- /.card-footer -->
     </div>
     <!-- /.card -->
