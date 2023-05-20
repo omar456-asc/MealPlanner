@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,7 +18,8 @@ export class ShoppingCartComponent implements OnInit {
   constructor(
     public myService: ShoppingCartService,
     public mymeals: AllMealsService,
-    myRoute:ActivatedRoute
+    myRoute:ActivatedRoute,
+   private shared: SharedService
   ) {
 
   }
@@ -53,10 +55,15 @@ console.log(data)
     );
   }
 
-  delete(index: number) {
+  delete(ID: number) {
+    let index = this.cartid.findIndex((item: { id: any; }) => item.id == ID);
     this.cartid.splice(index, 1);
     this.mymeals.setCart(JSON.stringify(this.cartid))
     this.Meal.splice(index, 1);
+    this.shared.removeFromCart()
+    if(this.cartid.length==0){
+      localStorage.removeItem('cart');
+    }
   }
 
   minus(index: number) {

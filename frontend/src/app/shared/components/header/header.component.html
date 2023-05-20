@@ -28,7 +28,7 @@
           <a routerLink="/cart"
             ><i class="bi bi-cart-dash-fill nav-link scrollto fs-5"></i
           >
-          <span class="badge">{{cartLength}}</span></a>
+          <span class="badge">{{cartLength$| async }}</span></a>
         </li>
 
         <li class="dropdown">
