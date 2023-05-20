@@ -59,19 +59,19 @@ export class DashboardComponent {
           );
         }
 
-        //   //Bar Chart
-        //   this.type2 = 'line';
-        //   this.type1 = 'bar';
-        //   this.data1 = {
-        //     labels: this.orders,
-        //     datasets: [
-        //       {
-        //         label: 'total price per order',
-        //         data: this.totalPriceValues,
-        //         backgroundColor: ['black'],
-        //       },
-        //     ],
-        //   };
+        //Bar Chart
+        this.type2 = 'line';
+        this.type1 = 'bar';
+        this.data1 = {
+          labels: this.orders,
+          datasets: [
+            {
+              label: 'total price per order',
+              data: this.totalPriceValues,
+              backgroundColor: ['black'],
+            },
+          ],
+        };
         //   this.data2 = {
         //     labels: this.totalCategory,
         //     datasets: [
@@ -81,21 +81,21 @@ export class DashboardComponent {
         //         backgroundColor: ['#d4af37'],
         //       },
         //     ],
-        //   };
-        //   this.options = {
-        //     maintainAspectRatio: true,
-        //     responsive: true,
-        //     // maintainAspectRatio: false,
-        //     scales: {
-        //       yAxes: [
-        //         {
-        //           ticks: {
-        //             beginAtZero: true,
-        //           },
-        //         },
-        //       ],
-        //     },
-        //   };
+        // };
+        this.options = {
+          maintainAspectRatio: true,
+          responsive: true,
+          // maintainAspectRatio: false,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        };
       },
       error: (err) => {
         console.log(err);
