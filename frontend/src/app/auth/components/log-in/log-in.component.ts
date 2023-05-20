@@ -45,38 +45,29 @@ export class LogInComponent {
     this.myService.LOGIN(logInUser).subscribe((response: any) => {
       this.authService.setToken(response.token);
       this.authService.setUserID(response.id);
-      this.Add(email, password);
       this.router.navigateByUrl('');
       this.getcart();
-
-    });
-  }
-
-  Add(email: any, password: any) {
-    let logInUser = { email, password };
-    this.myService.LOGIN(logInUser).subscribe(
-      (response: any) => {
-        this.authService.setToken(response.token);
-        this.checkRole();
-      },
-      (err) => {
-        if (email == '') {
-          this.emailMsg = 'please enter your email';
-        } else if (err.error.message.email != '') {
-          this.emailMsg = err.error.message.email;
-        } else {
-          this.emailMsg = '';
-        }
-        if (password == '') {
-          this.passwordMsg = 'Please enter your password';
-        } else if (err.error.message.password == '') {
-          this.passwordMsg = '';
-        } else {
-          this.passwordMsg = 'Incorrect password , please try again';
-        }
+      this.checkRole();
+    },
+    (err) => {
+      if (email == '') {
+        this.emailMsg = 'please enter your email';
+      } else if (err.error.message.email != '') {
+        this.emailMsg = err.error.message.email;
+      } else {
+        this.emailMsg = '';
       }
+      if (password == '') {
+        this.passwordMsg = 'Please enter your password';
+      } else if (err.error.message.password == '') {
+        this.passwordMsg = '';
+      } else {
+        this.passwordMsg = 'Incorrect password , please try again';
+      }
+    }
     );
   }
+
   getcart() {
     var id = this.authService.getUserID();
 
