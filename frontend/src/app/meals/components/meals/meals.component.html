@@ -27,7 +27,9 @@
     <div class="row my-4"  >
       <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of Meals;">
         <div class="card  " >
+          <a routerLink="/mealdetails/{{meal._id}}">
           <img src={{meal.image}} class="card-image" alt="...">
+          </a>
           <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
            <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
            <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
