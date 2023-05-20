@@ -15,6 +15,9 @@ export class ShoppingCartComponent implements OnInit {
   localcart: any ;
   cartid: any = [];
   Meal: any = [];
+  trueAlert: boolean = false;
+  showConfirmationPrompt: boolean = false;
+  mealIdToDelete: number|undefined; 
   constructor(
     public myService: ShoppingCartService,
     public mymeals: AllMealsService,
@@ -40,6 +43,7 @@ export class ShoppingCartComponent implements OnInit {
         },
       });
     }
+    this.trueAlert=false;
   }
   checkout() {
    var cart:any=this.mymeals.getCart()
@@ -55,7 +59,8 @@ console.log(data)
     );
   }
 
-  delete(ID: number) {
+  delete(ID: number|undefined) {
+    console.log(ID);
     let index = this.cartid.findIndex((item: { id: any; }) => item.id == ID);
     this.cartid.splice(index, 1);
     this.mymeals.setCart(JSON.stringify(this.cartid))
@@ -65,7 +70,23 @@ console.log(data)
       localStorage.removeItem('cart');
     }
   }
+deleteConfirmation(ID: number): void {
+  this.mealIdToDelete = ID;
+  console.log(this.mealIdToDelete);
+  this.showConfirmationPrompt = true;
+}
 
+confirmDelete(): void {
+  console.log(this.mealIdToDelete);
+  this.delete(this.mealIdToDelete);
+  this.trueAlert = true;
+  this.showConfirmationPrompt = false;
+  this.mealIdToDelete = undefined;
+}
+
+cancelDelete(): void {
+  this.showConfirmationPrompt = false;
+}
   minus(index: number) {
     if(this.cartid[index].quantity>1){
    this.cartid[index].quantity--
@@ -81,4 +102,5 @@ console.log(data)
       this.Meal[index].quantity=this.cartid[index].quantity
 
   }
+
 }

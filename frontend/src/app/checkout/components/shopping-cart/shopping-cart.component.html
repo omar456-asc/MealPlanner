@@ -8,6 +8,21 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+          <div class="confirmation-prompt" *ngIf="showConfirmationPrompt">
+            <div class="confirmation-prompt-overlay"></div>
+            <div class="confirmation-prompt-dialog">
+              <h2>Confirmation</h2>
+              <p>Are you sure you want to delete this meal?</p>
+              <div class="confirmation-prompt-actions">
+                <button (click)="confirmDelete()">Yes</button>
+                <button (click)="cancelDelete()">No</button>
+              </div>
+            </div>
+          </div>          
+          <!-- Alert div -->
+      <div class="col-md-10 offset-1 alert alert-success" *ngIf="trueAlert">
+        Your meal was deleted from the cart successfully
+      </div>
           <!-- Shopping cart table -->
           <div class="table-responsive">
             <table class="table">
@@ -80,7 +95,7 @@
                      </a>
                   </td>
                   <td class="border-0 align-middle">
-                    <a (click)="delete(meal._id)" class="text-dark">
+                    <a (click)="deleteConfirmation(meal._id)" class="text-dark">
                        <i class="fa fa-trash"></i
                     >
                     </a>
