@@ -17,6 +17,8 @@ export class DashboardComponent {
   totalCategory: any;
   rate: any;
   allRates: any;
+  highestRate: any;
+  highestRateCategory: any;
   data: any;
   options: any;
   data1: any;
@@ -34,13 +36,15 @@ export class DashboardComponent {
     this.totalCategory = [];
     this.totalOrdersPrice = 0.0;
     this.allRates = [];
+    this.highestRate = 0;
+    this.highestRateCategory = '';
   }
 
   ngOnInit(): void {
     this.UserdashboardServiceService.getOrdersByUserId(this.ID).subscribe({
       next: (data: any) => {
         this.data = data;
-        console.log(this.data);
+        // console.log(this.data);
         for (let i = 0; i < data.orders.length; i++) {
           for (let j = 0; j < data.orders[i].meals.length; j++) {
             let meal = data.orders[i].meals[j];
@@ -48,15 +52,19 @@ export class DashboardComponent {
             this.totalPrice += parseFloat(meal.price);
             this.rate = parseFloat(meal.rate);
             this.category = meal.category;
+            if (this.rate > this.highestRate) {
+              this.highestRate = this.rate;
+              this.highestRateCategory = this.category;
+            }
           }
           this.orders.push(`Order ${i + 1}`);
           this.totalPriceValues.push(this.totalPrice);
           this.totalCategory.push(this.category);
           this.totalOrdersPrice += this.totalPrice;
           this.allRates.push(this.rate);
-          console.log(
-            ` ${this.orders[i]}: Total price = ${this.totalPrice}, Category = ${this.category}`
-          );
+          // console.log(
+          //   ` ${this.orders[i]}: Total price = ${this.totalPrice}, Category = ${this.category}`
+          // );
         }
 
         //Bar Chart
