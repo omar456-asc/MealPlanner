@@ -6,49 +6,33 @@ import { AdminOrdersServiceService } from '../../admin-orders/services/admin-ord
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+  styleUrls: ['./statistics.component.css'],
 })
 export class StatisticsComponent {
-
-  products: any
-  users:any
-  orders: any
-
-  orderLength: any
-
-  constructor(public mealsService: AllMealsService, public UsersService: UsersService,
-    public OrderService: AdminOrdersServiceService) {
-
-  }
+  products: any;
+  users: any;
+  constructor(
+    public mealsService: AllMealsService,
+    public UsersService: UsersService
+  ) {}
 
   ngOnInit(): void {
-    this.mealsService.GetAllMeals().subscribe(
-      {
-        next: (data) => {
-          this.products = data;
-        },
-        error: (err) => { console.log(err) }
-      }
-    )
+    this.mealsService.GetAllMeals().subscribe({
+      next: (data) => {
+        this.products = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
-    this.UsersService.getAllUsers().subscribe(
-      {
-        next: (data) => {
-          this.users = data;
-        },
-        error: (err) => { console.log(err) }
-      }
-    )
-    this.OrderService.getAllOrders().subscribe(
-      {
-        next: (data) => {
-          this.orders = data;
-        this.orderLength=  this.orders.length
-
-        },
-        error: (err) => { console.log(err) }
-      }
-    )
+    this.UsersService.getLatest8users().subscribe({
+      next: (data) => {
+        this.users = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-
 }
