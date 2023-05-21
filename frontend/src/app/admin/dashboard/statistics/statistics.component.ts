@@ -11,9 +11,12 @@ import { AdminOrdersServiceService } from '../../admin-orders/services/admin-ord
 export class StatisticsComponent {
   products: any;
   users: any;
+  orders: any;
+  orderLength: any;
   constructor(
     public mealsService: AllMealsService,
-    public UsersService: UsersService
+    public UsersService: UsersService,
+    public OrderService: AdminOrdersServiceService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +32,15 @@ export class StatisticsComponent {
     this.UsersService.getLatest8users().subscribe({
       next: (data) => {
         this.users = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+    this.OrderService.getAllOrders().subscribe({
+      next: (data) => {
+        this.orders = data;
+        this.orderLength = this.orders.length;
       },
       error: (err) => {
         console.log(err);
