@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./shopping-cart.component.css'],
 })
 export class ShoppingCartComponent implements OnInit {
+  FalseAlert=false;
+  AlertMsg=""
   quantityInput:any
   ID: any = localStorage.getItem('id');
   localcart: any ;
@@ -17,18 +19,23 @@ export class ShoppingCartComponent implements OnInit {
   Meal: any = [];
   trueAlert: boolean = false;
   showConfirmationPrompt: boolean = false;
-  mealIdToDelete: number|undefined; 
+  mealIdToDelete: number|undefined;
   constructor(
     public myService: ShoppingCartService,
     public mymeals: AllMealsService,
     myRoute:ActivatedRoute,
-   private shared: SharedService
+   private shared: SharedService,
+   private router: Router,
   ) {
 
   }
 
   ngOnInit(): void {
     this.localcart=this.mymeals.getCart();
+    if(!this.localcart){
+      this.FalseAlert=true
+      this.AlertMsg="No Items Available"
+    }
     this.cartid = JSON.parse(this.localcart);
     for (let i = 0; i < this.cartid.length; i++) {
 
@@ -48,16 +55,21 @@ console.log(this.Meal)
   }
   checkout() {
    var cart:any=this.mymeals.getCart()
-    this.cartid = JSON.parse(cart)
+    if(cart){
+      this.cartid = JSON.parse(cart)
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
-console.log(data)
+        this.router.navigateByUrl('/order');
 
       },
       (err) => {
      console.log("error")
       }
-    );
+    );}
+    else{
+      this.FalseAlert=true
+      this.AlertMsg="  Sorry, you must have cart to checkout"
+    }
   }
 
   delete(ID: number|undefined) {
@@ -66,10 +78,11 @@ console.log(data)
     this.cartid.splice(index, 1);
     this.mymeals.setCart(JSON.stringify(this.cartid))
     this.Meal.splice(index, 1);
-    this.shared.removeFromCart()
+    // this.shared.removeFromCart()
     if(this.cartid.length==0){
       localStorage.removeItem('cart');
     }
+    location.reload();
   }
 deleteConfirmation(ID: number): void {
   this.mealIdToDelete = ID;
