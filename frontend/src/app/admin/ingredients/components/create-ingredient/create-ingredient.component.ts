@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IngredientsServiceService } from '../../services/ingredients-service.service';
 
 @Component({
   selector: 'app-create-ingredient',
