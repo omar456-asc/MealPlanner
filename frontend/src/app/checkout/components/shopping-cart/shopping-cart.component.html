@@ -18,7 +18,7 @@
                 <button (click)="cancelDelete()">No</button>
               </div>
             </div>
-          </div>          
+          </div>
           <!-- Alert div -->
       <div class="col-md-10 offset-1 alert alert-success" *ngIf="trueAlert">
         Your meal was deleted from the cart successfully
@@ -105,8 +105,11 @@
               </tbody>
             </table>
           </div>
+          <div class="col-md-10 offset-1 alert alert-danger" *ngIf="FalseAlert;">
+         {{AlertMsg}}
+          </div>
           <form method="POST">
-            <button routerLink="/order" class="btn btn-lg " class="checkout-btn"  (click)="checkout()" type="submit">
+            <button class="btn btn-lg " class="checkout-btn"  (click)="checkout()" type="submit">
               <span>Checkout</span>
             </button>
           </form>
