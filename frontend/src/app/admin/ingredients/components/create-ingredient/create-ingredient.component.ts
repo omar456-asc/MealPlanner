@@ -7,24 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateIngredientComponent implements OnInit {
   public ingredient:
-    | [
-        {
-          id: string;
-          imgae: string;
-          consistency: any;
-          name: string;
-          price: number;
-        }
-      ]
+    | {
+        id: string;
+        imgae: string;
+        consistency: any;
+        name: string;
+        price: number;
+      }
     | undefined;
 
   constructor() {
-    this.ingredient = [
-      { id: '0', imgae: '', consistency: '', name: '', price: 0 },
-    ];
+    this.ingredient = {
+      id: '0',
+      imgae: '',
+      consistency: '',
+      name: '',
+      price: 0,
+    };
   }
   ngOnInit(): void {}
+
   createIngredient() {
-    console.log('ingredeint');
+    console.log(this.ingredient);
   }
 }
