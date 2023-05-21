@@ -35,13 +35,16 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = null;
     var cart: any = this.mymeals.getCart();
     this.cartid = JSON.parse(cart);
+    if(!cart){
+      return console.log("No Cart");
+    }
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
         console.log('done');
         localStorage.removeItem('cart');
       },
       (err) => {
-        console.log('error');
+        console.log(err);
       }
     );
   }
