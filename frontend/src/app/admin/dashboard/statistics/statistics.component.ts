@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 import { UsersService } from 'src/app/admin/users/services/users.service';
+import { AdminOrdersServiceService } from '../../admin-orders/services/admin-orders-service.service';
 
 @Component({
   selector: 'app-statistics',
