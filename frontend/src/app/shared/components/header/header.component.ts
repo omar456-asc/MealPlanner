@@ -15,31 +15,33 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: any;
 
   cartLength: any;
-  cartid:any;
+  getRole: any;
+  cartid: any;
   ID: any = localStorage.getItem('id');
-  constructor(private authService: AuthService,
-    private shared:SharedService,
-    private mymeals:AllMealsService,
-    public myService: ShoppingCartService,) {
+  constructor(
+    private authService: AuthService,
+    private shared: SharedService,
+    private mymeals: AllMealsService,
+    public myService: ShoppingCartService
+  ) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
     this.cartLength$ = this.shared.cartLength$;
-    }
-  ngOnInit(): void {
-
+    this.getRole = this.authService.getRole();
   }
+  ngOnInit(): void {}
   logout() {
     this.authService.logout();
     this.isLoggedIn = null;
-    var cart:any=this.mymeals.getCart()
-    this.cartid = JSON.parse(cart)
+    var cart: any = this.mymeals.getCart();
+    this.cartid = JSON.parse(cart);
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
-        console.log("done");
+        console.log('done');
         localStorage.removeItem('cart');
       },
       (err) => {
-     console.log("error")
+        console.log('error');
       }
     );
   }

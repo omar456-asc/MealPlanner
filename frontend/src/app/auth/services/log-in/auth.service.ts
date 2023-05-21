@@ -54,18 +54,34 @@ export class AuthService {
     return decoded;
   }
 
-  getRole(): boolean | undefined {
-    const token = localStorage.getItem('Token');
+  // getRole(): boolean | undefined {
+  //   const token = localStorage.getItem('Token');
 
+  //   console.log('user token', token);
+  //   if (!token) {
+  //     return undefined;
+  //   }
+  //   const decoded = jwt_decode(token) as {
+  //     id: string;
+  //     is_admin: boolean;
+  //   };
+  //   const isAdmin = decoded.is_admin;
+  //   return isAdmin;
+  // }
+
+
+  
+  getRole(){
+    const token = localStorage.getItem('Token');
     console.log('user token', token);
-    if (!token) {
-      return undefined;
+    if (token) {
+      const decoded = jwt_decode(token) as {
+        id: string;
+        is_admin: boolean;
+      };
+      const isAdmin = decoded.is_admin;
+      return isAdmin;
     }
-    const decoded = jwt_decode(token) as {
-      id: string;
-      is_admin: boolean;
-    };
-    const isAdmin = decoded.is_admin;
-    return isAdmin;
+    return false;
   }
 }

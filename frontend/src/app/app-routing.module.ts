@@ -20,20 +20,21 @@ import { CustomizeMealComponent } from './checkout/components/customize-meal/cus
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { OrderComponent } from './order/components/order/order.component';
+import { UserGuard } from './auth/guards/user.guard';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
-  { path: 'cart', component: CheckoutComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'user', component: UserdashboardComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [UserGuard] },
+  { path: 'cart', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserdashboardComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
   { path: 'customize/:id', component: CustomizeMealComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'order', component: OrderComponent },
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard], },
+  { path: 'order', component: OrderComponent, canActivate: [AuthGuard], },
 ];
 
 @NgModule({

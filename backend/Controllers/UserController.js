@@ -172,7 +172,7 @@ var DeleteUserByID = async (req, res) => {
 var getLatest8users = async (req, res) => {
   try {
     var AllUsers = await usersmodel.find().sort({ _id: -1 }).limit(8);
-    console.log(AllUsers);
+    // console.log(AllUsers);
     await res.json(AllUsers);
   } catch (e) {
     console.log(e);
