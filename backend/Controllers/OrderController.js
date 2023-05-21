@@ -182,19 +182,23 @@ const createOrder = async (req, res) => {
 };
 
 // Update an existing order
-const updateOrder = async (req, res) => {
+const updateOrderStatus = async (req, res) => {
   try {
-    const order = await OrdersModel.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const { status } = req.body;
+    const order = await OrdersModel.findByIdAndUpdate(
+      req.params.id,
+      { status },
+      { new: true }
+    );
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
-    res.status(200).json({ message: "Order updated successfully" });
+    res.status(200).json({ message: "Order status updated successfully" });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 // Delete an order
 const deleteOrder = async (req, res) => {
@@ -213,7 +217,7 @@ module.exports = {
   getAllOrders,
   getOrderById,
   createOrder,
-  updateOrder,
+  updateOrderStatus,
   deleteOrder,
   getOrdersByUserId,
 };

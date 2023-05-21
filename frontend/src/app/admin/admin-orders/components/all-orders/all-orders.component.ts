@@ -8,10 +8,10 @@ import { AdminOrdersServiceService } from '../../services/admin-orders-service.s
 })
 export class AllOrdersComponent {
   orders: any;
-  constructor(public mealService: AdminOrdersServiceService) {}
+  constructor(public orderService: AdminOrdersServiceService) {}
 
   ngOnInit(): void {
-    this.mealService.getAllOrders().subscribe({
+    this.orderService.getAllOrders().subscribe({
       next: (data: any) => {
         this.orders = data;
       },
@@ -21,6 +21,15 @@ export class AllOrdersComponent {
     });
 
     console.log(this.orders);
+  }
+
+  updateOrderStatus(id: any, status: any) {
+    if (confirm(`Are you Sure you want to ${status} this Order `)) {
+      this.orderService.updateOrderStatus(id, status).subscribe(
+        () => this.ngOnInit(),
+        (err) => console.log(err)
+      );
+    }
   }
 
   getStatusClass(status: string): string {

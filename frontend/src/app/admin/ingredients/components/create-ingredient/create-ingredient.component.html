@@ -1,1 +1,26 @@
-<p>create-ingredient works!</p>
+<div class="container">
+  <h1>Create Ingredient</h1>
+  <form (ngSubmit)="createIngredient()" #ingredientForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <!-- <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="ingredient.name"> -->
+    </div>
+
+    <div class="form-group">
+      <label for="consistency">Consistency</label>
+      <!-- <input type="text" class="form-control" id="consistency" name="consistency" required [(ngModel)]="ingredient.consistency"> -->
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <!-- <input type="text" class="form-control" id="image" name="image" [(ngModel)]="ingredient.image"> -->
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <!-- <input type="number" class="form-control" id="price" name="price" required [(ngModel)]="ingredient.price"> -->
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

@@ -26,6 +26,8 @@
 
             <th>Total Price</th>
             <th>Status</th>
+            <th>Details</th>
+
             <th>Actions</th>
           </tr>
         </thead>
@@ -43,9 +45,26 @@
 
             <td>{{ order.totalPrice }}</td>
             <td>
-              <span [ngClass]="getStatusClass(order.status)">{{
-                order.status
-              }}</span>
+              <span class="badge badge-warning">{{ order.status }}</span>
+            </td>
+            <td>
+              <a class="px-2" routerLink="/admin/orders/{{ order._id }}">
+                <button class="btn btn-sm btn-primary">Details</button>
+              </a>
+            </td>
+            <td class="row">
+              <button
+                class="btn btn-sm btn-success col-5"
+                (click)="updateOrderStatus(order._id, 'confirmed')"
+              >
+                <i class="fas fa-check"></i>
+              </button>
+              <button
+                class="btn btn-sm btn-danger offset-md-1 col-5"
+                (click)="updateOrderStatus(order._id, 'rejected')"
+              >
+                <i class="fas fa-close"></i>
+              </button>
             </td>
           </tr>
         </tbody>
