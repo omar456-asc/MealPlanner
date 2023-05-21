@@ -12,7 +12,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 })
 export class OrderComponent implements OnInit {
   constructor(public mymeals: AllMealsService,
-    public myService: ShoppingCartService,
+    public cartService: ShoppingCartService,
     private UserService: ProfileService,
     private authService: AuthService,
      ){}
@@ -37,7 +37,7 @@ export class OrderComponent implements OnInit {
   order(){
 
     this.cartid = [{}]
-    this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
+    this.cartService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
 
         localStorage.removeItem('cart');

@@ -61,7 +61,6 @@ console.log(data)
   }
 
   delete(ID: number|undefined) {
-    console.log(ID);
     let index = this.cartid.findIndex((item: { id: any; }) => item.id == ID);
     this.cartid.splice(index, 1);
     this.mymeals.setCart(JSON.stringify(this.cartid))
@@ -73,12 +72,10 @@ console.log(data)
   }
 deleteConfirmation(ID: number): void {
   this.mealIdToDelete = ID;
-  console.log(this.mealIdToDelete);
   this.showConfirmationPrompt = true;
 }
 
 confirmDelete(): void {
-  console.log(this.mealIdToDelete);
   this.delete(this.mealIdToDelete);
   this.trueAlert = true;
   this.showConfirmationPrompt = false;
