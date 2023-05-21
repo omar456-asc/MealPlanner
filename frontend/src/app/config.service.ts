@@ -5,7 +5,7 @@ import { environment } from 'src/enviroments/enviroment';
   providedIn: 'root',
 })
 export class ConfigService {
-  private baseUrl = 'https://mealplannerapi.onrender.com/api';
+  private baseUrl = 'http://localhost:7400/api';
   static getBaseUrl: any;
   constructor() {}
   getBaseUrl(endpoint: string): string {
