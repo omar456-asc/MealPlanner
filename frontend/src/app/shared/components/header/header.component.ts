@@ -10,6 +10,7 @@ import { AllMealsService } from 'src/app/meals/services/all-meals.service';
 })
 export class HeaderComponent {
   isLoggedIn: any;
+  getRole:any;
   public  cart: [{"id":string,"quantity":number}];
   public oldcart: string | null;
   cartLength: number;
@@ -21,6 +22,8 @@ export class HeaderComponent {
     public myService: ShoppingCartService,) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
+    this.getRole = this.authService.getRole();
+    
     this.oldcart = localStorage.getItem('cart');
     if (this.oldcart) {
       this.cart = JSON.parse(this.oldcart);
