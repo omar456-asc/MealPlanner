@@ -116,22 +116,22 @@ const updateOrderStatus = async (req, res) => {
 
 
 // Delete an order
-const deleteOrder = async (req, res) => {
-  try {
-    const order = await OrdersModel.findByIdAndDelete(req.params.id);
-    if (!order) {
-      return res.status(404).json({ message: "Order not found" });
-    }
-    res.status(200).json({ message: "Order deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
+// const deleteOrder = async (req, res) => {
+//   try {
+//     const order = await OrdersModel.findByIdAndDelete(req.params.id);
+//     if (!order) {
+//       return res.status(404).json({ message: "Order not found" });
+//     }
+//     res.status(200).json({ message: "Order deleted successfully" });
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
 
 module.exports = {
   getAllOrders,
   getOrderById,
   createOrder,
   updateOrderStatus,
-  deleteOrder,
+  // deleteOrder,
 };
