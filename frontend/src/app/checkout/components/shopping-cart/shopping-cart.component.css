@@ -1,3 +1,6 @@
+i{
+  cursor: pointer;
+}
 .Checkout::before {
     content: "";
     position: absolute;

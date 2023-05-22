@@ -23,6 +23,9 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
+    if(!this.user.id){
+      return console.log("No User");
+    }
     this.profileService.getProfileInfo(this.user.id).subscribe(
       (data: any) => {
         console.log(data);

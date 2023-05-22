@@ -8,11 +8,13 @@ import { AllMealsService } from 'src/app/meals/services/all-meals.service';
   styleUrls: ['./customize-meal.component.css'],
 })
 export class CustomizeMealComponent implements OnInit {
+
   constructor(public myService: AllMealsService,
     myRoute:ActivatedRoute,
     ) {
       this.ID = myRoute.snapshot.params["id"];
-
+      this.count = myRoute.snapshot.queryParamMap.get('count');
+      console.log(this.count)
     this.totalMealPrice = 3000;
   }
   matchedIngredients:any=[]
@@ -20,6 +22,7 @@ export class CustomizeMealComponent implements OnInit {
   totalMealPrice: number | undefined;
   meal :any;
   ID:any
+  count:any;
 
   ngOnInit(): void {
 
@@ -31,8 +34,7 @@ export class CustomizeMealComponent implements OnInit {
           this.ingrediants=this.meal[0].ingredients_details
           const cart: any = this.myService.getCart();
 const cartItems = JSON.parse(cart);
-
-const ingredientIds = cartItems.flatMap((item: { ingredients: any; }) => item.ingredients);
+const ingredientIds = cartItems.filter((obj: { id: any,count:any; }) => obj.id === this.ID && obj.count==this.count).flatMap((item: { ingredients: any; }) => item.ingredients)
  const matchedIngredients = this.ingrediants.filter((ingredient: { _id: any; }) => ingredientIds.includes(ingredient._id));
 this.ingrediants=matchedIngredients;
 
@@ -48,9 +50,10 @@ this.ingrediants=matchedIngredients;
     var cart:any=this.myService.getCart()
     cart=JSON.parse(cart)
     // cart[index].ingredients=this.ingrediants
-    const mealindex = cart.findIndex((obj: { id: any; }) => obj.id === ID);
+    const mealindex = cart.findIndex((obj: any ) => obj.id === ID  );
     if (mealindex !== -1) {
       cart[mealindex].ingredients=ingrediantsid
+      cart[mealindex].count=cart[mealindex].count - 1
     }
     this.myService.setCart(JSON.stringify(cart))
     // this.matchedIngredients=this.ingrediants
