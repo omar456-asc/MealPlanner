@@ -6,6 +6,7 @@ import { ConfigService } from 'src/app/config.service';
   providedIn: 'root',
 })
 export class AllMealsService {
+
   private readonly Base_URL: string;
 
   constructor(
@@ -14,6 +15,7 @@ export class AllMealsService {
   ) {
     this.Base_URL = this.configService.getBaseUrl('products');
   }
+
   //#region GetAllMeals
   GetAllMeals() {
     //method[Get-Delete-Put-Patch]
@@ -29,6 +31,7 @@ export class AllMealsService {
     return this.myClient.get(this.Base_URL + '/' + id);
   }
   //#endregion
+
   //#region MealLocalStorage
   setCart(cart: any) {
     localStorage.setItem('cart', cart);
