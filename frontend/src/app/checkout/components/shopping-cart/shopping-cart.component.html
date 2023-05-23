@@ -25,86 +25,72 @@
       </div>
           <!-- Shopping cart table -->
           <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-center text-uppercase">Product</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Price</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Quantity</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">customize</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Remove</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody >
-                <ng-container *ngFor="let meals of Meal; let i = index">
-                <tr *ngFor="let meal of meals;">
-                  <th scope="row" class="border-0"  >
-                    <div class="pb-2"  >
-                      <img class="imgg"
-                        src={{meal.image}}
-                        alt=""
-                        width="70"
-                        class="img-fluid rounded shadow-sm"
-                      />
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0">
-                          <a
-                            class="text-dark d-inline-block align-middle"
-                            >{{meal.title}}</a
-                          >
-                        </h5>
-                        <span
-                          class="text-muted font-weight-normal font-italic d-block"
-                          >{{meal.category}}</span
-                        >
-                      </div>
-                    </div>
-                  </th>
-                  <td class="border-0 align-middle">
-                    <strong>{{meal.price}}</strong>
-                  </td>
-                  <td class="quantity border-0 align-middle">
-                    <button *ngIf="meals.quantity > 1" (click)="minus(i)" class="minus-btn" type="button">
-                      -
-                    </button>
-                    <input
-                      [(ngModel)]="meals.quantity"
-                      class="quantity-input"
-                      type="number"
-                      [disabled]="true"
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="border-0 bg-light">
+          <div class="p-2 px-3 text-uppercase">Product</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Price</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Quantity</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Customize</div>
+        </th>
+        <th scope="col" class="border-0 bg-light">
+          <div class="py-2 text-uppercase">Remove</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let meals of Meal; let i = index">
+        <tr *ngFor="let meal of meals;">
+          <td scope="row" class="border-0">
+            <div class="d-flex align-items-center">
+              <img
+                class="imgg mr-3"
+                src={{meal.image}}
+                alt=""
+                width="70"
+              />
+              <div>
+                <h5 class="mb-0">
+                  <a class="text-dark" >{{meal.title}}</a>
+                  <span *ngIf="meals.customized" class="text-danger ml-2">(Customized)</span>
+                </h5>
+                <span class="text-muted font-weight-normal font-italic">{{meal.category}}</span>
+              </div>
+            </div>
+          </td>
+          <td class="border-0 align-middle">
+            <strong>{{meal.price}}</strong>
+          </td>
+          <td class="quantity border-0 align-middle">
+            <div class="d-flex align-items-center">
+              <button *ngIf="meals.quantity > 1" (click)="minus(i)" class="minus-btn" type="button">-</button>
+              <input [(ngModel)]="meals.quantity" class="quantity-input" type="number" [disabled]="true" />
+              <button (click)="plus(i)" class="plus-btn" type="button">+</button>
+            </div>
+          </td>
+          <td class="border-0 align-middle">
+            <a [routerLink]="['/customize', meal._id]" [queryParams]="{count: meals.count}" class="text-dark">
+              <i class="fa-solid fa-wrench" style="color: #000000;"></i>
+            </a>
+          </td>
+          <td class="border-0 align-middle">
+            <a (click)="deleteConfirmation(meal._id)" class="text-dark">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
 
-
-                    />
-                    <button (click)="plus(i)" class="plus-btn" type="button">
-                      +
-                    </button>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a [routerLink]="['/customize', meal._id]" [queryParams]="{count: meals.count}" class="text-dark"
-                      ><i class="fa-solid fa-wrench" style="color: #000000;"></i>
-                     </a>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a (click)="deleteConfirmation(meal._id)" class="text-dark">
-                       <i class="fa fa-trash"></i
-                    >
-                    </a>
-                  </td>
-                </tr>
-                </ng-container>
-              </tbody>
-            </table>
-          </div>
           <div class="col-md-10 offset-1 alert alert-danger" *ngIf="FalseAlert;">
          {{AlertMsg}}
           </div>
