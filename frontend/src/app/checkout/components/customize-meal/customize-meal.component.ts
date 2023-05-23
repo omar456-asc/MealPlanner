@@ -31,10 +31,14 @@ export class CustomizeMealComponent implements OnInit {
       {
         next:(data:any)=>{
           this.meal = data;
+          //getting ingredients details from database
           this.ingrediants=this.meal[0].ingredients_details
           const cart: any = this.myService.getCart();
+          //getting cart from local storage
           const cartItems = JSON.parse(cart);
+          //filter the cart to get the meal i want to customize,then getting only the ingredients
           const ingredientIds = cartItems.filter((obj: { id: any,count:any; }) =>obj.count==this.count && obj.id == this.ID ).flatMap((item: { ingredients: any; }) => item.ingredients)
+         // filter our ingredients array, make it contain only the ingredients inside the localstorage
           const matchedIngredients = this.ingrediants.filter((ingredient: { _id: any; }) => ingredientIds.includes(ingredient._id));
           this.ingrediants=matchedIngredients;
 
