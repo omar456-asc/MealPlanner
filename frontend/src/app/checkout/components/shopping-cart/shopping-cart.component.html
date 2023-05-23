@@ -30,74 +30,82 @@
                   </th>
                 </tr>
               </thead>
-              <tbody >
+              <tbody>
                 <ng-container *ngFor="let meals of Meal; let i = index">
-                <tr *ngFor="let meal of meals;">
-                  <th scope="row" class="border-0"  >
-                    <div class="p-2"  >
-                      <img class="imgg"
-                        src={{meal.image}}
-                        alt=""
-                        width="70"
-                        class="img-fluid rounded shadow-sm"
-                      />
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0">
-                          <a
-                            class="text-dark d-inline-block align-middle"
-                            >{{meal.title}}</a
+                  <tr *ngFor="let meal of meals">
+                    <th scope="row" class="border-0">
+                      <div class="p-2">
+                        <img
+                          class="imgg"
+                          src="{{ meal.image }}"
+                          alt=""
+                          width="70"
+                          class="img-fluid rounded shadow-sm"
+                        />
+                        <div class="ml-3 d-inline-block align-middle">
+                          <h5 class="mb-0">
+                            <a class="text-dark d-inline-block align-middle">{{
+                              meal.title
+                            }}</a>
+                          </h5>
+                          <span
+                            class="text-muted font-weight-normal font-italic d-block"
+                            >{{ meal.category }}</span
                           >
-                        </h5>
-                        <span
-                          class="text-muted font-weight-normal font-italic d-block"
-                          >{{meal.category}}</span
-                        >
+                        </div>
                       </div>
-                    </div>
-                  </th>
-                  <td class="border-0 align-middle">
-                    <strong>{{meal.price}}</strong>
-                  </td>
-                  <td class="quantity border-0 align-middle">
-                    <button (click)="minus(i)" class="minus-btn" type="button">
-                      -
-                    </button>
-                    <input
-                      [(ngModel)]="meals.quantity"
-                      class="quantity-input"
-                      type="number"
-
-
-                    />
-                    <button (click)="plus(i)" class="plus-btn" type="button">
-                      +
-                    </button>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a routerLink="/customize/{{meal._id}}"class="text-dark"
-                      ><i class="fa-solid fa-wrench" style="color: #000000;"></i>
-                     </a>
-                  </td>
-                  <td class="border-0 align-middle">
-                    <a (click)="delete(i)" class="text-dark">
-                       <i class="fa fa-trash"></i
-                    >
-                    </a>
-                  </td>
-                </tr>
+                    </th>
+                    <td class="border-0 align-middle">
+                      <strong>{{ meal.price }}</strong>
+                    </td>
+                    <td class="quantity border-0 align-middle">
+                      <button
+                        (click)="minus(i)"
+                        class="minus-btn"
+                        type="button"
+                      >
+                        -
+                      </button>
+                      <input
+                        [(ngModel)]="meals.quantity"
+                        class="quantity-input"
+                        type="number"
+                      />
+                      <button (click)="plus(i)" class="plus-btn" type="button">
+                        +
+                      </button>
+                    </td>
+                    <td class="border-0 align-middle">
+                      <a href="/customize/{{ meal._id }}" class="text-dark"
+                        ><i
+                          class="fa-solid fa-wrench"
+                          style="color: #000000"
+                        ></i>
+                      </a>
+                    </td>
+                    <td class="border-0 align-middle">
+                      <a (click)="delete(i)" class="text-dark">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
                 </ng-container>
               </tbody>
             </table>
           </div>
           <form method="POST">
-            <button routerLink="/payment" class="btn btn-lg " class="checkout-btn"  (click)="checkout()" type="submit">
+            <button
+              href="/payment"
+              class="btn btn-lg"
+              class="checkout-btn"
+              (click)="checkout()"
+              type="submit"
+            >
               <span>Checkout</span>
             </button>
           </form>
-
         </div>
       </div>
     </div>
   </div>
 </main>
-
