@@ -19,6 +19,7 @@ export class CustomizeMealComponent implements OnInit {
   }
   matchedIngredients:any=[]
   ingrediants:any=[]
+  ingrediantsid:any
   totalMealPrice: number | undefined;
   meal :any;
   ID:any
@@ -29,14 +30,13 @@ export class CustomizeMealComponent implements OnInit {
     this.myService.GetMealByID(this.ID).subscribe(
       {
         next:(data:any)=>{
-
           this.meal = data;
           this.ingrediants=this.meal[0].ingredients_details
           const cart: any = this.myService.getCart();
-const cartItems = JSON.parse(cart);
-const ingredientIds = cartItems.filter((obj: { id: any,count:any; }) => obj.id === this.ID && obj.count==this.count).flatMap((item: { ingredients: any; }) => item.ingredients)
- const matchedIngredients = this.ingrediants.filter((ingredient: { _id: any; }) => ingredientIds.includes(ingredient._id));
-this.ingrediants=matchedIngredients;
+          const cartItems = JSON.parse(cart);
+          const ingredientIds = cartItems.filter((obj: { id: any,count:any; }) =>obj.count==this.count && obj.id == this.ID ).flatMap((item: { ingredients: any; }) => item.ingredients)
+          const matchedIngredients = this.ingrediants.filter((ingredient: { _id: any; }) => ingredientIds.includes(ingredient._id));
+          this.ingrediants=matchedIngredients;
 
         },
         error:(err)=>{console.log(err)}
@@ -46,13 +46,13 @@ this.ingrediants=matchedIngredients;
   }
   delete(ID:any,index: number) {
     this.ingrediants.splice(index, 1);
-    const ingrediantsid = this.ingrediants.map((obj: { _id: any; }) => obj._id);
+     this.ingrediantsid = this.ingrediants.map((obj: { _id: any; }) => obj._id);
     var cart:any=this.myService.getCart()
     cart=JSON.parse(cart)
     // cart[index].ingredients=this.ingrediants
-    const mealindex = cart.findIndex((obj: any ) => obj.id === ID  );
+    const mealindex = cart.findIndex((obj: any ) => obj.id === ID && obj.count==this.count );
     if (mealindex !== -1) {
-      cart[mealindex].ingredients=ingrediantsid
+      cart[mealindex].ingredients=this.ingrediantsid
       cart[mealindex].count=cart[mealindex].count - 1
     }
     this.myService.setCart(JSON.stringify(cart))

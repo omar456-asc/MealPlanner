@@ -7,7 +7,7 @@
     "
   >
     <div class="container mt-1">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" *ngIf="meal; else falseBlock">
       <div
         class="col-lg-10 p-3 bg-white rounded shadow-sm mb-5 d-flex justify-content-center align-items-center">
         <div class="container">
@@ -57,6 +57,9 @@
         </div>
       </div>
     </div>
+    <ng-template #falseBlock>
+      <h1 class="alert alert-danger" style="background-color: #debd54; border-color: #debd54; ">Loading...</h1>
+    </ng-template>
     </div>
 
   </div>
