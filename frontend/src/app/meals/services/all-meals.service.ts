@@ -21,6 +21,12 @@ export class AllMealsService {
     return this.myClient.get(this.Base_URL + '/search' + '/' + key )
   }
   //#endregion
+  //#region rateMeal
+
+  RateMeal(id: any,rate: any){
+    return this.myClient.post(this.Base_URL + '/' + id,rate)
+  }
+  //#endregion
 
   //#region GetAllMeals
   GetAllMeals() {

@@ -22,9 +22,7 @@ export class MealDetailsComponent implements OnInit {
   stars = Array.from({ length: this.maxRating }, (_, i) => i + 1);
   rating = 0;
 
-  rate(star: number) {
-    this.rating = star;
-  }
+
   ID: any;
   Meal: any;
   constructor(
@@ -97,6 +95,22 @@ export class MealDetailsComponent implements OnInit {
   }
   }
   //function to get ingredients count from meal to know if the meal customize
+
+  //rating function
+
+  rate(star: number) {
+    this.rating = star;
+    let value=this.rating
+    let userID=this.userID
+    let ratebody = { userID, value };
+    console.log(ratebody)
+    this.myService.RateMeal(this.ID,ratebody).subscribe((response: any) => {
+    },
+    (err) => {
+     console.log(err);
+    }
+    );
+  }
 
 }
 

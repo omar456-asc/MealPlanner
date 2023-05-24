@@ -1,4 +1,5 @@
 const ProductController = require("../Controllers/ProductController");
+const RatingController = require("../Controllers/RatingController");
 const express = require("express");
 let router = express.Router();
 
@@ -9,7 +10,7 @@ router.get("/", ProductController.GetAllProducts);
 router.get("/:id", ProductController.GetProductByID);
 router.get("/search/:key", ProductController.SearchMeal);
 
-// router.post("/:id",ProductController.UpdateProductByID);
+router.post("/:id",RatingController.addNewRate);
 router.delete("/:id", ProductController.DeleteProductByID);
 router.post("/", ProductController.addNewProduct);
 router.put("/:id", ProductController.editProduct);
