@@ -13,20 +13,21 @@
             </button>
           </div>
         </div>
-        <div class="suggestion-wrap">
-          <a>Fruits</a>
-          <a>Vegetables</a>
-          <a>Grains</a>
-          <a>Protein Foods</a>
-          <a>Dairy</a>
+        <div class="suggestion-wrap d-flex flex-column flex-md-row">
+          <a (click)="filter($event,'')">All</a>
+          <a  (click)="filter($event,'pizza')">Pizza</a>
+          <a  (click)="filter($event,'pasta')">Pasta</a>
+          <a  (click)="filter($event,'Fish')">Fish</a>
+          <a  (click)="filter($event,'Cheese')">Cheese</a>
         </div>
       </fieldset>
     </form>
   </div>
   <div class="container">
     <div class="row my-4"  >
-      <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of Meals;">
-        <div class="card  " >
+      <ng-container *ngIf="filteredCategories; else falseBlock" >
+      <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of filteredCategories;">
+        <div class="card">
           <a routerLink="/mealdetails/{{meal._id}}">
           <img src={{meal.image}} class="card-image" alt="...">
           </a>
@@ -40,7 +41,24 @@
           </div>
         </div>
       </div>
-
+</ng-container>
+<ng-template #falseBlock>
+  <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of Meals;">
+    <div class="card">
+      <a routerLink="/mealdetails/{{meal._id}}">
+      <img src={{meal.image}} class="card-image" alt="...">
+      </a>
+      <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
+       <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
+       <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
+      </div>
+      <div class="card-content">
+        <h5 class="card-title">{{meal.title}}</h5>
+        <p>{{meal.summary}}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
     </div>
   </div>
 </section>

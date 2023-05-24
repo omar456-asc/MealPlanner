@@ -8,6 +8,7 @@ import { AllMealsService } from '../../services/all-meals.service';
 })
 export class MealsComponent implements OnInit {
   Meals:any;
+  filteredCategories:any;
   errorMessage: string | undefined;
   card={
     active:true
@@ -51,6 +52,22 @@ export class MealsComponent implements OnInit {
         return obj.id === id;
       });
     result.favourite=!result.favourite;
+  }
+  filter(event: MouseEvent,categoryy:string){
+    const links = document.querySelectorAll('.suggestion-wrap a');
+    links.forEach(link => link.classList.remove('active'));
+    const targetElement = event.target as HTMLElement; // cast event.target to the HTMLElement type
+    if (HTMLElement) { // use optional chaining to check if event.target is not null
+      targetElement.classList.add('active'); // add the 'active' class to the clicked link
+    }
+
+    if(categoryy){
+     this.filteredCategories = this.Meals.filter((category: any) => category.category.toLowerCase().includes(categoryy.toLowerCase()))
+
+    }
+    else{
+      this.filteredCategories = null
+    }
   }
 
 }
