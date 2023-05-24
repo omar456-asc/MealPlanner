@@ -18,20 +18,26 @@ import { ContactFormComponent } from './home/components/contact-form/contact-for
 import { PaymentComponent } from './payment/payment.component';
 import { CustomizeMealComponent } from './checkout/components/customize-meal/customize-meal.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { UserGuard } from './auth/guards/user.guard';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'profile', component: ProfileComponent,canActivate:[UserGuard]},
-  { path: 'cart', component: CheckoutComponent,canActivate:[AuthGuard] },
-  { path: 'payment', component: PaymentComponent,canActivate:[AuthGuard] },
-  { path: 'user', component: UserdashboardComponent,canActivate:[AuthGuard]},
+  { path: 'profile', component: ProfileComponent, canActivate: [UserGuard] },
+  { path: 'cart', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserdashboardComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
-  { path: 'customize/:id', component: CustomizeMealComponent,canActivate:[AuthGuard]},
+  {
+    path: 'customize/:id',
+    component: CustomizeMealComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'about', component: AboutusComponent },
 ];
 
 @NgModule({
