@@ -11,8 +11,6 @@
 }
 
 .about {
-    /* background: center center no-repeat;
-    background-size: cover; */
     background-color: black;
     padding: 147px 0;
     position: relative;
@@ -41,7 +39,7 @@
     border-color: #bc3b2c !important;
 }
 
-/* @keyframes animate-zoom-in {
+@keyframes animate-zoom-in {
     from {
         transform: scale(1);
     }
@@ -49,9 +47,9 @@
     to {
         transform: scale(1.1);
     }
-} */
+}
 
-/* @keyframes animate-slide-up {
+@keyframes animate-slide-up {
     from {
         transform: translateY(100%);
     }
@@ -59,9 +57,9 @@
     to {
         transform: translateY(0);
     }
-} */
+}
 
-/* .animate-zoom-in {
+.animate-zoom-in {
     animation-name: animate-zoom-in;
     animation-duration: 1s;
     animation-delay: 0.3s;
@@ -71,9 +69,9 @@
     animation-name: animate-slide-up;
     animation-duration: 1s;
     animation-delay: 0.5s;
-} */
+}
 
-/* @keyframes count-up {
+@keyframes count-up {
     from {
         opacity: 0;
         transform: translateY(50%);
@@ -83,11 +81,11 @@
         opacity: 1;
         transform: translateY(0%);
     }
-} */
+}
 
-/* #counter {
+#counter {
     animation-name: count-up;
     animation-duration: 1s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
-} */
+}
