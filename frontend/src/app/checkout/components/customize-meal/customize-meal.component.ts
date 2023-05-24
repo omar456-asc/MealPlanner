@@ -24,8 +24,7 @@ export class CustomizeMealComponent implements OnInit {
   meal: any;
   ID: any;
   count: any;
-  showConfirmationPrompt: boolean = false;
-  mealIndex: number | undefined;
+  showAlertPrompt: boolean = false;
 
   ngOnInit(): void {
     this.myService.GetMealByID(this.ID).subscribe({
@@ -55,6 +54,8 @@ export class CustomizeMealComponent implements OnInit {
     });
   }
   delete(ID: any, index: number) {
+    this.ingrediants.splice(index, 1);
+    this.ingrediantsid = this.ingrediants.map((obj: { _id: any }) => obj._id);
     var cart: any = this.myService.getCart();
     cart = JSON.parse(cart);
     // cart[index].ingredients=this.ingrediants
@@ -62,54 +63,15 @@ export class CustomizeMealComponent implements OnInit {
       (obj: any) => obj.id === ID && obj.count == this.count
     );
     if (mealindex !== -1) {
-      if (cart[mealindex].count == 1) {
-        const confirmDelete = confirm(
-          'Are you sure you want to delete this meal?'
-        );
-        if (confirmDelete) {
-          this.ingrediants.splice(index, 1);
-          this.ingrediantsid = this.ingrediants.map(
-            (obj: { _id: any }) => obj._id
-          );
-          cart[mealindex].ingredients = this.ingrediantsid;
-          let mealIndex = cart.findIndex((item: { id: any }) => item.id == ID);
-          cart.splice(mealIndex, 1);
-          cart[mealindex].count = cart[mealindex].count - 1;
-        }
-      } else {
-        this.ingrediants.splice(index, 1);
-        const ingrediantsid = this.ingrediants.map(
-          (obj: { _id: any }) => obj._id
-        );
-        cart[mealindex].ingredients = ingrediantsid;
-        cart[mealindex].count = cart[mealindex].count - 1;
-        cart[mealindex].customized = true;
-      }
-      this.myService.GetMealByID(this.ID).subscribe({
-        next: (data: any) => {
-          this.meal = data;
-          this.ingrediants = this.meal[0].ingredients_details;
-          const cart: any = this.myService.getCart();
-          const cartItems = JSON.parse(cart);
-          const ingredientIds = cartItems
-            .filter(
-              (obj: { id: any; count: any }) =>
-                obj.id === this.ID && obj.count == this.count
-            )
-            .flatMap((item: { ingredients: any }) => item.ingredients);
-          const matchedIngredients = this.ingrediants.filter(
-            (ingredient: { _id: any }) => ingredientIds.includes(ingredient._id)
-          );
-          this.ingrediants = matchedIngredients;
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
-      if (cart[mealindex].count === 0) {
-        this.router.navigateByUrl('/cart');
-        location.reload();
-      }
+      cart[mealindex].ingredients = this.ingrediantsid;
+      cart[mealindex].count = cart[mealindex].count - 1;
+      cart[mealindex].customized = true;
+    }
+    this.myService.setCart(JSON.stringify(cart));
+    // this.matchedIngredients=this.ingrediants
+    if (cart[mealindex].count == 1) {
+      this.count = cart[mealindex].count;
+      this.showAlertPrompt = true;
     }
   }
 }
