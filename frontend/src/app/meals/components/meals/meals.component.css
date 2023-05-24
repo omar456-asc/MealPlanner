@@ -137,18 +137,18 @@ margin-top: 35px;
   position: absolute;
   right: 0;
   top: 0;
-
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
   display: flex;
   -ms-flex-pack: center;
-      justify-content: center;
+  justify-content: center;
   align-items: center;
+  font-size: large;
 }
 
-.s004 form .inner-form .input-field .btn-search svg {
+.s004 form .inner-form .input-field .btn-search  {
   fill: #333;
   width: 40px;
   height: 40px;

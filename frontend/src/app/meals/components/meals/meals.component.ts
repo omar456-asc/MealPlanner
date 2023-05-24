@@ -37,9 +37,10 @@ export class MealsComponent implements OnInit {
     //let searchKey = { key };
     this.mealService.SearchMeal(searchQuery).subscribe({
       next:(value:any)=>{
-         this.Meals=value
+         this.filteredCategories=value
       },
       error:(err)=> {
+        this.filteredCategories=null;
         console.log(err)
       },
     }
