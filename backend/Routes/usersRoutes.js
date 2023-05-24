@@ -22,6 +22,7 @@ router.post(
   UserController.UploadProfilePic
 );
 
+router.post("/update-data", authuserMiddleware, UserController.UpdateUserProfileData);
 //#region User
 router.get("/latest8users", authuserMiddleware, UserController.getLatest8users);
 

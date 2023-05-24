@@ -4,7 +4,7 @@ import { AllMealsService } from '../../services/all-meals.service';
 @Component({
   selector: 'app-meals',
   templateUrl: './meals.component.html',
-  styleUrls: ['./meals.component.css']
+  styleUrls: ['./meals.component.css'] 
 })
 export class MealsComponent implements OnInit {
   Meals:any;
