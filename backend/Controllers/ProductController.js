@@ -2,6 +2,27 @@ let productsModel = require("../Models/ProductsModel");
 const productSchema = require("../Utils/ProductSchema");
 const { ObjectId } = require("mongodb");
 
+var SearchById = async (req, res) => {
+  //console.log(req.params.key);
+  try{
+ // const searchQuery = req.query.key;
+  let meals  = await productsModel.find(
+    {
+      '$or':[
+       { title:{$regex: new RegExp(req.params.key),$options:'i'}},
+       { category:{$regex: new RegExp(req.params.key),$options:'i'}}
+     
+      ]
+    }
+  )
+ res.send(meals);
+  }catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+
+}
+
 var GetAllProducts = async (req, res) => {
   try {
     var AllProducts = await productsModel.aggregate([
@@ -130,4 +151,5 @@ module.exports = {
   addNewProduct,
   DeleteProductByID,
   editProduct,
+  SearchById
 };
