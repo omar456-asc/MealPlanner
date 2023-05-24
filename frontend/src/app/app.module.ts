@@ -15,6 +15,7 @@ import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { ProfileModule } from './profile/profile.module';
+import { AboutusModule } from './aboutus/aboutus.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +55,7 @@ import { UserdashboardModule } from './userdashboard/userdashboard.module';
     PaymentModule,
 
     UserdashboardModule,
+    AboutusModule,
   ],
   providers: [
     AuthService,
