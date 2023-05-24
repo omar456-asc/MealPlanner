@@ -16,6 +16,12 @@ export class AllMealsService {
     this.Base_URL = this.configService.getBaseUrl('products');
   }
 
+  //#region SearchMeal
+  SearchMeal(key:any){
+    return this.myClient.get(this.Base_URL + '/search' + '/' + key )
+  }
+  //#endregion
+
   //#region GetAllMeals
   GetAllMeals() {
     //method[Get-Delete-Put-Patch]

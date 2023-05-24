@@ -2,7 +2,7 @@ let productsModel = require("../Models/ProductsModel");
 const productSchema = require("../Utils/ProductSchema");
 const { ObjectId } = require("mongodb");
 
-var SearchById = async (req, res) => {
+var SearchMeal = async (req, res) => {
   //console.log(req.params.key);
   try{
  // const searchQuery = req.query.key;
@@ -151,5 +151,5 @@ module.exports = {
   addNewProduct,
   DeleteProductByID,
   editProduct,
-  SearchById
+  SearchMeal
 };
