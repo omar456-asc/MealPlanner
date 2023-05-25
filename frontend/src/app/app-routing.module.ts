@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [UserGuard] },
   { path: 'cart', component: CheckoutComponent, canActivate: [AuthGuard] },
-  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'payment/:id', component: PaymentComponent, canActivate: [AuthGuard] },
   { path: 'user', component: UserdashboardComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },

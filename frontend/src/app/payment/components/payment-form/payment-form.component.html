@@ -19,7 +19,7 @@
                   <li class="active"><a>Payment</a></li>
               </ul>
           </div>
-          <form (ngSubmit)="Pay('1500',name.value)" [formGroup]="validationForm">
+          <form (ngSubmit)="Pay(Price,name.value)" [formGroup]="validationForm">
               <div class="row-1">
                   <div class="row row-2">
                       <span id="card-inner">Card holder name</span>
