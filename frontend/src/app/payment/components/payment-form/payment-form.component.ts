@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentFormService } from '../service/payment-form.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminOrdersServiceService } from 'src/app/admin/admin-orders/services/admin-orders-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-form',
@@ -14,11 +15,12 @@ export class PaymentFormComponent implements OnInit {
   constructor(
     private Router: ActivatedRoute,
     private paymentService: PaymentFormService,
-    private AdminOrdersServiceService: AdminOrdersServiceService
+    private AdminOrdersServiceService: AdminOrdersServiceService,
+    private router:Router
   ) {
     this.id = this.Router.snapshot.paramMap.get('id');
   }
-  Price: number | undefined;
+  Price: any;
   paySuccess = false;
   payFailed: any = false;
   FalseMsg = '';
@@ -31,7 +33,8 @@ export class PaymentFormComponent implements OnInit {
     this.AdminOrdersServiceService.getOrderByID(this.id).subscribe({
       next: (data: any) => {
         console.log(data);
-        this.Price = data[0].totalPrice;
+        this.Price = data.order.totalPrice;
+        console.log(this.Price);
       },
     });
   }
@@ -43,6 +46,7 @@ export class PaymentFormComponent implements OnInit {
           this.paySuccess = true;
           this.payFailed = false;
           this.updateOrderStatus('payed');
+          this.router.navigate(['/user']);
         },
         (err) => {
           this.payFailed = true;

@@ -40,6 +40,9 @@ export class AllOrdersComponent {
     } else if (status === 'rejected') {
       return 'badge badge-danger';
     }
+    else if(status === 'cancelled') {
+      return 'badge badge-secondary';
+    }
     return 'badge ';
   }
 }
