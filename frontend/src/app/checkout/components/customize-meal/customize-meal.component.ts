@@ -44,7 +44,8 @@ this.ingrediants=matchedIngredients;
     );
 
   }
-  delete(ID:any,index: number) {
+  delete(ID:any,index: number,price:number) {
+
     this.ingrediants.splice(index, 1);
     const ingrediantsid = this.ingrediants.map((obj: { _id: any; }) => obj._id);
     var cart:any=this.myService.getCart()
@@ -52,8 +53,10 @@ this.ingrediants=matchedIngredients;
     // cart[index].ingredients=this.ingrediants
     const mealindex = cart.findIndex((obj: any ) => obj.id === ID  );
     if (mealindex !== -1) {
-      cart[mealindex].ingredients=ingrediantsid
-      cart[mealindex].count=cart[mealindex].count - 1
+      cart[mealindex].ingredients=ingrediantsid;
+      cart[mealindex].count=cart[mealindex].count - 1;
+      cart[mealindex].price= cart[mealindex].price - price;
+      console.log(cart[mealindex].price)
     }
     this.myService.setCart(JSON.stringify(cart))
     // this.matchedIngredients=this.ingrediants

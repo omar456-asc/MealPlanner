@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./meal-details.component.css'],
 })
 export class MealDetailsComponent implements OnInit {
-  public cart: [{ id: string; quantity: number; ingredients: any; count:any }];
+  public cart: [{ id: string; quantity: number; ingredients: any; count:any ,price:number}];
   trueAlert = false;
   falseAlert = false;
   public postcart: any;
@@ -36,7 +36,7 @@ export class MealDetailsComponent implements OnInit {
     if (this.oldcart) {
       this.cart = JSON.parse(this.oldcart);
     } else {
-      this.cart = [{ id: '0', quantity: 0, ingredients: [] ,count:0}];
+      this.cart = [{ id: '0', quantity: 0, ingredients: [] ,count:0,price:0}];
     }
   }
   ngOnInit(): void {
@@ -58,6 +58,7 @@ export class MealDetailsComponent implements OnInit {
         this.cart[0] = {
           id: this.ID,
           quantity: 1,
+          price: this.Meal[0].price,
           count:this.Meal[0].ingredients_details.length,
           ingredients: this.Meal[0].ingredients_details?.map(
             (ingredient: { _id: any }) => ingredient._id ?? []
@@ -70,6 +71,7 @@ export class MealDetailsComponent implements OnInit {
           this.cart.push({
             id: this.ID,
             quantity: 1,
+            price: this.Meal[0].price,
             count:this.Meal[0].ingredients_details.length,
             ingredients: this.Meal[0].ingredients_details?.map(
               (ingredient: { _id: any }) => ingredient._id ?? []

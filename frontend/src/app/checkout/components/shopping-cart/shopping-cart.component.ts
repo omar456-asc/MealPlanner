@@ -42,10 +42,10 @@ export class ShoppingCartComponent implements OnInit {
 
       this.mymeals.GetMealByID(this.cartid[i].id).subscribe({
         next: (data: any) => {
-        data.quantity=this.cartid[i].quantity
-        data.count=this.cartid[i].count
+          data.quantity=this.cartid[i].quantity
+          data.count=this.cartid[i].count
+          data.price=this.cartid[i].price
           this.Meal.push(data);
-console.log(this.Meal)
         },
         error: (err) => {
           console.log(err);
