@@ -108,6 +108,7 @@ export class MealDetailsComponent implements OnInit {
     let ratebody = { userID, value };
     console.log(ratebody)
     this.myService.RateMeal(this.ID,ratebody).subscribe((response: any) => {
+      this.ngOnInit();
     },
     (err) => {
      console.log(err);
