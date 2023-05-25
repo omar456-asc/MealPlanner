@@ -20,8 +20,6 @@ export class AllMealsComponent {
         error: (err) => { console.log(err) }
       }
     )
-
-    // console.log(this.meals);
   }
 
 }

@@ -36,29 +36,15 @@
     </form>
   </div>
   <div class="container">
-    <div class="row my-4">
-      <div
-        class="col-md-3 card-container animate__animated animate__backInDown"
-        *ngFor="let meal of Meals"
-      >
-        <div class="card">
-          <img src="{{ meal.image }}" class="card-image" alt="..." />
-          <div
-            class="card-icons cascading-top"
-            style="color: #000000"
-            [ngClass]="{ visible: card.active }"
-          >
-            <a class="btn" href="/mealdetails/{{meal._id}}">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-            <button class="btn">
-              <i
-                [ngClass]="
-                  meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'
-                "
-                (click)="AddToFav(meal.id)"
-              ></i>
-            </button>
+    <div class="row my-4"  >
+      <div class="col-md-3 card-container animate__animated animate__backInDown" *ngFor="let meal of Meals;">
+        <div class="card  " >
+          <a routerLink="/mealdetails/{{meal._id}}">
+          <img src={{meal.image}} class="card-image" alt="...">
+          </a>
+          <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
+           <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
+           <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
           </div>
           <div class="card-content">
             <h5 class="card-title">{{ meal.title }}</h5>
@@ -66,21 +52,6 @@
           </div>
         </div>
       </div>
-      <!-- <div *ngFor="let meal of Meals";>
-        <div class="col-md-3 card-container animate__animated animate__backInDown ">
-          <div class="card  " >
-            <img src={{Meals.image}} class="card-image" alt="...">
-            <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
-             <button href="/" class="btn"><i class="fa-solid fa-eye" ></i></button>
-             <button class="btn" (click)="AddToFav()"><i  [ngClass]="favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"></i></button>
-            </div>
-            <div class="card-content">
-              <h5 class="card-title">{{Meals.title}}</h5>
-
-            </div>
-          </div>
-        </div>
-  </div> -->
     </div>
   </div>
 </section>

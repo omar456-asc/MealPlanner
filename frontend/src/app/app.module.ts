@@ -29,6 +29,7 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
 import { PaymentFormComponent } from './payment/components/payment-form/payment-form.component';
 
 import { UserdashboardModule } from './userdashboard/userdashboard.module';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { UserdashboardModule } from './userdashboard/userdashboard.module';
     CheckoutModule,
     ProfileModule,
     PaymentModule,
-
+    OrderModule,
     UserdashboardModule,
     AboutusModule,
   ],

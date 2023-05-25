@@ -1,115 +1,119 @@
 <app-admin-header></app-admin-header>
 <app-admin-side-nav></app-admin-side-nav>
 
-<div class="content-wrapper">
-  <section class="content-header">
-    <!-- Content Header (Page header) -->
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Order Details</h1>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Show Order</a></li>
-            <li class="breadcrumb-item active">Order</li>
-          </ol>
+<div *ngIf="data; else preloader">
+  <div class="content-wrapper">
+    <section class="content-header">
+      <!-- Content Header (Page header) -->
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Order Details</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Show Order</a></li>
+              <li class="breadcrumb-item active">Order</li>
+            </ol>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div class="info-item">
-                <label class="info-label">Order ID:</label>
-                <span class="info-value">{{ order._id }}</span>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="info-item">
+                  <label class="info-label">Order ID:</label>
+                  <span class="info-value">{{ order._id }}</span>
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Total Price:</label>
+                  <span class="info-value"> {{ order.totalPrice }}</span>
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Status:</label>
+                  <span class="info-value"> {{ order.status }}</span>
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Date:</label>
+                  <span class="info-value">
+                    {{ order.date | date : "dd-MM-yyyy" }}</span
+                  >
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Time:</label>
+                  <span class="info-value">{{
+                    order.date | date : "hh:mm:ss a"
+                  }}</span>
+                </div>
               </div>
-              <div class="info-item">
-                <label class="info-label">Total Price:</label>
-                <span class="info-value"> {{ order.totalPrice }}</span>
-              </div>
-              <div class="info-item">
-                <label class="info-label">Status:</label>
-                <span class="info-value"> {{ order.status }}</span>
-              </div>
-              <div class="info-item">
-                <label class="info-label">Date:</label>
-                <span class="info-value">
-                  {{ order.date | date : "dd-MM-yyyy" }}</span
-                >
-              </div>
-              <div class="info-item">
-                <label class="info-label">Time:</label>
-                <span class="info-value">{{
-                  order.date | date : "hh:mm:ss a"
-                }}</span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <div class="">
+                  <h2>User Information</h2>
+                </div>
+                <div class="info-item">
+                  <label class="info-label">User ID:</label>
+                  <span class="info-value">{{ user._id }}</span>
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Name:</label>
+                  <span class="info-value"
+                    >{{ user.fname }} {{ user.lname }}</span
+                  >
+                </div>
+                <div class="info-item">
+                  <label class="info-label">Email:</label>
+                  <span class="info-value">{{ user.email }}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div class="">
-                <h2 >User Information</h2>
-              </div>
-              <div class="info-item">
-                <label class="info-label">User ID:</label>
-                <span class="info-value">{{ user._id }}</span>
-              </div>
-              <div class="info-item">
-                <label class="info-label">Name:</label>
-                <span class="info-value"
-                  >{{ user.fname }} {{ user.lname }}</span
-                >
-              </div>
-              <div class="info-item">
-                <label class="info-label">Email:</label>
-                <span class="info-value">{{ user.email }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2>Ordered Meals</h2>
-      <div class="row">
-        <!-- Iterate through the meals data and display each meal -->
-        <div *ngFor="let meal of meals" class="col-md-6">
-          <div class="card">
-            <img
-              src={{meal.image}}
-              class="card-img-top img-responsive img-fluid h-50"
-              alt={{meal.title}}
-            />
-            <div class="card-body">
-              <h2 class="card-title">{{meal.title}}</h2>
-              <p class="card-text">{{meal.summary}}</p>
-              <h2>ingredients Info</h2>
-              <div class="container">
-
-                <div  class="row">
-                  <!-- Iterate through the meals data and display each meal -->
-                  <div *ngFor="let ingredient of meal.ingredients"  class="col-md-6">
-                    <div class="card">
-                      <img
-                        src={{ingredient.image}}
-                        class="card-img-top"
-                        alt="Pizza Image"
-                      />
-                      <div class="card-body">
-                        <h3 class="card-title">{{ingredient.name}}</h3>
-                        <p class="card-text">
-                         {{ingredient.consistency}}
-                        </p>
-                        <p class="card-text">
-                         {{ingredient.price}}
-                        </p>
-                        <p class="card-text">Price: {{ingredient.price}}</p>
-                        <p class="card-text">Rate: {{ingredient.rate}}</p>
+        <h2>Ordered Meals</h2>
+        <div class="row">
+          <!-- Iterate through the meals data and display each meal -->
+          <div *ngFor="let meal of meals" class="col-md-6">
+            <div class="card">
+              <img
+                src="{{ meal.image }}"
+                class="card-img-top img-responsive img-fluid h-50"
+                alt="{{ meal.title }}"
+              />
+              <div class="card-body">
+                <h2 class="card-title">{{ meal.title }}</h2>
+                <p class="card-text">{{ meal.summary }}</p>
+                <h2>ingredients Info</h2>
+                <div class="container">
+                  <div class="row">
+                    <!-- Iterate through the meals data and display each meal -->
+                    <div
+                      *ngFor="let ingredient of meal.ingredients"
+                      class="col-md-6"
+                    >
+                      <div class="card">
+                        <img
+                          src="{{ ingredient.image }}"
+                          class="card-img-top"
+                          alt="Pizza Image"
+                        />
+                        <div class="card-body">
+                          <h3 class="card-title">{{ ingredient.name }}</h3>
+                          <p class="card-text">
+                            {{ ingredient.consistency }}
+                          </p>
+                          <p class="card-text">
+                            {{ ingredient.price }}
+                          </p>
+                          <p class="card-text">Price: {{ ingredient.price }}</p>
+                          <p class="card-text">Rate: {{ ingredient.rate }}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -119,6 +123,11 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+</div>
+<div class="content-wrapper">
+  <ng-template #preloader>
+    <app-preloader></app-preloader>
+  </ng-template>
 </div>

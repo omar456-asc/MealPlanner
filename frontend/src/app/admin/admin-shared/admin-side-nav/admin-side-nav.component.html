@@ -63,30 +63,38 @@
         </li>
         <li class="nav-item">
           <a href="pages/widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+            <i class=" nav-icon fas fa-chart-pie"></i>
             <p>
-              Products
+              Charts
               <span class="right badge badge-danger">New</span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/orders" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
+          <a routerLink="/admin/orders" class="nav-link">
+            <i class=" nav-icon fas fa-shopping-cart fa-lg"></i>
             <p>
               Orders
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-warning right">{{
+                pnedingOrdersCount
+              }}</span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/meals" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
+          <a routerLink="/admin/meals" class="nav-link">
+            <i class=" nav-icon fas fa-utensils"></i>
             <p>Meals</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/admin/users" class="nav-link">
+          <a routerLink="/admin/ingredients" class="nav-link">
+            <i class="nav-icon fas fa-utensils"></i>
+            <p>Ingredients</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/admin/users" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>Users</p>
           </a>

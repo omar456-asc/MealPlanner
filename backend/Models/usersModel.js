@@ -12,6 +12,14 @@ if (mongoose.connect(DB_URL, { useNewUrlParser: true })) {
 var userSchema = new mongoose.Schema({
   fname: { type: String, required: true, minlength: 3, maxlength: 50 },
   lname: { type: String, required: true, minlength: 3, maxlength: 50 },
+  username:{
+    type: String, 
+    required: [true, "please enter a username"],
+    //unique: true,
+    lowercase: true,
+    minlength: 4,
+    maxlength: 16,
+    match: [/^[a-zA-Z0-9]+$/, "please enter a valid username"]}, 
   cart: { type: Array },
   email: {
     type: String,

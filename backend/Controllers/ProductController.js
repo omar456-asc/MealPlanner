@@ -40,7 +40,8 @@ var GetProductByID = async (req, res) => {
         },
       },
     ]);
-    res.json(product);
+    product.ingredientLength=product[0].ingredients.length
+     res.json(product);
   } catch (e) {
     console.log(e);
     res.status(400).send("failed to get Product");
