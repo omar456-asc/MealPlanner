@@ -131,7 +131,7 @@ var GetProductByID = async (req, res) => {
           summary: { $first: '$summary' },
           ingredients: { $addToSet: '$ingredients_details._id' },
           category: { $first: '$category' },
-          price: { $first: '$price' },
+          price: { $sum: "$ingredients_details.price" },
           rate: { $first: '$rating.rating' },
           ingredients_details: {
             $push: {
@@ -144,9 +144,12 @@ var GetProductByID = async (req, res) => {
             }
           }
         }
-      }
+        
+      },
+      
        
     ]);
+    console.log(product)
     product.ingredientLength=product[0].ingredients.length
      res.json(product);
   } catch (e) {

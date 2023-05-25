@@ -37,6 +37,7 @@ export class ShoppingCartComponent implements OnInit {
       this.AlertMsg="No Items Available"
     }
     this.cartid = JSON.parse(this.localcart);
+    console.log(this.cartid);
     for (let i = 0; i < this.cartid.length; i++) {
 
       this.mymeals.GetMealByID(this.cartid[i].id).subscribe({
