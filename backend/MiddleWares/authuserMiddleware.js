@@ -5,7 +5,6 @@ function authuserMiddleware(req, res, next) {
   // Get the token from the request header
   //   const token = req.headers["token"];
   const token = req.header("Authorization")?.replace("Bearer ", "");
-  //   console.log(token);
 
   if (!token) {
     return res.status(401).send({ error: "Unauthorized access" });

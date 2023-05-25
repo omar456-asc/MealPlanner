@@ -7,10 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { CustomizeMealComponent } from './components/customize-meal/customize-meal.component';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
-  declarations: [CheckoutComponent, ShoppingCartComponent, CustomizeMealComponent],
-  imports: [CommonModule, SharedModule, FormsModule,RouterModule],
-  exports: [CheckoutComponent, ShoppingCartComponent,CustomizeMealComponent],
+  declarations: [
+    CheckoutComponent,
+    ShoppingCartComponent,
+    CustomizeMealComponent,
+  ],
+  imports: [CommonModule, SharedModule, FormsModule, RouterModule],
+  exports: [CheckoutComponent, ShoppingCartComponent, CustomizeMealComponent],
 })
 export class CheckoutModule {}

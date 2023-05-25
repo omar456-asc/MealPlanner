@@ -32,12 +32,14 @@ i{
     text-align: center;
 
 }
-img{
-  width: 100px;
-  height: 100px;
+
+img {
+    width: 100px;
+    height: 100px;
 }
-.imgg{
-  padding-left: 5px;
+
+.imgg {
+    padding-left: 5px;
 }
 
 /* .quantity {
@@ -147,10 +149,11 @@ img{
     }
 
 }
-    .quantity {
-        flex-direction: column;
-        justify-content: center;
-    }
+
+.quantity {
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {

@@ -14,8 +14,8 @@
               <h2>Confirmation</h2>
               <p>Are you sure you want to delete this meal?</p>
               <div class="confirmation-prompt-actions">
-                <button (click)="confirmDelete()">Yes</button>
-                <button (click)="cancelDelete()">No</button>
+                <button class="btn btn-danger " (click)="confirmDelete()">Yes</button>
+                <button class="btn btn-success m-2" (click)="cancelDelete()">No</button>
               </div>
             </div>
           </div>
@@ -95,14 +95,18 @@
          {{AlertMsg}}
           </div>
           <form method="POST">
-            <button class="btn btn-lg " class="checkout-btn"  (click)="checkout()" type="submit">
+            <button
+              href="/payment"
+              class="btn btn-lg"
+              class="checkout-btn"
+              (click)="checkout()"
+              type="submit"
+            >
               <span>Checkout</span>
             </button>
           </form>
-
         </div>
       </div>
     </div>
   </div>
 </main>
-

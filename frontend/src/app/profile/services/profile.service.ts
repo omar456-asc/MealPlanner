@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from 'src/app/config.service';
 
 @Injectable({
@@ -20,8 +20,19 @@ export class ProfileService {
     return this.myClient.post(url, body);
   }
 
+  UpdateUserProfileData(body: any) {
+    const url = this.Base_URL + '/update-data';
+    return this.myClient.post(url, body);
+  }
+
   getProfileInfo(userId: string) {
     const url = this.Base_URL + `/${userId}`;
     return this.myClient.get(url);
   }
+  //#region favourite
+  // api/users/:userId/favorite/:mealId'
+  AddToFavorite(userId:any,mealId: any) {
+    return this.myClient.post(this.Base_URL +'/'+ userId + '/favorite/' + mealId,{})
+  }
+  //#endregion
 }
