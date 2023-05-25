@@ -103,12 +103,12 @@
 
                           <td>{{ order.date | date : "dd-MM-yyyy " }}</td>
                           <td>{{ order.date | date : "hh:mm a" }}</td>
-                          <td *ngIf="order.status != 'rejected'">
+                          <td *ngIf="order.status != 'rejected' && order.status != 'cancelled'">
                             <!-- Content to be displayed if the condition is true -->
                             <span>{{ order.totalPrice }}</span>
                           </td>
 
-                          <td *ngIf="order.status == 'rejected'">
+                          <td *ngIf="order.status == 'rejected' || order.status == 'cancelled'">
                             <!-- Content to be displayed if the condition is false -->
                             <span
                               ><s>{{ order.totalPrice }}</s>
