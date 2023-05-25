@@ -24,4 +24,10 @@ export class ProfileService {
     const url = this.Base_URL + `/${userId}`;
     return this.myClient.get(url);
   }
+  //#region favourite
+  // api/users/:userId/favorite/:mealId'
+  AddToFavorite(userId:any,mealId: any) {
+    return this.myClient.post(this.Base_URL +'/'+ userId + '/favorite/' + mealId,{})
+  }
+  //#endregion
 }

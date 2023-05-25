@@ -9,6 +9,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 })
 export class MealsComponent implements OnInit {
   Meals:any;
+  LocalStorageId:any = localStorage.getItem('id');
   filteredCategories:any;
   favorite:any;
   errorMessage: string | undefined;
@@ -50,8 +51,8 @@ export class MealsComponent implements OnInit {
   }
 
   getFavorite(){
-    const LocalStorageId:any = localStorage.getItem('id');
-    this.getProfile.getProfileInfo(LocalStorageId).subscribe({
+
+    this.getProfile.getProfileInfo(this.LocalStorageId).subscribe({
       next:(value:any)=>{
         this.favorite = value.favorite;
         console.log(this.favorite);
@@ -63,20 +64,26 @@ export class MealsComponent implements OnInit {
     })
   }
 
-  AddToFav(id:any){
-    // const LocalStorageId:any = localStorage.getItem('id');
-    // this.getProfile.getProfileInfo(LocalStorageId).subscribe({
-    //   next:(value:any)=>{
-    //     this.favorite = value.favorite;
-    //     console.log(this.favorite);
-    //   },
-    //   error:(err)=>{
-    //     this.favorite =null;
-    //     console.log(err);
-    //   }
-    // })
-      //result.favourite=!result.favourite;
+  AddToFav(Id:any){
+    const userId=this.LocalStorageId
+    const mealId=Id
+    console.log(mealId);
+    this.getProfile.AddToFavorite(userId,mealId).subscribe({
+      next:(value:any)=>{
+        console.log(value);
+      },
+      error:(err)=>{
+
+        console.log(err);
+      }
+    })
   }
+  isFavorite(mealId: number) {
+    const fav=this.favorite.includes(mealId);
+    return fav
+  }
+
+
   filter(event: MouseEvent,categoryy:string){
     const links = document.querySelectorAll('.suggestion-wrap a');
     links.forEach(link => link.classList.remove('active'));

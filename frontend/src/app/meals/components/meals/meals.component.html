@@ -29,7 +29,7 @@
           </a>
           <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
            <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
-           <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
+           <button class="btn"><i  [ngClass]="isFavorite(meal._id) ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal._id)"></i></button>
           </div>
           <div class="card-content">
             <h5 class="card-title">{{meal.title}}</h5>
@@ -46,7 +46,7 @@
       </a>
       <div class="card-icons cascading-top"style="color: #000000;" [ngClass]="{'visible': card.active}">
        <button class="btn"><i class="fa-solid fa-eye" routerLink="/mealdetails/{{meal._id}}" ></i></button>
-       <button class="btn"><i  [ngClass]="meal.favourite ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal.id)"></i></button>
+       <button class="btn"><i  [ngClass]="isFavorite(meal._id) ? 'fa fa-heart' : 'fa-regular fa-heart'"  (click)="AddToFav(meal._id)"></i></button>
       </div>
       <div class="card-content">
         <h5 class="card-title">{{meal.title}}</h5>
