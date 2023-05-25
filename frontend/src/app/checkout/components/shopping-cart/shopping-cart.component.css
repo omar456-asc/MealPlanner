@@ -1,5 +1,9 @@
+tbody,thead{
+  text-align: left;
+}
 i{
   cursor: pointer;
+  padding-left: 25%;
 }
 .Checkout::before {
     content: "";
