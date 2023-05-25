@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllMealsService } from '../../services/all-meals.service';
+import { ProfileService } from 'src/app/profile/services/profile.service';
 
 @Component({
   selector: 'app-meals',
@@ -9,21 +10,21 @@ import { AllMealsService } from '../../services/all-meals.service';
 export class MealsComponent implements OnInit {
   Meals:any;
   filteredCategories:any;
+  favorite:any;
   errorMessage: string | undefined;
   card={
     active:true
   };
-  constructor(public mealService:AllMealsService){
+  constructor(public mealService:AllMealsService, public getProfile:ProfileService){
 
   }
   ngOnInit(): void {
+    this.getFavorite();
     this.mealService.GetAllMeals().subscribe(
       {
         next:(data:any)=>{
           this.Meals = data;
-          for (let i = 0; i < this.Meals.length; i++) {
-            this.Meals[i].favourite = false;
-          }
+
           console.log(this.Meals)
         },
         error:(err)=>{console.log(err)}
@@ -48,11 +49,33 @@ export class MealsComponent implements OnInit {
     )
   }
 
+  getFavorite(){
+    const LocalStorageId:any = localStorage.getItem('id');
+    this.getProfile.getProfileInfo(LocalStorageId).subscribe({
+      next:(value:any)=>{
+        this.favorite = value.favorite;
+        console.log(this.favorite);
+      },
+      error:(err)=>{
+        this.favorite =null;
+        console.log(err);
+      }
+    })
+  }
+
   AddToFav(id:any){
-    const result = this.Meals.find(function (obj:any) {
-        return obj.id === id;
-      });
-    result.favourite=!result.favourite;
+    // const LocalStorageId:any = localStorage.getItem('id');
+    // this.getProfile.getProfileInfo(LocalStorageId).subscribe({
+    //   next:(value:any)=>{
+    //     this.favorite = value.favorite;
+    //     console.log(this.favorite);
+    //   },
+    //   error:(err)=>{
+    //     this.favorite =null;
+    //     console.log(err);
+    //   }
+    // })
+      //result.favourite=!result.favourite;
   }
   filter(event: MouseEvent,categoryy:string){
     const links = document.querySelectorAll('.suggestion-wrap a');
