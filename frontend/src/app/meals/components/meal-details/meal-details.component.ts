@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./meal-details.component.css'],
 })
 export class MealDetailsComponent implements OnInit {
-  public cart: [{ id: string; quantity: number; ingredients: any; count:any ;customized:boolean;}];
+  public cart: [{ id: string; quantity: number; ingredients: any; count:any ,price:number;customized:boolean}];
   trueAlert = false;
   falseAlert = false;
   public postcart: any;
@@ -22,9 +22,7 @@ export class MealDetailsComponent implements OnInit {
   stars = Array.from({ length: this.maxRating }, (_, i) => i + 1);
   rating = 0;
 
-  rate(star: number) {
-    this.rating = star;
-  }
+
   ID: any;
   Meal: any;
   constructor(
@@ -38,7 +36,7 @@ export class MealDetailsComponent implements OnInit {
     if (this.oldcart) {
       this.cart = JSON.parse(this.oldcart);
     } else {
-      this.cart = [{ id: '0', quantity: 0, ingredients: [] ,count:0,customized:false }];
+      this.cart = [{ id: '0', quantity: 0, ingredients: [] ,count:0,customized:false,price:0 }];
     }
   }
   ngOnInit(): void {
@@ -60,7 +58,8 @@ export class MealDetailsComponent implements OnInit {
         this.cart[0] = {
           id: this.ID,
           quantity: 1,
-          count: this.Meal[0].ingredients_details.length,
+          price: this.Meal[0].price,
+          count:this.Meal[0].ingredients_details.length,
           ingredients: this.Meal[0].ingredients_details?.map(
             (ingredient: { _id: any }) => ingredient._id ?? []
           ),
@@ -72,7 +71,8 @@ export class MealDetailsComponent implements OnInit {
           this.cart.push({
             id: this.ID,
             quantity: 1,
-            count: this.Meal[0].ingredients_details.length,
+            price: this.Meal[0].price,
+            count:this.Meal[0].ingredients_details.length,
             ingredients: this.Meal[0].ingredients_details?.map(
               (ingredient: { _id: any }) => ingredient._id ?? []
             ),
@@ -98,6 +98,29 @@ export class MealDetailsComponent implements OnInit {
   }
   }
   //function to get ingredients count from meal to know if the meal customize
+
+  //rating function
+
+  rate(star: number) {
+    this.rating = star;
+    let value=this.rating
+    let userID=this.userID
+    let ratebody = { userID, value };
+    console.log(ratebody)
+    this.myService.RateMeal(this.ID,ratebody).subscribe((response: any) => {
+    },
+    (err) => {
+     console.log(err);
+    }
+    );
+  }
+  isStarFilled(star: number): boolean {
+    if (Math.abs(star-Math.floor(star))<Math.abs(star-Math.ceil(star))) {
+      return star <= this.rating;
+    } else {
+      return star - this.rating <= 0.5
+    }
+  }
 
 }
 

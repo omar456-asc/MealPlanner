@@ -53,7 +53,8 @@ export class CustomizeMealComponent implements OnInit {
       },
     });
   }
-  delete(ID: any, index: number) {
+  delete(ID:any,index: number,price:number) {
+
     this.ingrediants.splice(index, 1);
     this.ingrediantsid = this.ingrediants.map((obj: { _id: any }) => obj._id);
     var cart: any = this.myService.getCart();
@@ -63,9 +64,10 @@ export class CustomizeMealComponent implements OnInit {
       (obj: any) => obj.id === ID && obj.count == this.count
     );
     if (mealindex !== -1) {
-      cart[mealindex].ingredients = this.ingrediantsid;
-      cart[mealindex].count = cart[mealindex].count - 1;
-      cart[mealindex].customized = true;
+      cart[mealindex].ingredients=this.ingrediantsid;
+      cart[mealindex].count=cart[mealindex].count - 1;
+      cart[mealindex].price= cart[mealindex].price - price;
+      console.log(cart[mealindex].price)
     }
     this.myService.setCart(JSON.stringify(cart));
     // this.matchedIngredients=this.ingrediants

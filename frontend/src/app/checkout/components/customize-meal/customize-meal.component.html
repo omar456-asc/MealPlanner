@@ -52,7 +52,7 @@
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.price }}</td>
                 <td class="border-0 align-middle">
-                  <a *ngIf="this.count > 1"  (click)="delete(meal[0]._id,i)"class="text-dark">
+                  <a *ngIf="this.count > 1"  (click)="delete(meal[0]._id,i,ingredient.price)"class="text-dark">
                      <i class="fa fa-trash"></i
                   ></a>
               </tr>
