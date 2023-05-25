@@ -111,6 +111,13 @@ export class MealDetailsComponent implements OnInit {
     }
     );
   }
+  isStarFilled(star: number): boolean {
+    if (Math.abs(star-Math.floor(star))<Math.abs(star-Math.ceil(star))) {
+      return star <= this.rating;
+    } else {
+      return star - this.rating <= 0.5
+    }
+  }
 
 }
 
