@@ -37,6 +37,10 @@ var userSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  mobile: { type: String},
+  address: { type: String}, 
+  gender: { type: String},
+  age: { type: Number},
 });
 
 //#region FireAFunctionBeforeSaveToDataBaseToHash

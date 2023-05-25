@@ -47,15 +47,6 @@ var UpdateUserByID = async (req, res) => {
   }
 };
 
-var GetAllUsers = async (req, res) => {
-  try {
-    var AllUsers = await usersmodel.find();
-    await res.json(AllUsers);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to get all users");
-  }
-};
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -80,31 +71,6 @@ const uploadsCloud = (file, folder) => {
     );
   });
 };
-
-var UpdateUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    var updatedUser = req.body;
-    const salt = await bcrybt.genSalt();
-    let newpassword;
-    if (updatedUser.password) {
-      newpassword = await bcrybt.hash(updatedUser.password, salt);
-    }
-    await usersmodel.updateOne(
-      { _id: ID },
-      {
-        cart: updatedUser.cart,
-        fname: updatedUser.fname,
-        lname: updatedUser.lname,
-        password: newpassword,
-      }
-    );
-    await res.send(updatedUser);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to update new user");
-  }
-};
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -125,36 +91,6 @@ var GetAllUsers = async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(400).send("failed to get all users");
-  }
-};
-
-var GetUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    res.json(await usersmodel.findById(ID));
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to get user");
-  }
-};
-
-var UpdateUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    var updatedUser = req.body;
-    const salt = await bcrybt.genSalt();
-    await usersmodel.updateOne(
-      { _id: ID },
-      {
-        fname: updatedUser.fname,
-        lname: updatedUser.lname,
-        password: await bcrybt.hash(updatedUser.password, salt),
-      }
-    );
-    await res.send(updatedUser);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to update new user");
   }
 };
 
@@ -203,6 +139,30 @@ var UploadProfilePic = async (req, res) => {
   }
 };
 
+
+var UpdateUserProfileData = async (req, res) => {
+  try {
+    console.log('-------UpdateUserProfileData--------');
+    var updatedUser = req.body;
+    
+    await usersmodel.updateOne(
+      { _id: updatedUser.id },
+      {
+        fname: updatedUser.fname,
+        lname: updatedUser.lname,
+        email: updatedUser.email,
+        mobile: updatedUser.mobile,
+        address: updatedUser.address,
+        gender: updatedUser.gender,
+        age: updatedUser.age,
+      }
+    );
+    await res.send(updatedUser);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send("*******failed to update new user**********");
+  }
+};
 module.exports = {
   GetAllUsers,
   GetUserByID,
@@ -211,6 +171,7 @@ module.exports = {
 
   getLatest8users,
   UploadProfilePic,
+  UpdateUserProfileData,
   upload,
   uploadsCloud,
 };

@@ -17,18 +17,17 @@
     <!-- /.card-header -->
     <div class="card-body p-0">
       <ul class="users-list clearfix">
-        <li *ngFor="let u of users;" >
+        <li *ngFor="let u of users">
           <img src="assets/img/user1-128x128.jpg" alt="User Image" />
-          <a class="users-list-name" href="#">{{u.fname}} {{u.lname}}</a>
+          <a class="users-list-name" href="#">{{ u.fname }} {{ u.lname }}</a>
           <span class="users-list-date">Today</span>
         </li>
-
       </ul>
       <!-- /.users-list -->
     </div>
     <!-- /.card-body -->
     <div class="card-footer text-center">
-      <a routerLink="/admin/users">View All Users</a>
+      <a href="/admin/users">View All Users</a>
     </div>
     <!-- /.card-footer -->
   </div>
