@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth/services/log-in/auth.service';
 export class AdminSideNavComponent {
   orders: any
   pnedingOrdersCount: any
+
   user: any;
 
   avatarUrl =
