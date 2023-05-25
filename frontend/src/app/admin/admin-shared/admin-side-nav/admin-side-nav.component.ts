@@ -8,6 +8,7 @@ import { AdminOrdersServiceService } from '../../admin-orders/services/admin-ord
 export class AdminSideNavComponent {
   orders: any
   pnedingOrdersCount:any
+
   constructor(public OrderService: AdminOrdersServiceService) { }
 
   ngOnInit(): void {

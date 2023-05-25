@@ -1,24 +1,57 @@
 <div class="container">
   <h1>Create Ingredient</h1>
-  <form (ngSubmit)="createIngredient()" #ingredientForm="ngForm">
+  <form
+    (ngSubmit)="createIngredient(ingredientForm.value)"
+    #ingredientForm="ngForm"
+  >
     <div class="form-group">
       <label for="name">Name</label>
-      <!-- <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="ingredient.name"> -->
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        ngModel
+        required
+      />
     </div>
 
     <div class="form-group">
       <label for="consistency">Consistency</label>
-      <!-- <input type="text" class="form-control" id="consistency" name="consistency" required [(ngModel)]="ingredient.consistency"> -->
+      <select
+        class="form-control"
+        id="consistency"
+        name="consistency"
+        ngModel
+        required
+      >
+        <option value="liquid">Liquid</option>
+        <option value="solid">Solid</option>
+      </select>
     </div>
 
     <div class="form-group">
-      <label for="image">Image URL</label>
-      <!-- <input type="text" class="form-control" id="image" name="image" [(ngModel)]="ingredient.image"> -->
+      <label for="image">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        name="image"
+        (change)="onFileChange($event)"
+        accept="image/*"
+      />
     </div>
 
     <div class="form-group">
       <label for="price">Price</label>
-      <!-- <input type="number" class="form-control" id="price" name="price" required [(ngModel)]="ingredient.price"> -->
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        ngModel
+        required
+      />
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>

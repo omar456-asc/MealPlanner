@@ -25,9 +25,12 @@ export class ShowOrderComponent {
     this.mealService.getOrderByID(this.ID).subscribe({
       next: (data: any) => {
         this.data = data;
-        this.order = data[0].order;
-        this.user = data[1].user;
-        this.meals = data[2].meals;
+        console.log(data);
+
+        this.order = data.order;
+        this.user = data.user;
+        this.meals = data.meals;
+
       },
       error: (err) => {
         console.log(err);
@@ -36,4 +39,6 @@ export class ShowOrderComponent {
 
     // console.log(this.data);
   }
+
+
 }
