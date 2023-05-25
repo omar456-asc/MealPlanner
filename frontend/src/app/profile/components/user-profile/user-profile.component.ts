@@ -14,6 +14,12 @@ export class UserProfileComponent implements OnInit {
   name: string = '';
   email: string = '';
   isPicPicked: boolean = false;
+  mobile: string = '';
+  address:string = '';
+  age:number = 0;
+  gender: string ='';
+  editable = false;
+  dbUser: any;
 
   constructor(
     private profileService: ProfileService,
@@ -29,9 +35,14 @@ export class UserProfileComponent implements OnInit {
     this.profileService.getProfileInfo(this.user.id).subscribe(
       (data: any) => {
         console.log(data);
+        this.dbUser = data;
         this.avatarUrl = data.avatar;
         this.name = data.fname + ' ' + data.lname;
         this.email = data.email;
+        this.gender = data.gender;
+        this.mobile = data.mobile;
+        this.address = data.address;
+        this.age = data.age;
       },
       (error) => console.log('Error', error)
     );
@@ -57,8 +68,39 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  updateUser() {
+    let body = {
+      'id': this.user.id,
+      'fname': this.dbUser.fname,
+      'lname': this.dbUser.lname,
+      'email': this.dbUser.email,
+      'mobile': this.dbUser.mobile,
+      'address': this.dbUser.address,
+      'gender': this.dbUser.gender,
+      'age': this.dbUser.age,
+
+    }
+  
+    this.profileService.UpdateUserProfileData(body).subscribe(
+      (data: any) => {
+        console.log('User profile data updated successfully!', data);
+        this.name = this.dbUser.fname + ' ' + this.dbUser.lname;
+        this.email = this.dbUser.email;
+        this.mobile = this.dbUser.mobile;
+        this.address = this.dbUser.address;
+        this.gender = this.dbUser.gender;
+        this.age = this.dbUser.age;
+      },
+      (error) => console.log('Error updating user profile data:', error)
+    );
+  }
+
   onFilePicked(target: any) {
     if (target.files.length) this.isPicPicked = true;
     else this.isPicPicked = false;
+  }
+
+  changeEditable () {
+    this.editable = !this.editable
   }
 }

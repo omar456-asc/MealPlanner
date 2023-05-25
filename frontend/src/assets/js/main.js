@@ -51,6 +51,9 @@
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
+
+  console.log(234234)
+
   window.onload = setTimeout(function () {
     let navbarlinks = select("#navbar .scrollto", true);
     const navbarlinksActive = () => {
@@ -73,6 +76,7 @@
     onscroll(document, navbarlinksActive);
 
     on("click", ".mobile-nav-toggle", function (e) {
+      console.log(22222222222222)
       select("#navbar").classList.toggle("navbar-mobile");
       this.classList.toggle("bi-list");
       this.classList.toggle("bi-x");
@@ -187,6 +191,7 @@
           "'></li>");
   });
 })();
+
 
 // team member animation
 
