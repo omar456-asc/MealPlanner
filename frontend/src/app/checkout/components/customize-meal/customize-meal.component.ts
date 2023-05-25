@@ -67,7 +67,7 @@ export class CustomizeMealComponent implements OnInit {
       cart[mealindex].ingredients=this.ingrediantsid;
       cart[mealindex].count=cart[mealindex].count - 1;
       cart[mealindex].price= cart[mealindex].price - price;
-      console.log(cart[mealindex].price)
+      cart[mealindex].customized = true;
     }
     this.myService.setCart(JSON.stringify(cart));
     // this.matchedIngredients=this.ingrediants
