@@ -8,7 +8,7 @@ import { AdminOrdersServiceService } from '../../services/admin-orders-service.s
 })
 export class AllOrdersComponent {
   orders: any;
-  constructor(public orderService: AdminOrdersServiceService) {}
+  constructor(public orderService: AdminOrdersServiceService) { }
 
   ngOnInit(): void {
     this.orderService.getAllOrders().subscribe({
@@ -39,6 +39,10 @@ export class AllOrdersComponent {
       return 'badge badge-success';
     } else if (status === 'rejected') {
       return 'badge badge-danger';
+    }else if (status === 'cancelled') {
+      return 'badge badge-secondary';
+    } else if (status === 'payed') {
+      return 'badge badge-info';
     }
     return 'badge ';
   }

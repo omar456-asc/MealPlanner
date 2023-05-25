@@ -17,6 +17,8 @@ export class LatestMembersComponent {
       {
         next: (data) => {
           this.users = data;
+          console.log(this.users);
+
         },
         error: (err) => { console.log(err) }
       }
