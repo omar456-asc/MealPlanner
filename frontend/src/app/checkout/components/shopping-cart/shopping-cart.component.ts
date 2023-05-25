@@ -45,6 +45,8 @@ export class ShoppingCartComponent implements OnInit {
           data.quantity=this.cartid[i].quantity
           data.count=this.cartid[i].count
           data.price=this.cartid[i].price
+          data.customized=this.cartid[i].customized
+          console.log(data);
           this.Meal.push(data);
         },
         error: (err) => {
