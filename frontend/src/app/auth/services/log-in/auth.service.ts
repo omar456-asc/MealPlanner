@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   getToken() {
-    this.token = localStorage.getItem('Token');
+    this.token=localStorage.getItem('Token') || null
     return this.token;
   }
 
@@ -54,7 +54,10 @@ export class AuthService {
     return decoded;
   }
 
-  getRole() {
+
+
+
+  getRole(){
     const token = localStorage.getItem('Token');
     console.log('user token', token);
     if (token) {

@@ -1,4 +1,4 @@
-section {
+#meals{
   background-color: black;
   display: flex; /* set the container to use flexbox */
   justify-content: center; /* center the child elements horizontally */
@@ -72,6 +72,7 @@ width: 100%;
   100%{ transform: rotate(0deg); }
 }
 @media only screen and (max-width: 767px){
+
   .btn{ margin-bottom: 20px; }
 }
 /* rating */

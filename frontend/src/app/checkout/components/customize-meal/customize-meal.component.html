@@ -7,10 +7,18 @@
     "
   >
     <div class="container mt-1">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" *ngIf="meal; else falseBlock">
       <div
         class="col-lg-10 p-3 bg-white rounded shadow-sm mb-5 d-flex justify-content-center align-items-center">
+
         <div class="container">
+          <div class="alert-prompt" *ngIf="showAlertPrompt">
+            <div class="alert-prompt-overlay"></div>
+            <div class="alert-prompt-dialog">
+              <h2>Alert</h2>
+              <p>This is the last ingredient. Deleting it will remove the entire meal. You cant delete it!</p>
+            </div>
+          </div>
           <h2>Meal Details</h2>
           <div class="row mb-4">
             <div class="col-md-4 box">
@@ -18,6 +26,7 @@
             </div>
 
           </div>
+
           <table class="table">
             <thead>
               <tr>
@@ -44,10 +53,9 @@
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.price }}</td>
                 <td class="border-0 align-middle">
-                  <a (click)="delete(meal[0]._id,i)"class="text-dark">
+                  <a *ngIf="this.count > 1"  (click)="delete(meal[0]._id,i)"class="text-dark">
                      <i class="fa fa-trash"></i
                   ></a>
-
               </tr>
             </tbody>
           </table>
@@ -57,6 +65,9 @@
         </div>
       </div>
     </div>
+    <ng-template #falseBlock>
+      <h1 class="alert alert-danger" style="background-color: #debd54; border-color: #debd54; ">Loading...</h1>
+    </ng-template>
     </div>
 
   </div>
