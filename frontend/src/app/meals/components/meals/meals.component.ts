@@ -71,9 +71,11 @@ export class MealsComponent implements OnInit {
     this.getProfile.AddToFavorite(userId,mealId).subscribe({
       next:(value:any)=>{
         console.log(value);
+        // this.ngOnInit();
+        this.getFavorite()
       },
       error:(err)=>{
-
+        this.getFavorite()
         console.log(err);
       }
     })
