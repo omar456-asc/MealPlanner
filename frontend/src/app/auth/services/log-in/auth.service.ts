@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   getToken() {
-    this.token = localStorage.getItem('Token');
+    this.token=localStorage.getItem('Token') || null
     return this.token;
   }
 
@@ -39,6 +39,10 @@ export class AuthService {
   }
 
   isUserLoggedIn() {
+    return localStorage.getItem('Token');
+  }
+
+  getUserToken() {
     return localStorage.getItem('Token');
   }
 

@@ -18,6 +18,7 @@ import { ContactFormComponent } from './home/components/contact-form/contact-for
 import { PaymentComponent } from './payment/payment.component';
 import { CustomizeMealComponent } from './checkout/components/customize-meal/customize-meal.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { OrderComponent } from './order/components/order/order.component';
 import { UserGuard } from './auth/guards/user.guard';
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'meals', component: MealsComponent },
   { path: 'mealdetails/:id', component: MealDetailsComponent },
-  { path: 'customize/:id', component: CustomizeMealComponent },
+  { path: 'about', component: AboutusComponent },
+  { path: 'customize/:id', component: CustomizeMealComponent, canActivate: [AuthGuard]},
   { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard], },
   { path: 'order', component: OrderComponent, canActivate: [AuthGuard], },
 ];

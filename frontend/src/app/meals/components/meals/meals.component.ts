@@ -5,7 +5,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 @Component({
   selector: 'app-meals',
   templateUrl: './meals.component.html',
-  styleUrls: ['./meals.component.css']
+  styleUrls: ['./meals.component.css'] 
 })
 export class MealsComponent implements OnInit {
   Meals:any;

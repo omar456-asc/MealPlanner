@@ -1,4 +1,17 @@
 let IngredientModel = require("../Models/IngredientModel");
+const multer = require("multer");
+var path = require("path");
+const cloudinary = require("cloudinary");
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // Get all ingredients
 const getAllIngredients = async (req, res) => {
@@ -32,6 +45,21 @@ const createIngredient = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
+};
+const uploadImage = (file) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload(
+      file.path,
+      { folder: "ingredient-images" },
+      (error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result.secure_url);
+        }
+      }
+    );
+  });
 };
 
 // Update an existing ingredient

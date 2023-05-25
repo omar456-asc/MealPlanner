@@ -6,7 +6,7 @@
     class="container-fluid container-xl d-flex align-items-center justify-content-between"
   >
     <div class="logo me-auto">
-      <h1><a routerLink="/">CookSmart</a></h1>
+      <h1><a href="/">CookSmart</a></h1>
     </div>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
@@ -19,26 +19,31 @@
         <li><a class="nav-link scrollto" href="#chefs">Our Team</a></li>
         <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+         <li>
+          <a href="/about">About Us</a>
+        </li>
         <li>
-          <a routerLink="/meals">Meals </a>
+          <a href="/meals">Meals </a>
         </li>
         <li>
           <!-- <a href="checkout"></a> -->
 
-          <a routerLink="/cart"
-            ><i class="bi bi-cart-dash-fill nav-link scrollto fs-5"></i
+          <a href="/cart"
+            ><i class="bi bi-cart-dash-fill nav-link scrollto fs-5"></i>
+            <span class="badge">{{ cartLength }}</span></a
           >
-          <span class="badge">{{cartLength$| async }}</span></a>
         </li>
 
         <li class="dropdown">
           <a><i class="bi bi-chevron-down fs-6"></i></a>
           <ul>
-            <li *ngIf="isLoggedIn && !getRole"><a routerLink="/profile">profile </a></li>
-            <li *ngIf="isLoggedIn">
-              <a (click)="logout()" routerLink="/login">log out</a>
+            <li *ngIf="isLoggedIn && !getRole">
+              <a href="/profile">profile </a>
             </li>
-            <li *ngIf="!isLoggedIn"><a routerLink="/login">Log-in</a></li>
+            <li *ngIf="isLoggedIn">
+              <a (click)="logout()" href="/login">log out</a>
+            </li>
+            <li *ngIf="!isLoggedIn"><a href="/login">Log-in</a></li>
           </ul>
         </li>
       </ul>
