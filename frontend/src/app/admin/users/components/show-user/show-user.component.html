@@ -1,8 +1,117 @@
-<!-- <p>show-user works!</p>
-<h1>Admin</h1> -->
-<h1>{{user._id}}</h1>
+<app-admin-header></app-admin-header>
+<app-admin-side-nav></app-admin-side-nav>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>All Users</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">List Of All Users</a></li>
+            <li class="breadcrumb-item active">Users</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
 
-<h1>{{user.fname}}</h1>
-<h1>{{user.lname}}</h1>
-<h1>{{user.email}}</h1>
-
+  <!-- User details page content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div
+          class="card"
+          style="background-color: #f8f9fa; border-radius: 10px"
+        >
+          <div
+            class="card-header"
+            style="background-color: #17a2b8; color: #fff; border-radius: 10px"
+          >
+            <h3 class="card-title">User Information</h3>
+          </div>
+          <div class="card-body text-center">
+            <img
+              src="{{ user.avatar }}"
+              alt="User Avatar"
+              class="img-circle img-fluid"
+              style="
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%;
+              "
+            />
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">First Name:</label>
+                  <p>{{ user.fname }}</p>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Last Name:</label>
+                  <p>{{ user.lname }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Username:</label>
+                  <p>{{ user.username }}</p>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Email:</label>
+                  <p>{{ user.email }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Mobile Number:</label>
+                  <p>{{ user.mobile }}</p>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Address:</label>
+                  <p>{{ user.address }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Gender:</label>
+                  <p>{{ user.gender }}</p>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Age:</label>
+                  <p>{{ user.age }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label style="color: #17a2b8">Is Admin:</label>
+                  <p>{{ user.is_admin }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

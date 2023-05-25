@@ -17,13 +17,13 @@
       <div class="image d-flex">
         <img
           style="width: 120px"
-          src="assets/img/user2-160x160.jpg"
+          src="{{avatarUrl}}"
           class="rounded-circle img-fluid shadow-4 m-auto"
           alt="User Image"
         />
       </div>
       <div class="info">
-        <h5 href="#" class="d-block text-white">Alexander Pierce</h5>
+        <h5 href="#" class="d-block text-white">{{name}}</h5>
         <small class="text-white"> Admin</small>
       </div>
     </div>
@@ -55,15 +55,24 @@
       >
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="/admin" class="nav-link active">
+        <li class="nav-item">
+          <a
+            routerLink="/admin"
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link">
-            <i class=" nav-icon fas fa-chart-pie"></i>
+          <a
+            href="pages/widgets.html"
+            class="nav-link"
+            routerLinkActive="active"
+          >
+            <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               Charts
               <span class="right badge badge-danger">New</span>
@@ -71,8 +80,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/admin/orders" class="nav-link">
-            <i class=" nav-icon fas fa-shopping-cart fa-lg"></i>
+          <a
+            routerLink="/admin/orders"
+            class="nav-link"
+            routerLinkActive="active"
+          >
+            <i class="nav-icon fas fa-shopping-cart fa-lg"></i>
             <p>
               Orders
               <span class="badge badge-warning right">{{
@@ -82,19 +95,31 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/admin/meals" class="nav-link">
-            <i class=" nav-icon fas fa-utensils"></i>
+          <a
+            routerLink="/admin/meals"
+            class="nav-link"
+            routerLinkActive="active"
+          >
+            <i class="nav-icon fas fa-utensils"></i>
             <p>Meals</p>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/admin/ingredients" class="nav-link">
+          <a
+            routerLink="/admin/ingredients"
+            class="nav-link"
+            routerLinkActive="active"
+          >
             <i class="nav-icon fas fa-utensils"></i>
             <p>Ingredients</p>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/admin/users" class="nav-link">
+          <a
+            routerLink="/admin/users"
+            class="nav-link"
+            routerLinkActive="active"
+          >
             <i class="nav-icon fas fa-user"></i>
             <p>Users</p>
           </a>
