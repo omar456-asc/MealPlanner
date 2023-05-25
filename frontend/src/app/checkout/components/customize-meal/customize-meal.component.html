@@ -24,46 +24,6 @@
             <div class="col-md-4 box">
               <img [src]="meal[0].image" alt="{{ meal[0].title }}" class="img-thumbnail">
             </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Image</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Name</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">price</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Action</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let ingredient of ingrediants; let i = index">
-                  <td>
-                    <img
-                      [src]="ingredient.image"
-                      alt="{{ ingredient.name }}"
-                      class="img-thumbnail"
-                      style="width: 50px; height: 50px"
-                    />
-                  </td>
-                  <td>{{ ingredient.name }}</td>
-                  <td>{{ ingredient.price }}</td>
-                  <td class="border-0 align-middle">
-                    <a (click)="delete(meal[0]._id, i)" class="text-dark">
-                      <i class="fa fa-trash"></i
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <a href="/cart">
-              <button class="checkout-btn">Done</button>
-            </a>
           </div>
 
           <table class="table">
