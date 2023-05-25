@@ -16,11 +16,12 @@ export class AuthService {
   }
 
   getToken() {
-    this.token=localStorage.getItem('Token') || null
+    this.token = localStorage.getItem('Token') || null;
     return this.token;
   }
 
   isLoggedIn() {
+    this.token = localStorage.getItem('Token') || null;
     return !!this.token;
   }
 
