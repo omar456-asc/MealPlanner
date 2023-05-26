@@ -137,6 +137,8 @@ export class DashboardComponent {
       return 'badge badge-danger';
     } else if (status === 'cancelled') {
       return 'badge badge-secondary';
+    }else if (status === 'payed') {
+      return 'badge badge-primary';
     }
     return 'badge ';
   }

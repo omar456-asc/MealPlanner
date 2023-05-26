@@ -40,6 +40,9 @@
             <li *ngIf="isLoggedIn && !getRole">
               <a href="/profile">profile </a>
             </li>
+            <li *ngIf="isLoggedIn && getRole">
+              <a href="/admin">Dashboard </a>
+            </li>
             <li *ngIf="isLoggedIn">
               <a (click)="logout()" routerLink="/login">log out</a>
             </li>
