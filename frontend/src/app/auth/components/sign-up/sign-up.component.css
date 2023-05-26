@@ -25,6 +25,9 @@ section {
   background-color: black;
   height: 100vh;
 }
+.log-in-btn {
+  color: #bc3b2c;
+}
 
 * {
   font-size: large;

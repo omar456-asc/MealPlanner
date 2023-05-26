@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const token = this.authService.getToken();
+    const token = this.authService.getUserToken();
 
     if (token) {
       const authReq = req.clone({

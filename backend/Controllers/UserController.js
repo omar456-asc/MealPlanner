@@ -4,6 +4,7 @@ const multer = require("multer");
 var path = require("path");
 const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
+const usersModel = require("../Models/usersModel");
 
 dotenv.config();
 
@@ -47,16 +48,6 @@ var UpdateUserByID = async (req, res) => {
   }
 };
 
-var GetAllUsers = async (req, res) => {
-  try {
-    var AllUsers = await usersmodel.find();
-    await res.json(AllUsers);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to get all users");
-  }
-};
-
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_KEY,
@@ -80,31 +71,6 @@ const uploadsCloud = (file, folder) => {
     );
   });
 };
-
-var UpdateUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    var updatedUser = req.body;
-    const salt = await bcrybt.genSalt();
-    let newpassword;
-    if (updatedUser.password) {
-      newpassword = await bcrybt.hash(updatedUser.password, salt);
-    }
-    await usersmodel.updateOne(
-      { _id: ID },
-      {
-        cart: updatedUser.cart,
-        fname: updatedUser.fname,
-        lname: updatedUser.lname,
-        password: newpassword,
-      }
-    );
-    await res.send(updatedUser);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to update new user");
-  }
-};
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -125,36 +91,6 @@ var GetAllUsers = async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(400).send("failed to get all users");
-  }
-};
-
-var GetUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    res.json(await usersmodel.findById(ID));
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to get user");
-  }
-};
-
-var UpdateUserByID = async (req, res) => {
-  try {
-    var ID = req.params.id;
-    var updatedUser = req.body;
-    const salt = await bcrybt.genSalt();
-    await usersmodel.updateOne(
-      { _id: ID },
-      {
-        fname: updatedUser.fname,
-        lname: updatedUser.lname,
-        password: await bcrybt.hash(updatedUser.password, salt),
-      }
-    );
-    await res.send(updatedUser);
-  } catch (e) {
-    console.log(e);
-    res.status(400).send("failed to update new user");
   }
 };
 
@@ -203,14 +139,71 @@ var UploadProfilePic = async (req, res) => {
   }
 };
 
+async function addMealToFavorites(req, res) {
+  var userId = req.params.userId;
+  const mealId = req.params.mealId;
+  //console.log("mmmm");
+  //console.log(userId);
+  //console.log(mealId);
+  try {
+    const user = await usersmodel.findById(userId);
+    const favorite = user.favorite;
+    console.log(favorite);
+    const CheckFavorite = favorite.findIndex((item) => item == mealId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if the meal is already in the user's favorites
+    if (CheckFavorite != -1) {
+      favorite.splice(CheckFavorite, 1);
+      await usersmodel.updateOne({ _id: userId }, { favorite: favorite });
+      console.log(favorite);
+      return res.status(400).json({ message: "Meal already in favorites" });
+    }
+    favorite.push(mealId);
+    await usersmodel.updateOne({ _id: userId }, { favorite: favorite });
+    //await user.save();
+
+    return res.json({ message: "Meal added to favorites" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error" });
+  }
+}
+
+var UpdateUserProfileData = async (req, res) => {
+  try {
+    console.log("-------UpdateUserProfileData--------");
+    var updatedUser = req.body;
+
+    await usersmodel.updateOne(
+      { _id: updatedUser.id },
+      {
+        fname: updatedUser.fname,
+        lname: updatedUser.lname,
+        email: updatedUser.email,
+        mobile: updatedUser.mobile,
+        address: updatedUser.address,
+        gender: updatedUser.gender,
+        age: updatedUser.age,
+      }
+    );
+    await res.send(updatedUser);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send("*******failed to update new user**********");
+  }
+};
 module.exports = {
   GetAllUsers,
   GetUserByID,
   UpdateUserByID,
   DeleteUserByID,
-
   getLatest8users,
   UploadProfilePic,
+  UpdateUserProfileData,
   upload,
   uploadsCloud,
+  addMealToFavorites,
 };

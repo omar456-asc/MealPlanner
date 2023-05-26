@@ -68,10 +68,11 @@ export class OrderComponent implements OnInit {
     for (let i = 0; i < this.cartid.length; i++) {
       this.mymeals.GetMealByID(this.cartid[i].id).subscribe({
         next: (data: any) => {
+          data.quantity=this.cartid[i].quantity
+          data.price=this.cartid[i].price
           this.Meal.push(data)
-        data.quantity=this.cartid[i].quantity
-         this.totalPrice+=data.quantity*parseInt(data[0].price.match(myRegex)[0]);
-
+        this.totalPrice += this.cartid[i].quantity * this.cartid[i].price;
+         console.log(this.totalPrice)
         },
         error: (err) => {
           console.log(err);

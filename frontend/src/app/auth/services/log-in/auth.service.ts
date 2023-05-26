@@ -16,12 +16,12 @@ export class AuthService {
   }
 
   getToken() {
-    this.token=localStorage.getItem('Token') || null
+    this.token = localStorage.getItem('Token') || null;
     return this.token;
   }
 
   isLoggedIn() {
-    this.token=localStorage.getItem('Token') || null
+    this.token = localStorage.getItem('Token') || null;
     return !!this.token;
   }
 
@@ -43,6 +43,10 @@ export class AuthService {
     return localStorage.getItem('Token');
   }
 
+  getUserToken() {
+    return localStorage.getItem('Token');
+  }
+
   getUser() {
     const token = localStorage.getItem('Token');
     if (!token) {
@@ -55,10 +59,7 @@ export class AuthService {
     return decoded;
   }
 
-
-
-
-  getRole(){
+  getRole() {
     const token = localStorage.getItem('Token');
     console.log('user token', token);
     if (token) {

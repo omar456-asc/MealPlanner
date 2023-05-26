@@ -9,6 +9,8 @@ const express = require("express");
 const router = new express.Router();
 const bcrypt = require("bcrypt");
 
+router.post('/:userId/favorite/:mealId', UserController.addMealToFavorites);
+
 //#region Auth
 router.post("/signup", AuthController.AddNewUser);
 router.post("/login", AuthController.logIn);
@@ -22,6 +24,7 @@ router.post(
   UserController.UploadProfilePic
 );
 
+router.post("/update-data", authuserMiddleware, UserController.UpdateUserProfileData);
 //#region User
 router.get("/latest8users", authuserMiddleware, UserController.getLatest8users);
 
