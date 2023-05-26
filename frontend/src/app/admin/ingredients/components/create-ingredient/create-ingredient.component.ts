@@ -19,7 +19,6 @@ export class CreateIngredientComponent implements OnInit {
 
   constructor() {
     this.ingredient = {
-      id: '0',
       image: '',
       consistency: '',
       name: '',
