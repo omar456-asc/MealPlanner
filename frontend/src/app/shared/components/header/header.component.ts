@@ -11,10 +11,8 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  cartLength$: Observable<number>;
   isLoggedIn: any;
-
-  cartLength: any;
+  cartLength=0;
   getRole: any;
   cartid: any;
   ID: any = localStorage.getItem('id');
@@ -26,10 +24,13 @@ export class HeaderComponent implements OnInit {
   ) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
-    this.cartLength$ = this.shared.cartLength$;
     this.getRole = this.authService.getRole();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    var cart:any=localStorage.getItem('cart')
+    this.cartLength=JSON.parse(cart).length|0
+
+}
   logout() {
     this.authService.logout();
     this.isLoggedIn = null;
