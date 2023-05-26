@@ -4,6 +4,7 @@ const multer = require("multer");
 var path = require("path");
 const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
+const usersModel = require("../Models/usersModel");
 
 dotenv.config();
 
@@ -46,7 +47,6 @@ var UpdateUserByID = async (req, res) => {
     res.status(400).send("failed to update new user");
   }
 };
-
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -139,12 +139,44 @@ var UploadProfilePic = async (req, res) => {
   }
 };
 
+async function addMealToFavorites(req, res) {
+  var userId = req.params.userId;
+  const mealId = req.params.mealId;
+  //console.log("mmmm");
+  //console.log(userId);
+  //console.log(mealId);
+  try {
+    const user = await usersmodel.findById(userId);
+    const favorite = user.favorite;
+    console.log(favorite);
+    const CheckFavorite = favorite.findIndex((item) => item == mealId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if the meal is already in the user's favorites
+    if (CheckFavorite != -1) {
+      favorite.splice(CheckFavorite, 1);
+      await usersmodel.updateOne({ _id: userId }, { favorite: favorite });
+      console.log(favorite);
+      return res.status(400).json({ message: "Meal already in favorites" });
+    }
+    favorite.push(mealId);
+    await usersmodel.updateOne({ _id: userId }, { favorite: favorite });
+    //await user.save();
+
+    return res.json({ message: "Meal added to favorites" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Server error" });
+  }
+}
 
 var UpdateUserProfileData = async (req, res) => {
   try {
-    console.log('-------UpdateUserProfileData--------');
+    console.log("-------UpdateUserProfileData--------");
     var updatedUser = req.body;
-    
+
     await usersmodel.updateOne(
       { _id: updatedUser.id },
       {
@@ -168,10 +200,10 @@ module.exports = {
   GetUserByID,
   UpdateUserByID,
   DeleteUserByID,
-
   getLatest8users,
   UploadProfilePic,
   UpdateUserProfileData,
   upload,
   uploadsCloud,
+  addMealToFavorites,
 };

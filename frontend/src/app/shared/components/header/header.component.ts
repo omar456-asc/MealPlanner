@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {}
   logout() {
-    this.authService.logout();
-    this.isLoggedIn = null;
     var cart: any = this.mymeals.getCart();
     this.cartid = JSON.parse(cart);
     if(!cart){
@@ -42,6 +40,8 @@ export class HeaderComponent implements OnInit {
       (data: any) => {
         console.log('done');
         localStorage.removeItem('cart');
+        this.authService.logout();
+        this.isLoggedIn = null;
       },
       (err) => {
         console.log(err);

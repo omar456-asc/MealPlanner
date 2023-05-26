@@ -44,6 +44,11 @@ export class AllOrdersComponent {
     } else if (status === 'payed') {
       return 'badge badge-info';
     }
+    else if(status === 'cancelled') {
+      return 'badge badge-secondary';
+    }else if (status === 'payed') {
+      return 'badge badge-primary';
+    }
     return 'badge ';
   }
 }

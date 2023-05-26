@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserdashboardServiceService } from '../../services/userdashboard-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { AdminOrdersServiceService } from 'src/app/admin/admin-orders/services/admin-orders-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,7 +34,8 @@ export class DashboardComponent {
 
   constructor(
     myRoute: ActivatedRoute,
-    public UserdashboardServiceService: UserdashboardServiceService
+    public UserdashboardServiceService: UserdashboardServiceService,
+    private AdminOrdersServiceService: AdminOrdersServiceService
   ) {
     this.totalPrice = 0.0;
     this.orders = [];
@@ -133,6 +135,10 @@ export class DashboardComponent {
       return 'badge badge-success';
     } else if (status === 'rejected') {
       return 'badge badge-danger';
+    } else if (status === 'cancelled') {
+      return 'badge badge-secondary';
+    }else if (status === 'payed') {
+      return 'badge badge-primary';
     }
     return 'badge ';
   }
@@ -147,5 +153,14 @@ export class DashboardComponent {
     if (modal) {
       modal.style.display = 'none';
     }
+  }
+  updateOrderStatus(id: any, status: any) {
+    this.AdminOrdersServiceService.updateOrderStatus(id, status).subscribe(
+      () => this.ngOnInit(),
+      (err) => {
+        console.log(err);
+      }
+    );
+    console.log(id, status);
   }
 }

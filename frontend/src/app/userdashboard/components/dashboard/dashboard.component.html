@@ -86,9 +86,29 @@
                     Details
                   </button>
                 </td>
-                <td>
-                  <button type="button" class="btn btn-danger">Cancel</button>
+                <td *ngIf="order.status == 'pending'; else noAction">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="updateOrderStatus(order.orderId, 'cancelled')"
+                  >
+                    Cancel
+                  </button>
                 </td>
+                <ng-template #noAction>
+                  <td *ngIf="order.status == 'confirmed'">
+                    <button
+                      routerLink="/payment/{{ order.orderId }}"
+                      type="button"
+                      class="btn btn-danger"
+                    >
+                      payment
+                    </button>
+                  </td>
+                  <ng-template *ngIf="order.status == 'rejected'">
+                    <label class="text-danger">Rejected</label></ng-template
+                  >
+                </ng-template>
               </tr>
             </tbody>
           </table>

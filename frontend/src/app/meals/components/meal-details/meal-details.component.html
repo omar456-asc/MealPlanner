@@ -1,6 +1,5 @@
 <app-header></app-header>
 <section id="meals">
-
   <div class="container  ">
     <div class="row my-5" *ngIf="Meal; else falseBlock">
       <div class="col-md-10 offset-1 alert alert-success" *ngIf="trueAlert;">
@@ -22,11 +21,11 @@
             <p class="font-weight-light pb-3  d-inline">Rating:</p>
 
   <div class="rating mx-2 d-inline">
-    <span *ngFor="let star of stars" (click)="rate(star)" [class.filled]="star <= rating">&#9733;</span>
+    <span *ngFor="let star of stars" (click)="rate(star)" [class.filled]="isStarFilled(star)">&#9733;</span>
   </div>
   <span class="d-block mb-2">Average rating: {{Meal[0].rate}}</span>
           </div>
-<p class="font-weight-bold mt-2">price: {{Meal[0].price}}</p>
+<p class="font-weight-bold mt-2">price: {{Meal[0].price}}$</p>
 <p >{{Meal[0].summary}}</p>
 
   <button class="btn btn-lg "  (click)="AddToCart()" >

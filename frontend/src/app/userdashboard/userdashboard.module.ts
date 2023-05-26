@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChartModule } from 'angular2-chartjs';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [UserdashboardComponent, DashboardComponent],
@@ -15,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ChartModule,
     NgxPaginationModule,
+    RouterLink,
   ],
   exports: [UserdashboardComponent, DashboardComponent],
 })
