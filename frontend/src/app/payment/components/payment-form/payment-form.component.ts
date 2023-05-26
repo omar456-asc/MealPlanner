@@ -25,8 +25,8 @@ export class PaymentFormComponent implements OnInit {
   payFailed: any = false;
   FalseMsg = '';
   validationForm = new FormGroup({
-    card: new FormControl([Validators.required]),
-    cvv: new FormControl([Validators.required]),
+    card: new FormControl(null,[Validators.required]),
+    cvv: new FormControl(null,[Validators.required]),
   });
 
   ngOnInit(): void {

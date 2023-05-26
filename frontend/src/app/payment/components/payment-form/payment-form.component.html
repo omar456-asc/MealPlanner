@@ -35,12 +35,12 @@
                               <span id="card-inner">Card number</span>
                           </div>
                           <div class="row row-2">
-                              <input #card type="text" placeholder="5134-5264-4526-4545">
+                              <input #card type="text" placeholder="5134-5264-4526-4545" class="form-control" formControlName="card">
                           </div>
                       </div>
                   </div>
                   <div class="col-2">
-                      <input #cvv type="text" placeholder="CVV">
+                      <input #cvv type="text" placeholder="CVV" class="form-control" formControlName="cvv">
                   </div>
               </div>
               <button class="btn d-flex mx-auto" href="/shopping-cart"><b>Add card</b></button>
