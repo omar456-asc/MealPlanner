@@ -6,11 +6,12 @@ let ProductsSchema = {
   properties: {
     title: { type: "string" },
     summary: { type: "string" },
-    ingredients: { type: "array", items: { type: "integer" } },
+    ingredients: { type: "array" },
     image: { type: "string" },
     category: { type: "string" },
+    price: { type: "number" },
   },
-  required: ["title", "summary", "ingredients", "category", "image"],
+  required: ["title", "summary", "ingredients", "category", "image", "price"],
   // additionalProperties: false,
 };
 
