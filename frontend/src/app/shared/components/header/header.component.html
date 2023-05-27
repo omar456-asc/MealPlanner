@@ -40,6 +40,9 @@
             <li *ngIf="isLoggedIn && !getRole">
               <a href="/profile">profile </a>
             </li>
+            <li *ngIf="isLoggedIn && !getRole">
+              <a href="/user">Dashboard </a>
+            </li>
             <li *ngIf="isLoggedIn && getRole">
               <a href="/admin">Dashboard </a>
             </li>
