@@ -11,36 +11,32 @@
       <div  class="col-md-5  offset-1  card-image d-flex animate__animated  animate__backInLeft">
         <img src={{Meal[0].image}} class="img" alt="Image">
       </div>
-      <div class="col-md-4 offset-1  box d-flex animate__animated  animate__backInRight">
+      <div class="card-res col-md-4 offset-1  box d-flex animate__animated  animate__backInRight">
         <div  id="details">
-
-            <p class="h1">{{Meal[0].title}}</p>
+          <p class="h1">{{Meal[0].title}}</p>
           <p class="font-weight-light mb-0 font-size-sm" >{{Meal[0].category}}</p>
-
           <div class="border-bottom">
             <p class="font-weight-light pb-3  d-inline">Rating:</p>
-
-  <div class="rating mx-2 d-inline">
-    <span *ngFor="let star of stars" (click)="rate(star)" [class.filled]="isStarFilled(star)">&#9733;</span>
-  </div>
-  <span class="d-block mb-2">Average rating: {{Meal[0].rate}}</span>
+          <div class="rating mx-2 d-inline">
+            <span *ngFor="let star of stars" (click)="rate(star)" [class.filled]="isStarFilled(star)">&#9733;</span>
           </div>
-<p class="font-weight-bold mt-2">price: {{Meal[0].price}}$</p>
-<p >{{Meal[0].summary}}</p>
+            <span  class="d-block mb-2">Average rating: {{Meal[0].rate}}</span>
+          </div>
+          <p class="font-weight-bold mt-2">price: {{Meal[0].price}}$</p>
+          <p >{{Meal[0].summary}}</p>
 
-  <button class="btn btn-lg "  (click)="AddToCart()" >
-    <span>Add To Cart</span>
-  </button>
+          <button class="btn btn-lg "  (click)="AddToCart()" >
+            <span>Add To Cart</span>
+          </button>
 
         </div>
       </div >
-<div class="col-md-10 offset-1 mt-5 py-4 border-top" >
-  <p class="h1">ingredients</p>
-  <ul *ngFor="let ing of Meal[0].ingredients_details;" >
-    <li>{{ing.name}}</li>
-
-  </ul>
-</div>
+      <div class="col-md-10 offset-1 mt-5 py-4 border-top" >
+        <p class="h1">ingredients</p>
+        <ul *ngFor="let ing of Meal[0].ingredients_details;" >
+          <li>{{ing.name}}</li>
+        </ul>
+      </div>
     </div>
     <ng-template #falseBlock>
       <h1 class="alert alert-danger" style="background-color: #debd54; border-color: #debd54; ">Loading...</h1>

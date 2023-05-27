@@ -37,4 +37,9 @@
   display: inline-block;
   margin: 0px 5px;
 }
-
+@media (max-width: 1024px) {
+  .container{
+    width: 450px;
+    margin-left: 30px;
+  }
+}
