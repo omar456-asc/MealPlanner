@@ -96,9 +96,9 @@ width: 100%;
 
 @media (max-width: 1024px) {
   .card-image{
-    margin-left: 10px;
+    margin-left: -1px;
   }
   .card-res{
-    margin-left: 10px;
+    margin-left: 1px;
   }
 }
