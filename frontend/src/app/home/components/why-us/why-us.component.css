@@ -44,9 +44,9 @@
 }
 @media (max-width: 1024px) {
   .section-title p{
-    margin-left: 25px;
+    margin-left: 5px;
   }
   .row .box{
-    margin-left: 25px;
+    margin-left: 5px;
   }
 }
