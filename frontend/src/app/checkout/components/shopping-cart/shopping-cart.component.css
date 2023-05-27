@@ -102,10 +102,6 @@ img {
     display: flex;
     flex-direction: column;
   }
-  tbody{
-    display: flex;
-    flex-direction: column;
-  }
   .img-res{
    margin-top:-15px;
    margin-left: 30px;
