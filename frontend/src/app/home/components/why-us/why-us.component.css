@@ -42,3 +42,11 @@
 .why-us .box:hover p {
   color: #fff;
 }
+@media (max-width: 1024px) {
+  .section-title p{
+    margin-left: 25px;
+  }
+  .row .box{
+    margin-left: 25px;
+  }
+}

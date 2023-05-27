@@ -68,9 +68,6 @@
   .card:hover .card-body {
     bottom: -75;
   }
-
-
-
   .card-body {
     padding-bottom: 0px;
     position: absolute;
@@ -81,6 +78,7 @@
 }
 
 @media (max-width: 1024px) {
+
   .card-body {
     padding-bottom: 0px;
     position: absolute;
@@ -92,5 +90,15 @@
   .card:hover .card-body {
     bottom: -400;
     padding-bottom: -500px;
+  }
+  .section-title h2{
+    margin-left:25px;
+  }
+  /* .card img {
+    width: 100%;
+  } */
+  .card {
+    justify-content: center;
+    margin-left: 30px;
   }
 }
