@@ -26,21 +26,21 @@
           <!-- Shopping cart table -->
           <div class="table-responsive">
   <table class="table">
-    <thead>
+    <thead class="thead-res">
       <tr>
-        <th scope="col" class="border-0 bg-light">
+        <th scope="col" class="border-0 bg-light name">
           <div class="p-2 px-3 text-uppercase">Product</div>
         </th>
-        <th scope="col" class="border-0 bg-light">
+        <th scope="col" class="border-0 bg-light name">
           <div class="py-2 text-uppercase">Price</div>
         </th>
-        <th scope="col" class="border-0 bg-light">
+        <th scope="col" class="border-0 bg-light name">
           <div class="py-2 text-uppercase">Quantity</div>
         </th>
-        <th scope="col" class="border-0 bg-light">
+        <th scope="col" class="border-0 bg-light name">
           <div class="py-2 text-uppercase">Customize</div>
         </th>
-        <th scope="col" class="border-0 bg-light">
+        <th scope="col" class="border-0 bg-light name">
           <div class="py-2 text-uppercase">Remove</div>
         </th>
       </tr>
@@ -49,7 +49,7 @@
       <ng-container *ngFor="let meals of Meal; let i = index">
         <tr *ngFor="let meal of meals;">
           <td scope="row" class="border-0">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center img-res">
               <img
                 class="imgg mr-3"
                 src={{meal.image}}
@@ -65,22 +65,22 @@
               </div>
             </div>
           </td>
-          <td class="border-0 align-middle">
+          <td class="border-0 align-middle price-res">
             <strong>{{meal.price}}</strong>
           </td>
-          <td class="quantity border-0 align-middle">
+          <td class="quantity border-0 align-middle qun-res">
             <div class="d-flex align-items-center">
               <button *ngIf="meals.quantity > 1" (click)="minus(i)" class="minus-btn" type="button">-</button>
               <input [(ngModel)]="meals.quantity" class="quantity-input" type="number" [disabled]="true" />
               <button (click)="plus(i)" class="plus-btn" type="button">+</button>
             </div>
           </td>
-          <td class="border-0 align-middle">
+          <td class="border-0 align-middle cust-res">
             <a [routerLink]="['/customize', meal._id]" [queryParams]="{count: meals.count}" class="text-dark">
               <i class="fa-solid fa-wrench" style="color: #000000;"></i>
             </a>
           </td>
-          <td class="border-0 align-middle">
+          <td class="border-0 align-middle dele-res">
             <a (click)="deleteConfirmation(meal._id)" class="text-dark">
               <i class="fa fa-trash"></i>
             </a>
