@@ -29,12 +29,15 @@ export class HeaderComponent implements OnInit {
 
     this.getRole = this.authService.getRole();
   }
-  ngOnInit(): void {this.cartLength=this.shared.cartLength.length}
+  ngOnInit(): void {this.cartLength=this.shared.cartLength}
   logout() {
     var cart: any = this.mymeals.getCart();
-    this.cartid = JSON.parse(cart);
-    if(!cart){
-      return console.log("No Cart");
+
+    if(cart){
+      this.cartid = JSON.parse(cart);
+    }
+    else{
+      this.cartid=[]
     }
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
