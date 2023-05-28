@@ -39,13 +39,14 @@ export class HeaderComponent implements OnInit {
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
         console.log('done');
-        localStorage.removeItem('cart');
-        this.authService.logout();
+
         this.isLoggedIn = null;
       },
       (err) => {
         console.log(err);
       }
     );
+    localStorage.removeItem('cart');
+    this.authService.logout();
   }
 }
