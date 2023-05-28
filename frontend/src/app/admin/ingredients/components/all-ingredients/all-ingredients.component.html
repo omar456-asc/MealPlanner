@@ -16,7 +16,7 @@
                 (input)="loadPage(1)"
                 (ngModelChange)="onSearchTermChange()"
               />
-              <a class="px-2 nav-link" href="/admin/ingredients/create">
+              <a class="px-2 nav-link" routerLink="/admin/ingredients/create">
                 <button type="button" class="btn btn-primary">
                   Create Ingredient
                 </button>
@@ -43,7 +43,7 @@
                 <td>
                   <img
                     class="img-fluid"
-                    style="max-height: 75px;"
+                    style="max-height: 75px"
                     [src]="ingredient.image"
                     alt="{{ ingredient.name }}"
                     class="img-thumbnail"
