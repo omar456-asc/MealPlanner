@@ -1,6 +1,9 @@
 let productsModel = require("../Models/ProductsModel");
 const productSchema = require("../Utils/ProductSchema");
 const { ObjectId } = require("mongodb");
+const cloudinary = require("cloudinary").v2;
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 var SearchMeal = async (req, res) => {
   //console.log(req.params.key);
@@ -172,41 +175,70 @@ var getLatest6products = async (req, res) => {
   }
 };
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "ingredient-uploads", // Specify the folder in Cloudinary where the ingredient images will be stored
+    allowedFormats: ["jpg", "jpeg", "png"], // Specify the allowed image formats
+    transformation: [{ width: 500, height: 500, crop: "limit" }], // Optional: Specify any image transformations you want to apply
+  },
+});
+const upload = multer({ storage: storage }).single("image");
+
 const addNewProduct = async (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   try {
-    const { title, price, summary, image, ingredients, category } = req.body;
-    // Validate the incoming product data against the schema
-  // console.log(price);
+    upload(req, res, async (err) => {
+      if (err instanceof multer.MulterError) {
+        return res.status(400).json({ error: "Error uploading image" });
+      } else if (err) {
+        return res.status(500).json({ error: "Internal server error" });
+      }
+      const { title, price, summary, ingredients, category } = req.body;
 
-    const isValid = productSchema({
-      title,
-      price,
-      summary,
-      image,
-      ingredients,
-      category,
+      let image = "";
+      if (req.file) {
+        image = req.file.path;
+      }
+      // Validate the incoming product data against the schema
+      // console.log(price);
+
+      const isValid = productSchema({
+        title,
+        price,
+        summary,
+        image,
+        ingredients,
+        category,
+      });
+
+      // if (!isValid) {
+      //   return res.status(400).json({ error: "Invalid product data" });
+      // }
+
+      // Create a new product object
+      const newProduct = new productsModel({
+        title,
+        price,
+        summary,
+        image,
+        ingredients,
+        category,
+        image,
+      });
+      // console.log(newProduct);
+
+      // Save the new product object to the database
+      await newProduct.save();
+
+      return res.status(201).json({ message: "Product created successfully" });
     });
-
-    if (!isValid) {
-      return res.status(400).json({ error: "Invalid product data" });
-    }
-
-    // Create a new product object
-    const newProduct = new productsModel({
-      title,
-      price,
-      summary,
-      image,
-      ingredients,
-      category,
-    });
-    // console.log(newProduct);
-
-    // Save the new product object to the database
-    await newProduct.save();
-
-    return res.status(201).json({ message: "Product created successfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal server error !!!!" });
   }

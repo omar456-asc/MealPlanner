@@ -38,6 +38,7 @@
               [(ngModel)]="meal.title"
               name="title"
               required
+              #title="ngModel"
             />
           </div>
           <div class="form-group">
@@ -100,11 +101,8 @@
               name="category"
               required
             >
-              <option
-                *ngFor="let cat of categories"
-                [value]="cat"
-              >
-                {{  cat}}
+              <option *ngFor="let cat of categories" [value]="cat">
+                {{ cat }}
               </option>
             </select>
           </div>

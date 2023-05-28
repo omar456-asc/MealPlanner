@@ -44,7 +44,7 @@ export class AdminSideNavComponent {
     }
     this.profileService.getProfileInfo(this.user.id).subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
         this.avatarUrl = data.avatar;
         this.name = data.fname + ' ' + data.lname;
         this.email = data.email;
