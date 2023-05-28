@@ -26,6 +26,7 @@
       <form
         (ngSubmit)="createIngredient(ingredientForm.value)"
         #ingredientForm="ngForm"
+        enctype="multipart/form-data"
       >
         <div class="form-group">
           <label for="name">Name</label>
@@ -34,9 +35,9 @@
             class="form-control"
             id="name"
             name="name"
-            ngModel
             required
             placeholder="Ingredient Name"
+            [(ngModel)]="newIngredient.name"
           />
         </div>
 
@@ -46,9 +47,9 @@
             class="form-control"
             id="consistency"
             name="consistency"
-            ngModel
             required
             placeholder="Ingredient Consistency"
+            [(ngModel)]="newIngredient.consistency"
           >
             <option value="liquid">Liquid</option>
             <option value="solid">Solid</option>
@@ -77,6 +78,7 @@
             ngModel
             required
             placeholder="Ingredient Price"
+            [(ngModel)]="newIngredient.price"
           />
         </div>
 

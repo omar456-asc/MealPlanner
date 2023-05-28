@@ -5,12 +5,7 @@ const IngredientController = require("../Controllers/IngredientController");
 const authuserMiddleware = require("../MiddleWares/authuserMiddleware");
 
 router.get("/", authuserMiddleware, IngredientController.getAllIngredients);
-router.post(
-  "/",
-  authuserMiddleware,
-  authuserMiddleware,
-  IngredientController.createIngredient
-);
+router.post("/", authuserMiddleware, IngredientController.createIngredient);
 router.get("/:id", authuserMiddleware, IngredientController.getIngredientById);
 router.put("/:id", authuserMiddleware, IngredientController.updateIngredient);
 router.delete(

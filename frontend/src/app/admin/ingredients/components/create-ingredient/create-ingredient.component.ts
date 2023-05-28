@@ -7,6 +7,8 @@ import { IngredientsServiceService } from '../../services/ingredients-service.se
   styleUrls: ['./create-ingredient.component.css'],
 })
 export class CreateIngredientComponent implements OnInit {
+  selectedFile: File | undefined;
+  newIngredient: any = {};
   public ingredient:
     | {
         id: string;
@@ -17,7 +19,7 @@ export class CreateIngredientComponent implements OnInit {
       }
     | any;
 
-  constructor() {
+  constructor(private ingredientService: IngredientsServiceService) {
     this.ingredient = {
       image: '',
       consistency: '',
@@ -27,39 +29,34 @@ export class CreateIngredientComponent implements OnInit {
   }
   ngOnInit(): void {}
 
-  createIngredient(ingredientData: any) {
-    console.log(this.ingredient);
-  }
-  uploadImage(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', 'your_cloudinary_upload_preset');
-
-      // Make an HTTP request to upload the image file to Cloudinary
-      // Use your preferred HTTP client library or Angular's HttpClient to make the request
-      // Example:
-      // this.http.post('your_cloudinary_upload_url', formData).subscribe(
-      //   (response) => {
-      //     const imageUrl = response['url'];
-      //     resolve(imageUrl);
-      //   },
-      //   (error) => {
-      //     reject(error);
-      //   }
-      // );
-
-      // Placeholder code since the HTTP request is not implemented here
-      const imageUrl = 'https://example.com/your-uploaded-image-url';
-      resolve(imageUrl);
-    });
-  }
-  onFileChange(event: any): void {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      this.ingredient.image = files[0];
-    } else {
-      this.ingredient.image = undefined;
+  createIngredient(formData: any) {
+    const ingredientData = new FormData();
+    ingredientData.append('name', this.newIngredient.name);
+    console.log(this.newIngredient.name);
+    ingredientData.append('consistency', this.newIngredient.consistency);
+    ingredientData.append('price', this.newIngredient.price);
+    if (this.selectedFile) {
+      ingredientData.append('image', this.selectedFile);
     }
+    // console.log(ingredientData);
+    // console.log(ingredientData.getAll);
+    // console.log(ingredientData.get('name'));
+
+    this.ingredientService.addNewIngredient(ingredientData).subscribe(
+      (response: any) => {
+        console.log(response);
+        alert('Created Success');
+        // Handle success response
+      },
+      (error: any) => {
+        console.error(error);
+        // Handle error response
+      }
+    );
+  }
+
+  onFileChange(event: any): void {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
   }
 }
