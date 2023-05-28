@@ -7,7 +7,7 @@
     display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 999px) {
   body{
     overflow-x: hidden !important;
   }
