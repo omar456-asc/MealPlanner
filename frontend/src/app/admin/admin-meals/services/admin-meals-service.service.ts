@@ -22,7 +22,9 @@ export class AdminMealsServiceService {
   GetMealByID(id: any) {
     return this.HttpClient.get(this.Base_URL + '/' + id);
   }
-  addNewMeal(newMeal: any) {
-    return this.HttpClient.post(this.Base_URL, newMeal);
+  addNewMeal(newMeal: FormData) {
+    return this.HttpClient.post(this.Base_URL, newMeal,
+      // { reportProgress: true, observe: 'events' }
+      );
   }
 }
