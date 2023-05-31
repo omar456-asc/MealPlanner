@@ -6,134 +6,150 @@
 >
   <!-- Main -->
   <main class="main-container">
-    <div class="main-title"></div>
-    <div class="main-cards">
-      <div class="card">
-        <div class="card-inner">
-          <h3>Total orders price</h3>
-          <span class="material-icons-outlined">attach_money</span>
+    <ng-container *ngIf="highestRateCategory; else falseBlock">
+      <div class="main-title"></div>
+      <div class="main-cards">
+        <div class="card">
+          <div class="card-inner">
+            <h3>Total orders price</h3>
+            <span class="material-icons-outlined">attach_money</span>
+          </div>
+          <h1>{{ totalOrdersPrice }}$</h1>
         </div>
-        <h1>{{ totalOrdersPrice }}$</h1>
-      </div>
-      <div class="card">
-        <div class="card-inner">
-          <h3>Top category</h3>
-          <span class="material-icons-outlined">category</span>
+        <div class="card">
+          <div class="card-inner">
+            <h3>Top category</h3>
+            <span class="material-icons-outlined">category</span>
+          </div>
+          <h1>{{ highestRateCategory }}</h1>
         </div>
-        <h1>{{ highestRateCategory }}</h1>
       </div>
-    </div>
-    <hr />
-    <div class="charts">
-      <div class="charts-card">
-        <h2 class="chart-title">Top category</h2>
-        <chart [type]="type2" [data]="data2" [options]="options"></chart>
+      <hr />
+      <div class="charts">
+        <div class="charts-card">
+          <h2 class="chart-title">Top category</h2>
+          <chart [type]="type2" [data]="data2" [options]="options"></chart>
+        </div>
+        <div class="charts-card">
+          <h2 class="chart-title">Total Price</h2>
+          <chart [type]="type1" [data]="data1" [options]="options"></chart>
+        </div>
       </div>
-      <div class="charts-card">
-        <h2 class="chart-title">Total Price</h2>
-        <chart [type]="type1" [data]="data1" [options]="options"></chart>
-      </div>
-    </div>
-    <hr />
-    <!-- TABLE: For users's orders -->
-    <div class="card m-2 text-dark">
-      <div class="card-header border-transparent">
-        <h3 class="card-title">Latest Orders</h3>
+      <hr />
+      <!-- TABLE: For users's orders -->
+      <div class="card m-2 text-dark">
+        <div class="card-header border-transparent">
+          <h3 class="card-title">Latest Orders</h3>
 
-        <div class="card-tools">
-          <button
-            type="button"
-            class="btn btn-tool"
-            data-card-widget="collapse"
-          >
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body p-0 text-dark">
-        <div class="table-responsive">
-          <table class="table m-0">
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th>Total Price</th>
-                <th>Status</th>
-                <th>Details</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let order of orderDetails">
-                <td>
-                  {{ order.orderId }}
-                </td>
-                <td>{{ order.totalPrice }}</td>
-                <td>
-                  <span [ngClass]="getStatusClass(order.status)">{{
-                    order.status
-                  }}</span>
-                </td>
-                <td>
-                  <button
-                    type="button"
-                    class="btn btn-primary mr-2"
-                    (click)="openModal()"
-                  >
-                    Details
-                  </button>
-                </td>
-                <td *ngIf="order.status == 'pending'; else noAction">
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    (click)="updateOrderStatus(order.orderId, 'cancelled')"
-                  >
-                    Cancel
-                  </button>
-                </td>
-                <ng-template #noAction>
-                  <td *ngIf="order.status == 'confirmed'">
-                    <button
-                      routerLink="/payment/{{ order.orderId }}"
-                      type="button"
-                      class="btn btn-danger"
-                    >
-                      payment
-                    </button>
-                  </td>
-                  <ng-template *ngIf="order.status == 'rejected'">
-                    <label class="text-danger">Rejected</label></ng-template
-                  >
-                </ng-template>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="modal modal-overlay">
-          <div class="modal-content">
-            <h3>Order Details</h3>
-
-            <p>Meal Rate: {{ rate }}</p>
-            <p>Meal category: {{ category }}</p>
-            <p>Meal Ingredients: {{ ingredients }}</p>
-            <p>Summary about this meal: {{ summary }}</p>
-
-            <button class="btn btn-primary" id="btnn" (click)="closeModal()">
-              Close
+          <div class="card-tools">
+            <button
+              type="button"
+              class="btn btn-tool"
+              data-card-widget="collapse"
+            >
+              <i class="fas fa-minus"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-tool"
+              data-card-widget="remove"
+            >
+              <i class="fas fa-times"></i>
             </button>
           </div>
         </div>
-      </div>
-      <!-- /.table-responsive -->
+        <!-- /.card-header -->
+        <div class="card-body p-0 text-dark">
+          <div class="table-responsive">
+            <table class="table m-0">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Total Price</th>
+                  <th>Status</th>
+                  <th>Details</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of orderDetails">
+                  <td>
+                    {{ order.orderId }}
+                  </td>
+                  <td>{{ order.totalPrice }}</td>
+                  <td>
+                    <span [ngClass]="getStatusClass(order.status)">{{
+                      order.status
+                    }}</span>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-primary mr-2"
+                      (click)="openModal()"
+                    >
+                      Details
+                    </button>
+                  </td>
+                  <td *ngIf="order.status == 'pending'; else noAction">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="updateOrderStatus(order.orderId, 'cancelled')"
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                  <ng-template #noAction>
+                    <td *ngIf="order.status == 'confirmed'">
+                      <button
+                        routerLink="/payment/{{ order.orderId }}"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        payment
+                      </button>
+                    </td>
+                    <ng-template *ngIf="order.status == 'rejected'">
+                      <label class="text-danger">Rejected</label></ng-template
+                    >
+                  </ng-template>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal modal-overlay">
+            <div class="modal-content">
+              <h3>Order Details</h3>
 
-      <!-- /.card-body -->
-      <div class="card-footer"></div>
-      <!-- /.card-footer -->
-    </div>
+              <p>Meal Rate: {{ rate }}</p>
+              <p>Meal category: {{ category }}</p>
+              <p>Meal Ingredients: {{ ingredients }}</p>
+              <p>Summary about this meal: {{ summary }}</p>
+
+              <button class="btn btn-primary" id="btnn" (click)="closeModal()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- /.table-responsive -->
+
+        <!-- /.card-body -->
+        <div class="card-footer"></div>
+
+        <!-- /.card-footer -->
+      </div>
+    </ng-container>
+
+    <ng-template #falseBlock>
+      <h1
+        class="alert alert-danger"
+        style="background-color: #debd54; border-color: #debd54"
+      >
+        Loading...
+      </h1>
+    </ng-template>
     <!-- /.card -->
   </main>
   <!-- End Main -->
