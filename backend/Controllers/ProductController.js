@@ -6,9 +6,7 @@ const multer = require("multer");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 var SearchMeal = async (req, res) => {
-  //console.log(req.params.key);
   try {
-    // const searchQuery = req.query.key;
     let meals = await productsModel.find({
       $or: [
         { title: { $regex: new RegExp(req.params.key), $options: "i" } },
@@ -42,31 +40,6 @@ var GetAllProducts = async (req, res) => {
   }
 };
 
-// var GetProductByID = async (req, res) => {
-//   try {
-//     var ID = req.params.id;
-
-//     var product = await productsModel.aggregate([
-//       {
-//         $match: { _id: new ObjectId(ID) },
-//         // $match: { id: ID },
-//       },
-//       {
-//         $lookup: {
-//           from: "ingredients",
-//           localField: "ingredients",
-//           foreignField: "_id",
-//           as: "ingredients_details",
-//         },
-//       },
-//     ]);
-//     product.ingredientLength=product[0].ingredients.length
-//      res.json(product);
-//   } catch (e) {
-//     console.log(e);
-//     res.status(400).send("failed to get Product");
-//   }
-// };
 var GetProductByID = async (req, res) => {
   try {
     var ID = req.params.id;
@@ -207,7 +180,6 @@ const addNewProduct = async (req, res) => {
         image = req.file.path;
       }
       // Validate the incoming product data against the schema
-      // console.log(price);
 
       const isValid = productSchema({
         title,
@@ -218,9 +190,6 @@ const addNewProduct = async (req, res) => {
         category,
       });
 
-      // if (!isValid) {
-      //   return res.status(400).json({ error: "Invalid product data" });
-      // }
 
       // Create a new product object
       const newProduct = new productsModel({
@@ -232,7 +201,6 @@ const addNewProduct = async (req, res) => {
         category,
         image,
       });
-      // console.log(newProduct);
 
       // Save the new product object to the database
       await newProduct.save();
