@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AllMealsService } from '../../services/all-meals.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 
 // import { ShoppingCartService } from 'src/app/checkout/service/shopping-cart.service';
 
@@ -11,6 +12,8 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   styleUrls: ['./meal-details.component.css'],
 })
 export class MealDetailsComponent implements OnInit {
+  @ViewChild(HeaderComponent)
+  header: HeaderComponent | any;
   public cart: [{ id: string; quantity: number; ingredients: any; count:any ,price:number;customized:boolean}];
   trueAlert = false;
   falseAlert = false;
@@ -88,14 +91,11 @@ export class MealDetailsComponent implements OnInit {
 
       this.myService.setCart(JSON.stringify(this.cart));
       this.trueAlert = true;
+      this.header.cartLength=this.cart.length;
     } else {
       this.falseAlert = true;
     }
-    if(this.trueAlert){
-    setTimeout(() => {
-      location.reload();
-    }, 900); // Adjust the delay time as needed (in milliseconds)
-  }
+
   }
   //function to get ingredients count from meal to know if the meal customize
 

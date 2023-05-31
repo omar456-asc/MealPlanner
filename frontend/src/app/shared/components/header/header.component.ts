@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  cartLength$: Observable<number>;
+
   isLoggedIn: any;
 
   cartLength: any;
@@ -26,26 +26,30 @@ export class HeaderComponent implements OnInit {
   ) {
     console.log(this.authService.isUserLoggedIn());
     this.isLoggedIn = this.authService.isUserLoggedIn();
-    this.cartLength$ = this.shared.cartLength$;
+
     this.getRole = this.authService.getRole();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {this.cartLength=this.shared.cartLength}
   logout() {
     var cart: any = this.mymeals.getCart();
-    this.cartid = JSON.parse(cart);
-    if(!cart){
-      return console.log("No Cart");
+
+    if(cart){
+      this.cartid = JSON.parse(cart);
+    }
+    else{
+      this.cartid=[]
     }
     this.myService.AddToUserCart(this.cartid, this.ID).subscribe(
       (data: any) => {
         console.log('done');
-        localStorage.removeItem('cart');
-        this.authService.logout();
+
         this.isLoggedIn = null;
       },
       (err) => {
         console.log(err);
       }
     );
+    localStorage.removeItem('cart');
+    this.authService.logout();
   }
 }
