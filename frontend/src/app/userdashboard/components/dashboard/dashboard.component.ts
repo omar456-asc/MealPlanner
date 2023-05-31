@@ -53,11 +53,11 @@ export class DashboardComponent {
       next: (data: any) => {
         this.data = data;
         console.log(this.data);
+
         for (let i = 0; i < data.orders.length; i++) {
           for (let j = 0; j < data.orders[i].meals.length; j++) {
             let meal = data.orders[i].meals[j];
-
-            this.totalPrice += parseFloat(meal.price);
+         
             this.rate = parseFloat(meal.rate);
             this.category = meal.category;
             //
@@ -71,19 +71,17 @@ export class DashboardComponent {
           this.orders.push(`Order ${i + 1}`);
           this.totalPriceValues.push(this.totalPrice);
           this.totalCategory.push(this.category);
-          this.totalOrdersPrice += this.totalPrice;
-          this.allRates.push(this.rate);
           this.orderDetails.push({
             orderId: data.orders[i].order._id,
             status: data.orders[i].order.status,
-            totalPrice: this.totalPrice,
+            totalPrice: data.orders[i].order.totalPrice,
           });
-          // console.log(this.orderDetails);
-          // console.log(
-          //   ` ${this.orders[i]}: Total price = ${this.totalPrice}, Category = ${this.category}`
-          // );
+          this.totalPrice += parseFloat(this.orderDetails[i].totalPrice);
+          this.allRates.push(this.rate);
+
         }
 
+          this.totalOrdersPrice += this.totalPrice;
         //Bar Chart
         this.type2 = 'line';
         this.type1 = 'bar';
