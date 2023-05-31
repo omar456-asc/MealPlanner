@@ -1,59 +1,89 @@
-<div class="container">
-  <h1>Create Ingredient</h1>
-  <form
-    (ngSubmit)="createIngredient(ingredientForm.value)"
-    #ingredientForm="ngForm"
-  >
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        name="name"
-        ngModel
-        required
-      />
+<app-admin-header></app-admin-header>
+<app-admin-side-nav></app-admin-side-nav>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>New Ingredient</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Create Ingredient</a></li>
+            <li class="breadcrumb-item active">Ingredient</li>
+          </ol>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="consistency">Consistency</label>
-      <select
-        class="form-control"
-        id="consistency"
-        name="consistency"
-        ngModel
-        required
+    <!-- /.container-fluid -->
+  </section>
+  <div class="card card-primary mx-2">
+    <div class="card-header">
+      <h3 class="card-title">Create Ingredient</h3>
+    </div>
+    <div class="container m-2">
+      <form
+        (ngSubmit)="createIngredient(ingredientForm.value)"
+        #ingredientForm="ngForm"
+        enctype="multipart/form-data"
       >
-        <option value="liquid">Liquid</option>
-        <option value="solid">Solid</option>
-      </select>
-    </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            required
+            placeholder="Ingredient Name"
+            [(ngModel)]="newIngredient.name"
+          />
+        </div>
 
-    <div class="form-group">
-      <label for="image">Image</label>
-      <input
-        type="file"
-        class="form-control"
-        id="image"
-        name="image"
-        (change)="onFileChange($event)"
-        accept="image/*"
-      />
-    </div>
+        <div class="form-group">
+          <label for="consistency">Consistency</label>
+          <select
+            class="form-control"
+            id="consistency"
+            name="consistency"
+            required
+            placeholder="Ingredient Consistency"
+            [(ngModel)]="newIngredient.consistency"
+          >
+            <option value="liquid">Liquid</option>
+            <option value="solid">Solid</option>
+          </select>
+        </div>
 
-    <div class="form-group">
-      <label for="price">Price</label>
-      <input
-        type="number"
-        class="form-control"
-        id="price"
-        name="price"
-        ngModel
-        required
-      />
-    </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="image"
+            name="image"
+            (change)="onFileChange($event)"
+            accept="image/*"
+          />
+        </div>
 
-    <button type="submit" class="btn btn-primary">Create</button>
-  </form>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            ngModel
+            required
+            placeholder="Ingredient Price"
+            [(ngModel)]="newIngredient.price"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
 </div>

@@ -47,9 +47,9 @@
               <a href="/admin">Dashboard </a>
             </li>
             <li *ngIf="isLoggedIn">
-              <a (click)="logout()" href="/login">log out</a>
+              <a (click)="logout()" routerLink="/login">log out</a>
             </li>
-            <li *ngIf="!isLoggedIn"><a href="/login">Log-in</a></li>
+            <li *ngIf="!isLoggedIn"><a routerLink="/login">Log-in</a></li>
           </ul>
         </li>
       </ul>

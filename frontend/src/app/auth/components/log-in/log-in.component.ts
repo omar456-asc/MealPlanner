@@ -76,9 +76,7 @@ export class LogInComponent {
         this.cart = data.cart;
         if (this.cart[0].id) {
           this.usercart.setCart(JSON.stringify(this.cart));
-          var cartlength:any= this.usercart.getCart()
-          this.shared.cartLength =JSON.parse(cartlength).length
-          console.log(this.shared.cartLength)
+location.reload();
         }
       },
       error: (err) => {

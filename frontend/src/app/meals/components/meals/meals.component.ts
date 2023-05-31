@@ -5,9 +5,10 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 @Component({
   selector: 'app-meals',
   templateUrl: './meals.component.html',
-  styleUrls: ['./meals.component.css'] 
+  styleUrls: ['./meals.component.css']
 })
 export class MealsComponent implements OnInit {
+  category:string=''
   Meals:any;
   LocalStorageId:any = localStorage.getItem('id');
   filteredCategories:any;
@@ -55,6 +56,9 @@ export class MealsComponent implements OnInit {
     this.getProfile.getProfileInfo(this.LocalStorageId).subscribe({
       next:(value:any)=>{
         this.favorite = value.favorite;
+        if(this.category=='Fivourite'){
+          this.filteredCategories= this.Meals.filter((meal:any) => this.favorite.includes(meal._id));
+        }
         console.log(this.favorite);
       },
       error:(err)=>{
@@ -71,14 +75,16 @@ export class MealsComponent implements OnInit {
     this.getProfile.AddToFavorite(userId,mealId).subscribe({
       next:(value:any)=>{
         console.log(value);
-        // this.ngOnInit();
         this.getFavorite()
       },
       error:(err)=>{
         this.getFavorite()
         console.log(err);
       }
+
     })
+
+
   }
   isFavorite(mealId: number) {
     const fav=this.favorite.includes(mealId);
@@ -93,12 +99,19 @@ export class MealsComponent implements OnInit {
     if (HTMLElement) { // use optional chaining to check if event.target is not null
       targetElement.classList.add('active'); // add the 'active' class to the clicked link
     }
+    if(categoryy == 'Fivourite'){
+      this.category=categoryy;
+      this.filteredCategories= this.Meals.filter((meal:any) => this.favorite.includes(meal._id));
 
-    if(categoryy){
+    }
+
+   else if(categoryy){
+    this.category=''
      this.filteredCategories = this.Meals.filter((category: any) => category.category.toLowerCase().includes(categoryy.toLowerCase()))
 
     }
     else{
+      this.category=''
       this.filteredCategories = null
     }
   }

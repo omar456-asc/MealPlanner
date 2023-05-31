@@ -11,7 +11,9 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">List Of All Orders</a></li>
+            <li class="breadcrumb-item">
+              <a routerLink="'admin/orders'">List Of All Orders</a>
+            </li>
             <li class="breadcrumb-item active">Orders</li>
           </ol>
         </div>
@@ -103,12 +105,22 @@
 
                           <td>{{ order.date | date : "dd-MM-yyyy " }}</td>
                           <td>{{ order.date | date : "hh:mm a" }}</td>
-                          <td *ngIf="order.status != 'rejected' && order.status != 'cancelled'">
+                          <td
+                            *ngIf="
+                              order.status != 'rejected' &&
+                              order.status != 'cancelled'
+                            "
+                          >
                             <!-- Content to be displayed if the condition is true -->
                             <span>{{ order.totalPrice }}</span>
                           </td>
 
-                          <td *ngIf="order.status == 'rejected' || order.status == 'cancelled'">
+                          <td
+                            *ngIf="
+                              order.status == 'rejected' ||
+                              order.status == 'cancelled'
+                            "
+                          >
                             <!-- Content to be displayed if the condition is false -->
                             <span
                               ><s>{{ order.totalPrice }}</s>

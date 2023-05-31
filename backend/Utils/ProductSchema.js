@@ -6,12 +6,14 @@ let ProductsSchema = {
   properties: {
     title: { type: "string" },
     summary: { type: "string" },
-    ingredients: { type: "array", items: { type: "integer" } },
-    image: { type: "string" },
+    ingredients: { type: "array" },
+    // image: { type: "string" },
     category: { type: "string" },
+    price: { type: "number" },
   },
-  required: ["title", "summary", "ingredients", "category", "image"],
-  // additionalProperties: false,
+  required: ["title", "summary", "ingredients", "category", "price"],
+  additionalProperties: true,
 };
+
 
 module.exports = ajv.compile(ProductsSchema);

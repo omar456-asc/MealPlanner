@@ -13,6 +13,7 @@ import { AllOrdersComponent } from './admin-orders/components/all-orders/all-ord
 import { ShowOrderComponent } from './admin-orders/components/show-order/show-order.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { AddMealComponent } from './admin-meals/components/add-meal/add-meal.component';
 
 const routes: Routes = [
   { path: 'admin', component: DashboardComponent, canActivate: [AdminGuard, AuthGuard] },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'admin/ingredients/:id', component: UpdateIngredientComponent, canActivate: [AdminGuard, AuthGuard]  },
 
   { path: 'admin/meals', component: AllMealsComponent , canActivate: [AdminGuard, AuthGuard] },
+  { path: 'admin/meals/create', component: AddMealComponent, canActivate: [AdminGuard, AuthGuard] },
   { path: 'admin/meals/:id', component: ShowMealComponent , canActivate: [AdminGuard, AuthGuard] },
 
   { path: 'admin/orders', component: AllOrdersComponent , canActivate: [AdminGuard, AuthGuard] },
