@@ -1,1 +1,128 @@
-<p>add-meal works!</p>
+<app-admin-header></app-admin-header>
+<app-admin-side-nav></app-admin-side-nav>
+<div class="content-wrapper">
+  <section class="content-header">
+    <!-- Content Header (Page header) -->
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>New Meals</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Create A New Meal</a></li>
+            <li class="breadcrumb-item active">Meals</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <div class="card card-primary mx-2">
+    <div class="card-header">
+      <h3 class="card-title">Create Ingredient</h3>
+    </div>
+
+    <div class="" *ngIf="isMealAdded">
+      <p class="alert alert-success p-2">Meal Added successfully</p>
+    </div>
+    <section class="content">
+      <div class="container">
+        <form (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              [(ngModel)]="meal.title"
+              name="title"
+              required
+              #title="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="customFile">Ingredient Image</label>
+
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="image"
+                (change)="onImageChange($event)"
+                accept="image/*"
+                required
+              />
+              <label class="custom-file-label" for="customFile"
+                >Choose file</label
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="summary">Summary</label>
+            <textarea
+              class="form-control"
+              id="summary"
+              [(ngModel)]="meal.summary"
+              name="summary"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <select
+              class="form-control"
+              id="ingredients"
+              [(ngModel)]="meal.ingredients"
+              name="ingredients"
+              multiple
+              required
+              (change)="onIngredientChange()"
+            >
+              <option
+                *ngFor="let ingredient of ingredients"
+                [value]="ingredient._id"
+              >
+                {{ ingredient.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select
+              type="text"
+              class="form-control"
+              id="category"
+              [(ngModel)]="meal.category"
+              name="category"
+              required
+            >
+              <option *ngFor="let cat of categories" [value]="cat">
+                {{ cat }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="text"
+              class="form-control"
+              id="price"
+              [value]="computePrice()"
+              readonly
+              name="price"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create New Meal</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>

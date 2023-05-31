@@ -1,13 +1,4 @@
 <!-- Preloader -->
-<!-- <div class="preloader flex-column justify-content-center align-items-center">
-  <img
-    class="animation__wobble"
-    src="assets/img/AdminLTELogo.png"
-    alt="AdminLTELogo"
-    height="60"
-    width="60"
-  />
-</div> -->
 
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-dark">
@@ -19,14 +10,18 @@
       ></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a routerLink="/" class="nav-link btn-sm  mx-2">View Website</a>
+      <a routerLink="/" class="nav-link btn-sm mx-2">View Website</a>
     </li>
-
   </ul>
 
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-        <a (click)="logout()" routerLink="/login" class="nav-link btn btn-sm btn-danger mx-2">Log out</a>
+    <a
+      (click)="logout()"
+      routerLink="/login"
+      class="nav-link btn btn-sm btn-danger mx-2"
+      >Log out</a
+    >
   </ul>
 </nav>
 <!-- /.navbar -->

@@ -1,27 +1,26 @@
 let productsModel = require("../Models/ProductsModel");
 const productSchema = require("../Utils/ProductSchema");
 const { ObjectId } = require("mongodb");
+const cloudinary = require("cloudinary").v2;
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 var SearchMeal = async (req, res) => {
   //console.log(req.params.key);
-  try{
- // const searchQuery = req.query.key;
-  let meals  = await productsModel.find(
-    {
-      '$or':[
-       { title:{$regex: new RegExp(req.params.key),$options:'i'}},
-       { category:{$regex: new RegExp(req.params.key),$options:'i'}}
-     
-      ]
-    }
-  )
- res.send(meals);
-  }catch (err) {
+  try {
+    // const searchQuery = req.query.key;
+    let meals = await productsModel.find({
+      $or: [
+        { title: { $regex: new RegExp(req.params.key), $options: "i" } },
+        { category: { $regex: new RegExp(req.params.key), $options: "i" } },
+      ],
+    });
+    res.send(meals);
+  } catch (err) {
     console.error(err);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
-
-}
+};
 
 var GetAllProducts = async (req, res) => {
   try {
@@ -87,71 +86,68 @@ var GetProductByID = async (req, res) => {
       },
       {
         $unwind: {
-          path: '$ingredients_details',
-          preserveNullAndEmptyArrays: true
-        }
+          path: "$ingredients_details",
+          preserveNullAndEmptyArrays: true,
+        },
       },
       {
         $lookup: {
-          from: 'ratings',
-          let: { productID: '$_id' },
+          from: "ratings",
+          let: { productID: "$_id" },
           pipeline: [
             {
               $match: {
                 $expr: {
                   $and: [
-                    { $eq: ['$productID', '$$productID'] },
-                    { $ne: ['$value', null] }
-                  ]
-                }
-              }
+                    { $eq: ["$productID", "$$productID"] },
+                    { $ne: ["$value", null] },
+                  ],
+                },
+              },
             },
             {
               $group: {
                 _id: null,
-                rating: { $avg: '$value' }
-              }
+                rating: { $avg: "$value" },
+              },
             },
             {
               $project: {
                 _id: 0,
-                rating: { $round: ['$rating', 1] }
-              }
-            }
+                rating: { $round: ["$rating", 1] },
+              },
+            },
           ],
-          as:'rating'
-        }
+          as: "rating",
+        },
       },
 
       {
         $group: {
-          _id: '$_id',
-          title: { $first: '$title' },
-          image: { $first: '$image' },
-          summary: { $first: '$summary' },
-          ingredients: { $addToSet: '$ingredients_details._id' },
-          category: { $first: '$category' },
+          _id: "$_id",
+          title: { $first: "$title" },
+          image: { $first: "$image" },
+          summary: { $first: "$summary" },
+          ingredients: { $addToSet: "$ingredients_details._id" },
+          category: { $first: "$category" },
           price: { $sum: "$ingredients_details.price" },
-          rate: { $first: '$rating.rating' },
+          rate: { $first: "$rating.rating" },
           ingredients_details: {
             $push: {
-              _id: '$ingredients_details._id',
-              name: '$ingredients_details.name',
-              consistency: '$ingredients_details.consistency',
-              image: '$ingredients_details.image',
-              amount: '$ingredients_details.amount',
-              price: '$ingredients_details.price'
-            }
-          }
-        }
-        
+              _id: "$ingredients_details._id",
+              name: "$ingredients_details.name",
+              consistency: "$ingredients_details.consistency",
+              image: "$ingredients_details.image",
+              amount: "$ingredients_details.amount",
+              price: "$ingredients_details.price",
+            },
+          },
+        },
       },
-      
-       
     ]);
-    console.log(product)
-    product.ingredientLength=product[0].ingredients.length
-     res.json(product);
+    console.log(product);
+    product.ingredientLength = product[0].ingredients.length;
+    res.json(product);
   } catch (e) {
     console.log(e);
     res.status(400).send("failed to get Product");
@@ -179,36 +175,70 @@ var getLatest6products = async (req, res) => {
   }
 };
 
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "ingredient-uploads", // Specify the folder in Cloudinary where the ingredient images will be stored
+    allowedFormats: ["jpg", "jpeg", "png"], // Specify the allowed image formats
+    transformation: [{ width: 500, height: 500, crop: "limit" }], // Optional: Specify any image transformations you want to apply
+  },
+});
+const upload = multer({ storage: storage }).single("image");
+
 const addNewProduct = async (req, res) => {
+  console.log(req.body)
   try {
-    const { title, summary, image, ingredients, category } = req.body;
-    // Validate the incoming product data against the schema
-    const isValid = productSchema({
-      title,
-      summary,
-      image,
-      ingredients,
-      category,
+    upload(req, res, async (err) => {
+      if (err instanceof multer.MulterError) {
+        return res.status(400).json({ error: "Error uploading image" });
+      } else if (err) {
+        return res.status(500).json({ error: "Internal server error" });
+      }
+      const { title, price, summary, ingredients, category } = req.body;
+
+      let image = "";
+      if (req.file) {
+        image = req.file.path;
+      }
+      // Validate the incoming product data against the schema
+      // console.log(price);
+
+      const isValid = productSchema({
+        title,
+        price,
+        summary,
+        image,
+        ingredients,
+        category,
+      });
+
+      // if (!isValid) {
+      //   return res.status(400).json({ error: "Invalid product data" });
+      // }
+
+      // Create a new product object
+      const newProduct = new productsModel({
+        title,
+        price,
+        summary,
+        image,
+        ingredients,
+        category,
+        image,
+      });
+      // console.log(newProduct);
+
+      // Save the new product object to the database
+      await newProduct.save();
+
+      return res.status(201).json({ message: "Product created successfully" });
     });
-
-    if (!isValid) {
-      return res.status(400).json({ error: "Invalid product data" });
-    }
-
-    // Create a new product object
-    const newProduct = new productsModel({
-      title,
-      summary,
-      image,
-      ingredients,
-      category,
-    });
-    console.log(newProduct);
-
-    // Save the new product object to the database
-    await newProduct.save();
-
-    return res.status(201).json({ message: "Product created successfully" });
   } catch (error) {
     return res.status(500).json({ error: "Internal server error !!!!" });
   }
@@ -241,5 +271,5 @@ module.exports = {
   addNewProduct,
   DeleteProductByID,
   editProduct,
-  SearchMeal
+  SearchMeal,
 };

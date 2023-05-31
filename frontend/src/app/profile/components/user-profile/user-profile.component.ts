@@ -80,7 +80,7 @@ export class UserProfileComponent implements OnInit {
       'age': this.dbUser.age,
 
     }
-  
+
     this.profileService.UpdateUserProfileData(body).subscribe(
       (data: any) => {
         console.log('User profile data updated successfully!', data);
