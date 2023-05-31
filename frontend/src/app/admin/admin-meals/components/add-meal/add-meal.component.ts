@@ -94,7 +94,6 @@ export class AddMealComponent {
 
         alert(response.message);
         setTimeout(() => {
-          // alert('Meal added successfully! Response: ' + JSON.stringify(response));
           this.isMealAdded = false; // Reset the flag after 2 seconds
         }, 5000);
       },
