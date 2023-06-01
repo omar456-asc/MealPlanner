@@ -89,12 +89,12 @@ The following technologies were used in the development of User Meal Planner:
 ## DEMO
 🎬
 We Hope That You are enjoying Watching Our Demo Video 
-[Click Here](https://youtu.be)
+[Click Here](https://www.youtube.com/watch?v=KPWnUEjpACs)
 ## Contributers
 
 - [Sara Hussam](https://github.com/Sarahussam77)
 - [Omar Walid](https://github.com/omar456-asc)
 - [Sondos Said](https://github.com/Sondos11)
-- [Mariam Sad](https://github.com/MariamSMoustafa)
+- [Mariam Saad](https://github.com/MariamSMoustafa)
 - [Nehad Osman](https://github.com/nehadosman)
 - [Mahmoud Mohamed](https://github.com/Mahmoud1499) 
