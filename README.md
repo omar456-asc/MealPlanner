@@ -1,7 +1,7 @@
 # Meal Planner
 
 <p align="center" style="margin-top:6%;margin-bottom:6%;">
-  <img style = "width:140px; height:140px;" src="" alt="Our Gif" />
+  <img  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjExM2M0NjU2NDIxODVjZmJlYWM3ODZmNDYzZTA0YmRkZDkyZjRkMyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/6jnKmSpBoJLaw/giphy.gif" />
 </p>
 
 ## INTRODUCTION
