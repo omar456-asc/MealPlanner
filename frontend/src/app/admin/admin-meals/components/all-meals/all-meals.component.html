@@ -3,7 +3,7 @@
 
 <div class="content-wrapper">
   <section class="content-header">
-  <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) -->
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
@@ -11,7 +11,9 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">List Of All Meals</a></li>
+            <li class="breadcrumb-item">
+              <a routerLink="'admin/meals'">List Of All Meals</a>
+            </li>
             <li class="breadcrumb-item active">Meals</li>
           </ol>
         </div>
@@ -25,6 +27,9 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
+              <a class="btn btn-info float-right" routerLink="create"
+                >Create New Meal</a
+              >
               <h3 class="card-title">All Meals data</h3>
             </div>
             <!-- /.card-header -->
@@ -62,10 +67,10 @@
                             colspan="1"
                             aria-label="Browser: activate to sort column ascending"
                           >
-                           Category
+                            Category
                           </th>
 
-                              <th
+                          <th
                             class="sorting"
                             tabindex="0"
                             aria-controls="example1"
@@ -75,7 +80,7 @@
                           >
                             Rate
                           </th>
-                            <th
+                          <th
                             class="sorting"
                             tabindex="0"
                             aria-controls="example1"
@@ -97,7 +102,6 @@
                           </td>
                           <td>{{ m.category }}</td>
 
-
                           <td>{{ m.rate }}</td>
                           <td>{{ m.price }}</td>
 
@@ -105,10 +109,10 @@
                             <a class="px-2" routerLink="{{ m._id }}">
                               <button class="btn btn-success">Details</button>
                             </a>
-                            <a class="px-2" routerLink="{{ m._id }}">
+                            <a class="px-2" href="{{ m._id }}">
                               <button class="btn btn-primary">Edit</button>
                             </a>
-                               <a class="px-2" routerLink="{{ m._id }}">
+                            <a class="px-2" href="{{ m._id }}">
                               <button class="btn btn-danger">Delete</button>
                             </a>
                           </td>
@@ -121,7 +125,6 @@
                           <th rowspan="1" colspan="1">Category</th>
                           <th rowspan="1" colspan="1">Price</th>
                           <th rowspan="1" colspan="1"></th>
-
                         </tr>
                       </tfoot>
                     </table>

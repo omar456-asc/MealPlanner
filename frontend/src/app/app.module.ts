@@ -15,6 +15,7 @@ import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { ProfileModule } from './profile/profile.module';
+import { AboutusModule } from './aboutus/aboutus.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { MealDetailsComponent } from './meals/components/meal-details/meal-detai
 import { PaymentFormComponent } from './payment/components/payment-form/payment-form.component';
 
 import { UserdashboardModule } from './userdashboard/userdashboard.module';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [
@@ -52,8 +54,9 @@ import { UserdashboardModule } from './userdashboard/userdashboard.module';
     CheckoutModule,
     ProfileModule,
     PaymentModule,
-
+    OrderModule,
     UserdashboardModule,
+    AboutusModule,
   ],
   providers: [
     AuthService,

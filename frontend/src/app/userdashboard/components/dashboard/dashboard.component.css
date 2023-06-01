@@ -76,7 +76,7 @@ body {
     justify-content: space-around;
     padding: 25px;
     border-radius: 5px;
-    box-shadow:  0 6px 7px -4px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 7px -4px rgba(255, 255, 255, 0.2);
     transition: 0.2s;
 }
 
@@ -133,6 +133,39 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*  */
+
+.modal-overlay {
+    position: fixed;
+    top: 100px;
+    left: 300px;
+    width: 50%;
+    height: 50%;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#btnn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 /* ---------- MEDIA QUERIES ---------- */

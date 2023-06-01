@@ -6,6 +6,7 @@ import { ConfigService } from 'src/app/config.service';
   providedIn: 'root',
 })
 export class AllMealsService {
+
   private readonly Base_URL: string;
 
   constructor(
@@ -14,6 +15,19 @@ export class AllMealsService {
   ) {
     this.Base_URL = this.configService.getBaseUrl('products');
   }
+
+  //#region SearchMeal
+  SearchMeal(key:any){
+    return this.myClient.get(this.Base_URL + '/search' + '/' + key )
+  }
+  //#endregion
+  //#region rateMeal
+
+  RateMeal(id: any,rate: any){
+    return this.myClient.post(this.Base_URL + '/' + id,rate)
+  }
+  //#endregion
+
   //#region GetAllMeals
   GetAllMeals() {
     //method[Get-Delete-Put-Patch]
@@ -29,6 +43,7 @@ export class AllMealsService {
     return this.myClient.get(this.Base_URL + '/' + id);
   }
   //#endregion
+
   //#region MealLocalStorage
   setCart(cart: any) {
     localStorage.setItem('cart', cart);

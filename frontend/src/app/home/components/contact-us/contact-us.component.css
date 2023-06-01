@@ -131,3 +131,11 @@
         transform: rotate(360deg);
     }
 }
+@media (max-width: 1024px) {
+  .section-title p{
+    margin-left: 25px;
+  }
+  .map iframe{
+    width: 100%;
+  }
+}

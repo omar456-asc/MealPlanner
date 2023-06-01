@@ -52,3 +52,9 @@
 #footer .credits {
   font-size: 13px;
 }
+@media (max-width: 1024px) {
+  #footer{
+    margin-bottom: 154px;
+  }
+
+}

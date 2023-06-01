@@ -54,6 +54,7 @@ export class SignUpComponent {
 validationForm = new FormGroup({
   fname:new FormControl(null,[Validators.minLength(3),Validators.required]),
   lname:new FormControl(null,[Validators.minLength(3),Validators.required]),
+  username: new FormControl(null, [Validators.required,Validators.pattern('[a-zA-Z0-9]{4,16}')]),
   email: new FormControl(null,[Validators.email,Validators.required]),
   password: new FormControl(null,[Validators.minLength(6),Validators.required])
 })

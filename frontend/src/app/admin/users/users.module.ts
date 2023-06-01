@@ -5,6 +5,7 @@ import { ShowUserComponent } from './components/show-user/show-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { AdminSharedModule } from '../admin-shared/admin-shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     UpdateUserComponent,
     AllUsersComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,AdminSharedModule],
   exports: [
     AddUserComponent,
     ShowUserComponent,

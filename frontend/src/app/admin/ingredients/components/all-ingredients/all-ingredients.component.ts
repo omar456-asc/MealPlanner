@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IngredientsServiceService } from '../../services/ingredients-service.service';
 
 @Component({
   selector: 'app-all-ingredients',
@@ -16,93 +17,26 @@ export class AllIngredientsComponent implements OnInit {
   totalPages: number = 10;
   pages: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  constructor() {
+
+  constructor(public ingredientService: IngredientsServiceService) {
     this.itemsPerPage = 10;
   }
-  ngOnInit() {
-    // Initialize ingredients with data from API or local storage
-    this.ingredients = [
+
+  ngOnInit(): void {
+    this.ingredientService.GetAllIngredients().subscribe(
       {
-        id: 1,
-        name: 'Salt',
-        consistency: 'Fine Powder',
-        img: 'https://via.placeholder.com/50x50.png?text=Salt',
-      },
-      {
-        id: 2,
-        name: 'Sugar',
-        consistency: 'Granulated',
-        img: 'https://via.placeholder.com/50x50.png?text=Sugar',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-      {
-        id: 3,
-        name: 'Water',
-        consistency: 'Ground',
-        img: 'https://via.placeholder.com/50x50.png?text=Water',
-      },
-    ];
+        next: (data: any) => {
+          this.ingredients = data;
+          console.log(this.ingredients);
+
+        },
+        error: (err) => { console.log(err) }
+      }
+    )
     this.filterIngredients();
+
   }
+
   filterIngredients() {
     // Filter the ingredients array based on the search term
     this.filteredIngredients = this.ingredients.filter((ingredient) =>
@@ -170,74 +104,14 @@ export class AllIngredientsComponent implements OnInit {
       });
     } else {
       // Reset the ingredients to the full list if the search term is empty
-      this.ingredients = [
+      this.ingredientService.GetAllIngredients().subscribe(
         {
-          id: 1,
-          name: 'Salt',
-          consistency: 'Fine Powder',
-          img: 'https://via.placeholder.com/50x50.png?text=Salt',
-        },
-        {
-          id: 2,
-          name: 'Sugar',
-          consistency: 'Granulated',
-          img: 'https://www.example.com/sugar.png',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 4,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 5,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-        {
-          id: 3,
-          name: 'Pepper',
-          consistency: 'Ground',
-          img: 'https://via.placeholder.com/50x50.png?text=Water',
-        },
-      ];
+          next: (data: any) => {
+            this.ingredients = data;
+          },
+          error: (err) => { console.log(err) }
+        }
+      )
     }
 
     // Recalculate the pages after filtering

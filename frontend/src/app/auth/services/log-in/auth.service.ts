@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthService {
   private token: any;
   private id: any;
@@ -17,10 +16,12 @@ export class AuthService {
   }
 
   getToken() {
+    this.token = localStorage.getItem('Token') || null;
     return this.token;
   }
 
   isLoggedIn() {
+    this.token = localStorage.getItem('Token') || null;
     return !!this.token;
   }
 
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
   getUserID() {
-    return this.id;
+    return localStorage.getItem('id');
   }
 
   logout() {
@@ -39,6 +40,10 @@ export class AuthService {
   }
 
   isUserLoggedIn() {
+    return localStorage.getItem('Token');
+  }
+
+  getUserToken() {
     return localStorage.getItem('Token');
   }
 
@@ -54,24 +59,7 @@ export class AuthService {
     return decoded;
   }
 
-  // getRole(): boolean | undefined {
-  //   const token = localStorage.getItem('Token');
-
-  //   console.log('user token', token);
-  //   if (!token) {
-  //     return undefined;
-  //   }
-  //   const decoded = jwt_decode(token) as {
-  //     id: string;
-  //     is_admin: boolean;
-  //   };
-  //   const isAdmin = decoded.is_admin;
-  //   return isAdmin;
-  // }
-
-
-  
-  getRole(){
+  getRole() {
     const token = localStorage.getItem('Token');
     console.log('user token', token);
     if (token) {

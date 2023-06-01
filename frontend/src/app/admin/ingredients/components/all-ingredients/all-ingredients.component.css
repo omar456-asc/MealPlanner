@@ -8,7 +8,20 @@
 .content {
   padding-top: 2rem;
 }
+.custom-link {
+  text-decoration: none;
+  /* Remove underline */
+  color: #000;
+  /* Set the desired text color */
+  font-weight: bold;
+  /* Set the desired font weight */
+}
 
+.custom-link:hover {
+  color: #ff0000;
+  /* Set the desired text color on hover */
+  /* Add any additional hover styles */
+}
 .table th,
 .table td {
   vertical-align: middle;
@@ -26,7 +39,9 @@
 .card-header .btn-primary {
   float: right;
 }
-
+i {
+  cursor: pointer;
+}
 @media (max-width: 767.98px) {
   .card-header .btn-primary {
     margin-top: 1rem;
