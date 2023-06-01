@@ -87,8 +87,10 @@ export class MealsComponent implements OnInit {
 
   }
   isFavorite(mealId: number) {
+    if(this.favorite){
     const fav=this.favorite.includes(mealId);
     return fav
+    }
   }
 
 
