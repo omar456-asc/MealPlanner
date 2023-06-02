@@ -89,7 +89,7 @@ The following technologies were used in the development of User Meal Planner:
 ## DEMO
 🎬
 We Hope That You are enjoying Watching Our Demo Video 
-[Click Here](https://www.youtube.com/watch?v=KPWnUEjpACs)
+[![Website Demo Video](frontend/src/assets/img/readme.png)](https://www.youtube.com/watch?v=KPWnUEjpACs)
 ## Contributers
 
 - [Sara Hussam](https://github.com/Sarahussam77)
