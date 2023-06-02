@@ -154,7 +154,11 @@ export class DashboardComponent {
   }
   updateOrderStatus(id: any, status: any) {
     this.AdminOrdersServiceService.updateOrderStatus(id, status).subscribe(
-      () => this.ngOnInit(),
+      () => {this.ngOnInit()
+        if(status === 'cancelled'){
+          location.reload();
+        }
+      },
       (err) => {
         console.log(err);
       }

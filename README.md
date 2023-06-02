@@ -1,7 +1,7 @@
 # Meal Planner
 
 <p align="center" style="margin-top:6%;margin-bottom:6%;">
-  <img style = "width:140px; height:140px;" src="" alt="Our Gif" />
+  <img  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjExM2M0NjU2NDIxODVjZmJlYWM3ODZmNDYzZTA0YmRkZDkyZjRkMyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/6jnKmSpBoJLaw/giphy.gif" />
 </p>
 
 ## INTRODUCTION
@@ -89,12 +89,14 @@ The following technologies were used in the development of User Meal Planner:
 ## DEMO
 🎬
 We Hope That You are enjoying Watching Our Demo Video 
-[Click Here](https://youtu.be)
+<a href="https://www.youtube.com/watch?v=KPWnUEjpACs">
+  <img src="frontend/src/assets/img/readme.png" alt="Website Demo Video" width="600"/>
+</a>
 ## Contributers
 
 - [Sara Hussam](https://github.com/Sarahussam77)
 - [Omar Walid](https://github.com/omar456-asc)
 - [Sondos Said](https://github.com/Sondos11)
-- [Mariam Sad](https://github.com/MariamSMoustafa)
+- [Mariam Saad](https://github.com/MariamSMoustafa)
 - [Nehad Osman](https://github.com/nehadosman)
 - [Mahmoud Mohamed](https://github.com/Mahmoud1499) 
